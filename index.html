@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grow31 – 31 Days. One Challenge.</title>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & BASE ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  background:#050510;color:#fff;
+  font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+button{cursor:pointer;font-family:inherit;border:none;outline:none}
+button:active{transform:scale(0.97)}
+input, select, textarea{font-family:inherit;outline:none}
+a{text-decoration:none;color:inherit}
+
+/* ── VARIABLES ── */
+:root{
+  --bg:#050510;
+  --card:rgba(255,255,255,0.04);
+  --card2:rgba(255,255,255,0.07);
+  --card-solid:#0e0e1f;
+  --border:rgba(255,255,255,0.10);
+  --border2:rgba(255,255,255,0.18);
+  --text:#fff;
+  --muted:rgba(255,255,255,0.5);
+  --muted2:rgba(255,255,255,0.25);
+  --yellow:#f5c518;
+  --orange:#ff7043;
+  --green:#00e676;
+  --blue:#448aff;
+  --red:#ff5252;
+  --purple:#ce93d8;
+  --glow-purple:rgba(138,43,226,0.35);
+  --glow-blue:rgba(68,138,255,0.3);
+  --glow-orange:rgba(255,112,67,0.3);
+}
+
+/* ── ANIMATED BACKGROUND ── */
+.bg-scene{
+  position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;
+}
+.orb{
+  position:absolute;border-radius:50%;filter:blur(80px);animation:floatOrb 12s ease-in-out infinite;
+}
+.orb-1{
+  width:500px;height:500px;
+  background:radial-gradient(circle,rgba(138,43,226,0.4) 0%,transparent 70%);
+  top:-150px;left:-150px;animation-delay:0s;animation-duration:15s;
+}
+.orb-2{
+  width:400px;height:400px;
+  background:radial-gradient(circle,rgba(68,138,255,0.35) 0%,transparent 70%);
+  bottom:-100px;right:-100px;animation-delay:-5s;animation-duration:13s;
+}
+.orb-3{
+  width:350px;height:350px;
+  background:radial-gradient(circle,rgba(255,112,67,0.25) 0%,transparent 70%);
+  top:40%;left:40%;animation-delay:-8s;animation-duration:17s;
+}
+.orb-4{
+  width:250px;height:250px;
+  background:radial-gradient(circle,rgba(0,230,118,0.2) 0%,transparent 70%);
+  top:20%;right:10%;animation-delay:-3s;animation-duration:11s;
+}
+@keyframes floatOrb{
+  0%,100%{transform:translate(0,0) scale(1)}
+  25%{transform:translate(30px,-40px) scale(1.05)}
+  50%{transform:translate(-20px,30px) scale(0.97)}
+  75%{transform:translate(40px,20px) scale(1.03)}
+}
+.noise-overlay{
+  position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ── GLASS CARD MIXIN ── */
+.glass{
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(20px) saturate(1.4);
+  -webkit-backdrop-filter:blur(20px) saturate(1.4);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:16px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+.glass-strong{
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(32px) saturate(1.6);
+  -webkit-backdrop-filter:blur(32px) saturate(1.6);
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:20px;
+  box-shadow:0 16px 48px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.12);
+}
+
+/* ── VIEWS ── */
+.view{display:none;min-height:100vh;animation:fadeIn .3s ease;position:relative;z-index:2}
+.view.active{display:flex;flex-direction:column}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── TOAST ── */
+.toast-container{
+  position:fixed;top:16px;left:50%;transform:translateX(-50%);
+  z-index:9999;display:flex;flex-direction:column;gap:8px;
+  pointer-events:none;width:calc(100% - 32px);max-width:380px;
+}
+.toast{
+  background:rgba(14,14,31,0.85);
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,0.15);
+  color:#fff;padding:13px 18px;border-radius:12px;
+  font-size:.875rem;font-weight:500;
+  animation:toastIn .3s ease;
+  pointer-events:all;text-align:center;
+  box-shadow:0 12px 40px rgba(0,0,0,0.6);
+}
+.toast.success{border-color:rgba(0,230,118,0.4);background:rgba(0,20,10,0.85);color:#00e676}
+.toast.error{border-color:rgba(255,82,82,0.4);background:rgba(20,0,0,0.85);color:#ff8a80}
+@keyframes toastIn{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes toastOut{to{opacity:0;transform:translateY(-14px)}}
+
+/* ── BUTTONS ── */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:10px 20px;border-radius:10px;font-weight:600;font-size:.9rem;
+  transition:all .2s ease;white-space:nowrap;letter-spacing:0.01em;
+}
+.btn-white{
+  background:linear-gradient(135deg,#fff 0%,#e8e8f0 100%);
+  color:#050510;
+  box-shadow:0 4px 20px rgba(255,255,255,0.15), 0 0 0 1px rgba(255,255,255,0.2);
+}
+.btn-white:hover{
+  background:linear-gradient(135deg,#f0f0ff 0%,#d8d8ee 100%);
+  box-shadow:0 6px 28px rgba(255,255,255,0.25), 0 0 0 1px rgba(255,255,255,0.3);
+  transform:translateY(-1px);
+}
+.btn-outline{
+  background:rgba(255,255,255,0.06);
+  color:#fff;
+  border:1px solid rgba(255,255,255,0.15);
+  backdrop-filter:blur(8px);
+}
+.btn-outline:hover{background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.25)}
+.btn-danger{
+  background:linear-gradient(135deg,#ff5252,#c62828);
+  color:#fff;
+  box-shadow:0 4px 20px rgba(255,82,82,0.3);
+}
+.btn-danger:hover{opacity:.9;transform:translateY(-1px)}
+.btn-green{
+  background:linear-gradient(135deg,#00e676,#00897b);
+  color:#000;font-weight:700;
+  box-shadow:0 4px 20px rgba(0,230,118,0.3);
+}
+.btn-green:hover{opacity:.9;transform:translateY(-1px)}
+.btn-full{width:100%}
+.btn-sm{padding:7px 14px;font-size:.8rem;border-radius:8px}
+.btn-lg{padding:15px 28px;font-size:1rem;border-radius:12px}
+.btn-icon{width:38px;height:38px;padding:0;border-radius:10px;flex-shrink:0}
+
+/* ── SPINNER ── */
+.spinner{
+  width:18px;height:18px;border:2px solid rgba(0,0,0,0.3);
+  border-top-color:#000;border-radius:50%;animation:spin .7s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── CARD ── */
+.card{
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(20px) saturate(1.4);
+  -webkit-backdrop-filter:blur(20px) saturate(1.4);
+  border:1px solid rgba(255,255,255,0.10);
+  border-radius:16px;overflow:hidden;
+  box-shadow:0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.07);
+  transition:box-shadow .2s, transform .2s;
+}
+.card:hover{
+  box-shadow:0 12px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+}
+.card-content{padding:16px}
+.card-header{padding:16px 16px 8px}
+.card-title{font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em}
+
+/* ── BADGE ── */
+.badge{
+  display:inline-flex;align-items:center;padding:4px 10px;
+  border-radius:9999px;font-size:.7rem;font-weight:700;letter-spacing:0.04em;
+}
+.badge-white{background:rgba(255,255,255,0.12);color:#fff;border:1px solid rgba(255,255,255,0.15)}
+.badge-green{background:rgba(0,230,118,.12);color:#00e676;border:1px solid rgba(0,230,118,0.25)}
+.badge-yellow{background:rgba(245,197,24,.12);color:#f5c518;border:1px solid rgba(245,197,24,0.25)}
+.badge-red{background:rgba(255,82,82,.12);color:#ff8a80;border:1px solid rgba(255,82,82,0.2)}
+.badge-blue{background:rgba(68,138,255,.12);color:#82b1ff;border:1px solid rgba(68,138,255,0.2)}
+.badge-gray{background:rgba(255,255,255,.08);color:var(--muted);border:1px solid rgba(255,255,255,0.1)}
+
+/* ── PROGRESS BAR ── */
+.progress-track{
+  background:rgba(255,255,255,0.07);
+  border-radius:9999px;overflow:hidden;
+  border:1px solid rgba(255,255,255,0.08);
+}
+.progress-fill{
+  height:100%;
+  background:linear-gradient(90deg,#448aff,#ce93d8);
+  border-radius:9999px;transition:width .6s cubic-bezier(.4,0,.2,1);
+  box-shadow:0 0 12px rgba(68,138,255,0.5);
+}
+
+/* ── INPUT ── */
+.input, .select{
+  width:100%;padding:13px 16px;
+  background:rgba(255,255,255,0.06);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:12px;color:#fff;
+  font-size:.95rem;transition:border-color .2s,box-shadow .2s,background .2s;
+}
+.input::placeholder{color:rgba(255,255,255,0.3)}
+.input:focus{
+  border-color:rgba(68,138,255,0.6);
+  background:rgba(255,255,255,0.09);
+  box-shadow:0 0 0 3px rgba(68,138,255,0.15);
+}
+select.input option{background:#0e0e1f;color:#fff}
+
+/* ── TABS ── */
+.tab-nav{
+  display:flex;
+  background:rgba(255,255,255,0.04);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  position:sticky;z-index:40;
+}
+.tab-btn{
+  flex:1;padding:14px 4px;font-size:.85rem;font-weight:600;
+  color:rgba(255,255,255,0.4);background:transparent;border:none;
+  border-bottom:2px solid transparent;margin-bottom:-1px;
+  transition:color .2s,border-color .2s;letter-spacing:0.02em;
+}
+.tab-btn.active{
+  color:#fff;
+  border-bottom-color:#448aff;
+  text-shadow:0 0 20px rgba(68,138,255,0.6);
+}
+.tab-panel{display:none;padding:20px 16px;animation:fadeIn .25s ease}
+.tab-panel.active{display:block}
+
+/* ── HEADER ── */
+.app-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(5,5,16,0.7);
+  backdrop-filter:blur(24px) saturate(1.5);
+  -webkit-backdrop-filter:blur(24px) saturate(1.5);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:13px 18px;
+}
+.logo-text{
+  font-family:'Syne',sans-serif;
+  font-size:1.15rem;font-weight:800;
+  display:flex;align-items:center;gap:6px;
+  background:linear-gradient(135deg,#fff 20%,rgba(68,138,255,0.9) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  letter-spacing:-0.01em;
+}
+
+/* ── COINS PILL ── */
+.coins-pill{
+  display:flex;align-items:center;gap:6px;
+  background:rgba(245,197,24,0.12);
+  border:1px solid rgba(245,197,24,0.25);
+  padding:7px 14px;border-radius:9999px;
+  font-size:.85rem;font-weight:700;
+  color:#f5c518;
+  box-shadow:0 0 16px rgba(245,197,24,0.15);
+}
+
+/* ── GRID ── */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.grid-7{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+
+/* ── STAT CARD ── */
+.stat-card{padding:18px;position:relative;overflow:hidden}
+.stat-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,0.04) 0%,transparent 100%);
+  pointer-events:none;
+}
+.stat-icon{display:flex;align-items:center;gap:6px;font-size:.78rem;font-weight:600;color:var(--muted);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.05em}
+.stat-val{font-family:'Syne',sans-serif;font-size:1.7rem;font-weight:800}
+
+/* ── LIST ITEM ── */
+.list-item{
+  display:flex;align-items:center;gap:12px;
+  padding:14px 18px;border-bottom:1px solid rgba(255,255,255,0.06);
+  transition:background .2s;
+}
+.list-item:hover{background:rgba(255,255,255,0.03)}
+
+/* ── AVATAR CIRCLE ── */
+.avatar{
+  width:38px;height:38px;border-radius:9999px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Syne',sans-serif;font-weight:800;font-size:.9rem;
+}
+.av-gold{
+  background:linear-gradient(135deg,#f5c518,#e65100);
+  color:#000;box-shadow:0 0 16px rgba(245,197,24,0.5);
+}
+.av-silver{
+  background:linear-gradient(135deg,#bdbdbd,#757575);
+  color:#000;box-shadow:0 0 12px rgba(189,189,189,0.3);
+}
+.av-bronze{
+  background:linear-gradient(135deg,#cd7f32,#5d4037);
+  color:#fff;box-shadow:0 0 12px rgba(205,127,50,0.3);
+}
+.av-default{background:rgba(255,255,255,0.1);color:var(--muted);border:1px solid rgba(255,255,255,0.12)}
+.av-white{background:#fff;color:#000}
+
+/* ── DIALOG ── */
+.dialog-overlay{
+  display:none;position:fixed;inset:0;
+  background:rgba(0,0,0,0.7);backdrop-filter:blur(12px);
+  z-index:2000;align-items:center;justify-content:center;padding:16px;
+}
+.dialog-overlay.open{display:flex}
+.dialog{
+  background:rgba(14,14,31,0.92);
+  backdrop-filter:blur(32px) saturate(1.6);
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:20px;
+  padding:28px;width:100%;max-width:400px;
+  animation:dialogIn .3s cubic-bezier(.34,1.56,.64,1);position:relative;
+  box-shadow:0 24px 64px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.1);
+}
+@keyframes dialogIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+.dialog-close{
+  position:absolute;top:16px;right:16px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.12);
+  color:var(--muted);font-size:1rem;
+  width:32px;height:32px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s;
+}
+.dialog-close:hover{background:rgba(255,255,255,0.15);color:#fff}
+
+/* ── TASK ITEM ── */
+.task-item{
+  display:flex;align-items:center;gap:14px;
+  padding:16px;border-radius:14px;margin-bottom:10px;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(12px);
+  cursor:pointer;
+  border:1px solid rgba(255,255,255,0.08);
+  transition:all .2s ease;
+  position:relative;overflow:hidden;
+}
+.task-item::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:linear-gradient(180deg,#448aff,#ce93d8);
+  border-radius:0 3px 3px 0;
+}
+.task-item:hover:not(.done){
+  background:rgba(255,255,255,0.08);
+  border-color:rgba(68,138,255,0.3);
+  transform:translateX(4px);
+  box-shadow:0 8px 24px rgba(0,0,0,0.3);
+}
+.task-item.done{
+  opacity:.45;cursor:default;
+}
+.task-item.done::before{
+  background:linear-gradient(180deg,#00e676,#00897b);
+}
+
+/* ── DAY GRID ── */
+.day-cell{
+  aspect-ratio:1;border-radius:10px;display:flex;align-items:center;
+  justify-content:center;font-size:.8rem;font-weight:700;
+  transition:transform .2s;
+  font-family:'Syne',sans-serif;
+}
+.day-cell:hover{transform:scale(1.1)}
+.day-past{
+  background:rgba(0,230,118,0.15);color:#00e676;
+  border:1px solid rgba(0,230,118,0.2);
+  box-shadow:0 0 8px rgba(0,230,118,0.1);
+}
+.day-current{
+  background:linear-gradient(135deg,#448aff,#ce93d8);
+  color:#fff;
+  box-shadow:0 0 20px rgba(68,138,255,0.5);
+  transform:scale(1.1);
+}
+.day-future{
+  background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.2);
+  border:1px solid rgba(255,255,255,0.06);
+}
+
+/* ── AUTH PAGE HERO ── */
+.auth-hero{
+  text-align:center;margin-bottom:32px;
+}
+.auth-logo-circle{
+  width:80px;height:80px;
+  background:linear-gradient(135deg,rgba(68,138,255,0.3),rgba(206,147,216,0.3));
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,0.2);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 18px;font-size:2.2rem;
+  box-shadow:0 0 40px rgba(68,138,255,0.3), inset 0 1px 0 rgba(255,255,255,0.2);
+  animation:pulseGlow 3s ease-in-out infinite;
+}
+@keyframes pulseGlow{
+  0%,100%{box-shadow:0 0 40px rgba(68,138,255,0.3), inset 0 1px 0 rgba(255,255,255,0.2)}
+  50%{box-shadow:0 0 70px rgba(68,138,255,0.5), 0 0 100px rgba(206,147,216,0.2), inset 0 1px 0 rgba(255,255,255,0.2)}
+}
+.auth-title{
+  font-family:'Syne',sans-serif;
+  font-size:2.6rem;font-weight:800;
+  background:linear-gradient(135deg,#fff 30%,rgba(68,138,255,0.85) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1.1;margin-bottom:8px;
+}
+.auth-sub{
+  color:rgba(255,255,255,0.45);font-size:.95rem;font-weight:400;
+}
+
+/* ── PAYMENT PRICE ── */
+.price-display{
+  font-family:'Syne',sans-serif;
+  font-size:3.5rem;font-weight:800;
+  background:linear-gradient(135deg,#fff,#f5c518);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.price-feature{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 0;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  font-size:.9rem;color:rgba(255,255,255,0.7);
+}
+.price-feature:last-child{border-bottom:none}
+.price-feature-icon{
+  width:28px;height:28px;border-radius:8px;
+  background:rgba(0,230,118,0.15);border:1px solid rgba(0,230,118,0.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.85rem;flex-shrink:0;
+}
+
+/* ── REFERRAL CARD ── */
+.ref-code-display{
+  background:rgba(68,138,255,0.08);
+  border:1px solid rgba(68,138,255,0.25);
+  border-radius:14px;padding:20px;text-align:center;
+  margin:16px 0;
+}
+.ref-code-text{
+  font-family:'Syne',sans-serif;
+  font-size:1.6rem;font-weight:800;
+  letter-spacing:4px;color:#82b1ff;
+  text-shadow:0 0 20px rgba(68,138,255,0.5);
+}
+
+/* ── INVITE CARD ── */
+.invite-card{
+  background:linear-gradient(135deg,rgba(68,138,255,0.12),rgba(206,147,216,0.08));
+  border:1px solid rgba(68,138,255,0.2);
+  border-radius:16px;padding:16px 18px;
+  cursor:pointer;
+  transition:all .2s ease;
+  display:flex;justify-content:space-between;align-items:center;
+  backdrop-filter:blur(12px);
+}
+.invite-card:hover{
+  background:linear-gradient(135deg,rgba(68,138,255,0.2),rgba(206,147,216,0.12));
+  border-color:rgba(68,138,255,0.35);
+  transform:translateY(-2px);
+  box-shadow:0 8px 32px rgba(68,138,255,0.2);
+}
+
+/* ── SECTION HEADING ── */
+.section-heading{
+  font-family:'Syne',sans-serif;
+  font-size:1.3rem;font-weight:800;margin-bottom:16px;
+  display:flex;align-items:center;gap:8px;
+}
+
+/* ── ADMIN STYLES ── */
+.admin-user-card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:14px;padding:16px;margin-bottom:10px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+
+/* ── UTILS ── */
+.mt-4{margin-top:16px}.mb-4{margin-bottom:16px}
+.text-sm{font-size:.875rem}.text-xs{font-size:.75rem}
+.text-muted{color:var(--muted)}
+.text-yellow{color:var(--yellow)}.text-green{color:var(--green)}
+.flex{display:flex}.items-center{align-items:center}.justify-between{justify-content:space-between}
+.w-full{width:100%}.text-center{text-align:center}
+.gap-3{gap:12px}
+.font-bold{font-weight:700}
+</style>
+</head>
+<body>
+
+<!-- Animated background -->
+<div class="bg-scene">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="orb orb-4"></div>
+</div>
+<div class="noise-overlay"></div>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- AUTH VIEW -->
+<div class="view active" id="authView">
+  <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 20px">
+    <div class="auth-hero">
+      <div class="auth-logo-circle">✨</div>
+      <h1 class="auth-title">Grow31</h1>
+      <p class="auth-sub">31 Days. One Challenge. Real Rewards.</p>
+    </div>
+
+    <div class="glass-strong" style="width:100%;max-width:400px">
+      <div id="stepPhone" style="padding:28px">
+        <h2 style="font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:700;text-align:center;margin-bottom:6px">Get Started</h2>
+        <p class="text-muted text-sm text-center mb-4" style="margin-bottom:20px">Enter your phone number to continue</p>
+        <input class="input mb-4" type="tel" id="phoneInput" placeholder="10-digit phone number" maxlength="10">
+        <button class="btn btn-white btn-full btn-lg" onclick="sendOTP()">Continue →</button>
+      </div>
+
+      <div id="stepOTP" style="padding:28px;display:none">
+        <h2 style="font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:700;text-align:center;margin-bottom:6px">Verify OTP</h2>
+        <p class="text-muted text-sm text-center" style="margin-bottom:20px">We sent a code to your phone</p>
+        <input class="input mb-4 text-center" style="letter-spacing:10px;font-size:1.6rem;font-family:'Syne',sans-serif;font-weight:700" type="tel" id="otpInput" placeholder="000000" maxlength="6">
+        <button class="btn btn-white btn-full btn-lg" onclick="verifyOTP()">Verify & Continue</button>
+      </div>
+
+      <div id="stepReferral" style="padding:28px;display:none">
+        <h2 style="font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:700;text-align:center;margin-bottom:6px">Welcome! 🎉</h2>
+        <p class="text-muted text-sm text-center" style="margin-bottom:20px">Have a referral code? Earn bonus coins!</p>
+        <input class="input mb-4" type="text" id="refCodeInput" placeholder="Referral code (optional)">
+        <button class="btn btn-white btn-full btn-lg" onclick="completeSignup()">Finish Setup</button>
+      </div>
+    </div>
+
+    <!-- Feature badges below auth card -->
+    <div style="display:flex;gap:10px;margin-top:24px;flex-wrap:wrap;justify-content:center">
+      <span class="badge badge-blue">🎯 Daily Tasks</span>
+      <span class="badge badge-yellow">🪙 Coin Rewards</span>
+      <span class="badge badge-green">🏆 Leaderboard</span>
+    </div>
+  </div>
+</div>
+
+<!-- PAYMENT VIEW -->
+<div class="view" id="paymentView">
+  <div class="app-header"><div class="logo-text">✨ Grow31</div></div>
+  <div style="padding:28px 20px;max-width:420px;margin:0 auto;width:100%">
+    <h2 class="section-heading" style="margin-bottom:24px;font-size:1.5rem">Join the Challenge</h2>
+    <div class="card mb-4">
+      <div style="padding:32px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.07)">
+        <div class="price-display">₹30</div>
+        <p class="text-muted" style="margin-top:4px">One-time Entry Fee</p>
+      </div>
+      <div class="card-content" style="padding:20px 24px">
+        <div class="price-feature">
+          <div class="price-feature-icon">📅</div>
+          <span>31-Day Challenge Full Access</span>
+        </div>
+        <div class="price-feature">
+          <div class="price-feature-icon">🪙</div>
+          <span>Daily Coin Rewards</span>
+        </div>
+        <div class="price-feature">
+          <div class="price-feature-icon">🎁</div>
+          <span>Real Rewards &amp; Gifts</span>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-white btn-full btn-lg" onclick="processPayment()">Pay ₹30 &amp; Start Challenge →</button>
+    <p class="text-muted text-xs text-center mt-4" style="margin-top:14px;opacity:0.5">Secure payment powered by Razorpay</p>
+  </div>
+</div>
+
+<!-- DASHBOARD VIEW -->
+<div class="view" id="dashView">
+  <div class="app-header">
+    <div class="logo-text">✨ Grow31</div>
+    <div class="flex items-center gap-3">
+      <div class="coins-pill">🪙 <span id="headerCoins">0</span></div>
+      <button class="btn btn-icon btn-outline" onclick="doLogout()" title="Logout">↪️</button>
+    </div>
+  </div>
+
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="switchTab('overview',this)">Overview</button>
+    <button class="tab-btn" onclick="switchTab('tasks',this)">Tasks</button>
+    <button class="tab-btn" onclick="switchTab('rewards',this)">Rewards</button>
+    <button class="tab-btn" onclick="switchTab('rank',this)">Rank</button>
+  </div>
+
+  <div style="flex:1;overflow-y:auto;padding:20px 16px">
+    <!-- Tab: Overview -->
+    <div class="tab-panel active" id="tab-overview">
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.7rem;font-weight:800;margin-bottom:4px">Hi, <span id="userName" style="background:linear-gradient(135deg,#fff,#448aff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">User</span>! 👋</h2>
+      <p class="text-muted mb-4" style="margin-bottom:20px;font-size:.9rem">You're on Day <span id="userDay" style="color:#fff;font-weight:600">1</span> of 31 — keep going!</p>
+      
+      <div class="grid-2 mb-4" style="margin-bottom:16px">
+        <div class="card stat-card">
+          <div class="stat-icon">🔥 Streak</div>
+          <div class="stat-val" id="statStreak" style="color:#ff7043">0</div>
+        </div>
+        <div class="card stat-card">
+          <div class="stat-icon">🏆 Rank</div>
+          <div class="stat-val" id="statRank" style="color:#f5c518">#-</div>
+        </div>
+      </div>
+
+      <div class="invite-card mb-4" onclick="openReferralDialog()" style="margin-bottom:16px">
+        <div>
+          <p style="font-weight:700;font-size:.95rem;margin-bottom:3px">Invite Friends</p>
+          <p style="font-size:.8rem;color:rgba(255,255,255,0.45)">Earn 25 coins per friend 🎁</p>
+        </div>
+        <button class="btn btn-outline btn-sm" style="pointer-events:none">Invite →</button>
+      </div>
+    </div>
+
+    <!-- Tab: Tasks -->
+    <div class="tab-panel" id="tab-tasks">
+      <div id="tasksList"></div>
+      <div class="grid-7 mt-4" style="margin-top:20px" id="dayGrid"></div>
+    </div>
+
+    <!-- Tab: Rewards -->
+    <div class="tab-panel" id="tab-rewards">
+      <div id="rewardsList"></div>
+    </div>
+
+    <!-- Tab: Rank -->
+    <div class="tab-panel" id="tab-rank">
+      <div class="card" id="leaderboardList"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN VIEW -->
+<div class="view" id="adminView">
+  <div class="app-header">
+    <div class="logo-text">🛡️ Admin Panel</div>
+    <button class="btn btn-outline btn-sm" onclick="exitAdmin()">← Exit</button>
+  </div>
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="switchAdminTab('users',this)">Users</button>
+    <button class="tab-btn" onclick="switchAdminTab('add-reward',this)">Add Reward</button>
+    <button class="tab-btn" onclick="switchAdminTab('system',this)">System</button>
+  </div>
+
+  <div style="flex:1;overflow-y:auto;padding:20px 16px">
+    <div class="tab-panel active" id="atab-users">
+      <div id="adminUserList"></div>
+    </div>
+
+    <div class="tab-panel" id="atab-add-reward">
+      <div class="card">
+        <div class="card-content" style="padding:24px">
+          <h3 class="section-heading" style="margin-bottom:20px;font-size:1.1rem">Create New Reward</h3>
+          <div class="space-y-3">
+            <input class="input mb-4" id="admRewName" placeholder="Reward Name (e.g. Amazon Voucher)">
+            <select class="input mb-4" id="admRewTier">
+                <option value="basic">Basic Tier</option>
+                <option value="advanced">Advanced Tier</option>
+                <option value="premium">Premium Tier</option>
+            </select>
+            <input class="input mb-4" id="admRewValue" placeholder="Display Value (e.g. ₹500)">
+            <textarea class="input mb-4" id="admRewDesc" placeholder="Description..."></textarea>
+            <button class="btn btn-white btn-full" onclick="addRewardAdmin()">Create Reward</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="atab-system">
+        <div class="card" style="padding:24px;text-align:center">
+          <p class="text-muted text-sm" style="margin-bottom:20px;font-size:.9rem">⚠️ Danger Zone — this action cannot be undone</p>
+          <button class="btn btn-danger btn-full mb-4" onclick="resetAllData()">RESET ALL SYSTEM DATA</button>
+          <p class="text-muted text-xs text-center" style="opacity:.5">Caution: Deletes everything in LocalStorage.</p>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- DIALOGS -->
+<div class="dialog-overlay" id="refDialog">
+  <div class="dialog">
+    <button class="dialog-close" onclick="closeDialog('refDialog')">✕</button>
+    <h3 style="font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800;margin-bottom:4px">Your Referral Code</h3>
+    <p class="text-muted text-sm" style="margin-bottom:4px;font-size:.85rem">Share with friends to earn coins</p>
+    <div class="ref-code-display">
+        <h2 class="ref-code-text" id="myRefCodeDisplay">GROW000</h2>
+    </div>
+    <button class="btn btn-white btn-full" onclick="copyRef()">📋 Copy &amp; Share</button>
+  </div>
+</div>
+
+<script>
+// --- DATABASE LOGIC ---
+const DB = {
+    get(k, d) { const v = localStorage.getItem('g31_'+k); return v ? JSON.parse(v) : d; },
+    set(k, v) { localStorage.setItem('g31_'+k, JSON.stringify(v)); }
+};
+
+let state = {
+    currentUser: null,
+    allUsers: DB.get('users', {}),
+    globalRewards: DB.get('globalRewards', [
+        { id: 'r1', name: 'Starter Pack', tier: 'basic', value: '₹50', description: 'Digital assets', unlocked: true },
+        { id: 'r2', name: 'Coffee Gift', tier: 'advanced', value: '₹100', description: 'Cafe voucher', unlocked: false }
+    ])
+};
+
+// --- AUTH ---
+let tempPhone = "";
+
+function sendOTP() {
+    tempPhone = document.getElementById('phoneInput').value;
+    if(tempPhone.length < 10) return showToast("Enter 10 digits", "error");
+    document.getElementById('stepPhone').style.display = 'none';
+    document.getElementById('stepOTP').style.display = 'block';
+    showToast("OTP sent: 123456");
+}
+
+function verifyOTP() {
+    const otp = document.getElementById('otpInput').value;
+    if(otp !== "123456") return showToast("Invalid OTP", "error");
+    
+    // Check if user exists
+    if(state.allUsers[tempPhone]) {
+        state.currentUser = state.allUsers[tempPhone];
+        loginSuccess();
+    } else {
+        document.getElementById('stepOTP').style.display = 'none';
+        document.getElementById('stepReferral').style.display = 'block';
+    }
+}
+
+function completeSignup() {
+    const uid = 'u' + Date.now();
+    const refCode = 'GROW' + Math.floor(1000 + Math.random() * 9000);
+    
+    const newUser = {
+        id: uid,
+        phone: tempPhone,
+        username: "Grower_" + uid.slice(-4),
+        hasPaid: false,
+        coins: 100,
+        streak: 0,
+        day: 1,
+        refCode: refCode,
+        referrals: 0,
+        tasks: initTasks(),
+        claimedRewards: []
+    };
+
+    const invitedByCode = document.getElementById('refCodeInput').value.trim();
+    if(invitedByCode) {
+        Object.values(state.allUsers).forEach(u => {
+            if(u.refCode === invitedByCode) {
+                u.referrals += 1;
+                u.coins += 25;
+                newUser.coins += 25;
+            }
+        });
+    }
+
+    state.allUsers[tempPhone] = newUser;
+    state.currentUser = newUser;
+    saveData();
+    loginSuccess();
+}
+
+function loginSuccess() {
+    if(!state.currentUser.hasPaid) {
+        showView('paymentView');
+    } else {
+        showView('dashView');
+        renderDash();
+    }
+}
+
+// --- PAYMENT ---
+function processPayment() {
+    state.currentUser.hasPaid = true;
+    saveData();
+    showToast("Payment Successful!", "success");
+    showView('dashView');
+    renderDash();
+}
+
+// --- DASHBOARD ---
+function renderDash() {
+    const u = state.currentUser;
+    document.getElementById('userName').innerText = u.username;
+    document.getElementById('userDay').innerText = u.day;
+    document.getElementById('headerCoins').innerText = u.coins;
+    document.getElementById('statStreak').innerText = u.streak;
+    
+    // Leaderboard
+    const sorted = Object.values(state.allUsers).sort((a,b) => b.coins - a.coins);
+    const myRank = sorted.findIndex(user => user.id === u.id) + 1;
+    document.getElementById('statRank').innerText = '#' + myRank;
+
+    renderTasks();
+    renderRewards();
+    renderLeaderboard(sorted);
+}
+
+function renderTasks() {
+    const container = document.getElementById('tasksList');
+    container.innerHTML = `<h3 class="section-heading">Day ${state.currentUser.day} Tasks</h3>`;
+    state.currentUser.tasks.filter(t => t.day === state.currentUser.day).forEach(t => {
+        container.innerHTML += `
+            <div class="task-item ${t.done ? 'done' : ''}" onclick="completeTask(${t.id})">
+                <div class="flex justify-between w-full" style="align-items:center">
+                    <span style="font-weight:500">${t.done ? '✅ ' : ''}${t.title}</span>
+                    <span class="text-yellow" style="font-weight:700;font-size:.85rem">+${t.reward} 🪙</span>
+                </div>
+            </div>
+        `;
+    });
+
+    const grid = document.getElementById('dayGrid');
+    grid.innerHTML = "";
+    for(let i=1; i<=31; i++) {
+        let cls = i < state.currentUser.day ? 'day-past' : (i === state.currentUser.day ? 'day-current' : 'day-future');
+        grid.innerHTML += `<div class="day-cell ${cls}">${i}</div>`;
+    }
+}
+
+function completeTask(tid) {
+    const task = state.currentUser.tasks.find(t => t.id === tid);
+    if(task.done) return;
+    task.done = true;
+    state.currentUser.coins += task.reward;
+    saveData();
+    showToast("Task Done! +" + task.reward + " coins");
+    renderDash();
+}
+
+function renderRewards() {
+    const container = document.getElementById('rewardsList');
+    container.innerHTML = `<h3 class="section-heading">Rewards for You 🎁</h3>`;
+    const tier = state.currentUser.referrals >= 5 ? 'premium' : (state.currentUser.referrals >= 2 ? 'advanced' : 'basic');
+    
+    state.globalRewards.forEach(r => {
+        const isUnlocked = (r.tier === 'basic') || (r.tier === 'advanced' && tier !== 'basic') || (tier === 'premium');
+        const tierColor = r.tier === 'premium' ? 'badge-yellow' : r.tier === 'advanced' ? 'badge-blue' : 'badge-gray';
+        container.innerHTML += `
+            <div class="card mb-4" style="opacity: ${isUnlocked ? 1 : 0.45};margin-bottom:12px">
+                <div class="card-content">
+                    <div class="flex justify-between items-center">
+                        <div style="flex:1;padding-right:12px">
+                            <div class="badge ${tierColor} mb-2" style="margin-bottom:8px">${r.tier.toUpperCase()}</div>
+                            <p style="font-weight:700;font-size:.95rem;margin-bottom:4px">${r.name}</p>
+                            <p class="text-xs text-muted">${r.description}</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-green font-bold" style="font-family:'Syne',sans-serif;font-size:1.1rem">${r.value}</p>
+                            ${isUnlocked ? `<button class="btn btn-white btn-sm mt-2" style="margin-top:8px">Claim</button>` : `<span class="text-xs text-muted" style="margin-top:8px;display:block">🔒 Locked</span>`}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+}
+
+function renderLeaderboard(sorted) {
+    const container = document.getElementById('leaderboardList');
+    container.innerHTML = `<div class="card-header"><div class="card-title">🏆 Top Players</div></div>`;
+    sorted.slice(0, 10).forEach((u, i) => {
+        const avClass = i === 0 ? 'av-gold' : i === 1 ? 'av-silver' : i === 2 ? 'av-bronze' : 'av-default';
+        const medal = i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : '';
+        container.innerHTML += `
+            <div class="list-item">
+                <div class="avatar ${avClass}">${i+1}</div>
+                <div style="flex:1"><b>${u.username}</b> ${medal}</div>
+                <div class="text-yellow" style="font-weight:700">${u.coins} 🪙</div>
+            </div>
+        `;
+    });
+}
+
+// --- ADMIN FUNCTIONS ---
+function switchAdminTab(t, btn) {
+    document.querySelectorAll('#adminView .tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('#adminView .tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('atab-' + t).classList.add('active');
+    if(t === 'users') renderAdminUsers();
+}
+
+function renderAdminUsers() {
+    const container = document.getElementById('adminUserList');
+    container.innerHTML = "";
+    Object.values(state.allUsers).forEach(u => {
+        container.innerHTML += `
+            <div class="admin-user-card">
+                <div>
+                  <b style="font-family:'Syne',sans-serif">${u.username}</b>
+                  <br><small class="text-muted">${u.phone}</small>
+                </div>
+                <div class="text-right">
+                  <span class="badge badge-yellow">${u.coins} 🪙</span>
+                  <br><small class="text-muted" style="margin-top:4px;display:block">Refs: ${u.referrals}</small>
+                </div>
+            </div>
+        `;
+    });
+}
+
+function addRewardAdmin() {
+    const name = document.getElementById('admRewName').value;
+    const tier = document.getElementById('admRewTier').value;
+    const val = document.getElementById('admRewValue').value;
+    const desc = document.getElementById('admRewDesc').value;
+
+    if(!name || !val) return showToast("Fill all fields", "error");
+
+    const newRew = { id: 'r'+Date.now(), name, tier, value: val, description: desc };
+    state.globalRewards.push(newRew);
+    DB.set('globalRewards', state.globalRewards);
+    showToast("Reward Added Successfully!", "success");
+    
+    // Clear inputs
+    document.getElementById('admRewName').value = "";
+    document.getElementById('admRewDesc').value = "";
+}
+
+function resetAllData() {
+    if(confirm("Delete everything?")) {
+        localStorage.clear();
+        location.reload();
+    }
+}
+
+// --- UTILS ---
+function showView(id) {
+    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+
+function switchTab(t, btn) {
+    document.querySelectorAll('#dashView .tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('#dashView .tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + t).classList.add('active');
+    renderDash();
+}
+
+function showToast(m, type="success") {
+    const c = document.getElementById('toastContainer');
+    const e = document.createElement('div');
+    e.className = `toast ${type}`;
+    e.innerText = m;
+    c.appendChild(e);
+    setTimeout(() => e.remove(), 3000);
+}
+
+function openReferralDialog() {
+    document.getElementById('myRefCodeDisplay').innerText = state.currentUser.refCode;
+    document.getElementById('refDialog').classList.add('open');
+}
+
+function closeDialog(id) { document.getElementById(id).classList.remove('open'); }
+
+function copyRef() {
+    navigator.clipboard.writeText(state.currentUser.refCode);
+    showToast("Code Copied!");
+}
+
+function initTasks() {
+    let t = [];
+    for(let d=1; d<=31; d++) {
+        t.push({ id: d*10+1, day: d, title: "Morning Walk", reward: 10, done: false });
+        t.push({ id: d*10+2, day: d, title: "Read 5 Pages", reward: 15, done: false });
+    }
+    return t;
+}
+
+function saveData() {
+    DB.set('users', state.allUsers);
+}
+
+function doLogout() {
+    state.currentUser = null;
+    showView('authView');
+}
+
+// --- ADMIN SHORTCUT ---
+document.addEventListener('keydown', e => {
+    if(e.ctrlKey && e.shiftKey && e.key === 'A') showView('adminView');
+});
+function exitAdmin() { loginSuccess(); }
+
+// Start
+if(state.currentUser) loginSuccess();
+
+</script>
+</body>
+</html>
