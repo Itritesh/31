@@ -2,570 +2,368 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Grow31 – 31 Days. One Challenge.</title>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* ── RESET & BASE ── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px}
-body{
-  background:#050510;color:#fff;
-  font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
-  -webkit-font-smoothing:antialiased;
-  min-height:100vh;
-  overflow-x:hidden;
-}
+body{background:#050510;color:#fff;font-family:'Poppins',-apple-system,BlinkMacSystemFont,sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden}
 button{cursor:pointer;font-family:inherit;border:none;outline:none}
 button:active{transform:scale(0.97)}
-input, select, textarea{font-family:inherit;outline:none}
+input,select,textarea{font-family:inherit;outline:none}
 a{text-decoration:none;color:inherit}
-
-/* ── VARIABLES ── */
 :root{
-  --bg:#050510;
-  --card:rgba(255,255,255,0.04);
-  --card2:rgba(255,255,255,0.07);
-  --card-solid:#0e0e1f;
-  --border:rgba(255,255,255,0.10);
-  --border2:rgba(255,255,255,0.18);
-  --text:#fff;
-  --muted:rgba(255,255,255,0.5);
-  --muted2:rgba(255,255,255,0.25);
-  --yellow:#f5c518;
-  --orange:#ff7043;
-  --green:#00e676;
-  --blue:#448aff;
-  --red:#ff5252;
-  --purple:#ce93d8;
-  --glow-purple:rgba(138,43,226,0.35);
-  --glow-blue:rgba(68,138,255,0.3);
-  --glow-orange:rgba(255,112,67,0.3);
+  --bg:#050510;--card:rgba(255,255,255,0.04);--card2:rgba(255,255,255,0.07);--card-solid:#0e0e1f;
+  --border:rgba(255,255,255,0.10);--border2:rgba(255,255,255,0.18);--text:#fff;
+  --muted:rgba(255,255,255,0.5);--muted2:rgba(255,255,255,0.25);
+  --yellow:#f5c518;--orange:#ff7043;--green:#00e676;--blue:#448aff;--red:#ff5252;--purple:#ce93d8;
+  --glow-purple:rgba(138,43,226,0.35);--glow-blue:rgba(68,138,255,0.3);--glow-orange:rgba(255,112,67,0.3);
 }
 
 /* ── ANIMATED BACKGROUND ── */
-.bg-scene{
-  position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;
-}
-.orb{
-  position:absolute;border-radius:50%;filter:blur(80px);animation:floatOrb 12s ease-in-out infinite;
-}
-.orb-1{
-  width:500px;height:500px;
-  background:radial-gradient(circle,rgba(138,43,226,0.4) 0%,transparent 70%);
-  top:-150px;left:-150px;animation-delay:0s;animation-duration:15s;
-}
-.orb-2{
-  width:400px;height:400px;
-  background:radial-gradient(circle,rgba(68,138,255,0.35) 0%,transparent 70%);
-  bottom:-100px;right:-100px;animation-delay:-5s;animation-duration:13s;
-}
-.orb-3{
-  width:350px;height:350px;
-  background:radial-gradient(circle,rgba(255,112,67,0.25) 0%,transparent 70%);
-  top:40%;left:40%;animation-delay:-8s;animation-duration:17s;
-}
-.orb-4{
-  width:250px;height:250px;
-  background:radial-gradient(circle,rgba(0,230,118,0.2) 0%,transparent 70%);
-  top:20%;right:10%;animation-delay:-3s;animation-duration:11s;
-}
-@keyframes floatOrb{
-  0%,100%{transform:translate(0,0) scale(1)}
-  25%{transform:translate(30px,-40px) scale(1.05)}
-  50%{transform:translate(-20px,30px) scale(0.97)}
-  75%{transform:translate(40px,20px) scale(1.03)}
-}
-.noise-overlay{
-  position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0.03;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
+.bg-scene{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);animation:floatOrb 12s ease-in-out infinite}
+.orb-1{width:500px;height:500px;background:radial-gradient(circle,rgba(138,43,226,0.4) 0%,transparent 70%);top:-150px;left:-150px;animation-delay:0s;animation-duration:15s}
+.orb-2{width:400px;height:400px;background:radial-gradient(circle,rgba(68,138,255,0.35) 0%,transparent 70%);bottom:-100px;right:-100px;animation-delay:-5s;animation-duration:13s}
+.orb-3{width:350px;height:350px;background:radial-gradient(circle,rgba(255,112,67,0.25) 0%,transparent 70%);top:40%;left:40%;animation-delay:-8s;animation-duration:17s}
+.orb-4{width:250px;height:250px;background:radial-gradient(circle,rgba(0,230,118,0.2) 0%,transparent 70%);top:20%;right:10%;animation-delay:-3s;animation-duration:11s}
+@keyframes floatOrb{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(30px,-40px) scale(1.05)}50%{transform:translate(-20px,30px) scale(0.97)}75%{transform:translate(40px,20px) scale(1.03)}}
+.noise-overlay{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 
-/* ── GLASS CARD MIXIN ── */
-.glass{
-  background:rgba(255,255,255,0.05);
-  backdrop-filter:blur(20px) saturate(1.4);
-  -webkit-backdrop-filter:blur(20px) saturate(1.4);
-  border:1px solid rgba(255,255,255,0.1);
-  border-radius:16px;
-  box-shadow:0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.08);
-}
-.glass-strong{
-  background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(32px) saturate(1.6);
-  -webkit-backdrop-filter:blur(32px) saturate(1.6);
-  border:1px solid rgba(255,255,255,0.15);
-  border-radius:20px;
-  box-shadow:0 16px 48px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.12);
-}
+/* ── SPLASH ── */
+#splashView{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#050510;transition:opacity .6s ease,transform .6s ease}
+#splashView.hidden{opacity:0;transform:scale(1.06);pointer-events:none}
+.splash-icon{font-size:4.5rem;margin-bottom:16px;animation:splashBounce 1.2s cubic-bezier(.34,1.56,.64,1)}
+@keyframes splashBounce{from{opacity:0;transform:scale(0.4) translateY(30px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.splash-title{font-family:'Poppins',sans-serif;font-size:3.5rem;font-weight:800;background:linear-gradient(135deg,#fff 20%,#448aff 60%,#ce93d8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:fadeIn .8s ease .3s both}
+.splash-sub{color:rgba(255,255,255,0.4);font-size:.95rem;margin-top:8px;animation:fadeIn .8s ease .6s both}
+.splash-loader{width:60px;height:3px;background:rgba(255,255,255,0.1);border-radius:9999px;margin-top:52px;overflow:hidden;animation:fadeIn .8s ease .8s both}
+.splash-loader-fill{height:100%;background:linear-gradient(90deg,#448aff,#ce93d8);border-radius:9999px;animation:loaderFill 2s ease .8s forwards}
+@keyframes loaderFill{from{width:0}to{width:100%}}
+
+/* ── GLASS ── */
+.glass{background:rgba(255,255,255,0.05);backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);border:1px solid rgba(255,255,255,0.1);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.08)}
+.glass-strong{background:rgba(255,255,255,0.08);backdrop-filter:blur(32px) saturate(1.6);-webkit-backdrop-filter:blur(32px) saturate(1.6);border:1px solid rgba(255,255,255,0.15);border-radius:20px;box-shadow:0 16px 48px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.12)}
 
 /* ── VIEWS ── */
-.view{display:none;min-height:100vh;animation:fadeIn .3s ease;position:relative;z-index:2}
-.view.active{display:flex;flex-direction:column}
+.view{display:none;min-height:100vh;animation:fadeIn .3s ease;position:relative;z-index:2;flex-direction:column}
+.view.active{display:flex}
 @keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 
 /* ── TOAST ── */
-.toast-container{
-  position:fixed;top:16px;left:50%;transform:translateX(-50%);
-  z-index:9999;display:flex;flex-direction:column;gap:8px;
-  pointer-events:none;width:calc(100% - 32px);max-width:380px;
-}
-.toast{
-  background:rgba(14,14,31,0.85);
-  backdrop-filter:blur(20px);
-  border:1px solid rgba(255,255,255,0.15);
-  color:#fff;padding:13px 18px;border-radius:12px;
-  font-size:.875rem;font-weight:500;
-  animation:toastIn .3s ease;
-  pointer-events:all;text-align:center;
-  box-shadow:0 12px 40px rgba(0,0,0,0.6);
-}
+.toast-container{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:9999;display:flex;flex-direction:column;gap:8px;pointer-events:none;width:calc(100% - 32px);max-width:380px}
+.toast{background:rgba(14,14,31,0.85);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.15);color:#fff;padding:13px 18px;border-radius:12px;font-size:.875rem;font-weight:500;animation:toastIn .3s ease;pointer-events:all;text-align:center;box-shadow:0 12px 40px rgba(0,0,0,0.6)}
 .toast.success{border-color:rgba(0,230,118,0.4);background:rgba(0,20,10,0.85);color:#00e676}
 .toast.error{border-color:rgba(255,82,82,0.4);background:rgba(20,0,0,0.85);color:#ff8a80}
 @keyframes toastIn{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:translateY(0)}}
-@keyframes toastOut{to{opacity:0;transform:translateY(-14px)}}
 
 /* ── BUTTONS ── */
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  padding:10px 20px;border-radius:10px;font-weight:600;font-size:.9rem;
-  transition:all .2s ease;white-space:nowrap;letter-spacing:0.01em;
-}
-.btn-white{
-  background:linear-gradient(135deg,#fff 0%,#e8e8f0 100%);
-  color:#050510;
-  box-shadow:0 4px 20px rgba(255,255,255,0.15), 0 0 0 1px rgba(255,255,255,0.2);
-}
-.btn-white:hover{
-  background:linear-gradient(135deg,#f0f0ff 0%,#d8d8ee 100%);
-  box-shadow:0 6px 28px rgba(255,255,255,0.25), 0 0 0 1px rgba(255,255,255,0.3);
-  transform:translateY(-1px);
-}
-.btn-outline{
-  background:rgba(255,255,255,0.06);
-  color:#fff;
-  border:1px solid rgba(255,255,255,0.15);
-  backdrop-filter:blur(8px);
-}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 20px;border-radius:10px;font-weight:600;font-size:.9rem;transition:all .2s ease;white-space:nowrap;letter-spacing:.01em}
+.btn-white{background:linear-gradient(135deg,#fff 0%,#e8e8f0 100%);color:#050510;box-shadow:0 4px 20px rgba(255,255,255,0.15),0 0 0 1px rgba(255,255,255,0.2)}
+.btn-white:hover{background:linear-gradient(135deg,#f0f0ff 0%,#d8d8ee 100%);box-shadow:0 6px 28px rgba(255,255,255,0.25);transform:translateY(-1px)}
+.btn-outline{background:rgba(255,255,255,0.06);color:#fff;border:1px solid rgba(255,255,255,0.15);backdrop-filter:blur(8px)}
 .btn-outline:hover{background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.25)}
-.btn-danger{
-  background:linear-gradient(135deg,#ff5252,#c62828);
-  color:#fff;
-  box-shadow:0 4px 20px rgba(255,82,82,0.3);
-}
-.btn-danger:hover{opacity:.9;transform:translateY(-1px)}
-.btn-green{
-  background:linear-gradient(135deg,#00e676,#00897b);
-  color:#000;font-weight:700;
-  box-shadow:0 4px 20px rgba(0,230,118,0.3);
-}
-.btn-green:hover{opacity:.9;transform:translateY(-1px)}
+.btn-danger{background:linear-gradient(135deg,#ff5252,#c62828);color:#fff;box-shadow:0 4px 20px rgba(255,82,82,0.3)}
+.btn-green{background:linear-gradient(135deg,#00e676,#00897b);color:#000;font-weight:700;box-shadow:0 4px 20px rgba(0,230,118,0.3)}
+.btn-blue{background:linear-gradient(135deg,#448aff,#7c4dff);color:#fff;box-shadow:0 4px 20px rgba(68,138,255,0.3)}
+.btn-blue:hover{opacity:.9;transform:translateY(-1px)}
 .btn-full{width:100%}
 .btn-sm{padding:7px 14px;font-size:.8rem;border-radius:8px}
 .btn-lg{padding:15px 28px;font-size:1rem;border-radius:12px}
 .btn-icon{width:38px;height:38px;padding:0;border-radius:10px;flex-shrink:0}
+.btn-green:hover,.btn-danger:hover{opacity:.9;transform:translateY(-1px)}
 
-/* ── SPINNER ── */
-.spinner{
-  width:18px;height:18px;border:2px solid rgba(0,0,0,0.3);
-  border-top-color:#000;border-radius:50%;animation:spin .7s linear infinite;
+/* ── INPUT ── */
+.input,.select{width:100%;padding:13px 16px;background:rgba(255,255,255,0.06);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.12);border-radius:12px;color:#fff;font-size:.95rem;transition:border-color .2s,box-shadow .2s,background .2s}
+.input::placeholder{color:rgba(255,255,255,0.3)}
+.input:focus{border-color:rgba(68,138,255,0.6);background:rgba(255,255,255,0.09);box-shadow:0 0 0 3px rgba(68,138,255,0.15)}
+select.input option{background:#0e0e1f;color:#fff}
+
+/* ── HEADER ── */
+.app-header{position:sticky;top:0;z-index:50;background:rgba(5,5,16,0.7);backdrop-filter:blur(24px) saturate(1.5);-webkit-backdrop-filter:blur(24px) saturate(1.5);border-bottom:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:space-between;padding:13px 18px}
+.logo-text{font-family:'Poppins',sans-serif;font-size:1.15rem;font-weight:800;display:flex;align-items:center;gap:6px;background:linear-gradient(135deg,#fff 20%,rgba(68,138,255,0.9) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-0.01em}
+.coins-pill{display:flex;align-items:center;gap:6px;background:rgba(245,197,24,0.12);border:1px solid rgba(245,197,24,0.25);padding:7px 14px;border-radius:9999px;font-size:.85rem;font-weight:700;color:#f5c518;box-shadow:0 0 16px rgba(245,197,24,0.15)}
+.dots-btn{width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:background .2s}
+.dots-btn:hover{background:rgba(255,255,255,0.14)}
+
+/* ── BOTTOM NAV ── */
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:100;background:rgba(5,5,16,0.92);backdrop-filter:blur(28px);border-top:1px solid rgba(255,255,255,0.08);display:flex;padding:8px 0 24px}
+.nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;background:transparent;color:rgba(255,255,255,0.38);font-size:.6rem;font-weight:600;padding:2px 0;transition:color .2s;letter-spacing:.04em;position:relative}
+.nav-icon{font-size:1.25rem;transition:transform .2s}
+.nav-btn.active{color:#448aff}
+.nav-btn.active .nav-icon{transform:scale(1.12)}
+.nav-btn.invite-active .nav-icon-wrap{
+  background:linear-gradient(135deg,#00e676,#00897b);
+  border-radius:50%;width:48px;height:48px;display:flex;align-items:center;justify-content:center;
+  margin-top:-22px;box-shadow:0 0 24px rgba(0,230,118,0.5),0 0 48px rgba(0,230,118,0.2);
+  border:3px solid rgba(5,5,16,0.95);font-size:1.4rem;
 }
-@keyframes spin{to{transform:rotate(360deg)}}
+.nav-btn.invite-active{color:#00e676;margin-top:2px}
+.nav-dot{position:absolute;top:-2px;right:calc(50% - 18px);width:8px;height:8px;background:#ff5252;border-radius:50%;border:2px solid #050510;animation:pulseDot 2s ease-in-out infinite}
+@keyframes pulseDot{0%,100%{box-shadow:0 0 0 0 rgba(255,82,82,0.6)}50%{box-shadow:0 0 0 5px rgba(255,82,82,0)}}
+
+/* ── PAGE CONTENT WITH BOTTOM NAV PADDING ── */
+.page-content{flex:1;overflow-y:auto;padding:16px 16px 100px}
 
 /* ── CARD ── */
-.card{
-  background:rgba(255,255,255,0.05);
-  backdrop-filter:blur(20px) saturate(1.4);
-  -webkit-backdrop-filter:blur(20px) saturate(1.4);
-  border:1px solid rgba(255,255,255,0.10);
-  border-radius:16px;overflow:hidden;
-  box-shadow:0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.07);
-  transition:box-shadow .2s, transform .2s;
-}
-.card:hover{
-  box-shadow:0 12px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
-}
+.card{background:rgba(255,255,255,0.05);backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);border:1px solid rgba(255,255,255,0.10);border-radius:16px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.35),inset 0 1px 0 rgba(255,255,255,0.07);transition:box-shadow .2s,transform .2s}
+.card:hover{box-shadow:0 12px 40px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.1)}
 .card-content{padding:16px}
 .card-header{padding:16px 16px 8px}
-.card-title{font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em}
+.card-title{font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
 
 /* ── BADGE ── */
-.badge{
-  display:inline-flex;align-items:center;padding:4px 10px;
-  border-radius:9999px;font-size:.7rem;font-weight:700;letter-spacing:0.04em;
-}
+.badge{display:inline-flex;align-items:center;padding:4px 10px;border-radius:9999px;font-size:.7rem;font-weight:700;letter-spacing:.04em}
 .badge-white{background:rgba(255,255,255,0.12);color:#fff;border:1px solid rgba(255,255,255,0.15)}
 .badge-green{background:rgba(0,230,118,.12);color:#00e676;border:1px solid rgba(0,230,118,0.25)}
 .badge-yellow{background:rgba(245,197,24,.12);color:#f5c518;border:1px solid rgba(245,197,24,0.25)}
 .badge-red{background:rgba(255,82,82,.12);color:#ff8a80;border:1px solid rgba(255,82,82,0.2)}
 .badge-blue{background:rgba(68,138,255,.12);color:#82b1ff;border:1px solid rgba(68,138,255,0.2)}
 .badge-gray{background:rgba(255,255,255,.08);color:var(--muted);border:1px solid rgba(255,255,255,0.1)}
+.badge-purple{background:rgba(206,147,216,.12);color:#ce93d8;border:1px solid rgba(206,147,216,0.25)}
 
 /* ── PROGRESS BAR ── */
-.progress-track{
-  background:rgba(255,255,255,0.07);
-  border-radius:9999px;overflow:hidden;
-  border:1px solid rgba(255,255,255,0.08);
-}
-.progress-fill{
-  height:100%;
-  background:linear-gradient(90deg,#448aff,#ce93d8);
-  border-radius:9999px;transition:width .6s cubic-bezier(.4,0,.2,1);
-  box-shadow:0 0 12px rgba(68,138,255,0.5);
-}
-
-/* ── INPUT ── */
-.input, .select{
-  width:100%;padding:13px 16px;
-  background:rgba(255,255,255,0.06);
-  backdrop-filter:blur(10px);
-  border:1px solid rgba(255,255,255,0.12);
-  border-radius:12px;color:#fff;
-  font-size:.95rem;transition:border-color .2s,box-shadow .2s,background .2s;
-}
-.input::placeholder{color:rgba(255,255,255,0.3)}
-.input:focus{
-  border-color:rgba(68,138,255,0.6);
-  background:rgba(255,255,255,0.09);
-  box-shadow:0 0 0 3px rgba(68,138,255,0.15);
-}
-select.input option{background:#0e0e1f;color:#fff}
-
-/* ── TABS ── */
-.tab-nav{
-  display:flex;
-  background:rgba(255,255,255,0.04);
-  backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);
-  border-bottom:1px solid rgba(255,255,255,0.08);
-  position:sticky;z-index:40;
-}
-.tab-btn{
-  flex:1;padding:14px 4px;font-size:.85rem;font-weight:600;
-  color:rgba(255,255,255,0.4);background:transparent;border:none;
-  border-bottom:2px solid transparent;margin-bottom:-1px;
-  transition:color .2s,border-color .2s;letter-spacing:0.02em;
-}
-.tab-btn.active{
-  color:#fff;
-  border-bottom-color:#448aff;
-  text-shadow:0 0 20px rgba(68,138,255,0.6);
-}
-.tab-panel{display:none;padding:20px 16px;animation:fadeIn .25s ease}
-.tab-panel.active{display:block}
-
-/* ── HEADER ── */
-.app-header{
-  position:sticky;top:0;z-index:50;
-  background:rgba(5,5,16,0.7);
-  backdrop-filter:blur(24px) saturate(1.5);
-  -webkit-backdrop-filter:blur(24px) saturate(1.5);
-  border-bottom:1px solid rgba(255,255,255,0.08);
-  display:flex;align-items:center;justify-content:space-between;
-  padding:13px 18px;
-}
-.logo-text{
-  font-family:'Syne',sans-serif;
-  font-size:1.15rem;font-weight:800;
-  display:flex;align-items:center;gap:6px;
-  background:linear-gradient(135deg,#fff 20%,rgba(68,138,255,0.9) 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  letter-spacing:-0.01em;
-}
-
-/* ── COINS PILL ── */
-.coins-pill{
-  display:flex;align-items:center;gap:6px;
-  background:rgba(245,197,24,0.12);
-  border:1px solid rgba(245,197,24,0.25);
-  padding:7px 14px;border-radius:9999px;
-  font-size:.85rem;font-weight:700;
-  color:#f5c518;
-  box-shadow:0 0 16px rgba(245,197,24,0.15);
-}
-
-/* ── GRID ── */
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
-.grid-7{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.progress-track{background:rgba(255,255,255,0.07);border-radius:9999px;overflow:hidden;border:1px solid rgba(255,255,255,0.08)}
+.progress-fill{height:100%;background:linear-gradient(90deg,#448aff,#ce93d8);border-radius:9999px;transition:width .6s cubic-bezier(.4,0,.2,1);box-shadow:0 0 12px rgba(68,138,255,0.5)}
 
 /* ── STAT CARD ── */
 .stat-card{padding:18px;position:relative;overflow:hidden}
-.stat-card::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(255,255,255,0.04) 0%,transparent 100%);
-  pointer-events:none;
-}
-.stat-icon{display:flex;align-items:center;gap:6px;font-size:.78rem;font-weight:600;color:var(--muted);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.05em}
-.stat-val{font-family:'Syne',sans-serif;font-size:1.7rem;font-weight:800}
+.stat-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.04) 0%,transparent 100%);pointer-events:none}
+.stat-icon{display:flex;align-items:center;gap:6px;font-size:.78rem;font-weight:600;color:var(--muted);margin-bottom:10px;text-transform:uppercase;letter-spacing:.05em}
+.stat-val{font-family:'Poppins',sans-serif;font-size:1.7rem;font-weight:800}
 
 /* ── LIST ITEM ── */
-.list-item{
-  display:flex;align-items:center;gap:12px;
-  padding:14px 18px;border-bottom:1px solid rgba(255,255,255,0.06);
-  transition:background .2s;
-}
+.list-item{display:flex;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid rgba(255,255,255,0.06);transition:background .2s}
 .list-item:hover{background:rgba(255,255,255,0.03)}
 
-/* ── AVATAR CIRCLE ── */
-.avatar{
-  width:38px;height:38px;border-radius:9999px;flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Syne',sans-serif;font-weight:800;font-size:.9rem;
-}
-.av-gold{
-  background:linear-gradient(135deg,#f5c518,#e65100);
-  color:#000;box-shadow:0 0 16px rgba(245,197,24,0.5);
-}
-.av-silver{
-  background:linear-gradient(135deg,#bdbdbd,#757575);
-  color:#000;box-shadow:0 0 12px rgba(189,189,189,0.3);
-}
-.av-bronze{
-  background:linear-gradient(135deg,#cd7f32,#5d4037);
-  color:#fff;box-shadow:0 0 12px rgba(205,127,50,0.3);
-}
+/* ── AVATAR ── */
+.avatar{width:38px;height:38px;border-radius:9999px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:800;font-size:.9rem}
+.av-gold{background:linear-gradient(135deg,#f5c518,#e65100);color:#000;box-shadow:0 0 16px rgba(245,197,24,0.5)}
+.av-silver{background:linear-gradient(135deg,#bdbdbd,#757575);color:#000;box-shadow:0 0 12px rgba(189,189,189,0.3)}
+.av-bronze{background:linear-gradient(135deg,#cd7f32,#5d4037);color:#fff;box-shadow:0 0 12px rgba(205,127,50,0.3)}
 .av-default{background:rgba(255,255,255,0.1);color:var(--muted);border:1px solid rgba(255,255,255,0.12)}
-.av-white{background:#fff;color:#000}
+.av-user{background:linear-gradient(135deg,#448aff,#7c4dff);color:#fff;box-shadow:0 0 16px rgba(68,138,255,0.4)}
 
 /* ── DIALOG ── */
-.dialog-overlay{
-  display:none;position:fixed;inset:0;
-  background:rgba(0,0,0,0.7);backdrop-filter:blur(12px);
-  z-index:2000;align-items:center;justify-content:center;padding:16px;
-}
+.dialog-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);backdrop-filter:blur(12px);z-index:2000;align-items:center;justify-content:center;padding:16px}
 .dialog-overlay.open{display:flex}
-.dialog{
-  background:rgba(14,14,31,0.92);
-  backdrop-filter:blur(32px) saturate(1.6);
-  border:1px solid rgba(255,255,255,0.15);
-  border-radius:20px;
-  padding:28px;width:100%;max-width:400px;
-  animation:dialogIn .3s cubic-bezier(.34,1.56,.64,1);position:relative;
-  box-shadow:0 24px 64px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.1);
-}
+.dialog{background:rgba(14,14,31,0.95);backdrop-filter:blur(32px) saturate(1.6);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:28px;width:100%;max-width:400px;animation:dialogIn .3s cubic-bezier(.34,1.56,.64,1);position:relative;box-shadow:0 24px 64px rgba(0,0,0,0.7),inset 0 1px 0 rgba(255,255,255,0.1)}
 @keyframes dialogIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
-.dialog-close{
-  position:absolute;top:16px;right:16px;
-  background:rgba(255,255,255,0.08);
-  border:1px solid rgba(255,255,255,0.12);
-  color:var(--muted);font-size:1rem;
-  width:32px;height:32px;border-radius:8px;
-  display:flex;align-items:center;justify-content:center;
-  transition:background .2s;
-}
+.dialog-close{position:absolute;top:16px;right:16px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);color:var(--muted);font-size:1rem;width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;transition:background .2s}
 .dialog-close:hover{background:rgba(255,255,255,0.15);color:#fff}
 
-/* ── TASK ITEM ── */
-.task-item{
-  display:flex;align-items:center;gap:14px;
-  padding:16px;border-radius:14px;margin-bottom:10px;
-  background:rgba(255,255,255,0.05);
-  backdrop-filter:blur(12px);
-  cursor:pointer;
-  border:1px solid rgba(255,255,255,0.08);
-  transition:all .2s ease;
-  position:relative;overflow:hidden;
-}
-.task-item::before{
-  content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
-  background:linear-gradient(180deg,#448aff,#ce93d8);
-  border-radius:0 3px 3px 0;
-}
-.task-item:hover:not(.done){
-  background:rgba(255,255,255,0.08);
-  border-color:rgba(68,138,255,0.3);
-  transform:translateX(4px);
-  box-shadow:0 8px 24px rgba(0,0,0,0.3);
-}
-.task-item.done{
-  opacity:.45;cursor:default;
-}
-.task-item.done::before{
-  background:linear-gradient(180deg,#00e676,#00897b);
-}
-
-/* ── DAY GRID ── */
-.day-cell{
-  aspect-ratio:1;border-radius:10px;display:flex;align-items:center;
-  justify-content:center;font-size:.8rem;font-weight:700;
-  transition:transform .2s;
-  font-family:'Syne',sans-serif;
-}
-.day-cell:hover{transform:scale(1.1)}
-.day-past{
-  background:rgba(0,230,118,0.15);color:#00e676;
-  border:1px solid rgba(0,230,118,0.2);
-  box-shadow:0 0 8px rgba(0,230,118,0.1);
-}
-.day-current{
-  background:linear-gradient(135deg,#448aff,#ce93d8);
-  color:#fff;
-  box-shadow:0 0 20px rgba(68,138,255,0.5);
-  transform:scale(1.1);
-}
-.day-future{
-  background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.2);
-  border:1px solid rgba(255,255,255,0.06);
-}
+/* ── DRAWER ── */
+.drawer-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);backdrop-filter:blur(8px);z-index:500}
+.drawer-overlay.open{display:block}
+.drawer{position:fixed;right:0;top:0;bottom:0;width:280px;background:rgba(10,10,28,0.98);backdrop-filter:blur(32px);border-left:1px solid rgba(255,255,255,0.1);z-index:501;transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;overflow-y:auto}
+.drawer.open{transform:translateX(0)}
+.drawer-header{padding:20px 20px 16px;border-bottom:1px solid rgba(255,255,255,0.07)}
+.drawer-item{display:flex;align-items:center;gap:14px;padding:15px 20px;color:rgba(255,255,255,0.75);font-size:.95rem;font-weight:500;border-bottom:1px solid rgba(255,255,255,0.05);cursor:pointer;transition:background .2s}
+.drawer-item:hover{background:rgba(255,255,255,0.05);color:#fff}
+.drawer-item-icon{font-size:1.2rem;width:28px;text-align:center;flex-shrink:0}
+.drawer-item-arr{margin-left:auto;color:rgba(255,255,255,0.25);font-size:.9rem}
 
 /* ── AUTH PAGE HERO ── */
-.auth-hero{
-  text-align:center;margin-bottom:32px;
-}
-.auth-logo-circle{
-  width:80px;height:80px;
-  background:linear-gradient(135deg,rgba(68,138,255,0.3),rgba(206,147,216,0.3));
-  backdrop-filter:blur(20px);
-  border:1px solid rgba(255,255,255,0.2);
-  border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  margin:0 auto 18px;font-size:2.2rem;
-  box-shadow:0 0 40px rgba(68,138,255,0.3), inset 0 1px 0 rgba(255,255,255,0.2);
-  animation:pulseGlow 3s ease-in-out infinite;
-}
-@keyframes pulseGlow{
-  0%,100%{box-shadow:0 0 40px rgba(68,138,255,0.3), inset 0 1px 0 rgba(255,255,255,0.2)}
-  50%{box-shadow:0 0 70px rgba(68,138,255,0.5), 0 0 100px rgba(206,147,216,0.2), inset 0 1px 0 rgba(255,255,255,0.2)}
-}
-.auth-title{
-  font-family:'Syne',sans-serif;
-  font-size:2.6rem;font-weight:800;
-  background:linear-gradient(135deg,#fff 30%,rgba(68,138,255,0.85) 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  line-height:1.1;margin-bottom:8px;
-}
-.auth-sub{
-  color:rgba(255,255,255,0.45);font-size:.95rem;font-weight:400;
-}
+.auth-hero{text-align:center;margin-bottom:32px}
+.auth-logo-circle{width:80px;height:80px;background:linear-gradient(135deg,rgba(68,138,255,0.3),rgba(206,147,216,0.3));backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:2.2rem;box-shadow:0 0 40px rgba(68,138,255,0.3),inset 0 1px 0 rgba(255,255,255,0.2);animation:pulseGlow 3s ease-in-out infinite}
+@keyframes pulseGlow{0%,100%{box-shadow:0 0 40px rgba(68,138,255,0.3),inset 0 1px 0 rgba(255,255,255,0.2)}50%{box-shadow:0 0 70px rgba(68,138,255,0.5),0 0 100px rgba(206,147,216,0.2),inset 0 1px 0 rgba(255,255,255,0.2)}}
+.auth-title{font-family:'Poppins',sans-serif;font-size:2.6rem;font-weight:800;background:linear-gradient(135deg,#fff 30%,rgba(68,138,255,0.85) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;margin-bottom:8px}
+.auth-sub{color:rgba(255,255,255,0.45);font-size:.95rem;font-weight:400}
 
 /* ── PAYMENT PRICE ── */
-.price-display{
-  font-family:'Syne',sans-serif;
-  font-size:3.5rem;font-weight:800;
-  background:linear-gradient(135deg,#fff,#f5c518);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-}
-.price-feature{
-  display:flex;align-items:center;gap:10px;
-  padding:10px 0;
-  border-bottom:1px solid rgba(255,255,255,0.06);
-  font-size:.9rem;color:rgba(255,255,255,0.7);
-}
+.price-display{font-family:'Poppins',sans-serif;font-size:3.5rem;font-weight:800;background:linear-gradient(135deg,#fff,#f5c518);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.price-feature{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:.9rem;color:rgba(255,255,255,0.7)}
 .price-feature:last-child{border-bottom:none}
-.price-feature-icon{
-  width:28px;height:28px;border-radius:8px;
-  background:rgba(0,230,118,0.15);border:1px solid rgba(0,230,118,0.2);
-  display:flex;align-items:center;justify-content:center;
-  font-size:.85rem;flex-shrink:0;
-}
+.price-feature-icon{width:28px;height:28px;border-radius:8px;background:rgba(0,230,118,0.15);border:1px solid rgba(0,230,118,0.2);display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0}
 
 /* ── REFERRAL CARD ── */
-.ref-code-display{
-  background:rgba(68,138,255,0.08);
-  border:1px solid rgba(68,138,255,0.25);
-  border-radius:14px;padding:20px;text-align:center;
-  margin:16px 0;
-}
-.ref-code-text{
-  font-family:'Syne',sans-serif;
-  font-size:1.6rem;font-weight:800;
-  letter-spacing:4px;color:#82b1ff;
-  text-shadow:0 0 20px rgba(68,138,255,0.5);
-}
+.ref-code-display{background:rgba(68,138,255,0.08);border:1px solid rgba(68,138,255,0.25);border-radius:14px;padding:20px;text-align:center;margin:16px 0}
+.ref-code-text{font-family:'Poppins',sans-serif;font-size:1.6rem;font-weight:800;letter-spacing:4px;color:#82b1ff;text-shadow:0 0 20px rgba(68,138,255,0.5)}
 
 /* ── INVITE CARD ── */
-.invite-card{
-  background:linear-gradient(135deg,rgba(68,138,255,0.12),rgba(206,147,216,0.08));
-  border:1px solid rgba(68,138,255,0.2);
-  border-radius:16px;padding:16px 18px;
-  cursor:pointer;
-  transition:all .2s ease;
-  display:flex;justify-content:space-between;align-items:center;
-  backdrop-filter:blur(12px);
-}
-.invite-card:hover{
-  background:linear-gradient(135deg,rgba(68,138,255,0.2),rgba(206,147,216,0.12));
-  border-color:rgba(68,138,255,0.35);
-  transform:translateY(-2px);
-  box-shadow:0 8px 32px rgba(68,138,255,0.2);
-}
+.invite-card{background:linear-gradient(135deg,rgba(0,230,118,0.14),rgba(68,138,255,0.08));border:1px solid rgba(0,230,118,0.3);border-radius:16px;padding:16px 18px;cursor:pointer;transition:all .2s ease;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(12px);position:relative;overflow:hidden;box-shadow:0 0 20px rgba(0,230,118,0.1)}
+.invite-card::before{content:'';position:absolute;top:-50%;right:-30px;width:120px;height:120px;background:radial-gradient(circle,rgba(0,230,118,0.15),transparent);border-radius:50%;pointer-events:none}
+.invite-card-glow{animation:inviteGlow 3s ease-in-out infinite}
+@keyframes inviteGlow{0%,100%{box-shadow:0 0 20px rgba(0,230,118,0.1)}50%{box-shadow:0 0 40px rgba(0,230,118,0.25),0 0 80px rgba(0,230,118,0.1)}}
+.invite-card:hover{background:linear-gradient(135deg,rgba(0,230,118,0.22),rgba(68,138,255,0.12));border-color:rgba(0,230,118,0.45);transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,230,118,0.2)}
+
+/* ── BANNER AD ── */
+.banner-ad{background:linear-gradient(135deg,rgba(68,138,255,0.1),rgba(206,147,216,0.06));border:1px dashed rgba(68,138,255,0.25);border-radius:14px;padding:12px 16px;text-align:center;margin-bottom:14px;position:relative;overflow:hidden;min-height:60px;display:flex;align-items:center;justify-content:center;gap:10px}
+.banner-ad-label{position:absolute;top:6px;right:8px;font-size:.55rem;color:rgba(255,255,255,0.25);letter-spacing:.08em;text-transform:uppercase}
 
 /* ── SECTION HEADING ── */
-.section-heading{
-  font-family:'Syne',sans-serif;
-  font-size:1.3rem;font-weight:800;margin-bottom:16px;
-  display:flex;align-items:center;gap:8px;
-}
+.section-heading{font-family:'Poppins',sans-serif;font-size:1.3rem;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px}
 
-/* ── ADMIN STYLES ── */
-.admin-user-card{
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:14px;padding:16px;margin-bottom:10px;
-  display:flex;justify-content:space-between;align-items:center;
-}
+/* ── PROFILE SETUP ── */
+.profile-avatar{width:76px;height:76px;border-radius:50%;background:linear-gradient(135deg,rgba(68,138,255,0.4),rgba(138,43,226,0.4));border:2px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto 14px;cursor:pointer;position:relative}
+.profile-avatar::after{content:'✏️';position:absolute;bottom:-2px;right:-2px;background:rgba(68,138,255,0.9);border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:.65rem}
+.complete-profile-card{background:linear-gradient(135deg,rgba(245,197,24,0.1),rgba(255,112,67,0.06));border:1px solid rgba(245,197,24,0.25);border-radius:16px;padding:16px;margin-bottom:14px;display:flex;align-items:center;gap:14px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
+.complete-profile-card::after{content:'';position:absolute;top:0;right:0;bottom:0;width:4px;background:linear-gradient(180deg,#f5c518,#ff7043);border-radius:0 16px 16px 0}
+.complete-profile-card:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(245,197,24,0.15)}
+
+/* ── TASK ITEM ── */
+.task-item{display:flex;align-items:center;gap:14px;padding:16px;border-radius:14px;margin-bottom:10px;background:rgba(255,255,255,0.05);backdrop-filter:blur(12px);cursor:pointer;border:1px solid rgba(255,255,255,0.08);transition:all .2s ease;position:relative;overflow:hidden}
+.task-item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,#448aff,#ce93d8);border-radius:0 3px 3px 0}
+.task-item:hover:not(.done){background:rgba(255,255,255,0.08);border-color:rgba(68,138,255,0.3);transform:translateX(4px);box-shadow:0 8px 24px rgba(0,0,0,0.3)}
+.task-item.done{opacity:.45;cursor:default}
+.task-item.done::before{background:linear-gradient(180deg,#00e676,#00897b)}
+
+/* ── DAY GRID ── */
+.grid-7{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.day-cell{aspect-ratio:1;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;transition:transform .2s;font-family:'Poppins',sans-serif}
+.day-cell:hover{transform:scale(1.1)}
+.day-past{background:rgba(0,230,118,0.15);color:#00e676;border:1px solid rgba(0,230,118,0.2);box-shadow:0 0 8px rgba(0,230,118,0.1)}
+.day-current{background:linear-gradient(135deg,#448aff,#ce93d8);color:#fff;box-shadow:0 0 20px rgba(68,138,255,0.5);transform:scale(1.1)}
+.day-future{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.06)}
+
+/* ── SPINNER ── */
+.spinner{width:18px;height:18px;border:2px solid rgba(0,0,0,0.3);border-top-color:#000;border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── SPIN WHEEL ── */
+.spin-wheel-wrapper{display:flex;align-items:center;justify-content:center;position:relative;margin:20px 0}
+#spinCanvas{border-radius:50%;box-shadow:0 0 40px rgba(138,43,226,0.4),0 0 80px rgba(68,138,255,0.2),0 0 120px rgba(0,0,0,0.5)}
+.spin-pointer{position:absolute;top:-8px;left:50%;transform:translateX(-50%);font-size:2.2rem;filter:drop-shadow(0 4px 8px rgba(0,0,0,0.8));z-index:10}
+.spin-center{position:absolute;width:40px;height:40px;border-radius:50%;background:radial-gradient(circle,#fff,#ddd);box-shadow:0 0 16px rgba(255,255,255,0.5);left:50%;top:50%;transform:translate(-50%,-50%);z-index:10}
+.spin-btn-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.spin-info-row{display:flex;justify-content:space-between;margin-top:12px}
+.spin-token-box{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:10px 16px;display:flex;align-items:center;gap:8px;font-weight:600}
+
+/* ── SLOTS ── */
+.slot-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:14px;display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;transition:all .2s;cursor:pointer}
+.slot-card:hover{border-color:rgba(68,138,255,0.3);transform:translateX(4px);background:rgba(255,255,255,0.07)}
+.slot-badge{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:800;font-size:.85rem;flex-shrink:0}
+.slot-card.current-slot{border-color:rgba(0,230,118,0.4);background:rgba(0,230,118,0.05)}
+.slot-card.locked-slot{opacity:.45}
+
+/* ── FOLLOW CARD ── */
+.follow-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:16px;display:flex;align-items:center;gap:14px;margin-bottom:10px;transition:all .2s}
+.follow-card:hover{border-color:rgba(68,138,255,0.2);background:rgba(255,255,255,0.07)}
+.follow-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
+.follow-card .coins-reward{font-size:.85rem;color:#f5c518;font-weight:700}
+
+/* ── WINNERS ── */
+.winner-card{background:linear-gradient(135deg,rgba(245,197,24,0.08),rgba(255,112,67,0.05));border:1px solid rgba(245,197,24,0.2);border-radius:16px;padding:16px;margin-bottom:10px}
+.update-card{background:rgba(68,138,255,0.06);border:1px solid rgba(68,138,255,0.15);border-radius:14px;padding:14px;margin-bottom:10px}
+
+/* ── SCHEDULE ── */
+.schedule-row{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.schedule-row:last-child{border-bottom:none}
+.schedule-days{background:rgba(68,138,255,0.12);border:1px solid rgba(68,138,255,0.2);border-radius:8px;padding:4px 10px;font-size:.78rem;font-weight:700;color:#82b1ff;white-space:nowrap}
+.schedule-wins{display:flex;gap:8px;flex-wrap:wrap}
+.schedule-win-badge{background:rgba(0,230,118,0.1);border:1px solid rgba(0,230,118,0.2);border-radius:6px;padding:3px 8px;font-size:.75rem;font-weight:600;color:#00e676}
+.schedule-win-badge.pool{background:rgba(245,197,24,0.1);border-color:rgba(245,197,24,0.2);color:#f5c518}
+
+/* ── AI CHAT ── */
+.chat-wrap{display:flex;flex-direction:column;height:calc(100vh - 140px)}
+.chat-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:8px}
+.chat-bubble{max-width:82%;padding:11px 15px;border-radius:18px;font-size:.9rem;line-height:1.5}
+.chat-bubble.user{background:linear-gradient(135deg,#448aff,#7c4dff);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+.chat-bubble.ai{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.9);align-self:flex-start;border-bottom-left-radius:4px}
+.chat-input-row{display:flex;gap:10px;padding:12px 16px;border-top:1px solid rgba(255,255,255,0.08);background:rgba(5,5,16,0.5);backdrop-filter:blur(12px)}
+.chat-input{flex:1;padding:11px 16px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:12px;color:#fff;font-size:.9rem}
+.chat-input::placeholder{color:rgba(255,255,255,0.3)}
+.chat-send{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#448aff,#7c4dff);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+
+/* ── ADMIN ── */
+.tab-nav{display:flex;background:rgba(255,255,255,0.04);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.08);position:sticky;z-index:40}
+.tab-btn{flex:1;padding:14px 4px;font-size:.85rem;font-weight:600;color:rgba(255,255,255,0.4);background:transparent;border:none;border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s;letter-spacing:.02em}
+.tab-btn.active{color:#fff;border-bottom-color:#448aff;text-shadow:0 0 20px rgba(68,138,255,0.6)}
+.tab-panel{display:none;padding:20px 16px;animation:fadeIn .25s ease}
+.tab-panel.active{display:block}
+.admin-user-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:16px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+
+/* ── CONFIRM PAGE ── */
+.confirm-anim{width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,rgba(0,230,118,0.2),rgba(68,138,255,0.2));display:flex;align-items:center;justify-content:center;font-size:3rem;margin:0 auto 24px;animation:confirmPop .6s cubic-bezier(.34,1.56,.64,1)}
+@keyframes confirmPop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+.confirm-spinner{width:80px;height:80px;border:4px solid rgba(255,255,255,0.1);border-top-color:#448aff;border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 24px}
+
+/* ── TERMS ── */
+.terms-body{font-size:.88rem;color:rgba(255,255,255,0.7);line-height:1.8;max-height:55vh;overflow-y:auto;padding:16px;background:rgba(255,255,255,0.03);border-radius:14px;border:1px solid rgba(255,255,255,0.07)}
+.terms-body h4{color:#fff;font-weight:700;margin:16px 0 6px;font-family:'Poppins',sans-serif}
 
 /* ── UTILS ── */
-.mt-4{margin-top:16px}.mb-4{margin-bottom:16px}
+.mt-4{margin-top:16px}.mb-4{margin-bottom:16px}.mb-2{margin-bottom:8px}
 .text-sm{font-size:.875rem}.text-xs{font-size:.75rem}
 .text-muted{color:var(--muted)}
-.text-yellow{color:var(--yellow)}.text-green{color:var(--green)}
+.text-yellow{color:var(--yellow)}.text-green{color:var(--green)}.text-blue{color:var(--blue)}
 .flex{display:flex}.items-center{align-items:center}.justify-between{justify-content:space-between}
 .w-full{width:100%}.text-center{text-align:center}
-.gap-3{gap:12px}
-.font-bold{font-weight:700}
+.gap-3{gap:12px}.gap-2{gap:8px}
+.font-bold{font-weight:700}.font-syne{font-family:'Poppins',sans-serif}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.rounded-full{border-radius:9999px}
+.back-btn{display:flex;align-items:center;gap:6px;background:transparent;color:rgba(255,255,255,0.65);font-size:.9rem;padding:8px 0;margin-bottom:4px;transition:color .2s}
+.back-btn:hover{color:#fff}
 </style>
 </head>
 <body>
 
 <!-- Animated background -->
 <div class="bg-scene">
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
-  <div class="orb orb-4"></div>
+  <div class="orb orb-1"></div><div class="orb orb-2"></div>
+  <div class="orb orb-3"></div><div class="orb orb-4"></div>
 </div>
 <div class="noise-overlay"></div>
-
 <div class="toast-container" id="toastContainer"></div>
 
+<!-- ═════════════════════════════════════════ -->
+<!-- SPLASH VIEW -->
+<!-- ═════════════════════════════════════════ -->
+<div id="splashView">
+  <div class="splash-icon">🌱</div>
+  <div class="splash-title">Grow31</div>
+  <div class="splash-sub">31 Days. One Challenge. Real Rewards.</div>
+  <div class="splash-loader"><div class="splash-loader-fill"></div></div>
+</div>
+
+<!-- ═════════════════════════════════════════ -->
 <!-- AUTH VIEW -->
-<div class="view active" id="authView">
+<!-- ═════════════════════════════════════════ -->
+<div class="view" id="authView">
   <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 20px">
     <div class="auth-hero">
-      <div class="auth-logo-circle">✨</div>
+      <div class="auth-logo-circle">🌱</div>
       <h1 class="auth-title">Grow31</h1>
       <p class="auth-sub">31 Days. One Challenge. Real Rewards.</p>
     </div>
-
     <div class="glass-strong" style="width:100%;max-width:400px">
+      <!-- Step: Phone -->
       <div id="stepPhone" style="padding:28px">
-        <h2 style="font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:700;text-align:center;margin-bottom:6px">Get Started</h2>
-        <p class="text-muted text-sm text-center mb-4" style="margin-bottom:20px">Enter your phone number to continue</p>
-        <input class="input mb-4" type="tel" id="phoneInput" placeholder="10-digit phone number" maxlength="10">
+        <h2 style="font-family:'Poppins',sans-serif;font-size:1.25rem;font-weight:700;text-align:center;margin-bottom:6px">Get Started</h2>
+        <p class="text-muted text-sm text-center" style="margin-bottom:20px">Enter your phone number to continue</p>
+        <div style="position:relative;margin-bottom:16px">
+          <span style="position:absolute;left:14px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,0.5);font-weight:600">+91</span>
+          <input class="input" type="tel" id="phoneInput" placeholder="10-digit phone number" maxlength="10" style="padding-left:52px">
+        </div>
         <button class="btn btn-white btn-full btn-lg" onclick="sendOTP()">Continue →</button>
       </div>
-
+      <!-- Step: OTP -->
       <div id="stepOTP" style="padding:28px;display:none">
-        <h2 style="font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:700;text-align:center;margin-bottom:6px">Verify OTP</h2>
-        <p class="text-muted text-sm text-center" style="margin-bottom:20px">We sent a code to your phone</p>
-        <input class="input mb-4 text-center" style="letter-spacing:10px;font-size:1.6rem;font-family:'Syne',sans-serif;font-weight:700" type="tel" id="otpInput" placeholder="000000" maxlength="6">
+        <button class="back-btn" onclick="goBackToPhone()">← Back</button>
+        <h2 style="font-family:'Poppins',sans-serif;font-size:1.25rem;font-weight:700;text-align:center;margin-bottom:6px">Verify OTP</h2>
+        <p class="text-muted text-sm text-center" style="margin-bottom:6px">Code sent to +91 <span id="otpPhoneDisplay"></span></p>
+        <p class="text-xs text-center" style="color:rgba(68,138,255,0.8);margin-bottom:20px">(Demo OTP: 123456)</p>
+        <input class="input mb-4 text-center" style="letter-spacing:10px;font-size:1.6rem;font-family:'Poppins',sans-serif;font-weight:700;margin-bottom:16px" type="tel" id="otpInput" placeholder="------" maxlength="6">
         <button class="btn btn-white btn-full btn-lg" onclick="verifyOTP()">Verify & Continue</button>
+        <p class="text-xs text-muted text-center" style="margin-top:12px;cursor:pointer;opacity:.6" onclick="resendOTP()">Resend OTP</p>
       </div>
-
+      <!-- Step: Referral -->
       <div id="stepReferral" style="padding:28px;display:none">
-        <h2 style="font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:700;text-align:center;margin-bottom:6px">Welcome! 🎉</h2>
+        <h2 style="font-family:'Poppins',sans-serif;font-size:1.25rem;font-weight:700;text-align:center;margin-bottom:6px">Welcome! 🎉</h2>
         <p class="text-muted text-sm text-center" style="margin-bottom:20px">Have a referral code? Earn bonus coins!</p>
-        <input class="input mb-4" type="text" id="refCodeInput" placeholder="Referral code (optional)">
-        <button class="btn btn-white btn-full btn-lg" onclick="completeSignup()">Finish Setup</button>
+        <input class="input" type="text" id="refCodeInput" placeholder="Referral code (optional)" style="margin-bottom:12px;text-transform:uppercase">
+        <div style="background:rgba(0,230,118,0.06);border:1px solid rgba(0,230,118,0.15);border-radius:10px;padding:10px 14px;margin-bottom:16px">
+          <p class="text-xs" style="color:#00e676">🎁 Use a referral code to get +50 bonus coins on signup!</p>
+        </div>
+        <button class="btn btn-white btn-full btn-lg" onclick="completeSignup()">Finish Setup →</button>
       </div>
     </div>
-
-    <!-- Feature badges below auth card -->
     <div style="display:flex;gap:10px;margin-top:24px;flex-wrap:wrap;justify-content:center">
       <span class="badge badge-blue">🎯 Daily Tasks</span>
       <span class="badge badge-yellow">🪙 Coin Rewards</span>
@@ -574,98 +372,814 @@ select.input option{background:#0e0e1f;color:#fff}
   </div>
 </div>
 
-<!-- PAYMENT VIEW -->
-<div class="view" id="paymentView">
-  <div class="app-header"><div class="logo-text">✨ Grow31</div></div>
-  <div style="padding:28px 20px;max-width:420px;margin:0 auto;width:100%">
-    <h2 class="section-heading" style="margin-bottom:24px;font-size:1.5rem">Join the Challenge</h2>
-    <div class="card mb-4">
-      <div style="padding:32px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.07)">
-        <div class="price-display">₹30</div>
-        <p class="text-muted" style="margin-top:4px">One-time Entry Fee</p>
-      </div>
-      <div class="card-content" style="padding:20px 24px">
-        <div class="price-feature">
-          <div class="price-feature-icon">📅</div>
-          <span>31-Day Challenge Full Access</span>
-        </div>
-        <div class="price-feature">
-          <div class="price-feature-icon">🪙</div>
-          <span>Daily Coin Rewards</span>
-        </div>
-        <div class="price-feature">
-          <div class="price-feature-icon">🎁</div>
-          <span>Real Rewards &amp; Gifts</span>
-        </div>
-      </div>
+<!-- ═════════════════════════════════════════ -->
+<!-- TERMS VIEW -->
+<!-- ═════════════════════════════════════════ -->
+<div class="view" id="termsView">
+  <div class="app-header">
+    <button class="back-btn" onclick="showView('authView')" style="margin:0">← Back</button>
+    <div class="logo-text">📋 Terms</div>
+    <div style="width:60px"></div>
+  </div>
+  <div style="padding:24px 20px;max-width:480px;margin:0 auto;width:100%;flex:1;display:flex;flex-direction:column">
+    <h2 class="section-heading" style="font-size:1.4rem;margin-bottom:16px">Terms &amp; Conditions</h2>
+    <div class="terms-body" style="flex:1;max-height:none;margin-bottom:20px">
+      <h4>1. Eligibility</h4>
+      <p>Grow31 is open to users 18 years and above residing in India. By registering, you confirm you meet this criterion.</p>
+      <h4>2. Challenge Rules</h4>
+      <p>The challenge spans 31 days. Participants must complete daily tasks and maintain their streak to be eligible for rewards. Missing tasks may forfeit streak bonuses.</p>
+      <h4>3. Entry Fee</h4>
+      <p>A one-time non-refundable entry fee of ₹30 is required to join the challenge. This fee covers platform access and seed pool contributions.</p>
+      <h4>4. Referral System</h4>
+      <p>Each registered user receives a unique referral code. Referring friends earns coin bonuses for both parties. Referral coins are credited upon the referred user completing payment.</p>
+      <h4>5. Slot System</h4>
+      <p>The slot system operates on a binary doubling model. Users progress through 31 slot tiers. Pool wins are distributed based on daily competition results.</p>
+      <h4>6. Spin Wheel</h4>
+      <p>Spin wheel prizes are randomized. Tokens required for spins are earned through tasks, referrals, and daily check-ins. Results are final.</p>
+      <h4>7. Rewards &amp; Withdrawals</h4>
+      <p>Coin rewards can be claimed through the dashboard. Withdrawal to UPI/bank accounts is available after meeting minimum thresholds. Processing may take 3–7 business days.</p>
+      <h4>8. Privacy</h4>
+      <p>Your phone number and usage data are stored securely. We do not sell personal data to third parties. Your referral code and username are public within the app.</p>
+      <h4>9. Prohibited Activities</h4>
+      <p>Creating multiple accounts, exploiting referral systems, or engaging in fraudulent activity will result in permanent disqualification and account suspension.</p>
+      <h4>10. Changes to Terms</h4>
+      <p>Grow31 reserves the right to modify these terms at any time. Continued use of the platform constitutes acceptance of updated terms.</p>
+      <h4>11. Contact</h4>
+      <p>For support, email: support@grow31.in</p>
     </div>
-    <button class="btn btn-white btn-full btn-lg" onclick="processPayment()">Pay ₹30 &amp; Start Challenge →</button>
-    <p class="text-muted text-xs text-center mt-4" style="margin-top:14px;opacity:0.5">Secure payment powered by Razorpay</p>
+    <label style="display:flex;align-items:center;gap:12px;margin-bottom:20px;cursor:pointer;padding:14px;background:rgba(255,255,255,0.04);border-radius:12px;border:1px solid rgba(255,255,255,0.08)">
+      <input type="checkbox" id="termsCheck" style="width:18px;height:18px;accent-color:#448aff">
+      <span style="font-size:.9rem">I have read and agree to the Terms &amp; Conditions</span>
+    </label>
+    <button class="btn btn-white btn-full btn-lg" onclick="acceptTerms()">Accept &amp; Continue →</button>
   </div>
 </div>
 
+<!-- ═════════════════════════════════════════ -->
+<!-- PAYMENT VIEW -->
+<!-- ═════════════════════════════════════════ -->
+<div class="view" id="paymentView">
+  <div class="app-header"><div class="logo-text">🌱 Grow31</div></div>
+  <div style="padding:24px 20px;max-width:440px;margin:0 auto;width:100%;flex:1">
+    <h2 class="section-heading" style="font-size:1.5rem;margin-bottom:20px">Join the Challenge 🚀</h2>
+
+    <!-- Price card -->
+    <div class="card mb-4" style="margin-bottom:16px">
+      <div style="padding:28px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.07)">
+        <div class="price-display">₹30</div>
+        <p class="text-muted" style="margin-top:4px;font-size:.9rem">One-time Entry Fee · All 31 Days</p>
+        <div style="display:flex;gap:8px;justify-content:center;margin-top:14px;flex-wrap:wrap">
+          <span class="badge badge-green">✅ Secure</span>
+          <span class="badge badge-blue">🔒 Razorpay</span>
+          <span class="badge badge-yellow">💯 Guaranteed</span>
+        </div>
+      </div>
+      <div class="card-content" style="padding:20px 24px">
+        <div class="price-feature"><div class="price-feature-icon">📅</div><span>31-Day Challenge Full Access</span></div>
+        <div class="price-feature"><div class="price-feature-icon">🪙</div><span>Daily Coin Rewards + Bonuses</span></div>
+        <div class="price-feature"><div class="price-feature-icon">🎰</div><span>Slot System Access (31 Levels)</span></div>
+        <div class="price-feature"><div class="price-feature-icon">🎡</div><span>Spin Wheel – Win Big Prizes</span></div>
+        <div class="price-feature"><div class="price-feature-icon">🏆</div><span>Leaderboard &amp; Pool Wins</span></div>
+        <div class="price-feature"><div class="price-feature-icon">👥</div><span>Referral Commissions</span></div>
+      </div>
+    </div>
+
+    <!-- Payment methods -->
+    <div class="card mb-4" style="margin-bottom:16px">
+      <div class="card-content" style="padding:16px 20px">
+        <p class="card-title" style="margin-bottom:12px">Payment Methods</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:6px 12px;font-size:.8rem;font-weight:600">💳 Card</span>
+          <span style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:6px 12px;font-size:.8rem;font-weight:600">📲 UPI</span>
+          <span style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:6px 12px;font-size:.8rem;font-weight:600">🏦 Net Banking</span>
+          <span style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:6px 12px;font-size:.8rem;font-weight:600">💰 Wallet</span>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-white btn-full btn-lg" onclick="processPayment()" id="payBtn">
+      <span id="payBtnText">Pay ₹30 &amp; Start Challenge →</span>
+    </button>
+    <p class="text-muted text-xs text-center" style="margin-top:12px;opacity:.5">🔒 Secure payment powered by Razorpay · 256-bit SSL encrypted</p>
+  </div>
+</div>
+
+<!-- ═════════════════════════════════════════ -->
+<!-- CONFIRM VIEW (Processing/Success) -->
+<!-- ═════════════════════════════════════════ -->
+<div class="view" id="confirmView">
+  <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 20px;text-align:center">
+    <div id="confirmSpinner" class="confirm-spinner"></div>
+    <div id="confirmSuccess" style="display:none">
+      <div class="confirm-anim">✅</div>
+      <h2 class="font-syne" style="font-size:1.8rem;font-weight:800;margin-bottom:8px">Payment Successful!</h2>
+      <p class="text-muted" style="margin-bottom:32px;font-size:.95rem">Welcome to the Grow31 Challenge 🎉</p>
+      <button class="btn btn-white btn-lg" onclick="afterPayment()">Set Up Profile →</button>
+    </div>
+    <p id="confirmMsg" class="text-muted" style="margin-top:16px;font-size:.9rem">Processing your payment...</p>
+  </div>
+</div>
+
+<!-- ═════════════════════════════════════════ -->
+<!-- PROFILE SETUP VIEW -->
+<!-- ═════════════════════════════════════════ -->
+<div class="view" id="profileSetupView">
+  <div class="app-header"><div class="logo-text">🌱 Grow31</div></div>
+  <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 20px">
+    <div style="width:100%;max-width:400px">
+      <div style="text-align:center;margin-bottom:28px">
+        <div class="profile-avatar" id="avatarPickerBtn" onclick="pickEmoji()">
+          <span id="avatarEmoji">🧑</span>
+        </div>
+        <h2 class="font-syne" style="font-size:1.4rem;font-weight:800;margin-bottom:6px">Complete Your Profile</h2>
+        <p class="text-muted text-sm">Set up your profile to unlock your referral ID and earn coins!</p>
+      </div>
+      <div class="glass-strong" style="padding:24px">
+        <p class="card-title" style="margin-bottom:16px">Your Details</p>
+        <input class="input" id="usernameInput" placeholder="Username (e.g. GrowChamp)" style="margin-bottom:12px" maxlength="20">
+        <select class="input" id="countrySelect" style="margin-bottom:12px">
+          <option value="IN">🇮🇳 India</option>
+          <option value="US">🇺🇸 United States</option>
+          <option value="UK">🇬🇧 United Kingdom</option>
+          <option value="AE">🇦🇪 UAE</option>
+          <option value="SG">🇸🇬 Singapore</option>
+        </select>
+        <select class="input" id="langSelect" style="margin-bottom:20px">
+          <option value="en">English</option>
+          <option value="hi">हिंदी (Hindi)</option>
+          <option value="ta">தமிழ் (Tamil)</option>
+          <option value="te">తెలుగు (Telugu)</option>
+          <option value="bn">বাংলা (Bengali)</option>
+        </select>
+        <button class="btn btn-white btn-full btn-lg" onclick="saveProfile()">Save &amp; Get My Referral ID 🎉</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EMOJI PICKER DIALOG -->
+<div class="dialog-overlay" id="emojiDialog">
+  <div class="dialog" style="max-width:340px">
+    <button class="dialog-close" onclick="closeDialog('emojiDialog')">✕</button>
+    <h3 style="font-family:'Poppins',sans-serif;font-weight:800;margin-bottom:16px">Pick Avatar</h3>
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:8px">
+      <!-- avatars rendered by JS -->
+    </div>
+  </div>
+</div>
+
+<!-- ═════════════════════════════════════════ -->
 <!-- DASHBOARD VIEW -->
+<!-- ═════════════════════════════════════════ -->
 <div class="view" id="dashView">
+  <!-- HEADER -->
   <div class="app-header">
-    <div class="logo-text">✨ Grow31</div>
+    <div class="logo-text">🌱 Grow31</div>
     <div class="flex items-center gap-3">
       <div class="coins-pill">🪙 <span id="headerCoins">0</span></div>
-      <button class="btn btn-icon btn-outline" onclick="doLogout()" title="Logout">↪️</button>
+      <button class="dots-btn" onclick="openDrawer()">⋮</button>
     </div>
   </div>
 
-  <div class="tab-nav">
-    <button class="tab-btn active" onclick="switchTab('overview',this)">Overview</button>
-    <button class="tab-btn" onclick="switchTab('tasks',this)">Tasks</button>
-    <button class="tab-btn" onclick="switchTab('rewards',this)">Rewards</button>
-    <button class="tab-btn" onclick="switchTab('rank',this)">Rank</button>
-  </div>
+  <!-- DASHBOARD PAGES (only one active at a time) -->
+  <div style="flex:1;overflow:hidden;position:relative">
+    <!-- ─── HOME PAGE ─── -->
+    <div class="page-content" id="pageHome" style="display:block">
+      <!-- Profile greeting -->
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
+        <div class="avatar av-user" id="dashAvatar" style="width:46px;height:46px;font-size:1.4rem;flex-shrink:0">🧑</div>
+        <div>
+          <h2 style="font-family:'Poppins',sans-serif;font-size:1.3rem;font-weight:800">Hi, <span id="userName">User</span>! 👋</h2>
+          <p class="text-muted" style="font-size:.8rem">Day <span id="userDay">1</span> of 31 · Keep going! 🔥</p>
+        </div>
+        <div style="margin-left:auto">
+          <button class="btn btn-outline btn-sm" onclick="showDashPage('pageLeader')">🏆</button>
+        </div>
+      </div>
 
-  <div style="flex:1;overflow-y:auto;padding:20px 16px">
-    <!-- Tab: Overview -->
-    <div class="tab-panel active" id="tab-overview">
-      <h2 style="font-family:'Syne',sans-serif;font-size:1.7rem;font-weight:800;margin-bottom:4px">Hi, <span id="userName" style="background:linear-gradient(135deg,#fff,#448aff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">User</span>! 👋</h2>
-      <p class="text-muted mb-4" style="margin-bottom:20px;font-size:.9rem">You're on Day <span id="userDay" style="color:#fff;font-weight:600">1</span> of 31 — keep going!</p>
-      
-      <div class="grid-2 mb-4" style="margin-bottom:16px">
+      <!-- BANNER AD SPACE -->
+      <div class="banner-ad">
+        <span style="font-size:1.2rem">📢</span>
+        <div style="text-align:left">
+          <p style="font-weight:600;font-size:.85rem">Advertisement Space</p>
+          <p class="text-muted" style="font-size:.72rem">Your ad here · Contact us</p>
+        </div>
+        <div class="banner-ad-label">AD</div>
+      </div>
+
+      <!-- COMPLETE PROFILE CTA (if not completed) -->
+      <div class="complete-profile-card" id="completeProfileCard" onclick="goToProfileSetup()">
+        <div style="font-size:1.8rem">✨</div>
+        <div style="flex:1">
+          <p style="font-weight:700;font-size:.95rem;margin-bottom:2px">Complete Your Profile</p>
+          <p class="text-muted" style="font-size:.78rem">Get your Referral ID &amp; earn 100 bonus coins</p>
+          <div class="progress-track" style="height:5px;margin-top:8px">
+            <div class="progress-fill" id="profileProgress" style="width:40%"></div>
+          </div>
+        </div>
+        <span style="color:rgba(255,255,255,0.3);font-size:.9rem">→</span>
+      </div>
+
+      <!-- REFERRAL INVITE CARD (highlighted) -->
+      <div class="invite-card invite-card-glow mb-4" onclick="openReferralDialog()" style="margin-bottom:14px">
+        <div>
+          <p style="font-weight:700;font-size:.95rem;margin-bottom:3px">👥 Invite Friends</p>
+          <p style="font-size:.78rem;color:rgba(255,255,255,0.5)">Earn <span style="color:#00e676;font-weight:700">+50 coins</span> per referral 🎁</p>
+          <p style="font-size:.72rem;color:rgba(0,230,118,0.7);margin-top:3px">Your code: <span id="homeRefCode" style="font-weight:700;font-family:'Poppins',sans-serif;letter-spacing:2px">—</span></p>
+        </div>
+        <button class="btn btn-green btn-sm" style="pointer-events:none;flex-shrink:0">Invite →</button>
+      </div>
+
+      <!-- STATS ROW -->
+      <div class="grid-2 mb-4" style="margin-bottom:14px">
         <div class="card stat-card">
           <div class="stat-icon">🔥 Streak</div>
           <div class="stat-val" id="statStreak" style="color:#ff7043">0</div>
         </div>
         <div class="card stat-card">
           <div class="stat-icon">🏆 Rank</div>
-          <div class="stat-val" id="statRank" style="color:#f5c518">#-</div>
+          <div class="stat-val" id="statRank" style="color:#f5c518">#–</div>
         </div>
       </div>
 
-      <div class="invite-card mb-4" onclick="openReferralDialog()" style="margin-bottom:16px">
-        <div>
-          <p style="font-weight:700;font-size:.95rem;margin-bottom:3px">Invite Friends</p>
-          <p style="font-size:.8rem;color:rgba(255,255,255,0.45)">Earn 25 coins per friend 🎁</p>
+      <!-- TODAY'S TASKS MINI -->
+      <div class="card mb-4" style="margin-bottom:14px">
+        <div class="card-header" style="display:flex;justify-content:space-between;align-items:center;padding-bottom:0">
+          <div class="card-title">Today's Tasks</div>
+          <button class="btn btn-outline btn-sm" style="font-size:.7rem;padding:4px 10px" onclick="showDashPage('pageTasks')">See All</button>
         </div>
-        <button class="btn btn-outline btn-sm" style="pointer-events:none">Invite →</button>
+        <div id="miniTasksList" style="padding:8px 16px 16px"></div>
       </div>
+
+      <!-- QUICK ACTIONS GRID -->
+      <div class="grid-2 mb-4" style="margin-bottom:14px">
+        <div class="card" style="padding:16px;cursor:pointer;text-align:center" onclick="showDashPage('pageSpin')">
+          <div style="font-size:2rem;margin-bottom:6px">🎡</div>
+          <p style="font-weight:700;font-size:.9rem">Spin Wheel</p>
+          <p class="text-muted text-xs">Win big coins!</p>
+        </div>
+        <div class="card" style="padding:16px;cursor:pointer;text-align:center" onclick="showView('followView')">
+          <div style="font-size:2rem;margin-bottom:6px">❤️</div>
+          <p style="font-weight:700;font-size:.9rem">Follow &amp; Earn</p>
+          <p class="text-muted text-xs">Social rewards</p>
+        </div>
+        <div class="card" style="padding:16px;cursor:pointer;text-align:center" onclick="showView('winnersView')">
+          <div style="font-size:2rem;margin-bottom:6px">🏅</div>
+          <p style="font-weight:700;font-size:.9rem">Winners</p>
+          <p class="text-muted text-xs">Today's results</p>
+        </div>
+        <div class="card" style="padding:16px;cursor:pointer;text-align:center" onclick="showDashPage('pageSlots')">
+          <div style="font-size:2rem;margin-bottom:6px">🎰</div>
+          <p style="font-weight:700;font-size:.9rem">My Slot</p>
+          <p class="text-muted text-xs">Pool progress</p>
+        </div>
+      </div>
+
+      <!-- DAY GRID -->
+      <h3 class="section-heading" style="font-size:1rem;margin-bottom:10px">31-Day Progress</h3>
+      <div class="grid-7 mb-4" id="homeGrid" style="margin-bottom:20px"></div>
     </div>
 
-    <!-- Tab: Tasks -->
-    <div class="tab-panel" id="tab-tasks">
+    <!-- ─── TASKS PAGE ─── -->
+    <div class="page-content" id="pageTasks" style="display:none">
+      <h2 class="section-heading">Day <span id="taskDayNum">1</span> Tasks 📋</h2>
       <div id="tasksList"></div>
-      <div class="grid-7 mt-4" style="margin-top:20px" id="dayGrid"></div>
+      <h3 class="section-heading" style="font-size:1rem;margin-top:20px;margin-bottom:10px">31-Day Calendar</h3>
+      <div class="grid-7" id="dayGrid"></div>
     </div>
 
-    <!-- Tab: Rewards -->
-    <div class="tab-panel" id="tab-rewards">
-      <div id="rewardsList"></div>
+    <!-- ─── SLOTS PAGE ─── -->
+    <div class="page-content" id="pageSlots" style="display:none">
+      <h2 class="section-heading">Slot System 🎰</h2>
+      <div class="card mb-4" style="margin-bottom:16px">
+        <div class="card-content" style="padding:16px;text-align:center">
+          <p class="card-title" style="margin-bottom:8px">Your Current Slot</p>
+          <div style="font-family:'Poppins',sans-serif;font-size:2.5rem;font-weight:800;color:#00e676;margin-bottom:4px">Slot <span id="currentSlotNum">1</span></div>
+          <p class="text-muted text-sm">Pool members: <span id="currentSlotMembers" style="color:#fff;font-weight:700">1</span></p>
+          <div class="progress-track" style="height:6px;margin:12px 0">
+            <div class="progress-fill" id="slotProgress" style="width:10%"></div>
+          </div>
+          <p class="text-xs text-muted"><span id="slotReferralsLeft">9</span> more referrals to advance to next slot</p>
+        </div>
+      </div>
+      <p class="text-sm text-muted" style="margin-bottom:12px;line-height:1.6">Complete referrals and daily tasks to advance through slots. Each slot doubles in pool size and reward potential!</p>
+      <div id="slotsList"></div>
     </div>
 
-    <!-- Tab: Rank -->
-    <div class="tab-panel" id="tab-rank">
+    <!-- ─── SPIN PAGE ─── -->
+    <div class="page-content" id="pageSpin" style="display:none">
+      <h2 class="section-heading">Spin Wheel 🎡</h2>
+      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:20px">
+        <div class="spin-wheel-wrapper">
+          <div class="spin-pointer">▼</div>
+          <canvas id="spinCanvas" width="280" height="280"></canvas>
+          <div class="spin-center"></div>
+        </div>
+        <div class="spin-btn-row">
+          <button class="btn btn-blue btn-full" onclick="doSpin('coins')" id="spinBtn1">
+            🎟️ x1 + 🪙 50,000<br><span style="font-size:.7rem;opacity:.7">Spin with tokens</span>
+          </button>
+          <button class="btn btn-outline btn-full" onclick="doSpin('tokens')" id="spinBtn2">
+            🎡 Spin x5<br><span style="font-size:.7rem;opacity:.7">200 tokens</span>
+          </button>
+        </div>
+      </div>
+      <div class="spin-info-row">
+        <div class="spin-token-box">🎟️ <span id="spinTickets">3</span> tickets <button class="btn btn-outline btn-sm" onclick="buyTickets()" style="margin-left:6px;padding:4px 8px;font-size:.7rem">+</button></div>
+        <div class="spin-token-box">🪙 <span id="spinCoins">0</span></div>
+      </div>
+      <div style="margin-top:16px">
+        <h3 class="section-heading" style="font-size:1rem;margin-bottom:10px">Recent Wins 🏆</h3>
+        <div id="spinRecords"></div>
+      </div>
+    </div>
+
+    <!-- ─── LEADERBOARD PAGE ─── -->
+    <div class="page-content" id="pageLeader" style="display:none">
+      <h2 class="section-heading">Leaderboard 🏆</h2>
+      <!-- Competition Schedule -->
+      <div class="card mb-4" style="margin-bottom:16px">
+        <div class="card-header">
+          <div class="card-title">🏅 Daily Competition Schedule</div>
+        </div>
+        <div style="padding:0 16px 16px">
+          <div class="schedule-row">
+            <div class="schedule-days">Days 1–6</div>
+            <div class="schedule-wins">
+              <span class="schedule-win-badge">1 Referral Win</span>
+              <span class="schedule-win-badge pool">1 Pool Win</span>
+            </div>
+          </div>
+          <div class="schedule-row">
+            <div class="schedule-days">Days 11–15</div>
+            <div class="schedule-wins">
+              <span class="schedule-win-badge">3 Referral Wins</span>
+              <span class="schedule-win-badge pool">2 Pool Wins</span>
+            </div>
+          </div>
+          <div class="schedule-row">
+            <div class="schedule-days">Days 16–20</div>
+            <div class="schedule-wins">
+              <span class="schedule-win-badge">5 Referral Wins</span>
+              <span class="schedule-win-badge pool">3 Pool Wins</span>
+            </div>
+          </div>
+          <div class="schedule-row">
+            <div class="schedule-days">Days 21–25</div>
+            <div class="schedule-wins">
+              <span class="schedule-win-badge">7 Referral Wins</span>
+              <span class="schedule-win-badge pool">5 Pool Wins</span>
+            </div>
+          </div>
+          <div class="schedule-row">
+            <div class="schedule-days">Days 25–31</div>
+            <div class="schedule-wins">
+              <span class="schedule-win-badge">10 Referral Wins</span>
+              <span class="schedule-win-badge pool">10 Pool Wins</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Leaderboard list -->
       <div class="card" id="leaderboardList"></div>
+    </div>
+
+    <!-- ─── MORE PAGE ─── -->
+    <div class="page-content" id="pageMore" style="display:none">
+      <!-- Profile preview -->
+      <div style="display:flex;align-items:center;gap:16px;background:linear-gradient(135deg,rgba(68,138,255,0.12),rgba(138,43,226,0.08));border:1px solid rgba(68,138,255,0.2);border-radius:18px;padding:18px;margin-bottom:16px">
+        <div class="avatar av-user" id="moreAvatar" style="width:54px;height:54px;font-size:1.6rem;flex-shrink:0">🧑</div>
+        <div style="flex:1">
+          <p style="font-weight:700;font-size:1.05rem;font-family:'Poppins',sans-serif" id="moreUsername">User</p>
+          <p class="text-muted text-xs" id="morePhone">+91 xxxxxxxx</p>
+          <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap">
+            <span class="badge badge-yellow">🪙 <span id="moreCoins">0</span></span>
+            <span class="badge badge-blue">Slot <span id="moreSlot">1</span></span>
+          </div>
+        </div>
+      </div>
+      <!-- Social links -->
+      <div class="card" style="margin-bottom:12px">
+        <div class="list-item" style="cursor:pointer" onclick="showDashPage('pageTasks')">
+          <span style="font-size:1.2rem">📋</span>
+          <span style="flex:1;font-weight:500">My Tasks</span>
+          <span class="text-muted">›</span>
+        </div>
+        <div class="list-item" style="cursor:pointer" onclick="openReferralDialog()">
+          <span style="font-size:1.2rem">👥</span>
+          <span style="flex:1;font-weight:500">My Referrals</span>
+          <span class="badge badge-green" id="moreRefCount">0</span>
+          <span class="text-muted" style="margin-left:8px">›</span>
+        </div>
+        <div class="list-item" style="cursor:pointer" onclick="showView('winnersView')">
+          <span style="font-size:1.2rem">🏅</span>
+          <span style="flex:1;font-weight:500">Winners &amp; Updates</span>
+          <span class="text-muted">›</span>
+        </div>
+      </div>
+      <div class="card" style="margin-bottom:12px">
+        <div class="list-item" style="cursor:pointer" onclick="openDrawer()">
+          <span style="font-size:1.2rem">⚙️</span>
+          <span style="flex:1;font-weight:500">Settings</span>
+          <span class="text-muted">›</span>
+        </div>
+        <div class="list-item" style="cursor:pointer" onclick="openDrawer('lang')">
+          <span style="font-size:1.2rem">🌐</span>
+          <span style="flex:1;font-weight:500">Language</span>
+          <span class="text-muted" id="moreLang">English ›</span>
+        </div>
+        <div class="list-item" style="cursor:pointer" onclick="openDrawer('country')">
+          <span style="font-size:1.2rem">🗺️</span>
+          <span style="flex:1;font-weight:500">Country</span>
+          <span class="text-muted" id="moreCountry">🇮🇳 India ›</span>
+        </div>
+      </div>
+      <div class="card" style="margin-bottom:12px">
+        <div class="list-item" style="cursor:pointer" onclick="showView('aiChatView')">
+          <span style="font-size:1.2rem">🤖</span>
+          <span style="flex:1;font-weight:500">AI Assistant</span>
+          <span class="badge badge-blue">New</span>
+          <span class="text-muted" style="margin-left:8px">›</span>
+        </div>
+        <div class="list-item" style="cursor:pointer" onclick="showView('helpView')">
+          <span style="font-size:1.2rem">❓</span>
+          <span style="flex:1;font-weight:500">Help &amp; Support</span>
+          <span class="text-muted">›</span>
+        </div>
+        <div class="list-item" style="cursor:pointer" onclick="showView('termsView2')">
+          <span style="font-size:1.2rem">📋</span>
+          <span style="flex:1;font-weight:500">Terms &amp; Conditions</span>
+          <span class="text-muted">›</span>
+        </div>
+      </div>
+      <button class="btn btn-danger btn-full" onclick="doLogout()" style="margin-top:8px">↪ Logout</button>
+      <p class="text-xs text-muted text-center" style="margin-top:16px;opacity:.4">Grow31 v1.0 · support@grow31.in</p>
+      <p class="text-xs text-muted text-center" style="margin-top:4px;opacity:.3">
+        <span onclick="adminShortcut()" style="cursor:pointer">·</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- BOTTOM NAVIGATION -->
+  <div class="bottom-nav">
+    <button class="nav-btn active" id="navHome" onclick="showDashPage('pageHome')">
+      <span class="nav-icon">🏠</span>Home
+    </button>
+    <button class="nav-btn" id="navSlots" onclick="showDashPage('pageSlots')">
+      <span class="nav-icon">🎰</span>Slots
+    </button>
+    <button class="nav-btn invite-active" id="navInvite" onclick="openReferralDialog()">
+      <div class="nav-icon-wrap">👥</div>
+      Invite
+    </button>
+    <button class="nav-btn" id="navSpin" onclick="showDashPage('pageSpin')">
+      <span class="nav-icon">🎡</span>Spin
+    </button>
+    <button class="nav-btn" id="navMore" onclick="showDashPage('pageMore')">
+      <span class="nav-icon">⋯</span>More
+    </button>
+  </div>
+</div>
+
+<!-- ═════════════════════════════════════════ -->
+<!-- FOLLOW & EARN VIEW -->
+<!-- ═════════════════════════════════════════ -->
+<div class="view" id="followView">
+  <div class="app-header">
+    <button class="back-btn" onclick="backToDash()" style="margin:0">← Back</button>
+    <div class="logo-text">Follow &amp; Earn</div>
+    <div class="coins-pill">🪙 <span id="followCoins">0</span></div>
+  </div>
+  <div class="page-content">
+    <h2 class="section-heading">Follow &amp; Earn 💰</h2>
+    <p class="text-muted text-sm" style="margin-bottom:16px;line-height:1.6">Follow Grow31 on social media to earn coins and get the latest updates!</p>
+
+    <!-- Follow Cards -->
+    <div class="follow-card">
+      <div class="follow-icon" style="background:rgba(29,161,242,0.15);border:1px solid rgba(29,161,242,0.2)">🐦</div>
+      <div style="flex:1">
+        <p style="font-weight:700;font-size:.95rem">Follow on X (Twitter)</p>
+        <p class="text-muted text-xs">Get updates &amp; announcements</p>
+        <p class="coins-reward">+50 🪙</p>
+      </div>
+      <button class="btn btn-blue btn-sm" onclick="followSocial('twitter',50,this)">Follow</button>
+    </div>
+    <div class="follow-card">
+      <div class="follow-icon" style="background:rgba(0,119,181,0.15);border:1px solid rgba(0,119,181,0.2)">💬</div>
+      <div style="flex:1">
+        <p style="font-weight:700;font-size:.95rem">Join Telegram Channel</p>
+        <p class="text-muted text-xs">Official updates &amp; giveaways</p>
+        <p class="coins-reward">+50 🪙</p>
+      </div>
+      <button class="btn btn-blue btn-sm" onclick="followSocial('telegram',50,this)">Join</button>
+    </div>
+    <div class="follow-card">
+      <div class="follow-icon" style="background:rgba(225,48,108,0.15);border:1px solid rgba(225,48,108,0.2)">📸</div>
+      <div style="flex:1">
+        <p style="font-weight:700;font-size:.95rem">Follow on Instagram</p>
+        <p class="text-muted text-xs">Behind the scenes &amp; winners</p>
+        <p class="coins-reward">+50 🪙</p>
+      </div>
+      <button class="btn btn-blue btn-sm" onclick="followSocial('instagram',50,this)">Follow</button>
+    </div>
+    <div class="follow-card">
+      <div class="follow-icon" style="background:rgba(255,0,0,0.12);border:1px solid rgba(255,0,0,0.2)">▶️</div>
+      <div style="flex:1">
+        <p style="font-weight:700;font-size:.95rem">Subscribe on YouTube</p>
+        <p class="text-muted text-xs">Tutorial videos &amp; livestreams</p>
+        <p class="coins-reward">+100 🪙</p>
+      </div>
+      <button class="btn btn-blue btn-sm" onclick="followSocial('youtube',100,this)">Subscribe</button>
+    </div>
+    <div class="follow-card">
+      <div class="follow-icon" style="background:rgba(24,119,242,0.12);border:1px solid rgba(24,119,242,0.2)">👥</div>
+      <div style="flex:1">
+        <p style="font-weight:700;font-size:.95rem">Like on Facebook</p>
+        <p class="text-muted text-xs">Community &amp; discussion</p>
+        <p class="coins-reward">+30 🪙</p>
+      </div>
+      <button class="btn btn-blue btn-sm" onclick="followSocial('facebook',30,this)">Like</button>
+    </div>
+    <div class="follow-card">
+      <div class="follow-icon" style="background:rgba(0,128,0,0.12);border:1px solid rgba(0,128,0,0.2)">💬</div>
+      <div style="flex:1">
+        <p style="font-weight:700;font-size:.95rem">Join WhatsApp Group</p>
+        <p class="text-muted text-xs">Daily tasks &amp; reminders</p>
+        <p class="coins-reward">+50 🪙</p>
+      </div>
+      <button class="btn btn-blue btn-sm" onclick="followSocial('whatsapp',50,this)">Join</button>
+    </div>
+
+    <!-- Daily check-in -->
+    <div class="card mt-4" style="margin-top:20px">
+      <div class="card-content" style="text-align:center;padding:20px">
+        <div style="font-size:2rem;margin-bottom:8px">📅</div>
+        <p style="font-weight:700;font-size:1rem;margin-bottom:4px">Daily Check-In</p>
+        <p class="text-muted text-sm" style="margin-bottom:14px">Check in every day for bonus coins!</p>
+        <button class="btn btn-green btn-full" id="checkInBtn" onclick="doCheckIn()">✓ Check In Today (+5 🪙)</button>
+      </div>
     </div>
   </div>
 </div>
 
+<!-- ═════════════════════════════════════════ -->
+<!-- WINNERS VIEW -->
+<!-- ═════════════════════════════════════════ -->
+<div class="view" id="winnersView">
+  <div class="app-header">
+    <button class="back-btn" onclick="backToDash()" style="margin:0">← Back</button>
+    <div class="logo-text">🏅 Winners</div>
+    <div style="width:60px"></div>
+  </div>
+  <div class="page-content">
+    <h2 class="section-heading">Winners &amp; Updates 🏆</h2>
+
+    <!-- Tabs -->
+    <div style="display:flex;gap:8px;margin-bottom:16px">
+      <button class="btn btn-blue btn-sm" id="wTab1" onclick="switchWinnersTab('winners')">🏆 Winners</button>
+      <button class="btn btn-outline btn-sm" id="wTab2" onclick="switchWinnersTab('updates')">📢 Updates</button>
+      <button class="btn btn-outline btn-sm" id="wTab3" onclick="switchWinnersTab('schedule')">📅 Schedule</button>
+    </div>
+
+    <!-- Winners Tab -->
+    <div id="winnersTab">
+      <div class="winner-card">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+          <span style="font-size:1.5rem">🥇</span>
+          <div>
+            <p style="font-weight:700">Rahul_GROW2847</p>
+            <p class="text-muted text-xs">Referral Winner · Day 6</p>
+          </div>
+          <div style="margin-left:auto;text-align:right">
+            <p style="font-weight:700;color:#f5c518">+₹500</p>
+            <p class="text-xs text-muted">Prize Won</p>
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span class="badge badge-yellow">10 Referrals</span>
+          <span class="badge badge-green">Day 6 Champion</span>
+        </div>
+      </div>
+      <div class="winner-card">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+          <span style="font-size:1.5rem">🥈</span>
+          <div>
+            <p style="font-weight:700">Priya_GROW1923</p>
+            <p class="text-muted text-xs">Pool Winner · Day 5</p>
+          </div>
+          <div style="margin-left:auto;text-align:right">
+            <p style="font-weight:700;color:#f5c518">+₹300</p>
+            <p class="text-xs text-muted">Prize Won</p>
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span class="badge badge-blue">Slot 8</span>
+          <span class="badge badge-purple">Pool Champion</span>
+        </div>
+      </div>
+      <div class="winner-card">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+          <span style="font-size:1.5rem">🥉</span>
+          <div>
+            <p style="font-weight:700">Amit_GROW3341</p>
+            <p class="text-muted text-xs">Pool Winner · Day 4</p>
+          </div>
+          <div style="margin-left:auto;text-align:right">
+            <p style="font-weight:700;color:#f5c518">+₹150</p>
+            <p class="text-xs text-muted">Prize Won</p>
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span class="badge badge-blue">Slot 5</span>
+          <span class="badge badge-green">Streak 28</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Updates Tab -->
+    <div id="updatesTab" style="display:none">
+      <div class="update-card">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+          <span class="badge badge-blue">📢 Announcement</span>
+          <span class="text-muted text-xs">2 hours ago</span>
+        </div>
+        <p style="font-weight:600;font-size:.95rem;margin-bottom:4px">Spin Wheel Jackpot Updated!</p>
+        <p class="text-muted text-sm">The jackpot prize has been increased to 500,000 coins. Spin now for your chance to win big!</p>
+      </div>
+      <div class="update-card">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+          <span class="badge badge-green">🎉 Milestone</span>
+          <span class="text-muted text-xs">1 day ago</span>
+        </div>
+        <p style="font-weight:600;font-size:.95rem;margin-bottom:4px">1,000 Users Joined!</p>
+        <p class="text-muted text-sm">Grow31 has crossed 1,000 active participants. The pool prize is now bigger than ever!</p>
+      </div>
+      <div class="update-card">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+          <span class="badge badge-yellow">🔔 Reminder</span>
+          <span class="text-muted text-xs">2 days ago</span>
+        </div>
+        <p style="font-weight:600;font-size:.95rem;margin-bottom:4px">Complete Day 6 Tasks Today</p>
+        <p class="text-muted text-sm">Don't forget to complete your daily tasks to maintain your streak and stay competitive!</p>
+      </div>
+    </div>
+
+    <!-- Schedule Tab -->
+    <div id="scheduleTab" style="display:none">
+      <div class="card">
+        <div class="card-header"><div class="card-title">Full Competition Schedule</div></div>
+        <div style="padding:0 16px 16px">
+          <div class="schedule-row">
+            <div style="flex:1">
+              <div class="schedule-days" style="display:inline-block;margin-bottom:8px">Days 1–6 (Per Day)</div>
+              <div class="schedule-wins">
+                <span class="schedule-win-badge">1 Referral Win</span>
+                <span class="schedule-win-badge pool">1 Pool Win</span>
+              </div>
+            </div>
+          </div>
+          <div class="schedule-row">
+            <div style="flex:1">
+              <div class="schedule-days" style="display:inline-block;margin-bottom:8px">Days 11–15 (Per Day)</div>
+              <div class="schedule-wins">
+                <span class="schedule-win-badge">3 Referral Wins</span>
+                <span class="schedule-win-badge pool">2 Pool Wins</span>
+              </div>
+            </div>
+          </div>
+          <div class="schedule-row">
+            <div style="flex:1">
+              <div class="schedule-days" style="display:inline-block;margin-bottom:8px">Days 16–20 (Per Day)</div>
+              <div class="schedule-wins">
+                <span class="schedule-win-badge">5 Referral Wins</span>
+                <span class="schedule-win-badge pool">3 Pool Wins</span>
+              </div>
+            </div>
+          </div>
+          <div class="schedule-row">
+            <div style="flex:1">
+              <div class="schedule-days" style="display:inline-block;margin-bottom:8px">Days 21–25 (Per Day)</div>
+              <div class="schedule-wins">
+                <span class="schedule-win-badge">7 Referral Wins</span>
+                <span class="schedule-win-badge pool">5 Pool Wins</span>
+              </div>
+            </div>
+          </div>
+          <div class="schedule-row">
+            <div style="flex:1">
+              <div class="schedule-days" style="display:inline-block;margin-bottom:8px">Days 25–31 (Per Day)</div>
+              <div class="schedule-wins">
+                <span class="schedule-win-badge">10 Referral Wins</span>
+                <span class="schedule-win-badge pool">10 Pool Wins</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════════════════════════════════════ -->
+<!-- AI CHAT VIEW -->
+<!-- ═════════════════════════════════════════ -->
+<div class="view" id="aiChatView" style="min-height:100vh">
+  <div class="app-header">
+    <button class="back-btn" onclick="backToDash()" style="margin:0">← Back</button>
+    <div class="logo-text">🤖 AI Assistant</div>
+    <button class="btn btn-outline btn-sm" onclick="clearChat()">Clear</button>
+  </div>
+  <div class="chat-wrap">
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-bubble ai">👋 Hi! I'm your Grow31 AI assistant. Ask me anything about the challenge, slots, spin wheel, referrals, or how to earn more coins!</div>
+    </div>
+    <div class="chat-input-row">
+      <input class="chat-input" id="chatInput" placeholder="Ask anything..." onkeydown="if(event.key==='Enter')sendChat()">
+      <button class="chat-send" onclick="sendChat()">➤</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════════════════════════════════════ -->
+<!-- HELP VIEW -->
+<!-- ═════════════════════════════════════════ -->
+<div class="view" id="helpView">
+  <div class="app-header">
+    <button class="back-btn" onclick="backToDash()" style="margin:0">← Back</button>
+    <div class="logo-text">❓ Help</div>
+    <div style="width:60px"></div>
+  </div>
+  <div class="page-content">
+    <h2 class="section-heading">Help &amp; Support</h2>
+    <div class="card mb-4" style="margin-bottom:12px">
+      <div class="card-content">
+        <p style="font-weight:700;margin-bottom:6px">📧 Email Support</p>
+        <p class="text-muted text-sm">support@grow31.in</p>
+        <p class="text-muted text-xs" style="margin-top:4px">Response within 24 hours</p>
+      </div>
+    </div>
+    <div class="card mb-4" style="margin-bottom:12px">
+      <div class="card-content">
+        <p style="font-weight:700;margin-bottom:10px">❓ Frequently Asked Questions</p>
+        <div style="border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:10px;margin-bottom:10px">
+          <p style="font-weight:600;font-size:.9rem;margin-bottom:4px">How do I earn coins?</p>
+          <p class="text-muted text-sm">Complete daily tasks, refer friends, spin the wheel, follow on social media, and daily check-ins.</p>
+        </div>
+        <div style="border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:10px;margin-bottom:10px">
+          <p style="font-weight:600;font-size:.9rem;margin-bottom:4px">How does the slot system work?</p>
+          <p class="text-muted text-sm">Each slot doubles in pool size. Advance by completing referrals. Higher slots = higher rewards!</p>
+        </div>
+        <div style="border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:10px;margin-bottom:10px">
+          <p style="font-weight:600;font-size:.9rem;margin-bottom:4px">When are rewards distributed?</p>
+          <p class="text-muted text-sm">Pool wins are distributed daily based on the competition schedule. Referral wins are instant.</p>
+        </div>
+        <div>
+          <p style="font-weight:600;font-size:.9rem;margin-bottom:4px">Is the ₹30 refundable?</p>
+          <p class="text-muted text-sm">The entry fee is non-refundable as it contributes to the prize pool.</p>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-blue btn-full" onclick="showView('aiChatView')">🤖 Chat with AI Assistant</button>
+  </div>
+</div>
+
+<!-- TERMS VIEW 2 (from inside app) -->
+<div class="view" id="termsView2">
+  <div class="app-header">
+    <button class="back-btn" onclick="backToDash()" style="margin:0">← Back</button>
+    <div class="logo-text">📋 Terms</div>
+    <div style="width:60px"></div>
+  </div>
+  <div class="page-content">
+    <h2 class="section-heading">Terms &amp; Conditions</h2>
+    <div class="terms-body" style="max-height:none">
+      <h4>1. Eligibility</h4>
+      <p>Grow31 is open to users 18 years and above residing in India.</p>
+      <h4>2. Challenge Rules</h4>
+      <p>The challenge spans 31 days. Participants must complete daily tasks and maintain their streak to be eligible for rewards.</p>
+      <h4>3. Entry Fee</h4>
+      <p>A one-time non-refundable entry fee of ₹30 is required to join the challenge.</p>
+      <h4>4. Referral System</h4>
+      <p>Each registered user receives a unique referral code. Referring friends earns coin bonuses for both parties.</p>
+      <h4>5. Slot System</h4>
+      <p>The slot system operates on a binary doubling model with 31 tiers.</p>
+      <h4>6. Spin Wheel</h4>
+      <p>Spin wheel prizes are randomized. Results are final.</p>
+      <h4>7. Rewards &amp; Withdrawals</h4>
+      <p>Coin rewards can be claimed through the dashboard. Minimum thresholds apply for withdrawals.</p>
+      <h4>8. Privacy</h4>
+      <p>Your data is stored securely. We do not sell personal data to third parties.</p>
+      <h4>9. Prohibited Activities</h4>
+      <p>Creating multiple accounts or engaging in fraudulent activity will result in permanent disqualification.</p>
+      <h4>10. Contact</h4>
+      <p>support@grow31.in</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════════════════════════════════════ -->
 <!-- ADMIN VIEW -->
+<!-- ═════════════════════════════════════════ -->
 <div class="view" id="adminView">
   <div class="app-header">
     <div class="logo-text">🛡️ Admin Panel</div>
@@ -673,41 +1187,73 @@ select.input option{background:#0e0e1f;color:#fff}
   </div>
   <div class="tab-nav">
     <button class="tab-btn active" onclick="switchAdminTab('users',this)">Users</button>
-    <button class="tab-btn" onclick="switchAdminTab('add-reward',this)">Add Reward</button>
+    <button class="tab-btn" onclick="switchAdminTab('add-reward',this)">Rewards</button>
     <button class="tab-btn" onclick="switchAdminTab('system',this)">System</button>
   </div>
-
   <div style="flex:1;overflow-y:auto;padding:20px 16px">
     <div class="tab-panel active" id="atab-users">
       <div id="adminUserList"></div>
     </div>
-
     <div class="tab-panel" id="atab-add-reward">
       <div class="card">
         <div class="card-content" style="padding:24px">
           <h3 class="section-heading" style="margin-bottom:20px;font-size:1.1rem">Create New Reward</h3>
-          <div class="space-y-3">
-            <input class="input mb-4" id="admRewName" placeholder="Reward Name (e.g. Amazon Voucher)">
-            <select class="input mb-4" id="admRewTier">
-                <option value="basic">Basic Tier</option>
-                <option value="advanced">Advanced Tier</option>
-                <option value="premium">Premium Tier</option>
-            </select>
-            <input class="input mb-4" id="admRewValue" placeholder="Display Value (e.g. ₹500)">
-            <textarea class="input mb-4" id="admRewDesc" placeholder="Description..."></textarea>
-            <button class="btn btn-white btn-full" onclick="addRewardAdmin()">Create Reward</button>
-          </div>
+          <input class="input mb-4" id="admRewName" placeholder="Reward Name" style="margin-bottom:12px">
+          <select class="input mb-4" id="admRewTier" style="margin-bottom:12px">
+            <option value="basic">Basic Tier</option>
+            <option value="advanced">Advanced Tier</option>
+            <option value="premium">Premium Tier</option>
+          </select>
+          <input class="input mb-4" id="admRewValue" placeholder="Value (e.g. ₹500)" style="margin-bottom:12px">
+          <textarea class="input mb-4" id="admRewDesc" placeholder="Description..." style="margin-bottom:16px;min-height:80px"></textarea>
+          <button class="btn btn-white btn-full" onclick="addRewardAdmin()">Create Reward</button>
         </div>
       </div>
     </div>
-
     <div class="tab-panel" id="atab-system">
-        <div class="card" style="padding:24px;text-align:center">
-          <p class="text-muted text-sm" style="margin-bottom:20px;font-size:.9rem">⚠️ Danger Zone — this action cannot be undone</p>
-          <button class="btn btn-danger btn-full mb-4" onclick="resetAllData()">RESET ALL SYSTEM DATA</button>
-          <p class="text-muted text-xs text-center" style="opacity:.5">Caution: Deletes everything in LocalStorage.</p>
-        </div>
+      <div class="card" style="padding:24px;text-align:center">
+        <p class="text-muted text-sm" style="margin-bottom:20px">⚠️ Danger Zone — cannot be undone</p>
+        <button class="btn btn-danger btn-full mb-4" onclick="resetAllData()" style="margin-bottom:12px">RESET ALL SYSTEM DATA</button>
+        <p class="text-muted text-xs" style="opacity:.5">Caution: Deletes everything in LocalStorage.</p>
+      </div>
     </div>
+  </div>
+</div>
+
+<!-- ═════════════════════════════════════════ -->
+<!-- DRAWER (3-dot menu) -->
+<!-- ═════════════════════════════════════════ -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
+<div class="drawer" id="mainDrawer">
+  <div class="drawer-header">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div class="avatar av-user" id="drawerAvatar" style="width:44px;height:44px;font-size:1.3rem">🧑</div>
+      <div>
+        <p style="font-weight:700;font-size:.95rem" id="drawerName">User</p>
+        <p class="text-muted text-xs" id="drawerPhone">+91 xxxxxxxx</p>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-item" onclick="closeDrawer();showDashPage('pageMore')">
+    <span class="drawer-item-icon">👤</span>Profile<span class="drawer-item-arr">›</span>
+  </div>
+  <div class="drawer-item" onclick="closeDrawer();showLangDialog()">
+    <span class="drawer-item-icon">🌐</span>Language<span class="drawer-item-arr">›</span>
+  </div>
+  <div class="drawer-item" onclick="closeDrawer();showCountryDialog()">
+    <span class="drawer-item-icon">🗺️</span>Country<span class="drawer-item-arr">›</span>
+  </div>
+  <div class="drawer-item" onclick="closeDrawer();showView('helpView')">
+    <span class="drawer-item-icon">❓</span>Help &amp; Support<span class="drawer-item-arr">›</span>
+  </div>
+  <div class="drawer-item" onclick="closeDrawer();showView('termsView2')">
+    <span class="drawer-item-icon">📋</span>Terms &amp; Conditions<span class="drawer-item-arr">›</span>
+  </div>
+  <div class="drawer-item" onclick="closeDrawer();showView('aiChatView')">
+    <span class="drawer-item-icon">🤖</span>AI Assistant <span class="badge badge-blue" style="margin-left:6px;font-size:.6rem">NEW</span><span class="drawer-item-arr">›</span>
+  </div>
+  <div style="margin-top:auto;padding:20px">
+    <button class="btn btn-danger btn-full" onclick="closeDrawer();doLogout()">↪ Logout</button>
   </div>
 </div>
 
@@ -715,318 +1261,1113 @@ select.input option{background:#0e0e1f;color:#fff}
 <div class="dialog-overlay" id="refDialog">
   <div class="dialog">
     <button class="dialog-close" onclick="closeDialog('refDialog')">✕</button>
-    <h3 style="font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800;margin-bottom:4px">Your Referral Code</h3>
-    <p class="text-muted text-sm" style="margin-bottom:4px;font-size:.85rem">Share with friends to earn coins</p>
+    <h3 style="font-family:'Poppins',sans-serif;font-size:1.2rem;font-weight:800;margin-bottom:4px">👥 Your Referral Code</h3>
+    <p class="text-muted text-sm" style="margin-bottom:4px;font-size:.85rem">Share with friends to earn +50 coins each!</p>
     <div class="ref-code-display">
-        <h2 class="ref-code-text" id="myRefCodeDisplay">GROW000</h2>
+      <h2 class="ref-code-text" id="myRefCodeDisplay">GROW0000</h2>
     </div>
-    <button class="btn btn-white btn-full" onclick="copyRef()">📋 Copy &amp; Share</button>
+    <div class="grid-2" style="margin-bottom:12px">
+      <button class="btn btn-white" onclick="copyRef()">📋 Copy</button>
+      <button class="btn btn-outline" onclick="shareRef()">📤 Share</button>
+    </div>
+    <div style="background:rgba(0,230,118,0.06);border:1px solid rgba(0,230,118,0.15);border-radius:10px;padding:12px;text-align:center">
+      <p class="text-xs" style="color:rgba(255,255,255,0.6)">Referrals: <span style="color:#00e676;font-weight:700" id="refDialogCount">0</span> friends</p>
+      <p class="text-xs text-muted" style="margin-top:4px">Earned: <span style="color:#f5c518;font-weight:700" id="refDialogEarned">0</span> 🪙 from referrals</p>
+    </div>
+  </div>
+</div>
+
+<div class="dialog-overlay" id="langDialog">
+  <div class="dialog">
+    <button class="dialog-close" onclick="closeDialog('langDialog')">✕</button>
+    <h3 style="font-family:'Poppins',sans-serif;font-weight:800;margin-bottom:16px">🌐 Select Language</h3>
+    <div id="langOptions"></div>
+  </div>
+</div>
+
+<div class="dialog-overlay" id="countryDialog">
+  <div class="dialog">
+    <button class="dialog-close" onclick="closeDialog('countryDialog')">✕</button>
+    <h3 style="font-family:'Poppins',sans-serif;font-weight:800;margin-bottom:16px">🗺️ Select Country</h3>
+    <div id="countryOptions"></div>
+  </div>
+</div>
+
+<div class="dialog-overlay" id="slotDialog">
+  <div class="dialog">
+    <button class="dialog-close" onclick="closeDialog('slotDialog')">✕</button>
+    <h3 style="font-family:'Poppins',sans-serif;font-weight:800;margin-bottom:4px" id="slotDialogTitle">Slot 1</h3>
+    <p class="text-muted text-sm" style="margin-bottom:16px" id="slotDialogDesc">Pool members: 1</p>
+    <div id="slotDialogContent"></div>
+  </div>
+</div>
+
+<div class="dialog-overlay" id="spinResultDialog">
+  <div class="dialog" style="text-align:center">
+    <button class="dialog-close" onclick="closeDialog('spinResultDialog')">✕</button>
+    <div style="font-size:3rem;margin-bottom:12px" id="spinResultIcon">🎉</div>
+    <h3 style="font-family:'Poppins',sans-serif;font-size:1.5rem;font-weight:800;margin-bottom:6px" id="spinResultTitle">You won!</h3>
+    <p class="text-muted" id="spinResultDesc">50 coins added to your wallet</p>
+    <button class="btn btn-white btn-full" style="margin-top:20px" onclick="closeDialog('spinResultDialog')">Awesome! 🎊</button>
   </div>
 </div>
 
 <script>
-// --- DATABASE LOGIC ---
+// ═══════════════════════════════════════════════════════
+// DATABASE
+// ═══════════════════════════════════════════════════════
 const DB = {
-    get(k, d) { const v = localStorage.getItem('g31_'+k); return v ? JSON.parse(v) : d; },
-    set(k, v) { localStorage.setItem('g31_'+k, JSON.stringify(v)); }
+  get(k,d){const v=localStorage.getItem('g31_'+k);return v?JSON.parse(v):d},
+  set(k,v){localStorage.setItem('g31_'+k,JSON.stringify(v))}
 };
 
+// ═══════════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════════
 let state = {
-    currentUser: null,
-    allUsers: DB.get('users', {}),
-    globalRewards: DB.get('globalRewards', [
-        { id: 'r1', name: 'Starter Pack', tier: 'basic', value: '₹50', description: 'Digital assets', unlocked: true },
-        { id: 'r2', name: 'Coffee Gift', tier: 'advanced', value: '₹100', description: 'Cafe voucher', unlocked: false }
-    ])
+  currentUser: null,
+  allUsers: DB.get('users',{}),
+  globalRewards: DB.get('globalRewards',[
+    {id:'r1',name:'Starter Pack',tier:'basic',value:'₹50',description:'Digital assets'},
+    {id:'r2',name:'Coffee Gift',tier:'advanced',value:'₹100',description:'Cafe voucher'}
+  ]),
+  spinRecords: DB.get('spinRecords',[])
 };
 
-// --- AUTH ---
-let tempPhone = "";
+// Slots data
+const SLOTS = [];
+for(let i=1;i<=31;i++) SLOTS.push({num:i,members:Math.pow(2,i-1)});
 
-function sendOTP() {
-    tempPhone = document.getElementById('phoneInput').value;
-    if(tempPhone.length < 10) return showToast("Enter 10 digits", "error");
-    document.getElementById('stepPhone').style.display = 'none';
-    document.getElementById('stepOTP').style.display = 'block';
-    showToast("OTP sent: 123456");
-}
+const SLOT_COLORS = [
+  '#ff5252','#ff7043','#ffa726','#ffca28','#d4e157',
+  '#66bb6a','#26a69a','#29b6f6','#42a5f5','#5c6bc0',
+  '#7e57c2','#ab47bc','#ec407a','#ef5350','#ff7043',
+  '#ff8a65','#ffd54f','#a5d6a7','#80cbc4','#81d4fa',
+  '#ce93d8','#f48fb1','#ffcc80','#bcaaa4','#b0bec5',
+  '#90caf9','#80deea','#a5d6a7','#c5e1a5','#fff176','#ffe082'
+];
 
-function verifyOTP() {
-    const otp = document.getElementById('otpInput').value;
-    if(otp !== "123456") return showToast("Invalid OTP", "error");
-    
-    // Check if user exists
-    if(state.allUsers[tempPhone]) {
-        state.currentUser = state.allUsers[tempPhone];
+const SPIN_PRIZES = [
+  {label:'500K 🪙',coins:500000,color:'#f5c518'},
+  {label:'50 🪙',coins:50,color:'#448aff'},
+  {label:'6K 🪙',coins:6000,color:'#ce93d8'},
+  {label:'0.01 T',tokens:.01,color:'#ff7043'},
+  {label:'100 🪙',coins:100,color:'#00e676'},
+  {label:'10 🪙',coins:10,color:'#29b6f6'},
+  {label:'5K 🪙',coins:5000,color:'#ab47bc'},
+  {label:'0.1 T',tokens:.1,color:'#ffa726'},
+];
+
+const EMOJIS=['🧑','👦','👧','🧔','👩','🧑‍🦱','🧑‍🦳','🧑‍🦰','🦸','🦹','🧙','🎅','👨‍💻','👩‍💻','🏋️','🎮','🚀','🌟','🔥','💎','🐉','🦋','🌈','⚡'];
+const LANGS=[{code:'en',label:'English'},{code:'hi',label:'हिंदी'},{code:'ta',label:'தமிழ்'},{code:'te',label:'తెలుగు'},{code:'bn',label:'বাংলা'}];
+const COUNTRIES=[{code:'IN',label:'🇮🇳 India'},{code:'US',label:'🇺🇸 United States'},{code:'UK',label:'🇬🇧 United Kingdom'},{code:'AE',label:'🇦🇪 UAE'},{code:'SG',label:'🇸🇬 Singapore'}];
+
+// ═══════════════════════════════════════════════════════
+// SPLASH
+// ═══════════════════════════════════════════════════════
+window.addEventListener('load',()=>{
+  setTimeout(()=>{
+    const splash=document.getElementById('splashView');
+    if(splash) splash.classList.add('hidden');
+    setTimeout(()=>{
+      if(splash) splash.style.display='none';
+      if(state.currentUser) {
         loginSuccess();
-    } else {
-        document.getElementById('stepOTP').style.display = 'none';
-        document.getElementById('stepReferral').style.display = 'block';
-    }
+      } else {
+        showView('authView');
+      }
+    },600);
+  },2700);
+});
+
+// ═══════════════════════════════════════════════════════
+// AUTH
+// ═══════════════════════════════════════════════════════
+let tempPhone="";
+
+function sendOTP(){
+  tempPhone=document.getElementById('phoneInput')?.value?.trim()||'';
+  if(tempPhone.length<10||!/^\d+$/.test(tempPhone)) return showToast("Enter valid 10-digit number","error");
+  
+  const stepPhone=document.getElementById('stepPhone');
+  const stepOTP=document.getElementById('stepOTP');
+  const otpPhoneDisplay=document.getElementById('otpPhoneDisplay');
+  
+  if(stepPhone) stepPhone.style.display='none';
+  if(stepOTP) stepOTP.style.display='block';
+  if(otpPhoneDisplay) otpPhoneDisplay.innerText=tempPhone;
+  showToast("OTP sent! (Demo: 123456)","success");
 }
 
-function completeSignup() {
-    const uid = 'u' + Date.now();
-    const refCode = 'GROW' + Math.floor(1000 + Math.random() * 9000);
-    
-    const newUser = {
-        id: uid,
-        phone: tempPhone,
-        username: "Grower_" + uid.slice(-4),
-        hasPaid: false,
-        coins: 100,
-        streak: 0,
-        day: 1,
-        refCode: refCode,
-        referrals: 0,
-        tasks: initTasks(),
-        claimedRewards: []
-    };
+function goBackToPhone(){
+  const stepPhone=document.getElementById('stepPhone');
+  const stepOTP=document.getElementById('stepOTP');
+  
+  if(stepOTP) stepOTP.style.display='none';
+  if(stepPhone) stepPhone.style.display='block';
+}
 
-    const invitedByCode = document.getElementById('refCodeInput').value.trim();
-    if(invitedByCode) {
-        Object.values(state.allUsers).forEach(u => {
-            if(u.refCode === invitedByCode) {
-                u.referrals += 1;
-                u.coins += 25;
-                newUser.coins += 25;
-            }
-        });
-    }
+function resendOTP(){showToast("OTP resent! (Demo: 123456)","success")}
 
-    state.allUsers[tempPhone] = newUser;
-    state.currentUser = newUser;
-    saveData();
+function verifyOTP(){
+  const otpInput=document.getElementById('otpInput');
+  const otp=otpInput?.value?.trim()||'';
+  if(otp!=="123456") return showToast("Invalid OTP. Use 123456","error");
+  
+  if(state.allUsers[tempPhone]){
+    state.currentUser=state.allUsers[tempPhone];
     loginSuccess();
+  } else {
+    const stepOTP=document.getElementById('stepOTP');
+    const stepReferral=document.getElementById('stepReferral');
+    
+    if(stepOTP) stepOTP.style.display='none';
+    if(stepReferral) stepReferral.style.display='block';
+  }
 }
 
-function loginSuccess() {
-    if(!state.currentUser.hasPaid) {
-        showView('paymentView');
-    } else {
-        showView('dashView');
-        renderDash();
-    }
+function completeSignup(){
+  const uid='u'+Date.now();
+  const refCode='GROW'+Math.floor(1000+Math.random()*9000);
+  const refCodeInput=document.getElementById('refCodeInput');
+  const inviteCode=refCodeInput?.value?.trim()?.toUpperCase()||'';
+
+  const newUser={
+    id:uid,phone:tempPhone,username:'Grower_'+uid.slice(-4),
+    hasPaid:false,profileComplete:false,
+    coins:100,streak:0,day:1,refCode,referrals:0,
+    avatar:'🧑',lang:'en',country:'IN',
+    tasks:initTasks(),claimedRewards:[],
+    followedSocials:[],checkedInToday:false,lastCheckIn:'',
+    slot:1,spinTickets:3,spinTokens:0,
+    joinedAt:Date.now()
+  };
+
+  if(inviteCode){
+    Object.values(state.allUsers).forEach(u=>{
+      if(u.refCode===inviteCode){
+        u.referrals+=1;u.coins+=50;newUser.coins+=50;
+      }
+    });
+  }
+
+  state.allUsers[tempPhone]=newUser;
+  state.currentUser=newUser;
+  saveData();
+  loginSuccess();
 }
 
-// --- PAYMENT ---
-function processPayment() {
-    state.currentUser.hasPaid = true;
-    saveData();
-    showToast("Payment Successful!", "success");
+function loginSuccess(){
+  if(!state.currentUser.hasPaid){
+    showView('termsView');
+  } else if(!state.currentUser.profileComplete){
+    showView('profileSetupView');
+  } else {
     showView('dashView');
     renderDash();
+    initSpinWheel();
+  }
 }
 
-// --- DASHBOARD ---
-function renderDash() {
-    const u = state.currentUser;
-    document.getElementById('userName').innerText = u.username;
-    document.getElementById('userDay').innerText = u.day;
-    document.getElementById('headerCoins').innerText = u.coins;
-    document.getElementById('statStreak').innerText = u.streak;
-    
-    // Leaderboard
-    const sorted = Object.values(state.allUsers).sort((a,b) => b.coins - a.coins);
-    const myRank = sorted.findIndex(user => user.id === u.id) + 1;
-    document.getElementById('statRank').innerText = '#' + myRank;
-
-    renderTasks();
-    renderRewards();
-    renderLeaderboard(sorted);
+// ═══════════════════════════════════════════════════════
+// TERMS
+// ═══════════════════════════════════════════════════════
+function acceptTerms(){
+  if(!document.getElementById('termsCheck').checked) return showToast("Please accept the terms first","error");
+  showView('paymentView');
 }
 
-function renderTasks() {
-    const container = document.getElementById('tasksList');
-    container.innerHTML = `<h3 class="section-heading">Day ${state.currentUser.day} Tasks</h3>`;
-    state.currentUser.tasks.filter(t => t.day === state.currentUser.day).forEach(t => {
-        container.innerHTML += `
-            <div class="task-item ${t.done ? 'done' : ''}" onclick="completeTask(${t.id})">
-                <div class="flex justify-between w-full" style="align-items:center">
-                    <span style="font-weight:500">${t.done ? '✅ ' : ''}${t.title}</span>
-                    <span class="text-yellow" style="font-weight:700;font-size:.85rem">+${t.reward} 🪙</span>
-                </div>
-            </div>
-        `;
-    });
+// ═══════════════════════════════════════════════════════
+// PAYMENT
+// ═══════════════════════════════════════════════════════
+function processPayment(){
+  const btn=document.getElementById('payBtn');
+  btn.disabled=true;
+  document.getElementById('payBtnText').innerHTML='<span style="display:inline-block;width:16px;height:16px;border:2px solid rgba(0,0,0,0.3);border-top-color:#000;border-radius:50%;animation:spin .7s linear infinite"></span> Processing...';
 
-    const grid = document.getElementById('dayGrid');
-    grid.innerHTML = "";
-    for(let i=1; i<=31; i++) {
-        let cls = i < state.currentUser.day ? 'day-past' : (i === state.currentUser.day ? 'day-current' : 'day-future');
-        grid.innerHTML += `<div class="day-cell ${cls}">${i}</div>`;
-    }
+  // DEMO MODE - Razorpay paused for demo
+  showView('confirmView');
+  simulateConfirm();
+  
+  // Uncomment below to enable Razorpay payments
+  /*
+  try {
+    const options={
+      key:'rzp_test_your_key_here', // Replace with actual key
+      amount:3000, // ₹30 in paise
+      currency:'INR',
+      name:'Grow31',
+      description:'31-Day Challenge Entry',
+      image:'',
+      handler:function(resp){
+        showView('confirmView');
+        simulateConfirm();
+      },
+      prefill:{contact:state.currentUser?.phone||''},
+      theme:{color:'#448aff'},
+      modal:{ondismiss:function(){
+        btn.disabled=false;
+        document.getElementById('payBtnText').innerHTML='Pay ₹30 &amp; Start Challenge →';
+      }}
+    };
+    const rzp=new Razorpay(options);
+    rzp.open();
+  } catch(e) {
+    // Demo mode fallback
+    showView('confirmView');
+    simulateConfirm();
+  }
+  */
 }
 
-function completeTask(tid) {
-    const task = state.currentUser.tasks.find(t => t.id === tid);
-    if(task.done) return;
-    task.done = true;
-    state.currentUser.coins += task.reward;
-    saveData();
-    showToast("Task Done! +" + task.reward + " coins");
-    renderDash();
+function simulateConfirm(){
+  const spinner=document.getElementById('confirmSpinner');
+  const success=document.getElementById('confirmSuccess');
+  const msg=document.getElementById('confirmMsg');
+  spinner.style.display='block';
+  success.style.display='none';
+  msg.innerText='Processing your payment...';
+
+  setTimeout(()=>{
+    msg.innerText='Verifying with Razorpay...';
+  },800);
+  setTimeout(()=>{
+    spinner.style.display='none';
+    success.style.display='block';
+    msg.style.display='none';
+  },2200);
 }
 
-function renderRewards() {
-    const container = document.getElementById('rewardsList');
-    container.innerHTML = `<h3 class="section-heading">Rewards for You 🎁</h3>`;
-    const tier = state.currentUser.referrals >= 5 ? 'premium' : (state.currentUser.referrals >= 2 ? 'advanced' : 'basic');
-    
-    state.globalRewards.forEach(r => {
-        const isUnlocked = (r.tier === 'basic') || (r.tier === 'advanced' && tier !== 'basic') || (tier === 'premium');
-        const tierColor = r.tier === 'premium' ? 'badge-yellow' : r.tier === 'advanced' ? 'badge-blue' : 'badge-gray';
-        container.innerHTML += `
-            <div class="card mb-4" style="opacity: ${isUnlocked ? 1 : 0.45};margin-bottom:12px">
-                <div class="card-content">
-                    <div class="flex justify-between items-center">
-                        <div style="flex:1;padding-right:12px">
-                            <div class="badge ${tierColor} mb-2" style="margin-bottom:8px">${r.tier.toUpperCase()}</div>
-                            <p style="font-weight:700;font-size:.95rem;margin-bottom:4px">${r.name}</p>
-                            <p class="text-xs text-muted">${r.description}</p>
-                        </div>
-                        <div class="text-right">
-                            <p class="text-green font-bold" style="font-family:'Syne',sans-serif;font-size:1.1rem">${r.value}</p>
-                            ${isUnlocked ? `<button class="btn btn-white btn-sm mt-2" style="margin-top:8px">Claim</button>` : `<span class="text-xs text-muted" style="margin-top:8px;display:block">🔒 Locked</span>`}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
-    });
+function afterPayment(){
+  state.currentUser.hasPaid=true;
+  saveData();
+  showView('profileSetupView');
 }
 
-function renderLeaderboard(sorted) {
-    const container = document.getElementById('leaderboardList');
-    container.innerHTML = `<div class="card-header"><div class="card-title">🏆 Top Players</div></div>`;
-    sorted.slice(0, 10).forEach((u, i) => {
-        const avClass = i === 0 ? 'av-gold' : i === 1 ? 'av-silver' : i === 2 ? 'av-bronze' : 'av-default';
-        const medal = i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : '';
-        container.innerHTML += `
-            <div class="list-item">
-                <div class="avatar ${avClass}">${i+1}</div>
-                <div style="flex:1"><b>${u.username}</b> ${medal}</div>
-                <div class="text-yellow" style="font-weight:700">${u.coins} 🪙</div>
-            </div>
-        `;
-    });
+// ═══════════════════════════════════════════════════════
+// PROFILE SETUP
+// ═══════════════════════════════════════════════════════
+function pickEmoji(){
+  const d=document.getElementById('emojiDialog');
+  d.querySelector('.dialog .grid-2').outerHTML; // handled below
+  const grid=d.querySelector('[style*="grid-template-columns"]');
+  if(!grid) return;
+  grid.innerHTML='';
+  EMOJIS.forEach(e=>{
+    const btn=document.createElement('button');
+    btn.style.cssText='font-size:1.8rem;padding:8px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);cursor:pointer;transition:background .2s';
+    btn.innerText=e;
+    btn.onclick=()=>{
+      document.getElementById('avatarEmoji').innerText=e;
+      closeDialog('emojiDialog');
+    };
+    grid.appendChild(btn);
+  });
+  d.classList.add('open');
 }
 
-// --- ADMIN FUNCTIONS ---
-function switchAdminTab(t, btn) {
-    document.querySelectorAll('#adminView .tab-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('#adminView .tab-panel').forEach(p => p.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById('atab-' + t).classList.add('active');
-    if(t === 'users') renderAdminUsers();
-}
-
-function renderAdminUsers() {
-    const container = document.getElementById('adminUserList');
-    container.innerHTML = "";
-    Object.values(state.allUsers).forEach(u => {
-        container.innerHTML += `
-            <div class="admin-user-card">
-                <div>
-                  <b style="font-family:'Syne',sans-serif">${u.username}</b>
-                  <br><small class="text-muted">${u.phone}</small>
-                </div>
-                <div class="text-right">
-                  <span class="badge badge-yellow">${u.coins} 🪙</span>
-                  <br><small class="text-muted" style="margin-top:4px;display:block">Refs: ${u.referrals}</small>
-                </div>
-            </div>
-        `;
-    });
-}
-
-function addRewardAdmin() {
-    const name = document.getElementById('admRewName').value;
-    const tier = document.getElementById('admRewTier').value;
-    const val = document.getElementById('admRewValue').value;
-    const desc = document.getElementById('admRewDesc').value;
-
-    if(!name || !val) return showToast("Fill all fields", "error");
-
-    const newRew = { id: 'r'+Date.now(), name, tier, value: val, description: desc };
-    state.globalRewards.push(newRew);
-    DB.set('globalRewards', state.globalRewards);
-    showToast("Reward Added Successfully!", "success");
-    
-    // Clear inputs
-    document.getElementById('admRewName').value = "";
-    document.getElementById('admRewDesc').value = "";
-}
-
-function resetAllData() {
-    if(confirm("Delete everything?")) {
-        localStorage.clear();
-        location.reload();
-    }
-}
-
-// --- UTILS ---
-function showView(id) {
-    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-}
-
-function switchTab(t, btn) {
-    document.querySelectorAll('#dashView .tab-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('#dashView .tab-panel').forEach(p => p.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById('tab-' + t).classList.add('active');
-    renderDash();
-}
-
-function showToast(m, type="success") {
-    const c = document.getElementById('toastContainer');
-    const e = document.createElement('div');
-    e.className = `toast ${type}`;
-    e.innerText = m;
-    c.appendChild(e);
-    setTimeout(() => e.remove(), 3000);
-}
-
-function openReferralDialog() {
-    document.getElementById('myRefCodeDisplay').innerText = state.currentUser.refCode;
-    document.getElementById('refDialog').classList.add('open');
-}
-
-function closeDialog(id) { document.getElementById(id).classList.remove('open'); }
-
-function copyRef() {
-    navigator.clipboard.writeText(state.currentUser.refCode);
-    showToast("Code Copied!");
-}
-
-function initTasks() {
-    let t = [];
-    for(let d=1; d<=31; d++) {
-        t.push({ id: d*10+1, day: d, title: "Morning Walk", reward: 10, done: false });
-        t.push({ id: d*10+2, day: d, title: "Read 5 Pages", reward: 15, done: false });
-    }
-    return t;
-}
-
-function saveData() {
-    DB.set('users', state.allUsers);
-}
-
-function doLogout() {
-    state.currentUser = null;
-    showView('authView');
-}
-
-// --- ADMIN SHORTCUT ---
-document.addEventListener('keydown', e => {
-    if(e.ctrlKey && e.shiftKey && e.key === 'A') showView('adminView');
+// Fix emoji dialog grid
+document.addEventListener('DOMContentLoaded',()=>{
+  const d=document.getElementById('emojiDialog');
+  if(d){
+    const inner=d.querySelector('.dialog');
+    const g=document.createElement('div');
+    g.style.cssText='display:grid;grid-template-columns:repeat(6,1fr);gap:8px';
+    inner.appendChild(g);
+  }
 });
-function exitAdmin() { loginSuccess(); }
 
-// Start
-if(state.currentUser) loginSuccess();
+function saveProfile(){
+  const uname=document.getElementById('usernameInput').value.trim();
+  if(!uname) return showToast("Enter a username","error");
+  if(uname.length<3) return showToast("Username too short","error");
 
+  state.currentUser.username=uname;
+  state.currentUser.avatar=document.getElementById('avatarEmoji').innerText;
+  state.currentUser.country=document.getElementById('countrySelect').value;
+  state.currentUser.lang=document.getElementById('langSelect').value;
+  state.currentUser.profileComplete=true;
+  state.currentUser.coins+=100; // profile complete bonus
+  saveData();
+  showToast("Profile saved! +100 coins bonus 🎉","success");
+  setTimeout(()=>{
+    showView('dashView');
+    renderDash();
+    initSpinWheel();
+  },500);
+}
+
+// ═══════════════════════════════════════════════════════
+// DASHBOARD
+// ═══════════════════════════════════════════════════════
+let currentDashPage='pageHome';
+
+function showDashPage(pageId){
+  ['pageHome','pageTasks','pageSlots','pageSpin','pageLeader','pageMore'].forEach(p=>{
+    document.getElementById(p).style.display='none';
+  });
+  document.getElementById(pageId).style.display='block';
+  currentDashPage=pageId;
+
+  // Update nav
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  const map={pageHome:'navHome',pageTasks:'navHome',pageSlots:'navSlots',pageSpin:'navSpin',pageLeader:'navMore',pageMore:'navMore'};
+  const navId=map[pageId];
+  if(navId) document.getElementById(navId).classList.add('active');
+
+  if(pageId==='pageSpin') initSpinWheel();
+  if(pageId==='pageSlots') renderSlots();
+  if(pageId==='pageLeader') renderLeaderboard(Object.values(state.allUsers).sort((a,b)=>b.coins-a.coins));
+  if(pageId==='pageMore') renderMore();
+  if(pageId==='pageHome') renderDash();
+}
+
+function renderDash(){
+  const u=state.currentUser;
+  if(!u) return;
+
+  // Header
+  document.getElementById('headerCoins').innerText=u.coins.toLocaleString();
+  document.getElementById('userName').innerText=u.username;
+  document.getElementById('userDay').innerText=u.day;
+  document.getElementById('dashAvatar').innerText=u.avatar||'🧑';
+  document.getElementById('homeRefCode').innerText=u.refCode;
+
+  // Stats
+  document.getElementById('statStreak').innerText=u.streak;
+  const sorted=Object.values(state.allUsers).sort((a,b)=>b.coins-a.coins);
+  const rank=sorted.findIndex(x=>x.id===u.id)+1;
+  document.getElementById('statRank').innerText='#'+rank;
+
+  // Profile completion card
+  const pCard=document.getElementById('completeProfileCard');
+  if(u.profileComplete){pCard.style.display='none';}
+  else {pCard.style.display='flex';}
+
+  // Mini tasks
+  const mini=document.getElementById('miniTasksList');
+  const todayTasks=u.tasks.filter(t=>t.day===u.day).slice(0,2);
+  mini.innerHTML=todayTasks.map(t=>`
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);font-size:.88rem">
+      <span>${t.done?'✅ ':''}<span style="${t.done?'opacity:.5':''};">${t.title}</span></span>
+      <span style="color:#f5c518;font-weight:700;font-size:.8rem">${t.done?'Done':'+'+t.reward+' 🪙'}</span>
+    </div>
+  `).join('');
+
+  // Home day grid
+  const g=document.getElementById('homeGrid');
+  if(g){
+    g.innerHTML='';
+    for(let i=1;i<=31;i++){
+      let cls=i<u.day?'day-past':i===u.day?'day-current':'day-future';
+      g.innerHTML+=`<div class="day-cell ${cls}">${i}</div>`;
+    }
+  }
+
+  // Spin coins display
+  if(document.getElementById('spinCoins')) document.getElementById('spinCoins').innerText=u.coins.toLocaleString();
+  if(document.getElementById('spinTickets')) document.getElementById('spinTickets').innerText=u.spinTickets||0;
+  if(document.getElementById('followCoins')) document.getElementById('followCoins').innerText=u.coins.toLocaleString();
+
+  renderTasksPage();
+}
+
+function renderTasksPage(){
+  const u=state.currentUser;
+  const el=document.getElementById('taskDayNum');
+  if(el) el.innerText=u.day;
+
+  const c=document.getElementById('tasksList');
+  if(!c) return;
+  c.innerHTML='';
+  u.tasks.filter(t=>t.day===u.day).forEach(t=>{
+    const div=document.createElement('div');
+    div.className=`task-item${t.done?' done':''}`;
+    div.onclick=()=>completeTask(t.id);
+    div.innerHTML=`
+      <div class="flex justify-between w-full" style="align-items:center">
+        <span style="font-weight:500">${t.done?'✅ ':''}${t.title}</span>
+        <span class="text-yellow" style="font-weight:700;font-size:.85rem">+${t.reward} 🪙</span>
+      </div>`;
+    c.appendChild(div);
+  });
+
+  const g=document.getElementById('dayGrid');
+  if(g){
+    g.innerHTML='';
+    for(let i=1;i<=31;i++){
+      let cls=i<u.day?'day-past':i===u.day?'day-current':'day-future';
+      g.innerHTML+=`<div class="day-cell ${cls}">${i}</div>`;
+    }
+  }
+}
+
+function completeTask(tid){
+  const t=state.currentUser.tasks.find(x=>x.id===tid);
+  if(t.done) return;
+  t.done=true;
+  state.currentUser.coins+=t.reward;
+  saveData();
+  showToast("Task Done! +"+t.reward+" 🪙");
+  renderDash();
+}
+
+function renderMore(){
+  const u=state.currentUser;
+  if(!u) return;
+  document.getElementById('moreUsername').innerText=u.username;
+  document.getElementById('morePhone').innerText='+91 '+u.phone;
+  document.getElementById('moreCoins').innerText=u.coins.toLocaleString();
+  document.getElementById('moreSlot').innerText=u.slot||1;
+  document.getElementById('moreRefCount').innerText=u.referrals;
+  document.getElementById('moreAvatar').innerText=u.avatar||'🧑';
+  
+  const countryMap={'IN':'🇮🇳 India','US':'🇺🇸 United States','UK':'🇬🇧 United Kingdom','AE':'🇦🇪 UAE','SG':'🇸🇬 Singapore'};
+  const langMap={'en':'English','hi':'हिंदी','ta':'தமிழ்','te':'తెలుగు','bn':'বাংলা'};
+  document.getElementById('moreCountry').innerText=(countryMap[u.country]||'🇮🇳 India')+' ›';
+  document.getElementById('moreLang').innerText=(langMap[u.lang]||'English')+' ›';
+}
+
+function renderLeaderboard(sorted){
+  const c=document.getElementById('leaderboardList');
+  if(!c) return;
+  c.innerHTML=`<div class="card-header"><div class="card-title">🏆 Top Players</div></div>`;
+  sorted.slice(0,15).forEach((u,i)=>{
+    const cls=i===0?'av-gold':i===1?'av-silver':i===2?'av-bronze':'av-default';
+    const medal=i===0?'🥇':i===1?'🥈':i===2?'🥉':'';
+    c.innerHTML+=`
+      <div class="list-item">
+        <div class="avatar ${cls}" style="font-size:.75rem">${i+1}</div>
+        <span style="font-size:1.1rem">${u.avatar||'🧑'}</span>
+        <div style="flex:1"><b>${u.username}</b> ${medal}</div>
+        <div style="text-align:right">
+          <div class="text-yellow" style="font-weight:700;font-size:.9rem">${u.coins.toLocaleString()} 🪙</div>
+          <div class="text-xs text-muted">Slot ${u.slot||1}</div>
+        </div>
+      </div>`;
+  });
+}
+
+// ═══════════════════════════════════════════════════════
+// SLOTS SYSTEM
+// ═══════════════════════════════════════════════════════
+function renderSlots(){
+  const u=state.currentUser;
+  const cur=u.slot||1;
+  document.getElementById('currentSlotNum').innerText=cur;
+  document.getElementById('currentSlotMembers').innerText=SLOTS[cur-1].members.toLocaleString();
+  const refNeeded=cur*2;
+  const refsLeft=Math.max(0,refNeeded-u.referrals);
+  document.getElementById('slotReferralsLeft').innerText=refsLeft;
+  const pct=Math.min(100,Math.round((u.referrals/Math.max(1,refNeeded))*100));
+  document.getElementById('slotProgress').style.width=pct+'%';
+
+  const c=document.getElementById('slotsList');
+  c.innerHTML='';
+  SLOTS.forEach(s=>{
+    const isCurrentSlot=s.num===cur;
+    const isLocked=s.num>cur+3;
+    const isPast=s.num<cur;
+    const div=document.createElement('div');
+    div.className=`slot-card ${isCurrentSlot?'current-slot':''} ${isLocked?'locked-slot':''}`;
+    div.onclick=()=>openSlotDialog(s);
+
+    const colIdx=(s.num-1)%SLOT_COLORS.length;
+    const col=SLOT_COLORS[colIdx];
+    const membersStr=s.members>=1000000000?'1.07B':s.members>=1000000?(s.members/1000000).toFixed(s.members>=100000000?0:s.members>=10000000?1:2)+'M':s.members>=1000?(s.members/1000).toFixed(s.members>=100000?0:1)+'K':s.members;
+
+    div.innerHTML=`
+      <div style="display:flex;align-items:center;gap:12px">
+        <div class="slot-badge" style="background:${col}22;border:1px solid ${col}44;color:${col}">S${s.num}</div>
+        <div>
+          <p style="font-weight:700;font-size:.92rem">Slot ${s.num}</p>
+          <p class="text-muted text-xs">Pool: ${membersStr} members</p>
+        </div>
+      </div>
+      <div style="text-align:right">
+        ${isCurrentSlot?`<span class="badge badge-green">Current</span>`:''}
+        ${isPast?`<span class="badge badge-blue">Completed ✓</span>`:''}
+        ${isLocked?`<span style="font-size:1.1rem">🔒</span>`:''}
+        ${!isCurrentSlot&&!isPast&&!isLocked?`<span class="text-muted text-xs">›</span>`:''}
+      </div>`;
+    c.appendChild(div);
+  });
+}
+
+function openSlotDialog(slot){
+  const membersStr=slot.members>=1000000000?'1,073,741,824':slot.members.toLocaleString();
+  document.getElementById('slotDialogTitle').innerText='Slot '+slot.num+' 🎰';
+  document.getElementById('slotDialogDesc').innerText='Pool members: '+membersStr;
+  const col=SLOT_COLORS[(slot.num-1)%SLOT_COLORS.length];
+  document.getElementById('slotDialogContent').innerHTML=`
+    <div style="background:${col}11;border:1px solid ${col}33;border-radius:14px;padding:16px;text-align:center;margin-bottom:16px">
+      <div style="font-family:'Poppins',sans-serif;font-size:2.5rem;font-weight:800;color:${col}">${slot.num}</div>
+      <p style="font-size:.85rem;color:rgba(255,255,255,0.6)">Slot Tier</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px">
+      <div style="text-align:center;background:rgba(255,255,255,0.04);border-radius:10px;padding:12px">
+        <p class="text-muted text-xs">Members</p>
+        <p style="font-weight:700;font-family:'Poppins',sans-serif;font-size:1.1rem">${membersStr}</p>
+      </div>
+      <div style="text-align:center;background:rgba(255,255,255,0.04);border-radius:10px;padding:12px">
+        <p class="text-muted text-xs">Tier Level</p>
+        <p style="font-weight:700;font-family:'Poppins',sans-serif;font-size:1.1rem">${slot.num}/31</p>
+      </div>
+    </div>
+    <p class="text-muted text-sm" style="margin-bottom:14px;line-height:1.6">Advance to higher slots by completing more referrals. Each slot doubles your pool size and increases your earning potential.</p>
+  `;
+  document.getElementById('slotDialog').classList.add('open');
+}
+
+// ═══════════════════════════════════════════════════════
+// SPIN WHEEL
+// ═══════════════════════════════════════════════════════
+let spinning=false, spinAngle=0, spinVelocity=0;
+let spinRAF=null;
+
+function initSpinWheel(){
+  const canvas=document.getElementById('spinCanvas');
+  if(!canvas) return;
+  drawWheel(canvas, spinAngle);
+}
+
+function drawWheel(canvas, angle){
+  const ctx=canvas.getContext('2d');
+  const cx=canvas.width/2, cy=canvas.height/2, r=cx-4;
+  const seg=SPIN_PRIZES.length;
+  const arc=(2*Math.PI)/seg;
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  // Outer ring
+  ctx.save();
+  ctx.beginPath();
+  ctx.arc(cx,cy,r+4,0,2*Math.PI);
+  const gOuter=ctx.createRadialGradient(cx,cy,r-10,cx,cy,r+4);
+  gOuter.addColorStop(0,'#b8860b');
+  gOuter.addColorStop(0.5,'#ffd700');
+  gOuter.addColorStop(1,'#8b6914');
+  ctx.fillStyle=gOuter;
+  ctx.fill();
+
+  // Decorative dots on ring
+  for(let i=0;i<seg*2;i++){
+    const a=((2*Math.PI)/seg/2)*i+angle;
+    const dx=cx+Math.cos(a)*(r-2);
+    const dy=cy+Math.sin(a)*(r-2);
+    ctx.beginPath();
+    ctx.arc(dx,dy,5,0,2*Math.PI);
+    ctx.fillStyle='#fff8e1';
+    ctx.fill();
+    // gems
+    ctx.beginPath();
+    ctx.arc(dx,dy,3.5,0,2*Math.PI);
+    ctx.fillStyle=SPIN_PRIZES[i%seg].color;
+    ctx.fill();
+  }
+
+  // Segments
+  SPIN_PRIZES.forEach((prize,i)=>{
+    const startA=arc*i+angle-Math.PI/2;
+    const endA=startA+arc;
+    ctx.save();
+    ctx.beginPath();
+    ctx.moveTo(cx,cy);
+    ctx.arc(cx,cy,r-10,startA,endA);
+    ctx.closePath();
+    const gr=ctx.createRadialGradient(cx,cy,0,cx,cy,r);
+    gr.addColorStop(0,'rgba(255,255,255,0.12)');
+    gr.addColorStop(1,prize.color+'cc');
+    ctx.fillStyle=gr;
+    ctx.fill();
+    ctx.strokeStyle='rgba(255,255,255,0.15)';
+    ctx.lineWidth=1.5;
+    ctx.stroke();
+    ctx.restore();
+
+    // Text
+    ctx.save();
+    ctx.translate(cx,cy);
+    ctx.rotate(startA+arc/2);
+    ctx.textAlign='right';
+    ctx.font='bold 13px Syne,sans-serif';
+    ctx.fillStyle='#fff';
+    ctx.shadowColor='rgba(0,0,0,0.8)';
+    ctx.shadowBlur=4;
+    ctx.fillText(prize.label,r-18,5);
+    ctx.restore();
+  });
+
+  // Center circle
+  const gc=ctx.createRadialGradient(cx-8,cy-8,2,cx,cy,28);
+  gc.addColorStop(0,'#fff');
+  gc.addColorStop(1,'#999');
+  ctx.beginPath();
+  ctx.arc(cx,cy,28,0,2*Math.PI);
+  ctx.fillStyle=gc;
+  ctx.fill();
+  ctx.beginPath();
+  ctx.arc(cx,cy,22,0,2*Math.PI);
+  ctx.fillStyle='rgba(245,197,24,0.9)';
+  ctx.fill();
+  ctx.font='bold 16px Syne';
+  ctx.fillStyle='#000';
+  ctx.textAlign='center';
+  ctx.textBaseline='middle';
+  ctx.fillText('SPIN',cx,cy);
+}
+
+function doSpin(type){
+  if(spinning) return;
+  const u=state.currentUser;
+
+  if(type==='coins'){
+    if((u.spinTickets||0)<1) return showToast("Not enough tickets! Earn tickets from tasks","error");
+    u.spinTickets--;
+  } else {
+    const tokCost=200;
+    if((u.spinTokens||0)<tokCost) return showToast("Not enough tokens! Need 200 tokens","error");
+    u.spinTokens-=tokCost;
+  }
+
+  spinning=true;
+  document.getElementById('spinBtn1').disabled=true;
+  document.getElementById('spinBtn2').disabled=true;
+
+  const totalRotation=Math.PI*2*(10+Math.random()*8);
+  const duration=4500+Math.random()*1000;
+  const startTime=Date.now();
+  const startAngle=spinAngle;
+
+  function animate(){
+    const elapsed=Date.now()-startTime;
+    const t=Math.min(elapsed/duration,1);
+    const ease=t<1?1-Math.pow(1-t,4):1;
+    spinAngle=startAngle+totalRotation*ease;
+
+    const canvas=document.getElementById('spinCanvas');
+    if(canvas) drawWheel(canvas,spinAngle);
+
+    if(t<1){
+      spinRAF=requestAnimationFrame(animate);
+    } else {
+      spinning=false;
+      document.getElementById('spinBtn1').disabled=false;
+      document.getElementById('spinBtn2').disabled=false;
+
+      // Determine winning segment
+      const seg=SPIN_PRIZES.length;
+      const arc=(2*Math.PI)/seg;
+      const normalizedAngle=((spinAngle%(2*Math.PI))+(2*Math.PI))%(2*Math.PI);
+      const idx=Math.floor(((Math.PI/2-normalizedAngle+2*Math.PI*10)%(2*Math.PI))/arc)%seg;
+      const prize=SPIN_PRIZES[idx]||SPIN_PRIZES[0];
+
+      // Award prize
+      if(prize.coins) u.coins+=prize.coins;
+      if(prize.tokens) u.spinTokens=(u.spinTokens||0)+prize.tokens;
+      saveData();
+
+      // Record
+      const record={user:u.username,prize:prize.label,time:Date.now()};
+      state.spinRecords.unshift(record);
+      if(state.spinRecords.length>20) state.spinRecords.pop();
+      DB.set('spinRecords',state.spinRecords);
+
+      renderSpinRecords();
+
+      // Show result dialog
+      document.getElementById('spinResultIcon').innerText=prize.coins>=100000?'🎰':prize.coins>=1000?'💰':'🎉';
+      document.getElementById('spinResultTitle').innerText='You won '+prize.label+'!';
+      document.getElementById('spinResultDesc').innerText=prize.coins?prize.coins.toLocaleString()+' coins added to your wallet':prize.tokens+' tokens earned';
+      document.getElementById('spinResultDialog').classList.add('open');
+      document.getElementById('spinCoins').innerText=u.coins.toLocaleString();
+      document.getElementById('spinTickets').innerText=u.spinTickets||0;
+      document.getElementById('headerCoins').innerText=u.coins.toLocaleString();
+    }
+  }
+  spinRAF=requestAnimationFrame(animate);
+}
+
+function renderSpinRecords(){
+  const c=document.getElementById('spinRecords');
+  if(!c) return;
+  if(state.spinRecords.length===0){
+    c.innerHTML=`<p class="text-muted text-sm text-center" style="padding:20px;opacity:.5">No spins yet. Spin to win!</p>`;
+    return;
+  }
+  c.innerHTML=state.spinRecords.slice(0,8).map(r=>`
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.05)">
+      <span style="font-size:.85rem;font-weight:500">${r.user}</span>
+      <span style="font-weight:700;color:#f5c518;font-size:.85rem">${r.prize}</span>
+    </div>`).join('');
+}
+
+function buyTickets(){
+  showToast("Complete tasks and referrals to earn spin tickets!","success");
+}
+
+// ═══════════════════════════════════════════════════════
+// FOLLOW & EARN
+// ═══════════════════════════════════════════════════════
+function followSocial(platform, coins, btn){
+  const u=state.currentUser;
+  if(u.followedSocials.includes(platform)){
+    return showToast("Already followed! Bonus already claimed","error");
+  }
+  u.followedSocials.push(platform);
+  u.coins+=coins;
+  saveData();
+  btn.innerText='✓ Done';
+  btn.classList.remove('btn-blue');
+  btn.classList.add('btn-green');
+  btn.disabled=true;
+  showToast('+'+coins+' coins earned! 🎉',"success");
+  document.getElementById('followCoins').innerText=u.coins.toLocaleString();
+  document.getElementById('headerCoins').innerText=u.coins.toLocaleString();
+}
+
+function doCheckIn(){
+  const u=state.currentUser;
+  const today=new Date().toDateString();
+  if(u.checkedInToday&&u.lastCheckIn===today){
+    return showToast("Already checked in today! Come back tomorrow","error");
+  }
+  u.checkedInToday=true;
+  u.lastCheckIn=today;
+  u.coins+=5;
+  u.streak++;
+  u.spinTickets=(u.spinTickets||0)+1;
+  saveData();
+  showToast("✓ Checked in! +5 coins + 1 spin ticket 🎟️","success");
+  document.getElementById('checkInBtn').innerText='✓ Checked In Today!';
+  document.getElementById('checkInBtn').disabled=true;
+  document.getElementById('checkInBtn').classList.remove('btn-green');
+  document.getElementById('checkInBtn').classList.add('btn-outline');
+  document.getElementById('followCoins').innerText=u.coins.toLocaleString();
+}
+
+// ═══════════════════════════════════════════════════════
+// WINNERS TABS
+// ═══════════════════════════════════════════════════════
+function switchWinnersTab(tab){
+  ['winners','updates','schedule'].forEach(t=>{
+    document.getElementById(t+'Tab').style.display='none';
+    document.getElementById('wTab'+['winners','updates','schedule'].indexOf(t)+1).className='btn btn-outline btn-sm';
+  });
+  document.getElementById(tab+'Tab').style.display='block';
+  const idx=['winners','updates','schedule'].indexOf(tab)+1;
+  document.getElementById('wTab'+idx).className='btn btn-blue btn-sm';
+}
+
+// ═══════════════════════════════════════════════════════
+// REFERRAL
+// ═══════════════════════════════════════════════════════
+function openReferralDialog(){
+  const u=state.currentUser;
+  document.getElementById('myRefCodeDisplay').innerText=u.refCode;
+  document.getElementById('refDialogCount').innerText=u.referrals;
+  document.getElementById('refDialogEarned').innerText=(u.referrals*50).toLocaleString();
+  document.getElementById('refDialog').classList.add('open');
+}
+
+function copyRef(){
+  navigator.clipboard.writeText(state.currentUser.refCode).then(()=>showToast("Code Copied! 📋")).catch(()=>{
+    const t=document.createElement('textarea');
+    t.value=state.currentUser.refCode;
+    document.body.appendChild(t);t.select();document.execCommand('copy');document.body.removeChild(t);
+    showToast("Code Copied!");
+  });
+}
+
+function shareRef(){
+  const u=state.currentUser;
+  if(!u || !u.refCode) return;
+  
+  const msg=`Join Grow31 – 31 Days, Real Rewards! Use my code ${u.refCode} and get bonus coins! 🎉`;
+  if(navigator.share){
+    navigator.share({title:'Grow31 Referral',text:msg}).catch(()=>{});
+  } else {
+    navigator.clipboard.writeText(msg).then(()=>showToast("Share text copied!")).catch(()=>{});
+  }
+}
+
+// ═══════════════════════════════════════════════════════
+// DRAWER
+// ═══════════════════════════════════════════════════════
+function openDrawer(){
+  const u=state.currentUser;
+  if(u){
+    const drawerName=document.getElementById('drawerName');
+    const drawerPhone=document.getElementById('drawerPhone');
+    const drawerAvatar=document.getElementById('drawerAvatar');
+    
+    if(drawerName) drawerName.innerText=u.username;
+    if(drawerPhone) drawerPhone.innerText='+91 '+u.phone;
+    if(drawerAvatar) drawerAvatar.innerText=u.avatar||'🧑';
+  }
+  
+  const overlay=document.getElementById('drawerOverlay');
+  const drawer=document.getElementById('mainDrawer');
+  if(overlay) overlay.classList.add('open');
+  if(drawer) drawer.classList.add('open');
+}
+
+function closeDrawer(){
+  const overlay=document.getElementById('drawerOverlay');
+  const drawer=document.getElementById('mainDrawer');
+  if(overlay) overlay.classList.remove('open');
+  if(drawer) drawer.classList.remove('open');
+}
+
+// ═══════════════════════════════════════════════════════
+// LANGUAGE / COUNTRY DIALOGS
+// ═══════════════════════════════════════════════════════
+function showLangDialog(){
+  const c=document.getElementById('langOptions');
+  if(!c) return;
+  c.innerHTML=LANGS.map(l=>`
+    <div style="padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;cursor:pointer" onclick="setLang('${l.code}')">
+      <span style="font-size:.95rem;font-weight:500">${l.label}</span>
+      ${(state.currentUser?.lang||'en')===l.code?'<span class="badge badge-green">✓ Active</span>':'<span class="text-muted text-sm">›</span>'}
+    </div>`).join('');
+  const dialog=document.getElementById('langDialog');
+  if(dialog) dialog.classList.add('open');
+}
+
+function setLang(code){
+  if(state.currentUser){state.currentUser.lang=code;saveData();}
+  closeDialog('langDialog');
+  showToast("Language updated!");
+  renderMore();
+}
+
+function showCountryDialog(){
+  const c=document.getElementById('countryOptions');
+  if(!c) return;
+  c.innerHTML=COUNTRIES.map(ct=>`
+    <div style="padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;cursor:pointer" onclick="setCountry('${ct.code}')">
+      <span style="font-size:.95rem;font-weight:500">${ct.label}</span>
+      ${(state.currentUser?.country||'IN')===ct.code?'<span class="badge badge-green">✓ Active</span>':'<span class="text-muted text-sm">›</span>'}
+    </div>`).join('');
+  const dialog=document.getElementById('countryDialog');
+  if(dialog) dialog.classList.add('open');
+}
+
+function setCountry(code){
+  if(state.currentUser){state.currentUser.country=code;saveData();}
+  closeDialog('countryDialog');
+  showToast("Country updated!");
+  renderMore();
+}
+
+// ═══════════════════════════════════════════════════════
+// AI CHAT
+// ═══════════════════════════════════════════════════════
+let chatHistory=[];
+
+async function sendChat(){
+  const input=document.getElementById('chatInput');
+  if(!input) return;
+  
+  const msg=input.value.trim();
+  if(!msg) return;
+  input.value='';
+
+  appendBubble(msg,'user');
+  chatHistory.push({role:'user',content:msg});
+
+  const typing=appendBubble('...','ai');
+
+  try {
+    // Use fallback responses instead of unsafe API calls
+    const fallbacks=[
+      "You earn coins through daily tasks (+10-15 each), referrals (+50 each), spin wheel wins, social follows, and daily check-ins!",
+      "The slot system has 31 levels. Each level doubles in pool size — Slot 1 has 1 member, Slot 31 has 1,073,741,824! Advance by completing referrals.",
+      "Daily competition: Days 1-6 have 1 referral win and 1 pool win per day. Higher days unlock more winners!",
+      "To spin the wheel, you need spin tickets (from daily check-ins) or spin tokens. Prizes range from 10 coins to 500,000 coins!",
+      "Complete your daily tasks and refer friends to earn coins and advance through slots. The more you refer, the higher your slot!"
+    ];
+    const reply=fallbacks[Math.floor(Math.random()*fallbacks.length)];
+    if(typing) typing.innerText=reply;
+    chatHistory.push({role:'assistant',content:reply});
+  } catch(e){
+    if(typing) typing.innerText="I'm having trouble connecting. Please try again!";
+    chatHistory.push({role:'assistant',content:"I'm having trouble connecting. Please try again!"});
+  }
+
+  // Scroll to bottom
+  const msgs=document.getElementById('chatMessages');
+  if(msgs) msgs.scrollTop=msgs.scrollHeight;
+}
+
+function appendBubble(text,type){
+  const d=document.getElementById('chatMessages');
+  if(!d) return null;
+  const b=document.createElement('div');
+  b.className=`chat-bubble ${type}`;
+  b.innerText=text;
+  d.appendChild(b);
+  d.scrollTop=d.scrollHeight;
+  return b;
+}
+
+function clearChat(){
+  chatHistory=[];
+  const d=document.getElementById('chatMessages');
+  if(d){
+    d.innerHTML=`<div class="chat-bubble ai">👋 Hi! I'm your Grow31 AI assistant. Ask me anything about the challenge, slots, spin wheel, referrals, or how to earn more coins!</div>`;
+  }
+}
+
+// ═══════════════════════════════════════════════════════
+// ADMIN
+// ═══════════════════════════════════════════════════════
+function switchAdminTab(t,btn){
+  if(!btn) return;
+  document.querySelectorAll('#adminView .tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('#adminView .tab-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  const panel=document.getElementById('atab-'+t);
+  if(panel) panel.classList.add('active');
+  if(t==='users') renderAdminUsers();
+}
+
+function renderAdminUsers(){
+  const c=document.getElementById('adminUserList');
+  if(!c) return;
+  c.innerHTML='';
+  Object.values(state.allUsers).forEach(u=>{
+    c.innerHTML+=`
+      <div class="admin-user-card">
+        <div><b style="font-family:'Poppins',sans-serif">${u.username}</b><br><small class="text-muted">${u.phone}</small></div>
+        <div class="text-right">
+          <span class="badge badge-yellow">${u.coins.toLocaleString()} 🪙</span>
+          <br><small class="text-muted" style="margin-top:4px;display:block">Refs: ${u.referrals} · Slot: ${u.slot||1}</small>
+        </div>
+      </div>`;
+  });
+}
+
+function addRewardAdmin(){
+  const name=document.getElementById('admRewName')?.value||'';
+  const tier=document.getElementById('admRewTier')?.value||'';
+  const val=document.getElementById('admRewValue')?.value||'';
+  const desc=document.getElementById('admRewDesc')?.value||'';
+  
+  if(!name||!val) return showToast("Fill all fields","error");
+  state.globalRewards.push({id:'r'+Date.now(),name,tier,value:val,description:desc});
+  DB.set('globalRewards',state.globalRewards);
+  showToast("Reward Added!","success");
+  
+  const nameInput=document.getElementById('admRewName');
+  const descInput=document.getElementById('admRewDesc');
+  if(nameInput) nameInput.value='';
+  if(descInput) descInput.value='';
+}
+
+function resetAllData(){
+  if(confirm("Delete everything?")) {localStorage.clear();location.reload();}
+}
+
+function adminShortcut(){showView('adminView')}
+
+function exitAdmin(){if(state.currentUser) loginSuccess();}
+
+// ═══════════════════════════════════════════════════════
+// UTILS
+// ═══════════════════════════════════════════════════════
+function showView(id){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function closeDialog(id){document.getElementById(id).classList.remove('open')}
+
+function showToast(m,type="success"){
+  const c=document.getElementById('toastContainer');
+  const e=document.createElement('div');
+  e.className=`toast ${type}`;
+  e.innerText=m;
+  c.appendChild(e);
+  setTimeout(()=>e.remove(),3000);
+}
+
+function backToDash(){
+  showView('dashView');
+  renderDash();
+  initSpinWheel();
+}
+
+function goToProfileSetup(){showView('profileSetupView')}
+
+function initTasks(){
+  const tasks=[];
+  const taskList=[
+    {title:'Morning Walk',reward:10},
+    {title:'Read 5 Pages',reward:15},
+    {title:'Drink 8 Glasses of Water',reward:10},
+    {title:'Complete Journaling',reward:20},
+    {title:'10-Minute Meditation',reward:15},
+    {title:'Evening Exercise',reward:25},
+  ];
+  for(let d=1;d<=31;d++){
+    taskList.forEach((t,i)=>{
+      tasks.push({id:d*100+i,day:d,title:t.title,reward:t.reward,done:false});
+    });
+  }
+  return tasks;
+}
+
+function saveData(){DB.set('users',state.allUsers)}
+
+function doLogout(){state.currentUser=null;showView('authView')}
+
+// Profile setup emoji dialog init
+(function(){
+  const d=document.getElementById('emojiDialog');
+  if(d){
+    const inner=d.querySelector('.dialog');
+    // Remove placeholder text and add grid
+    const g=inner.querySelector('[style*="display:grid"]');
+    if(!g){
+      const newG=document.createElement('div');
+      newG.style.cssText='display:grid;grid-template-columns:repeat(6,1fr);gap:8px';
+      inner.appendChild(newG);
+    }
+  }
+})();
+
+function pickEmoji(){
+  const d=document.getElementById('emojiDialog');
+  let grid=d.querySelector('.dialog div[style*="grid"]');
+  if(!grid){
+    grid=document.createElement('div');
+    grid.style.cssText='display:grid;grid-template-columns:repeat(6,1fr);gap:8px';
+    d.querySelector('.dialog').appendChild(grid);
+  }
+  grid.innerHTML='';
+  EMOJIS.forEach(e=>{
+    const btn=document.createElement('button');
+    btn.style.cssText='font-size:1.8rem;padding:8px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);cursor:pointer;transition:background .2s;';
+    btn.innerText=e;
+    btn.onclick=()=>{
+      document.getElementById('avatarEmoji').innerText=e;
+      closeDialog('emojiDialog');
+    };
+    grid.appendChild(btn);
+  });
+  d.classList.add('open');
+}
+
+// Admin keyboard shortcut
+document.addEventListener('keydown',e=>{
+  if(e.ctrlKey&&e.shiftKey&&e.key==='A') showView('adminView');
+});
+
+// Init on load
+window.addEventListener('load',()=>{
+  // Render spin records
+  renderSpinRecords();
+});
 </script>
 </body>
 </html>
