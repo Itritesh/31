@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Grow31 – 31 Days. One Challenge.</title>
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -550,7 +549,7 @@ select.input option{background:#0e0e1f;color:#fff}
         <p class="text-muted" style="margin-top:4px;font-size:.9rem">One-time · All 31 Days</p>
         <div style="display:flex;gap:8px;justify-content:center;margin-top:16px;flex-wrap:wrap">
           <span class="badge badge-green">✅ Secure</span>
-          <span class="badge badge-blue">🔒 Razorpay</span>
+          <span class="badge badge-blue">🔒 Demo Payment</span>
           <span class="badge badge-yellow">💯 Instant Access</span>
         </div>
       </div>
@@ -580,7 +579,7 @@ select.input option{background:#0e0e1f;color:#fff}
     <button class="btn btn-white btn-full btn-lg" onclick="processPayment()" id="payBtn" style="padding:18px;font-size:1.05rem">
       <span id="payBtnText">Pay ₹30 &amp; Start Challenge →</span>
     </button>
-    <p class="text-muted text-xs text-center" style="margin-top:12px;opacity:.5">🔒 Secure payment powered by Razorpay · 256-bit SSL encrypted</p>
+    <p class="text-muted text-xs text-center" style="margin-top:12px;opacity:.5">🔒 Demo payment enabled · no live gateway integration</p>
   </div>
 </div>
 
@@ -1422,7 +1421,7 @@ select.input option{background:#0e0e1f;color:#fff}
       <h4>4. Data Security</h4><p>Reasonable security measures taken. No guarantee of complete security.</p>
       <h4>5. User Responsibility</h4><p>Keep your login secure.</p>
       <h4>6. Cookies</h4><p>May use cookies to improve experience.</p>
-      <h4>7. Third-Party Services</h4><p>Payments handled by Razorpay. Their policies apply.</p>
+      <h4>7. Third-Party Services</h4><p>Payments are simulated in this demo. No live payment gateway is integrated.</p>
       <h4>8. Policy Updates</h4><p>Policy may be updated. Continued use = acceptance.</p>
       <h4>9. Contact</h4><p>support@grow31.com</p>
     </div>
@@ -1723,7 +1722,7 @@ select.input option{background:#0e0e1f;color:#fff}
     <button class="btn btn-white btn-full btn-lg" onclick="confirmBuySlots()">
       Proceed to Payment 🚀
     </button>
-    <p class="text-xs text-muted text-center" style="margin-top:10px;opacity:.5">🔒 Secure payment via Razorpay · SSL Encrypted</p>
+    <p class="text-xs text-muted text-center" style="margin-top:10px;opacity:.5">🔒 Demo payment enabled · secure simulation only</p>
   </div>
 </div>
 
@@ -2049,32 +2048,11 @@ function processPayment(){
   btn.disabled=true;
   document.getElementById('payBtnText').innerHTML='<span style="display:inline-block;width:16px;height:16px;border:2px solid rgba(0,0,0,0.3);border-top-color:#000;border-radius:50%;animation:spin .7s linear infinite"></span> Processing...';
 
-  try {
-    const options={
-      key:'rzp_test_YOUR_KEY_HERE', // ← Replace with your Razorpay key
-      amount:3000, // ₹30 in paise
-      currency:'INR',
-      name:'Grow31',
-      description:'31-Day Challenge Entry Fee',
-      image:'',
-      handler:function(resp){
-        showView('confirmView');
-        simulateConfirm();
-      },
-      prefill:{contact:state.currentUser?.phone?'91'+state.currentUser.phone:''},
-      theme:{color:'#448aff'},
-      modal:{ondismiss:function(){
-        btn.disabled=false;
-        document.getElementById('payBtnText').innerHTML='Pay ₹30 &amp; Start Challenge →';
-      }}
-    };
-    const rzp=new Razorpay(options);
-    rzp.open();
-  } catch(e) {
-    // Fallback for demo/testing
+  showToast('Demo payment processing...', 'success');
+  setTimeout(()=>{
     showView('confirmView');
     simulateConfirm();
-  }
+  }, 800);
 }
 
 function simulateConfirm(){
@@ -2083,10 +2061,10 @@ function simulateConfirm(){
   const msg=document.getElementById('confirmMsg');
   spinner.style.display='block';
   success.style.display='none';
-  msg.innerText='Processing your payment...';
+  msg.innerText='Processing your demo payment...';
 
   setTimeout(()=>{
-    msg.innerText='Verifying with Razorpay...';
+    msg.innerText='Verifying payment...';
   },800);
   setTimeout(()=>{
     spinner.style.display='none';
