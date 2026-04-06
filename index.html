@@ -20,7 +20,7 @@ a{text-decoration:none;color:inherit}
   --bg:#050510;--card:rgba(255,255,255,0.04);--card2:rgba(255,255,255,0.07);--card-solid:#0e0e1f;
   --border:rgba(255,255,255,0.10);--border2:rgba(255,255,255,0.18);--text:#fff;
   --muted:rgba(255,255,255,0.5);--muted2:rgba(255,255,255,0.25);
-  --yellow:#f5c518;--orange:#ff7043;--green:#00e676;--blue:#448aff;--red:#ff5252;--purple:#ce93d8;
+  --yellow:#ce93d8;--orange:#ff7043;--green:#00e676;--blue:#448aff;--red:#ff5252;--purple:#ce93d8;
   --glow-purple:rgba(138,43,226,0.35);--glow-blue:rgba(68,138,255,0.3);--glow-orange:rgba(255,112,67,0.3);
 }
 
@@ -51,7 +51,7 @@ a{text-decoration:none;color:inherit}
 
 /* ── VIEWS ── */
 .view{display:none;min-height:100vh;animation:fadeIn .3s ease;position:relative;z-index:2;flex-direction:column}
-.view.active{display:flex}
+.view.active{display:flex!important}
 @keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 
 /* ── TOAST ── */
@@ -86,7 +86,7 @@ select.input option{background:#0e0e1f;color:#fff}
 /* ── HEADER ── */
 .app-header{position:sticky;top:0;z-index:50;background:rgba(5,5,16,0.7);backdrop-filter:blur(24px) saturate(1.5);-webkit-backdrop-filter:blur(24px) saturate(1.5);border-bottom:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:space-between;padding:13px 18px}
 .logo-text{font-family:'Poppins',sans-serif;font-size:1.15rem;font-weight:800;display:flex;align-items:center;gap:6px;background:linear-gradient(135deg,#fff 20%,rgba(68,138,255,0.9) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-0.01em}
-.coins-pill{display:flex;align-items:center;gap:6px;background:rgba(245,197,24,0.12);border:1px solid rgba(245,197,24,0.25);padding:7px 14px;border-radius:9999px;font-size:.85rem;font-weight:700;color:#f5c518;box-shadow:0 0 16px rgba(245,197,24,0.15)}
+.coins-pill{display:flex;align-items:center;gap:6px;background:rgba(156,39,176,0.15);border:1px solid rgba(156,39,176,0.35);padding:7px 14px;border-radius:9999px;font-size:.85rem;font-weight:700;color:#ce93d8;box-shadow:0 0 16px rgba(156,39,176,0.25)}
 .dots-btn{width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:background .2s}
 .dots-btn:hover{background:rgba(255,255,255,0.14)}
 
@@ -120,10 +120,11 @@ select.input option{background:#0e0e1f;color:#fff}
 .badge{display:inline-flex;align-items:center;padding:4px 10px;border-radius:9999px;font-size:.7rem;font-weight:700;letter-spacing:.04em}
 .badge-white{background:rgba(255,255,255,0.12);color:#fff;border:1px solid rgba(255,255,255,0.15)}
 .badge-green{background:rgba(0,230,118,.12);color:#00e676;border:1px solid rgba(0,230,118,0.25)}
-.badge-yellow{background:rgba(245,197,24,.12);color:#f5c518;border:1px solid rgba(245,197,24,0.25)}
+.badge-yellow{background:rgba(156,39,176,.15);color:#ce93d8;border:1px solid rgba(156,39,176,0.3)}
 .badge-red{background:rgba(255,82,82,.12);color:#ff8a80;border:1px solid rgba(255,82,82,0.2)}
 .badge-blue{background:rgba(68,138,255,.12);color:#82b1ff;border:1px solid rgba(68,138,255,0.2)}
 .badge-gray{background:rgba(255,255,255,.08);color:var(--muted);border:1px solid rgba(255,255,255,0.1)}
+.badge-pending{background:rgba(255,167,38,.12);color:#ffa726;border:1px solid rgba(255,167,38,0.25);display:inline-flex;align-items:center;padding:4px 10px;border-radius:9999px;font-size:.7rem;font-weight:700}
 .badge-purple{background:rgba(206,147,216,.12);color:#ce93d8;border:1px solid rgba(206,147,216,0.25)}
 
 /* ── PROGRESS BAR ── */
@@ -175,7 +176,7 @@ select.input option{background:#0e0e1f;color:#fff}
 .auth-sub{color:rgba(255,255,255,0.45);font-size:.95rem;font-weight:400}
 
 /* ── PAYMENT PRICE ── */
-.price-display{font-family:'Poppins',sans-serif;font-size:3.5rem;font-weight:800;background:linear-gradient(135deg,#fff,#f5c518);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.price-display{font-family:'Poppins',sans-serif;font-size:3.5rem;font-weight:800;background:linear-gradient(135deg,#fff,#ce93d8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .price-feature{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:.9rem;color:rgba(255,255,255,0.7)}
 .price-feature:last-child{border-bottom:none}
 .price-feature-icon{width:28px;height:28px;border-radius:8px;background:rgba(0,230,118,0.15);border:1px solid rgba(0,230,118,0.2);display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0}
@@ -244,7 +245,7 @@ select.input option{background:#0e0e1f;color:#fff}
 .follow-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:16px;display:flex;align-items:center;gap:14px;margin-bottom:10px;transition:all .2s}
 .follow-card:hover{border-color:rgba(68,138,255,0.2);background:rgba(255,255,255,0.07)}
 .follow-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
-.follow-card .coins-reward{font-size:.85rem;color:#f5c518;font-weight:700}
+.follow-card .coins-reward{font-size:.85rem;color:#ce93d8;font-weight:700}
 
 /* ── WINNERS ── */
 .winner-card{background:linear-gradient(135deg,rgba(245,197,24,0.08),rgba(255,112,67,0.05));border:1px solid rgba(245,197,24,0.2);border-radius:16px;padding:16px;margin-bottom:10px}
@@ -364,7 +365,7 @@ select.input option{background:#0e0e1f;color:#fff}
 <!-- SPLASH VIEW -->
 <!-- ═════════════════════════════════════════ -->
 <div id="splashView">
-  <div class="splash-icon">🌱</div>
+  <div class="splash-icon"><div style="width:80px;height:80px;background:linear-gradient(135deg,#448aff,#ce93d8);border-radius:22px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;box-shadow:0 0 40px rgba(68,138,255,0.4),0 0 80px rgba(206,147,216,0.2);margin:0 auto">🌱</div></div>
   <div class="splash-title">Grow31</div>
   <div class="splash-sub">31 Days. One Challenge. Real Rewards.</div>
   <div class="splash-loader"><div class="splash-loader-fill"></div></div>
@@ -420,6 +421,12 @@ select.input option{background:#0e0e1f;color:#fff}
       <span class="badge badge-yellow">🪙 Coin Rewards</span>
       <span class="badge badge-green">🏆 Leaderboard</span>
     </div>
+    <div style="display:flex;gap:12px;margin-top:20px;justify-content:center;align-items:center">
+      <a href="https://www.instagram.com/_grow31?igsh=ZTdneTg0OXVkYTRy&utm_source=qr" target="_blank" style="width:38px;height:38px;background:rgba(225,48,108,0.15);border:1px solid rgba(225,48,108,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;text-decoration:none">📸</a>
+      <a href="https://youtube.com/@grow31-u3s?si=RVZX6ZbiKUb6jhWq" target="_blank" style="width:38px;height:38px;background:rgba(255,0,0,0.12);border:1px solid rgba(255,0,0,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;text-decoration:none">▶️</a>
+      <a href="https://t.me/+JhvCkrA8Fg8yZTVl" target="_blank" style="width:38px;height:38px;background:rgba(0,119,181,0.15);border:1px solid rgba(0,119,181,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;text-decoration:none">✈️</a>
+      <a href="https://wa.me/message/Y2CDYZEVKWA3M1" target="_blank" style="width:38px;height:38px;background:rgba(37,211,102,0.12);border:1px solid rgba(37,211,102,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;text-decoration:none">💬</a>
+    </div>
   </div>
 </div>
 
@@ -429,7 +436,7 @@ select.input option{background:#0e0e1f;color:#fff}
 <div class="view" id="termsView">
   <div class="app-header">
     <button class="back-btn" onclick="showView('authView')" style="margin:0">← Back</button>
-    <div class="logo-text">🌱 Grow31</div>
+    <div class="logo-text"><div style="width:22px;height:22px;background:linear-gradient(135deg,#448aff,#ce93d8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.8rem">🌱</div> Grow31</div>
     <div style="width:60px"></div>
   </div>
   <div style="padding:20px 20px;max-width:480px;margin:0 auto;width:100%;flex:1;display:flex;flex-direction:column">
@@ -527,12 +534,13 @@ select.input option{background:#0e0e1f;color:#fff}
 
 <div class="view" id="paymentView">
   <div class="app-header">
-    <div class="logo-text">🌱 Grow31</div>
+    <div class="logo-text"><div style="width:22px;height:22px;background:linear-gradient(135deg,#448aff,#ce93d8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.8rem">🌱</div> Grow31</div>
     <span class="badge badge-green" style="font-size:.7rem">🔒 Secure</span>
   </div>
   <div style="padding:24px 20px;max-width:440px;margin:0 auto;width:100%;flex:1">
     <h2 class="section-heading" style="font-size:1.5rem;margin-bottom:6px">Join the Challenge 🚀</h2>
-    <p class="text-muted text-sm" style="margin-bottom:20px">One-time payment · Instant access · No hidden fees</p>
+    <p class="text-muted text-sm" style="margin-bottom:12px">One-time payment · Instant access · No hidden fees</p>
+    <div id="paymentSlotInfo"></div>
 
     <!-- Price card -->
     <div class="card mb-4" style="margin-bottom:16px;overflow:hidden">
@@ -596,7 +604,7 @@ select.input option{background:#0e0e1f;color:#fff}
 <!-- PROFILE SETUP VIEW -->
 <!-- ═════════════════════════════════════════ -->
 <div class="view" id="profileSetupView">
-  <div class="app-header"><div class="logo-text">🌱 Grow31</div></div>
+  <div class="app-header"><div class="logo-text"><div style="width:22px;height:22px;background:linear-gradient(135deg,#448aff,#ce93d8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.8rem">🌱</div> Grow31</div></div>
   <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 20px">
     <div style="width:100%;max-width:400px">
       <div style="text-align:center;margin-bottom:28px">
@@ -633,7 +641,10 @@ select.input option{background:#0e0e1f;color:#fff}
 <div class="dialog-overlay" id="emojiDialog">
   <div class="dialog" style="max-width:340px">
     <button class="dialog-close" onclick="closeDialog('emojiDialog')">✕</button>
-    <h3 style="font-family:'Poppins',sans-serif;font-weight:800;margin-bottom:16px">Pick Avatar</h3>
+    <h3 style="font-family:'Poppins',sans-serif;font-weight:800;margin-bottom:12px">Pick Avatar</h3>
+    <input type="file" id="avatarPhotoInput" accept="image/*" style="display:none" onchange="handlePhotoUpload(this)">
+    <button class="btn btn-outline btn-full btn-sm" onclick="triggerPhotoUpload()" style="margin-bottom:14px;font-size:.85rem">📷 Upload Personal Photo</button>
+    <p style="font-size:.72rem;color:rgba(255,255,255,0.35);text-align:center;margin-bottom:10px;letter-spacing:.04em;text-transform:uppercase">— Or choose an emoji —</p>
     <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:8px">
       <!-- avatars rendered by JS -->
     </div>
@@ -647,11 +658,11 @@ select.input option{background:#0e0e1f;color:#fff}
   <!-- HEADER -->
   <div class="app-header">
     <div class="logo-text">
-      <div style="width:28px;height:28px;background:linear-gradient(135deg,#448aff,#ce93d8);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem">🌱</div>
+      <div style="width:30px;height:30px;background:linear-gradient(135deg,#448aff,#ce93d8);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;box-shadow:0 0 12px rgba(68,138,255,0.3)">🌱</div>
       Grow31
     </div>
     <div class="flex items-center gap-3">
-      <div class="coins-pill" style="cursor:pointer" onclick="openWalletDialog()">🪙 <span id="headerCoins">0</span></div>
+      <div class="coins-pill" style="cursor:pointer" onclick="openWalletDialog()">💜 <span id="headerCoins">0</span></div>
       <button class="dots-btn" onclick="openDrawer()">⋮</button>
     </div>
   </div>
@@ -683,14 +694,14 @@ select.input option{background:#0e0e1f;color:#fff}
       </div>
 
       <!-- GAMIFIED FLOATING COINS ELEMENT -->
-      <div class="float-coins-wrap" id="gamifiedWrap">
+      <div class="float-coins-wrap" id="gamifiedWrap" style="background:linear-gradient(135deg,rgba(156,39,176,0.12),rgba(68,138,255,0.06));border:1px solid rgba(156,39,176,0.25);">
         <div style="display:flex;align-items:center;justify-content:space-between">
           <div>
             <p style="font-weight:700;font-size:.92rem;margin-bottom:2px">🚀 31-Day Challenge Active!</p>
             <p class="text-muted text-xs">Complete tasks daily to climb the leaderboard</p>
           </div>
           <div style="text-align:center;min-width:60px">
-            <div style="font-family:'Poppins',sans-serif;font-size:1.5rem;font-weight:800;color:#f5c518" id="gamifiedCoins">0</div>
+            <div style="font-family:'Poppins',sans-serif;font-size:1.5rem;font-weight:800;color:#ce93d8" id="gamifiedCoins">0</div>
             <p class="text-xs text-muted">coins</p>
           </div>
         </div>
@@ -722,7 +733,7 @@ select.input option{background:#0e0e1f;color:#fff}
       <div class="invite-card invite-card-glow mb-4" onclick="openReferralDialog()" style="margin-bottom:14px">
         <div>
           <p style="font-weight:700;font-size:.95rem;margin-bottom:3px">👥 Invite Friends</p>
-          <p style="font-size:.78rem;color:rgba(255,255,255,0.5)">Earn <span style="color:#00e676;font-weight:700">+50 coins</span> per referral 🎁</p>
+          <p style="font-size:.78rem;color:rgba(255,255,255,0.5)">Earn <span style="color:#00e676;font-weight:700" id="homeRefCoins">+50 coins</span> per referral 🎁</p>
           <p style="font-size:.72rem;color:rgba(0,230,118,0.7);margin-top:3px">Your code: <span id="homeRefCode" style="font-weight:700;font-family:'Poppins',sans-serif;letter-spacing:2px">—</span></p>
         </div>
         <button class="btn btn-green btn-sm" style="pointer-events:none;flex-shrink:0">Invite →</button>
@@ -766,10 +777,10 @@ select.input option{background:#0e0e1f;color:#fff}
           <p style="font-weight:700;font-size:.9rem">Winners</p>
           <p class="text-muted text-xs">Today's results</p>
         </div>
-        <div class="card" style="padding:16px;cursor:pointer;text-align:center" onclick="showDashPage('pageSlots')">
-          <div style="font-size:2rem;margin-bottom:6px">🎰</div>
-          <p style="font-weight:700;font-size:.9rem">My Slot</p>
-          <p class="text-muted text-xs">Pool progress</p>
+        <div class="card" style="padding:16px;cursor:pointer;text-align:center" onclick="openBuySlotsDialog()">
+          <div style="font-size:2rem;margin-bottom:6px">🛒</div>
+          <p style="font-weight:700;font-size:.9rem">Buy More Slots</p>
+          <p class="text-muted text-xs">Upgrade position</p>
         </div>
       </div>
 
@@ -846,12 +857,13 @@ select.input option{background:#0e0e1f;color:#fff}
         </div>
         <!-- Watch Ads row -->
         <div style="display:flex;gap:10px;margin-top:10px">
-          <button class="btn btn-outline btn-full btn-sm" onclick="watchAdForSpin()" style="font-size:.78rem">📺 Watch Ad → Get Spin</button>
+          <button class="btn btn-outline btn-full btn-sm" onclick="watchAdForSpin()" style="font-size:.78rem">📺 Watch Ad → Get Spin Ticket</button>
+          <p class="text-xs text-muted text-center" style="margin-top:4px" id="adsRemaining">5/5 left today</p>
         </div>
       </div>
       <div class="spin-info-row">
         <div class="spin-token-box">🎟️ <span id="spinTickets">3</span> tickets <button class="btn btn-outline btn-sm" onclick="buyTickets()" style="margin-left:6px;padding:4px 8px;font-size:.7rem">+</button></div>
-        <div class="spin-token-box">🪙 <span id="spinCoins">0</span></div>
+        <div class="spin-token-box" style="color:#ce93d8">💜 <span id="spinCoins">0</span></div>
       </div>
       <div style="margin-top:16px">
         <h3 class="section-heading" style="font-size:1rem;margin-bottom:10px">Recent Wins 🏆</h3>
@@ -866,6 +878,16 @@ select.input option{background:#0e0e1f;color:#fff}
       <!-- AD -->
       <div class="banner-ad" style="margin-bottom:14px"><span style="font-size:1.2rem">📢</span><div style="text-align:left"><p style="font-weight:600;font-size:.85rem">Advertisement Space</p><p class="text-muted" style="font-size:.72rem">Your ad here</p></div><div class="banner-ad-label">AD</div></div>
       <h2 class="section-heading">Leaderboard 🏆</h2>
+      
+      <!-- Countdown Timer -->
+      <div style="background:linear-gradient(135deg,rgba(68,138,255,0.12),rgba(156,39,176,0.08));border:1px solid rgba(68,138,255,0.25);border-radius:14px;padding:12px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between">
+        <div>
+          <p class="text-xs text-muted">⏰ Competition Resets In</p>
+          <p style="font-weight:700;font-size:.85rem;color:#82b1ff" class="countdown-timer">—</p>
+        </div>
+        <span class="badge badge-blue">🔥 Live</span>
+      </div>
+      
       <!-- Competition Schedule -->
       <div class="card mb-4" style="margin-bottom:16px">
         <div class="card-header">
@@ -929,7 +951,7 @@ select.input option{background:#0e0e1f;color:#fff}
           </div>
           <p class="text-muted text-xs" id="morePhone">+91 xxxxxxxx</p>
           <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap">
-            <span class="badge badge-yellow">🪙 <span id="moreCoins">0</span></span>
+            <span class="badge badge-yellow" style="color:#ce93d8;background:rgba(156,39,176,0.15);border-color:rgba(156,39,176,0.3)">🪙 <span id="moreCoins">0</span></span>
             <span class="badge badge-blue">Slot <span id="moreSlot">31</span></span>
           </div>
         </div>
@@ -952,6 +974,12 @@ select.input option{background:#0e0e1f;color:#fff}
           <span style="font-size:1.2rem">👥</span>
           <span style="flex:1;font-weight:500">My Referrals</span>
           <span class="badge badge-green" id="moreRefCount">0</span>
+          <span class="text-muted" style="margin-left:8px">›</span>
+        </div>
+        <div class="list-item" style="cursor:pointer" onclick="openPerksView()">
+          <span style="font-size:1.2rem">🎁</span>
+          <span style="flex:1;font-weight:500">Perks &amp; Rewards</span>
+          <span class="badge badge-purple">New</span>
           <span class="text-muted" style="margin-left:8px">›</span>
         </div>
         <div class="list-item" style="cursor:pointer" onclick="showView('winnersView')">
@@ -1003,7 +1031,7 @@ select.input option{background:#0e0e1f;color:#fff}
       <!-- AD 2 -->
       <div class="banner-ad" style="margin-bottom:12px"><span style="font-size:1.2rem">🎯</span><div style="text-align:left"><p style="font-weight:600;font-size:.85rem">Sponsored</p><p class="text-muted" style="font-size:.72rem">Advertise with Grow31</p></div><div class="banner-ad-label">AD</div></div>
       <button class="btn btn-danger btn-full" onclick="doLogout()" style="margin-top:8px">↪ Logout</button>
-      <p class="text-xs text-muted text-center" style="margin-top:16px;opacity:.4">Grow31 v1.0 · support@grow31.com</p>
+      <p class="text-xs text-muted text-center" style="margin-top:16px;opacity:.4">Grow31 v1.0 · <a href="mailto:support@grow31.com" style="color:inherit">support@grow31.com</a></p>
       <p class="text-xs text-muted text-center" style="margin-top:4px;opacity:.3">
         <span onclick="adminShortcut()" style="cursor:pointer">·</span>
       </p>
@@ -1051,7 +1079,7 @@ select.input option{background:#0e0e1f;color:#fff}
 <!-- ═════════════════════════════════════════ -->
 <div class="view" id="followView">
   <div class="app-header">
-    <button class="back-btn" onclick="backToDash()" style="margin:0">← Back</button>
+    <button class="back-btn" onclick="goBack()" style="margin:0">← Back</button>
     <div class="logo-text">Follow &amp; Earn</div>
     <div class="coins-pill">🪙 <span id="followCoins">0</span></div>
   </div>
@@ -1060,57 +1088,55 @@ select.input option{background:#0e0e1f;color:#fff}
     <p class="text-muted text-sm" style="margin-bottom:16px;line-height:1.6">Follow Grow31 on social media to earn coins and get the latest updates!</p>
 
     <!-- Follow Cards -->
-    <div class="follow-card">
-      <div class="follow-icon" style="background:rgba(29,161,242,0.15);border:1px solid rgba(29,161,242,0.2)">🐦</div>
-      <div style="flex:1">
-        <p style="font-weight:700;font-size:.95rem">Follow on X (Twitter)</p>
-        <p class="text-muted text-xs">Get updates &amp; announcements</p>
-        <p class="coins-reward">+50 🪙</p>
-      </div>
-      <button class="btn btn-blue btn-sm" onclick="followSocial('twitter',50,this)">Follow</button>
-    </div>
-    <div class="follow-card">
-      <div class="follow-icon" style="background:rgba(0,119,181,0.15);border:1px solid rgba(0,119,181,0.2)">💬</div>
-      <div style="flex:1">
-        <p style="font-weight:700;font-size:.95rem">Join Telegram Channel</p>
-        <p class="text-muted text-xs">Official updates &amp; giveaways</p>
-        <p class="coins-reward">+50 🪙</p>
-      </div>
-      <button class="btn btn-blue btn-sm" onclick="followSocial('telegram',50,this)">Join</button>
-    </div>
+    <!-- Instagram -->
     <div class="follow-card">
       <div class="follow-icon" style="background:rgba(225,48,108,0.15);border:1px solid rgba(225,48,108,0.2)">📸</div>
       <div style="flex:1">
         <p style="font-weight:700;font-size:.95rem">Follow on Instagram</p>
-        <p class="text-muted text-xs">Behind the scenes &amp; winners</p>
-        <p class="coins-reward">+50 🪙</p>
+        <p class="text-muted text-xs">@_grow31 · Behind the scenes &amp; winners</p>
+        <div style="display:flex;gap:6px;align-items:center;margin-top:4px">
+          <p class="coins-reward" style="margin:0">+50 🪙</p>
+          <span style="font-size:.65rem;color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.07);border-radius:4px;padding:2px 5px">Max: 50 coins · ~10 min</span>
+        </div>
       </div>
       <button class="btn btn-blue btn-sm" onclick="followSocial('instagram',50,this)">Follow</button>
     </div>
+    <!-- YouTube -->
     <div class="follow-card">
       <div class="follow-icon" style="background:rgba(255,0,0,0.12);border:1px solid rgba(255,0,0,0.2)">▶️</div>
       <div style="flex:1">
         <p style="font-weight:700;font-size:.95rem">Subscribe on YouTube</p>
-        <p class="text-muted text-xs">Tutorial videos &amp; livestreams</p>
-        <p class="coins-reward">+100 🪙</p>
+        <p class="text-muted text-xs">@grow31-u3s · Tutorial videos &amp; livestreams</p>
+        <div style="display:flex;gap:6px;align-items:center;margin-top:4px">
+          <p class="coins-reward" style="margin:0">+100 🪙</p>
+          <span style="font-size:.65rem;color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.07);border-radius:4px;padding:2px 5px">Max: 100 coins · ~10 min</span>
+        </div>
       </div>
       <button class="btn btn-blue btn-sm" onclick="followSocial('youtube',100,this)">Subscribe</button>
     </div>
+    <!-- Telegram -->
     <div class="follow-card">
-      <div class="follow-icon" style="background:rgba(24,119,242,0.12);border:1px solid rgba(24,119,242,0.2)">👥</div>
+      <div class="follow-icon" style="background:rgba(0,119,181,0.15);border:1px solid rgba(0,119,181,0.2)">✈️</div>
       <div style="flex:1">
-        <p style="font-weight:700;font-size:.95rem">Like on Facebook</p>
-        <p class="text-muted text-xs">Community &amp; discussion</p>
-        <p class="coins-reward">+30 🪙</p>
+        <p style="font-weight:700;font-size:.95rem">Join Telegram Channel</p>
+        <p class="text-muted text-xs">Grow31 Official · Updates &amp; giveaways</p>
+        <div style="display:flex;gap:6px;align-items:center;margin-top:4px">
+          <p class="coins-reward" style="margin:0">+50 🪙</p>
+          <span style="font-size:.65rem;color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.07);border-radius:4px;padding:2px 5px">Max: 50 coins · ~10 min</span>
+        </div>
       </div>
-      <button class="btn btn-blue btn-sm" onclick="followSocial('facebook',30,this)">Like</button>
+      <button class="btn btn-blue btn-sm" onclick="followSocial('telegram',50,this)">Join</button>
     </div>
+    <!-- WhatsApp -->
     <div class="follow-card">
-      <div class="follow-icon" style="background:rgba(0,128,0,0.12);border:1px solid rgba(0,128,0,0.2)">💬</div>
+      <div class="follow-icon" style="background:rgba(37,211,102,0.12);border:1px solid rgba(37,211,102,0.2)">💬</div>
       <div style="flex:1">
         <p style="font-weight:700;font-size:.95rem">Join WhatsApp Group</p>
-        <p class="text-muted text-xs">Daily tasks &amp; reminders</p>
-        <p class="coins-reward">+50 🪙</p>
+        <p class="text-muted text-xs">Daily tasks, reminders &amp; support</p>
+        <div style="display:flex;gap:6px;align-items:center;margin-top:4px">
+          <p class="coins-reward" style="margin:0">+50 🪙</p>
+          <span style="font-size:.65rem;color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.07);border-radius:4px;padding:2px 5px">Max: 50 coins · ~10 min</span>
+        </div>
       </div>
       <button class="btn btn-blue btn-sm" onclick="followSocial('whatsapp',50,this)">Join</button>
     </div>
@@ -1132,12 +1158,19 @@ select.input option{background:#0e0e1f;color:#fff}
 <!-- ═════════════════════════════════════════ -->
 <div class="view" id="winnersView">
   <div class="app-header">
-    <button class="back-btn" onclick="backToDash()" style="margin:0">← Back</button>
+    <button class="back-btn" onclick="goBack()" style="margin:0">← Back</button>
     <div class="logo-text">🏅 Winners</div>
     <div style="width:60px"></div>
   </div>
   <div class="page-content">
     <h2 class="section-heading">Winners &amp; Updates 🏆</h2>
+    
+    <!-- Countdown Timer -->
+    <div style="background:linear-gradient(135deg,rgba(68,138,255,0.12),rgba(156,39,176,0.08));border:1px solid rgba(68,138,255,0.25);border-radius:14px;padding:14px;margin-bottom:16px;text-align:center">
+      <p class="text-xs text-muted" style="margin-bottom:4px">⏰ Next Results Announcement In</p>
+      <p style="font-family:'Poppins',sans-serif;font-size:1.4rem;font-weight:800;color:#82b1ff" class="countdown-timer">—</p>
+      <p class="text-xs text-muted" style="margin-top:4px;opacity:.6">Winners announced at midnight daily</p>
+    </div>
 
     <!-- Tabs -->
     <div style="display:flex;gap:8px;margin-bottom:16px">
@@ -1290,7 +1323,7 @@ select.input option{background:#0e0e1f;color:#fff}
 <!-- ═════════════════════════════════════════ -->
 <div class="view" id="aiChatView" style="min-height:100vh">
   <div class="app-header">
-    <button class="back-btn" onclick="backToDash()" style="margin:0">← Back</button>
+    <button class="back-btn" onclick="goBack()" style="margin:0">← Back</button>
     <div class="logo-text">🤖 AI Assistant</div>
     <button class="btn btn-outline btn-sm" onclick="clearChat()">Clear</button>
   </div>
@@ -1310,7 +1343,7 @@ select.input option{background:#0e0e1f;color:#fff}
 <!-- ═════════════════════════════════════════ -->
 <div class="view" id="helpView">
   <div class="app-header">
-    <button class="back-btn" onclick="backToDash()" style="margin:0">← Back</button>
+    <button class="back-btn" onclick="goBack()" style="margin:0">← Back</button>
     <div class="logo-text">❓ Help</div>
     <div style="width:60px"></div>
   </div>
@@ -1351,7 +1384,7 @@ select.input option{background:#0e0e1f;color:#fff}
 <!-- TERMS VIEW 2 (from inside app) -->
 <div class="view" id="termsView2">
   <div class="app-header">
-    <button class="back-btn" onclick="backToDash()" style="margin:0">← Back</button>
+    <button class="back-btn" onclick="goBack()" style="margin:0">← Back</button>
     <div class="logo-text">📋 Policies</div>
     <div style="width:60px"></div>
   </div>
@@ -1409,13 +1442,23 @@ select.input option{background:#0e0e1f;color:#fff}
 <!-- ═════════════════════════════════════════ -->
 <div class="view" id="contactView">
   <div class="app-header">
-    <button class="back-btn" onclick="backToDash()" style="margin:0">← Back</button>
+    <button class="back-btn" onclick="goBack()" style="margin:0">← Back</button>
     <div class="logo-text">📞 Contact</div>
     <div style="width:60px"></div>
   </div>
   <div class="page-content">
     <h2 class="section-heading">Contact Us 📞</h2>
-    <p class="text-muted text-sm" style="margin-bottom:20px;line-height:1.6">We're here to help! Reach out via any of the channels below.</p>
+    <p class="text-muted text-sm" style="margin-bottom:16px;line-height:1.6">We're here to help! Reach out via any of the channels below.</p>
+    
+    <!-- Phone Number -->
+    <div class="contact-card" onclick="window.open('tel:8097781211')">
+      <div style="font-size:1.8rem">📞</div>
+      <div>
+        <p style="font-weight:700;font-size:.95rem">Call / WhatsApp Support</p>
+        <p class="text-muted text-xs">+91 8097781211</p>
+        <p class="text-xs" style="color:#00e676;margin-top:2px">For all support and follow up</p>
+      </div>
+    </div>
     <div class="contact-card" onclick="window.open('mailto:support@grow31.com')">
       <div style="font-size:1.8rem">📧</div>
       <div>
@@ -1424,19 +1467,36 @@ select.input option{background:#0e0e1f;color:#fff}
         <p class="text-xs" style="color:#82b1ff;margin-top:2px">Response within 24 hours</p>
       </div>
     </div>
-    <div class="contact-card" onclick="window.open('https://wa.me/91XXXXXXXXXX')">
+    <!-- Social Links -->
+    <div class="contact-card" onclick="window.open('https://www.instagram.com/_grow31?igsh=ZTdneTg0OXVkYTRy&utm_source=qr','_blank')">
+      <div style="font-size:1.8rem">📸</div>
+      <div>
+        <p style="font-weight:700;font-size:.95rem">Instagram</p>
+        <p class="text-muted text-xs">@_grow31</p>
+        <p class="text-xs" style="color:#f48fb1;margin-top:2px">Follow for updates &amp; giveaways</p>
+      </div>
+    </div>
+    <div class="contact-card" onclick="window.open('https://youtube.com/@grow31-u3s?si=RVZX6ZbiKUb6jhWq','_blank')">
+      <div style="font-size:1.8rem">▶️</div>
+      <div>
+        <p style="font-weight:700;font-size:.95rem">YouTube</p>
+        <p class="text-muted text-xs">@grow31-u3s</p>
+        <p class="text-xs" style="color:#ff5252;margin-top:2px">Subscribe for videos &amp; livestreams</p>
+      </div>
+    </div>
+    <div class="contact-card" onclick="window.open('https://wa.me/918097781211')">
       <div style="font-size:1.8rem">💬</div>
       <div>
         <p style="font-weight:700;font-size:.95rem">WhatsApp Support</p>
-        <p class="text-muted text-xs">+91 XXXXXXXXXX</p>
+        <p class="text-muted text-xs">+91 8097781211</p>
         <p class="text-xs" style="color:#00e676;margin-top:2px">Usually replies within a few hours</p>
       </div>
     </div>
-    <div class="contact-card" onclick="window.open('https://t.me/grow31official')">
+    <div class="contact-card" onclick="window.open('https://t.me/+JhvCkrA8Fg8yZTVl')">
       <div style="font-size:1.8rem">✈️</div>
       <div>
         <p style="font-weight:700;font-size:.95rem">Telegram Community</p>
-        <p class="text-muted text-xs">@grow31official</p>
+        <p class="text-muted text-xs">Join Grow31 Official</p>
         <p class="text-xs" style="color:#82b1ff;margin-top:2px">Join for updates &amp; support</p>
       </div>
     </div>
@@ -1528,7 +1588,17 @@ select.input option{background:#0e0e1f;color:#fff}
   <div class="drawer-item" onclick="closeDrawer();showView('aiChatView')">
     <span class="drawer-item-icon">🤖</span>AI Assistant <span class="badge badge-blue" style="margin-left:6px;font-size:.6rem">NEW</span><span class="drawer-item-arr">›</span>
   </div>
-  <div style="margin-top:auto;padding:20px">
+  <div style="padding:16px 20px;border-top:1px solid rgba(255,255,255,0.07)">
+    <p class="text-xs text-muted" style="margin-bottom:10px;letter-spacing:.05em;text-transform:uppercase">Follow Grow31</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <a href="https://www.instagram.com/_grow31?igsh=ZTdneTg0OXVkYTRy&utm_source=qr" target="_blank" style="width:36px;height:36px;background:rgba(225,48,108,0.15);border:1px solid rgba(225,48,108,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;text-decoration:none">📸</a>
+      <a href="https://youtube.com/@grow31-u3s?si=RVZX6ZbiKUb6jhWq" target="_blank" style="width:36px;height:36px;background:rgba(255,0,0,0.12);border:1px solid rgba(255,0,0,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;text-decoration:none">▶️</a>
+      <a href="https://t.me/+JhvCkrA8Fg8yZTVl" target="_blank" style="width:36px;height:36px;background:rgba(0,119,181,0.15);border:1px solid rgba(0,119,181,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;text-decoration:none">✈️</a>
+      <a href="https://wa.me/message/Y2CDYZEVKWA3M1" target="_blank" style="width:36px;height:36px;background:rgba(37,211,102,0.12);border:1px solid rgba(37,211,102,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;text-decoration:none">💬</a>
+      <a href="tel:8097781211" style="width:36px;height:36px;background:rgba(68,138,255,0.12);border:1px solid rgba(68,138,255,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;text-decoration:none">📞</a>
+    </div>
+  </div>
+  <div style="padding:16px 20px">
     <button class="btn btn-danger btn-full" onclick="closeDrawer();doLogout()">↪ Logout</button>
   </div>
 </div>
@@ -1538,7 +1608,7 @@ select.input option{background:#0e0e1f;color:#fff}
   <div class="dialog" style="max-width:420px">
     <button class="dialog-close" onclick="closeDialog('refDialog')">✕</button>
     <h3 style="font-family:'Poppins',sans-serif;font-size:1.2rem;font-weight:800;margin-bottom:4px">👥 Your Referral</h3>
-    <p class="text-muted text-sm" style="margin-bottom:12px;font-size:.85rem">Share with friends to earn +50 coins each!</p>
+    <p class="text-muted text-sm" style="margin-bottom:12px;font-size:.85rem">Share with friends to earn <span id="refPerReferralLabel" style="color:#ce93d8;font-weight:700">+50 🪙</span> each!</p>
     <div class="ref-code-display">
       <p class="text-xs text-muted" style="margin-bottom:4px">Your Referral Link</p>
       <h2 class="ref-code-text" id="myRefCodeDisplay" style="font-size:1rem;letter-spacing:1px;word-break:break-all">Grow31/—</h2>
@@ -1571,9 +1641,9 @@ select.input option{background:#0e0e1f;color:#fff}
     <button class="dialog-close" onclick="closeDialog('walletDialog')">✕</button>
     <h3 style="font-family:'Poppins',sans-serif;font-size:1.2rem;font-weight:800;margin-bottom:4px">🪙 Coin Wallet</h3>
     <p class="text-muted text-xs" style="margin-bottom:16px">Your earnings &amp; payout history</p>
-    <div style="background:linear-gradient(135deg,rgba(245,197,24,0.12),rgba(255,112,67,0.06));border:1px solid rgba(245,197,24,0.25);border-radius:14px;padding:20px;text-align:center;margin-bottom:16px">
+    <div style="background:linear-gradient(135deg,rgba(156,39,176,0.12),rgba(68,138,255,0.06));border:1px solid rgba(156,39,176,0.25);border-radius:14px;padding:20px;text-align:center;margin-bottom:16px">
       <p class="text-xs text-muted" style="margin-bottom:4px">Total Balance</p>
-      <div style="font-family:'Poppins',sans-serif;font-size:2.2rem;font-weight:800;color:#f5c518">🪙 <span id="walletBalance">0</span></div>
+      <div style="font-family:'Poppins',sans-serif;font-size:2.2rem;font-weight:800;color:#ce93d8">🪙 <span id="walletBalance">0</span></div>
       <div style="display:flex;gap:8px;justify-content:center;margin-top:10px">
         <span class="badge badge-pending">⏳ Payout: Pending Admin Verification</span>
       </div>
@@ -1583,6 +1653,100 @@ select.input option{background:#0e0e1f;color:#fff}
       <p class="text-muted text-xs text-center" style="padding:16px;opacity:.5">No transactions yet</p>
     </div>
     <p class="text-xs text-muted text-center" style="margin-top:12px;opacity:.6;line-height:1.5">Coin redemption is subject to admin verification and platform liquidity. See T&amp;C for details.</p>
+  </div>
+</div>
+
+
+<!-- BUY MORE SLOTS DIALOG -->
+<div class="dialog-overlay" id="buySlotsDialog">
+  <div class="dialog" style="max-width:420px">
+    <button class="dialog-close" onclick="closeDialog('buySlotsDialog')">✕</button>
+    <div style="text-align:center;margin-bottom:18px">
+      <div style="font-size:2.5rem;margin-bottom:8px">🛒</div>
+      <h3 style="font-family:'Poppins',sans-serif;font-size:1.2rem;font-weight:800;margin-bottom:4px">Buy More Slots</h3>
+      <p class="text-muted text-xs">Secure your position in the Grow31 pool</p>
+    </div>
+    
+    <!-- Current Slot Info -->
+    <div style="background:rgba(156,39,176,0.1);border:1px solid rgba(156,39,176,0.3);border-radius:12px;padding:14px;margin-bottom:16px">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <p class="text-xs text-muted">Current Slot</p>
+          <p style="font-weight:800;font-size:1.1rem;color:#ce93d8" id="bsCurrentSlot">Slot 31</p>
+        </div>
+        <div style="text-align:right">
+          <p class="text-xs text-muted">Queue Position</p>
+          <p style="font-weight:800;font-size:1.1rem" id="bsQueuePos">#1</p>
+        </div>
+        <div style="text-align:right">
+          <p class="text-xs text-muted">Price / Slot</p>
+          <p style="font-weight:800;font-size:1.1rem;color:#00e676">₹30</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Quantity Selector (like trading app) -->
+    <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:16px;margin-bottom:16px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <span style="font-weight:600;font-size:.9rem">Qty</span>
+        <div style="display:flex;align-items:center;gap:12px">
+          <button onclick="changeBuyQty(-1)" style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:#fff;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center">−</button>
+          <input type="number" id="bsQty" value="1" min="1" max="10" oninput="updateBuySlotPrice()" style="width:60px;text-align:center;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);border-radius:8px;color:#fff;font-size:1.1rem;font-weight:700;padding:8px;font-family:'Poppins',sans-serif">
+          <button onclick="changeBuyQty(1)" style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:#fff;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center">+</button>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:1px solid rgba(255,255,255,0.08)">
+        <span class="text-muted text-sm" id="bsPerSlot">1 slot × ₹30 each</span>
+        <div style="text-align:right">
+          <p class="text-xs text-muted">Total Price</p>
+          <p style="font-family:'Poppins',sans-serif;font-size:1.4rem;font-weight:800;color:#ce93d8" id="bsTotalPrice">₹30</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Features of buying slots -->
+    <div style="margin-bottom:16px">
+      <div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:.85rem;color:rgba(255,255,255,0.7)">
+        <span style="width:24px;height:24px;background:rgba(0,230,118,0.15);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.75rem">📅</span>
+        <span>Full 31-Day Challenge Access</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:.85rem;color:rgba(255,255,255,0.7)">
+        <span style="width:24px;height:24px;background:rgba(156,39,176,0.15);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.75rem">🪙</span>
+        <span>Daily Coin Rewards + Bonuses</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;padding:8px 0;font-size:.85rem;color:rgba(255,255,255,0.7)">
+        <span style="width:24px;height:24px;background:rgba(68,138,255,0.15);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.75rem">🏆</span>
+        <span>Leaderboard + Pool Win Eligibility</span>
+      </div>
+    </div>
+    
+    <button class="btn btn-white btn-full btn-lg" onclick="confirmBuySlots()">
+      Proceed to Payment 🚀
+    </button>
+    <p class="text-xs text-muted text-center" style="margin-top:10px;opacity:.5">🔒 Secure payment via Razorpay · SSL Encrypted</p>
+  </div>
+</div>
+
+<!-- PERKS VIEW -->
+<div class="view" id="perksView">
+  <div class="app-header">
+    <button class="back-btn" onclick="goBack()" style="margin:0">← Back</button>
+    <div class="logo-text"><div style="width:22px;height:22px;background:linear-gradient(135deg,#448aff,#ce93d8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.8rem">🌱</div>Perks</div>
+    <div class="coins-pill">🪙 <span id="perksCoins">0</span></div>
+  </div>
+  <div class="page-content">
+    <h2 class="section-heading">🎁 Your Perks</h2>
+    <div style="background:rgba(156,39,176,0.08);border:1px solid rgba(156,39,176,0.2);border-radius:12px;padding:14px;margin-bottom:16px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <span style="font-size:1.4rem">👥</span>
+        <div>
+          <p style="font-weight:700;font-size:.9rem">Referral Progress</p>
+          <p class="text-muted text-xs">Unlock perks by referring friends to Grow31</p>
+        </div>
+        <span class="badge badge-purple" id="perksRefCount" style="margin-left:auto">0 refs</span>
+      </div>
+    </div>
+    <div id="perksList"></div>
   </div>
 </div>
 
@@ -1631,7 +1795,7 @@ select.input option{background:#0e0e1f;color:#fff}
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ═══════════════════════════════════════════════════════
 // DATABASE
 // ═══════════════════════════════════════════════════════
@@ -1655,7 +1819,7 @@ let state = {
 
 // Slots data
 const SLOTS = [];
-for(let i=1;i<=31;i++) SLOTS.push({num:i,members:Math.pow(2,i-1)});
+for(let i=1;i<=31;i++) SLOTS.push({num:i,members:Math.pow(2,31-i)});
 
 const SLOT_COLORS = [
   '#ff5252','#ff7043','#ffa726','#ffca28','#d4e157',
@@ -1813,12 +1977,13 @@ function completeSignup(){
   if(inviteCode){
     Object.values(state.allUsers).forEach(u=>{
       if(u.refCode===inviteCode||u.refCode===inviteCode.replace('GROW31/','Grow31/')){
+        const refCoins=getSlotCoinsPerReferral(u.slot||31);
         u.referrals+=1;
-        u.coins+=50;
+        u.coins+=refCoins;
         if(!u.referralList) u.referralList=[];
         u.referralList.push({id:uid,name:newUser.username,time:Date.now()});
         if(!u.txHistory) u.txHistory=[];
-        u.txHistory.unshift({type:'referral',coins:50,desc:'Referral bonus from '+newUser.username,time:Date.now()});
+        u.txHistory.unshift({type:'referral',coins:refCoins,desc:'Referral bonus from '+newUser.username,time:Date.now()});
         newUser.coins+=50;
         newUser.txHistory.unshift({type:'referral',coins:50,desc:'Referral bonus applied',time:Date.now()});
       }
@@ -1939,24 +2104,6 @@ function afterPayment(){
 // ═══════════════════════════════════════════════════════
 // PROFILE SETUP
 // ═══════════════════════════════════════════════════════
-function pickEmoji(){
-  const d=document.getElementById('emojiDialog');
-  d.querySelector('.dialog .grid-2').outerHTML; // handled below
-  const grid=d.querySelector('[style*="grid-template-columns"]');
-  if(!grid) return;
-  grid.innerHTML='';
-  EMOJIS.forEach(e=>{
-    const btn=document.createElement('button');
-    btn.style.cssText='font-size:1.8rem;padding:8px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);cursor:pointer;transition:background .2s';
-    btn.innerText=e;
-    btn.onclick=()=>{
-      document.getElementById('avatarEmoji').innerText=e;
-      closeDialog('emojiDialog');
-    };
-    grid.appendChild(btn);
-  });
-  d.classList.add('open');
-}
 
 // Fix emoji dialog grid
 document.addEventListener('DOMContentLoaded',()=>{
@@ -2029,8 +2176,14 @@ function renderDash(){
   document.getElementById('headerCoins').innerText=u.coins.toLocaleString();
   document.getElementById('userName').innerText=u.username;
   document.getElementById('userDay').innerText=u.day;
-  document.getElementById('dashAvatar').innerText=u.avatar||'🧑';
+  if(u.avatarPhoto){
+    document.getElementById('dashAvatar').innerHTML='<img src="'+u.avatarPhoto+'" style="width:100%;height:100%;object-fit:cover;border-radius:50%">';
+  } else {
+    document.getElementById('dashAvatar').innerText=u.avatar||'🧑';
+  }
   document.getElementById('homeRefCode').innerText=u.refCode;
+  const homeRefCoinsEl=document.getElementById('homeRefCoins');
+  if(homeRefCoinsEl) homeRefCoinsEl.innerText='+'+getSlotCoinsPerReferral(u.slot||31)+' coins';
 
   // Stats
   document.getElementById('statStreak').innerText=u.streak;
@@ -2049,7 +2202,7 @@ function renderDash(){
   mini.innerHTML=todayTasks.map(t=>`
     <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);font-size:.88rem">
       <span>${t.done?'✅ ':''}<span style="${t.done?'opacity:.5':''};">${t.title}</span></span>
-      <span style="color:#f5c518;font-weight:700;font-size:.8rem">${t.done?'Done':'+'+t.reward+' 🪙'}</span>
+      <span style="color:#ce93d8;font-weight:700;font-size:.8rem">${t.done?'Done':'+'+t.reward+' 🪙'}</span>
     </div>
   `).join('');
 
@@ -2080,6 +2233,7 @@ function renderDash(){
   updateRankBar(u, rank);
 
   renderTasksPage();
+  startCountdownTimers();
 }
 
 function updateRankBar(u, rank){
@@ -2108,7 +2262,7 @@ function renderTasksPage(){
     div.innerHTML=`
       <div class="flex justify-between w-full" style="align-items:center">
         <span style="font-weight:500">${t.done?'✅ ':''}${t.title}</span>
-        <span class="text-yellow" style="font-weight:700;font-size:.85rem">+${t.reward} 🪙</span>
+        <span style="color:#ce93d8;font-weight:700;font-size:.85rem">+${t.reward} 🪙</span>
       </div>`;
     c.appendChild(div);
   });
@@ -2138,12 +2292,20 @@ function completeTask(tid){
 function renderMore(){
   const u=state.currentUser;
   if(!u) return;
+  const perksCoinsEl=document.getElementById('perksCoins');
+  if(perksCoinsEl) perksCoinsEl.innerText=u.coins.toLocaleString();
+  const perksRefCountEl=document.getElementById('perksRefCount');
+  if(perksRefCountEl) perksRefCountEl.innerText=(u.referrals||0)+' refs';
   document.getElementById('moreUsername').innerText=u.username;
   document.getElementById('morePhone').innerText='+91 '+u.phone;
   document.getElementById('moreCoins').innerText=u.coins.toLocaleString();
   document.getElementById('moreSlot').innerText=u.slot||31;
   document.getElementById('moreRefCount').innerText=u.referrals;
-  document.getElementById('moreAvatar').innerText=u.avatar||'🧑';
+  if(u.avatarPhoto){
+    document.getElementById('moreAvatar').innerHTML='<img src="'+u.avatarPhoto+'" style="width:100%;height:100%;object-fit:cover;border-radius:50%">';
+  } else {
+    document.getElementById('moreAvatar').innerText=u.avatar||'🧑';
+  }
   const refLink=document.getElementById('moreRefLink');
   if(refLink) refLink.innerText=u.refCode||'Grow31/'+u.username;
   
@@ -2176,7 +2338,7 @@ function renderLeaderboard(sorted){
           </div>
         </div>
         <div style="text-align:right;flex-shrink:0">
-          <div class="text-yellow" style="font-weight:700;font-size:.9rem">${usr.coins.toLocaleString()} PTS</div>
+          <div style="font-weight:700;font-size:.9rem;color:#ce93d8">${usr.coins.toLocaleString()} 🪙</div>
           <div class="text-xs text-muted">🪙 coins</div>
         </div>
       </div>`;
@@ -2399,7 +2561,7 @@ function doSpin(type){
       const seg=SPIN_PRIZES.length;
       const arc=(2*Math.PI)/seg;
       const normalizedAngle=((spinAngle%(2*Math.PI))+(2*Math.PI))%(2*Math.PI);
-      const idx=Math.floor(((Math.PI/2-normalizedAngle+2*Math.PI*10)%(2*Math.PI))/arc)%seg;
+      const idx=Math.floor(((3*Math.PI/2-normalizedAngle+2*Math.PI*100)%(2*Math.PI))/arc)%seg;
       const prize=SPIN_PRIZES[idx]||SPIN_PRIZES[0];
 
       // Award prize (pending admin approval for higher amounts)
@@ -2442,7 +2604,7 @@ function renderSpinRecords(){
   c.innerHTML=state.spinRecords.slice(0,8).map(r=>`
     <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.05)">
       <span style="font-size:.85rem;font-weight:500">${r.user}</span>
-      <span style="font-weight:700;color:#f5c518;font-size:.85rem">${r.prize}</span>
+      <span style="font-weight:700;color:#ce93d8;font-size:.85rem">${r.prize}</span>
     </div>`).join('');
 }
 
@@ -2451,10 +2613,17 @@ function buyTickets(){
 }
 
 function watchAdForSpin(){
-  showToast("📺 Ad watched! +1 spin ticket earned 🎟️","success");
-  state.currentUser.spinTickets=(state.currentUser.spinTickets||0)+1;
+  const u=state.currentUser;
+  const today=new Date().toDateString();
+  if(u.lastAdDate!==today) { u.adsWatchedToday=0; u.lastAdDate=today; }
+  if((u.adsWatchedToday||0)>=5) return showToast("Daily ad limit reached (5/5). Come back tomorrow! 📅","error");
+  u.adsWatchedToday=(u.adsWatchedToday||0)+1;
+  u.spinTickets=(u.spinTickets||0)+1;
   saveData();
-  if(document.getElementById('spinTickets')) document.getElementById('spinTickets').innerText=state.currentUser.spinTickets;
+  const remaining=5-u.adsWatchedToday;
+  showToast("📺 Ad watched! +1 spin ticket 🎟️ ("+remaining+" ads left today)","success");
+  if(document.getElementById('spinTickets')) document.getElementById('spinTickets').innerText=u.spinTickets;
+  if(document.getElementById('adsRemaining')) document.getElementById('adsRemaining').innerText=remaining+'/5 left today';
 }
 
 // ═══════════════════════════════════════════════════════
@@ -2468,11 +2637,11 @@ function followSocial(platform, coins, btn){
   // Open platform link
   const links={
     twitter:'https://twitter.com/grow31official',
-    telegram:'https://t.me/grow31official',
-    instagram:'https://instagram.com/grow31official',
-    youtube:'https://youtube.com/@grow31',
+    telegram:'https://t.me/+JhvCkrA8Fg8yZTVl',
+    instagram:'https://www.instagram.com/_grow31?igsh=ZTdneTg0OXVkYTRy&utm_source=qr',
+    youtube:'https://youtube.com/@grow31-u3s?si=RVZX6ZbiKUb6jhWq',
     facebook:'https://facebook.com/grow31official',
-    whatsapp:'https://wa.me/91XXXXXXXXXX'
+    whatsapp:'https://wa.me/message/Y2CDYZEVKWA3M1'
   };
   if(links[platform]) window.open(links[platform],'_blank');
 
@@ -2541,7 +2710,10 @@ function openReferralDialog(){
   const refLink=u.refCode||'Grow31/'+u.username;
   document.getElementById('myRefCodeDisplay').innerText=refLink;
   document.getElementById('refDialogCount').innerText=u.referrals;
-  document.getElementById('refDialogEarned').innerText=((u.referrals||0)*50).toLocaleString();
+  const slotCoinsPerRef = getSlotCoinsPerReferral(u.slot||31);
+  document.getElementById('refDialogEarned').innerText=((u.referrals||0)*slotCoinsPerRef).toLocaleString();
+  const refPerLabel = document.getElementById('refPerReferralLabel');
+  if(refPerLabel) refPerLabel.innerText = '+'+slotCoinsPerRef+' 🪙';
 
   // Render referral list
   const c=document.getElementById('refListContainer');
@@ -2557,7 +2729,7 @@ function openReferralDialog(){
             <p style="font-size:.85rem;font-weight:600">${r.name||'User'}</p>
             <p class="text-xs text-muted">${new Date(r.time).toLocaleDateString('en-IN')}</p>
           </div>
-          <span class="badge badge-yellow" style="font-size:.65rem">+50 🪙</span>
+          <span class="badge badge-yellow" style="font-size:.65rem">+${getSlotCoinsPerReferral(state.currentUser?.slot||31)} 🪙</span>
         </div>`).join('');
     }
   }
@@ -2821,7 +2993,7 @@ function renderAdminUsers(){
           <small class="text-muted" style="font-size:.65rem">${u.refCode||'—'}</small>
         </div>
         <div class="text-right">
-          <span class="badge badge-yellow">${u.coins.toLocaleString()} 🪙</span><br>
+          <span class="badge badge-yellow" style="color:#ce93d8">🪙 ${u.coins.toLocaleString()}</span><br>
           <small class="text-muted" style="margin-top:4px;display:block">Slot ${slotNum} · Q#${qPos}</small>
           <small class="text-muted">Refs: ${u.referrals||0}</small><br>
           <button class="btn btn-green btn-sm" style="margin-top:4px;font-size:.65rem;padding:3px 8px" onclick="adminVerifyPayout('${u.phone}')">✓ Verify Payout</button>
@@ -2858,6 +3030,212 @@ function addRewardAdmin(){
   if(descInput) descInput.value='';
 }
 
+
+// ═══════════════════════════════════════════════════════
+// SLOT-BASED COINS PER REFERRAL
+// ═══════════════════════════════════════════════════════
+function getSlotCoinsPerReferral(slotNum){
+  // Higher slot = more coins per referral
+  const base = Math.pow(2, 31 - slotNum); // slot 31=1, slot 30=2, slot 29=4...
+  return Math.max(50, Math.min(base * 10, 50000));
+}
+
+// ═══════════════════════════════════════════════════════
+// BUY MORE SLOTS DIALOG
+// ═══════════════════════════════════════════════════════
+function openBuySlotsDialog(){
+  const u = state.currentUser;
+  const dialog = document.getElementById('buySlotsDialog');
+  const cur = u.slot || 31;
+  const qPos = u.queuePosition || 1;
+  const slotPrice = 30; // ₹30 per slot
+  
+  document.getElementById('bsCurrentSlot').innerText = 'Slot ' + cur;
+  document.getElementById('bsQueuePos').innerText = '#' + qPos;
+  
+  // Update price display
+  updateBuySlotPrice();
+  
+  if(dialog) dialog.classList.add('open');
+}
+
+function updateBuySlotPrice(){
+  const qty = parseInt(document.getElementById('bsQty')?.value || 1);
+  const total = qty * 30;
+  const el = document.getElementById('bsTotalPrice');
+  if(el) el.innerText = '₹' + total;
+  const perSlot = document.getElementById('bsPerSlot');
+  if(perSlot) perSlot.innerText = qty + ' slot' + (qty>1?'s':'') + ' × ₹30 each';
+}
+
+function changeBuyQty(delta){
+  const inp = document.getElementById('bsQty');
+  if(!inp) return;
+  let val = parseInt(inp.value || 1) + delta;
+  if(val < 1) val = 1;
+  if(val > 10) val = 10;
+  inp.value = val;
+  updateBuySlotPrice();
+}
+
+function confirmBuySlots(){
+  const qty = parseInt(document.getElementById('bsQty')?.value || 1);
+  const total = qty * 30;
+  closeDialog('buySlotsDialog');
+  
+  // Redirect to payment with slot info
+  document.getElementById('paymentSlotInfo').innerHTML = 
+    '<div style="background:rgba(156,39,176,0.1);border:1px solid rgba(156,39,176,0.3);border-radius:12px;padding:14px;margin-bottom:16px;text-align:center">' +
+    '<p style="font-weight:700;font-size:1rem;color:#ce93d8">📦 Buying ' + qty + ' Slot' + (qty>1?'s':'') + '</p>' +
+    '<p class="text-muted text-xs" style="margin-top:4px">Total: ₹' + total + ' (₹30 per slot)</p>' +
+    '</div>';
+  document.getElementById('payBtnText').innerHTML = 'Pay ₹' + total + ' for ' + qty + ' Slot' + (qty>1?'s':'') + ' →';
+  
+  showView('paymentView');
+}
+
+// ═══════════════════════════════════════════════════════
+// AVATAR PHOTO UPLOAD
+// ═══════════════════════════════════════════════════════
+function triggerPhotoUpload(){
+  document.getElementById('avatarPhotoInput')?.click();
+}
+
+function handlePhotoUpload(input){
+  const file = input.files?.[0];
+  if(!file) return;
+  if(!file.type.startsWith('image/')) return showToast("Please select an image","error");
+  const reader = new FileReader();
+  reader.onload = function(e){
+    const dataUrl = e.target.result;
+    // Store as photo URL on user
+    state.currentUser.avatarPhoto = dataUrl;
+    // Update all avatar displays
+    updateAvatarDisplays(dataUrl, null);
+    closeDialog('emojiDialog');
+    saveData();
+    showToast("Photo updated! 📸","success");
+  };
+  reader.readAsDataURL(file);
+}
+
+function updateAvatarDisplays(photoUrl, emoji){
+  const displays = ['dashAvatar','moreAvatar','drawerAvatar','rankBarAvatar'];
+  displays.forEach(id=>{
+    const el = document.getElementById(id);
+    if(!el) return;
+    if(photoUrl){
+      el.innerHTML = '<img src="'+photoUrl+'" style="width:100%;height:100%;object-fit:cover;border-radius:50%">';
+    } else if(emoji){
+      el.innerText = emoji;
+    }
+  });
+  // Profile setup avatar
+  const aeEl = document.getElementById('avatarEmoji');
+  if(aeEl && emoji) aeEl.innerText = emoji;
+}
+
+// ═══════════════════════════════════════════════════════
+// COUNTDOWN TIMERS FOR WINNERS & LEADERBOARD
+// ═══════════════════════════════════════════════════════
+let countdownInterval = null;
+
+function startCountdownTimers(){
+  if(countdownInterval) clearInterval(countdownInterval);
+  updateCountdowns();
+  countdownInterval = setInterval(updateCountdowns, 1000);
+}
+
+function updateCountdowns(){
+  const now = new Date();
+  // Next midnight = reset time
+  const midnight = new Date(now);
+  midnight.setHours(24, 0, 0, 0);
+  const diff = midnight - now;
+  const h = Math.floor(diff / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+  const timeStr = h + 'h ' + m + 'm ' + s + 's';
+  
+  document.querySelectorAll('.countdown-timer').forEach(el=>{
+    el.innerText = timeStr;
+  });
+}
+
+// ═══════════════════════════════════════════════════════
+// PERKS SYSTEM
+// ═══════════════════════════════════════════════════════
+function openPerksView(){
+  const u=state.currentUser;
+  if(u){
+    const perksCoinsEl=document.getElementById('perksCoins');
+    if(perksCoinsEl) perksCoinsEl.innerText=u.coins.toLocaleString();
+    const perksRefCountEl=document.getElementById('perksRefCount');
+    if(perksRefCountEl) perksRefCountEl.innerText=(u.referrals||0)+' refs';
+  }
+  renderPerks();
+  showView('perksView');
+}
+
+function renderPerks(){
+  const u = state.currentUser;
+  const refs = u.referrals || 0;
+  const c = document.getElementById('perksList');
+  if(!c) return;
+  
+  const perks = [
+    {id:'giveaway', title:'🎁 Giveaway Entry', desc:'Enter exclusive giveaways and win real prizes!', req:2, icon:'🎁', color:'#ce93d8'},
+    {id:'spinbonus', title:'🎰 Extra Spin Tickets', desc:'Get +5 bonus spin tickets every day', req:5, icon:'🎡', color:'#448aff'},
+    {id:'coinboost', title:'⚡ Coin Boost x2', desc:'Double coins from all tasks for 7 days', req:10, icon:'⚡', color:'#ffa726'},
+    {id:'vip', title:'👑 VIP Badge', desc:'Exclusive VIP badge and leaderboard highlight', req:20, icon:'👑', color:'#f5c518'},
+  ];
+  
+  c.innerHTML = perks.map(p => {
+    const unlocked = refs >= p.req;
+    const pct = Math.min(100, Math.round((refs / p.req) * 100));
+    return `
+      <div style="background:${unlocked?'rgba(0,230,118,0.05)':'rgba(255,255,255,0.04)'};border:1px solid ${unlocked?'rgba(0,230,118,0.25)':'rgba(255,255,255,0.08)'};border-radius:16px;padding:18px;margin-bottom:12px;transition:all .2s">
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:10px">
+          <div style="width:48px;height:48px;background:${p.color}22;border:1px solid ${p.color}44;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0">${p.icon}</div>
+          <div style="flex:1">
+            <p style="font-weight:700;font-size:.95rem;margin-bottom:2px">${p.title}</p>
+            <p class="text-muted text-xs">${p.desc}</p>
+          </div>
+          ${unlocked ? '<span class="badge badge-green">✓ Unlocked</span>' : '<span class="badge badge-gray">🔒 Locked</span>'}
+        </div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <div class="progress-track" style="flex:1;height:5px">
+            <div class="progress-fill" style="width:${pct}%;background:${unlocked?'#00e676':p.color}"></div>
+          </div>
+          <span class="text-xs text-muted">${refs}/${p.req} refs</span>
+        </div>
+        ${unlocked && p.id==='giveaway' ? '<button class="btn btn-green btn-full btn-sm" style="margin-top:10px" onclick="enterGiveaway()">Enter Giveaway 🎁</button>' : ''}
+        ${!unlocked && p.id==='giveaway' ? '<p class="text-xs text-muted text-center" style="margin-top:8px">Need <b style="color:#ce93d8">'+(p.req-refs)+' more referrals</b> to unlock</p>' : ''}
+      </div>`;
+  }).join('');
+}
+
+function enterGiveaway(){
+  showToast("🎉 You've entered the giveaway! Winner announced at midnight.","success");
+}
+
+// ═══════════════════════════════════════════════════════
+// PAYMENT PAGE SLOT DISPLAY
+// ═══════════════════════════════════════════════════════
+function showPaymentWithSlotInfo(){
+  const u = state.currentUser;
+  if(!u) return;
+  const slotNum = u.slot || 31;
+  const qPos = u.queuePosition || 1;
+  const el = document.getElementById('paymentSlotInfo');
+  if(el){
+    el.innerHTML = '<div style="background:rgba(156,39,176,0.1);border:1px solid rgba(156,39,176,0.3);border-radius:12px;padding:14px;margin-bottom:16px;text-align:center">' +
+    '<p style="font-weight:700;color:#ce93d8">🎰 Your Slot: <span style="font-size:1.2rem">Slot ' + slotNum + '</span></p>' +
+    '<p class="text-muted text-xs" style="margin-top:4px">Queue Position #' + qPos + ' · Pay to confirm your spot!</p>' +
+    '</div>';
+  }
+}
+
 function resetAllData(){
   if(confirm("Delete everything?")) {localStorage.clear();location.reload();}
 }
@@ -2869,9 +3247,34 @@ function exitAdmin(){if(state.currentUser) loginSuccess();}
 // ═══════════════════════════════════════════════════════
 // UTILS
 // ═══════════════════════════════════════════════════════
-function showView(id){
-  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
+let viewHistory=['authView'];
+function pushView(id){
+  if(viewHistory[viewHistory.length-1] !== id){
+    viewHistory.push(id);
+  }
+  if(viewHistory.length>10) viewHistory.shift();
+}
+function goBack(){
+  if(viewHistory.length>1){
+    viewHistory.pop();
+    const prev=viewHistory[viewHistory.length-1];
+    showView(prev,false);
+    if(prev==='dashView'){renderDash();initSpinWheel();}
+  } else {
+    showView('dashView');
+    renderDash();
+  }
+}
+function showView(id, addHistory=true){
+  document.querySelectorAll('.view').forEach(v=>{
+    v.classList.remove('active');
+    v.style.display='none';
+  });
+  const el=document.getElementById(id);
+  if(!el) return;
+  el.style.display='flex';
+  el.classList.add('active');
+  if(addHistory) pushView(id);
 }
 
 function closeDialog(id){document.getElementById(id).classList.remove('open')}
@@ -2915,24 +3318,11 @@ function saveData(){DB.set('users',state.allUsers)}
 
 function doLogout(){state.currentUser=null;showView('authView')}
 
-// Profile setup emoji dialog init
-(function(){
-  const d=document.getElementById('emojiDialog');
-  if(d){
-    const inner=d.querySelector('.dialog');
-    // Remove placeholder text and add grid
-    const g=inner.querySelector('[style*="display:grid"]');
-    if(!g){
-      const newG=document.createElement('div');
-      newG.style.cssText='display:grid;grid-template-columns:repeat(6,1fr);gap:8px';
-      inner.appendChild(newG);
-    }
-  }
-})();
-
+// Profile setup - avatar picker (completed)
 function pickEmoji(){
   const d=document.getElementById('emojiDialog');
-  let grid=d.querySelector('.dialog div[style*="grid"]');
+  if(!d) return;
+  let grid=d.querySelector('[style*="grid-template-columns"]');
   if(!grid){
     grid=document.createElement('div');
     grid.style.cssText='display:grid;grid-template-columns:repeat(6,1fr);gap:8px';
@@ -2941,10 +3331,12 @@ function pickEmoji(){
   grid.innerHTML='';
   EMOJIS.forEach(e=>{
     const btn=document.createElement('button');
-    btn.style.cssText='font-size:1.8rem;padding:8px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);cursor:pointer;transition:background .2s';
+    btn.style.cssText='font-size:1.8rem;padding:8px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);cursor:pointer;transition:background .2s;width:100%';
     btn.innerText=e;
     btn.onclick=()=>{
       document.getElementById('avatarEmoji').innerText=e;
+      if(state.currentUser){ state.currentUser.avatarPhoto=null; }
+      updateAvatarDisplays(null, e);
       closeDialog('emojiDialog');
     };
     grid.appendChild(btn);
@@ -2952,28 +3344,8 @@ function pickEmoji(){
   d.classList.add('open');
 }
 
-// Fix emoji dialog on DOM ready
-document.addEventListener('DOMContentLoaded',()=>{
-  const d=document.getElementById('emojiDialog');
-  if(d){
-    const inner=d.querySelector('.dialog');
-    let g=inner.querySelector('[style*="grid-template-columns"]');
-    if(!g){
-      g=document.createElement('div');
-      g.style.cssText='display:grid;grid-template-columns:repeat(6,1fr);gap:8px';
-      inner.appendChild(g);
-    }
-  }
-  // Initialize terms panels - hide non-active
-  ['privacy','refund'].forEach(t=>{
-    const p=document.getElementById('tpanel-'+t);
-    if(p) p.style.display='none';
-  });
-  ['privacy2','refund2'].forEach(t=>{
-    const p=document.getElementById('tpanel-'+t);
-    if(p) p.style.display='none';
-  });
-});
+
+
 </script>
 </body>
 </html>
