@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="background:#050510;">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -37,6 +37,9 @@ a{text-decoration:none;color:inherit}
 #splashView{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#050510;transition:opacity .6s ease,transform .6s ease}
 #splashView.hidden{opacity:0;transform:scale(1.06);pointer-events:none}
 .splash-icon{font-size:4.5rem;margin-bottom:16px;animation:splashBounce 1.2s cubic-bezier(.34,1.56,.64,1)}
+.splash-icon .logo-image{width:110px;height:110px;border-radius:24px;object-fit:cover;box-shadow:0 0 40px rgba(68,138,255,0.25),0 0 80px rgba(206,147,216,0.15);}
+.auth-logo-circle img{width:100%;height:100%;border-radius:50%;object-fit:cover;}
+.app-logo{width:24px;height:24px;border-radius:8px;object-fit:cover;}
 @keyframes splashBounce{from{opacity:0;transform:scale(0.4) translateY(30px)}to{opacity:1;transform:scale(1) translateY(0)}}
 .splash-title{font-family:'Poppins',sans-serif;font-size:3.5rem;font-weight:800;background:linear-gradient(135deg,#fff 20%,#448aff 60%,#ce93d8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:fadeIn .8s ease .3s both}
 .splash-sub{color:rgba(255,255,255,0.4);font-size:.95rem;margin-top:8px;animation:fadeIn .8s ease .6s both}
@@ -374,7 +377,7 @@ select.input option{background:#0e0e1f;color:#fff}
 }
 </style>
 </head>
-<body>
+<body style="background:#050510;color:#fff">
 
 <!-- Animated background -->
 <div class="bg-scene">
@@ -388,7 +391,7 @@ select.input option{background:#0e0e1f;color:#fff}
 <!-- SPLASH VIEW -->
 <!-- ═════════════════════════════════════════ -->
 <div id="splashView">
-  <div class="splash-icon"><div style="width:80px;height:80px;background:linear-gradient(135deg,#448aff,#ce93d8);border-radius:22px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;box-shadow:0 0 40px rgba(68,138,255,0.4),0 0 80px rgba(206,147,216,0.2);margin:0 auto">🌱</div></div>
+  <div class="splash-icon"><img src="Images/LOGO.png" alt="Grow31" class="logo-image"></div>
   <div class="splash-title">Grow31</div>
   <div class="splash-sub">31 Days. One Challenge. Real Rewards.</div>
   <div class="splash-loader"><div class="splash-loader-fill"></div></div>
@@ -400,7 +403,7 @@ select.input option{background:#0e0e1f;color:#fff}
 <div class="view" id="authView">
   <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 20px">
     <div class="auth-hero">
-      <div class="auth-logo-circle">🌱</div>
+      <div class="auth-logo-circle"><img src="Images/LOGO.png" alt="Grow31"></div>
       <h1 class="auth-title">Grow31</h1>
       <p class="auth-sub" style="font-size:1.08rem;color:rgba(255,255,255,0.7);font-weight:500;line-height:1.4">31 Days. One Challenge.<br><span style="color:#f5c518;font-weight:700">Real Rewards.</span></p>
     </div>
@@ -459,7 +462,7 @@ select.input option{background:#0e0e1f;color:#fff}
 <div class="view" id="termsView">
   <div class="app-header">
     <button class="back-btn" onclick="showView('authView')" style="margin:0">← Back</button>
-    <div class="logo-text"><div style="width:22px;height:22px;background:linear-gradient(135deg,#448aff,#ce93d8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.8rem">🌱</div> Grow31</div>
+    <div class="logo-text"><img src="Images/LOGO.png" alt="Grow31" class="app-logo"> Grow31</div>
     <div style="width:60px"></div>
   </div>
   <div style="padding:20px 20px;max-width:480px;margin:0 auto;width:100%;flex:1;display:flex;flex-direction:column">
@@ -558,7 +561,7 @@ select.input option{background:#0e0e1f;color:#fff}
 <div class="view" id="paymentView">
   <div class="app-header">
     <button class="back-btn" onclick="goBack()" style="margin:0">← Back</button>
-    <div class="logo-text"><div style="width:22px;height:22px;background:linear-gradient(135deg,#448aff,#ce93d8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.8rem">🌱</div> Grow31</div>
+    <div class="logo-text"><img src="Images/LOGO.png" alt="Grow31" class="app-logo"> Grow31</div>
     <span class="badge badge-green" style="font-size:.7rem">🔒 Secure</span>
   </div>
   <div style="padding:24px 20px;max-width:440px;margin:0 auto;width:100%;flex:1">
@@ -622,7 +625,7 @@ select.input option{background:#0e0e1f;color:#fff}
 <div class="view" id="profileSetupView">
   <div class="app-header">
     <button class="back-btn" onclick="goBack()" style="margin:0">← Back</button>
-    <div class="logo-text"><div style="width:22px;height:22px;background:linear-gradient(135deg,#448aff,#ce93d8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.8rem">🌱</div> Grow31</div>
+    <div class="logo-text"><img src="Images/LOGO.png" alt="Grow31" class="app-logo"> Grow31</div>
     <div style="width:60px"></div>
   </div>
   <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 20px">
@@ -678,7 +681,7 @@ select.input option{background:#0e0e1f;color:#fff}
   <!-- HEADER -->
   <div class="app-header">
     <div class="logo-text">
-      <div style="width:30px;height:30px;background:linear-gradient(135deg,#448aff,#ce93d8);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;box-shadow:0 0 12px rgba(68,138,255,0.3)">🌱</div>
+      <img src="Images/LOGO.png" alt="Grow31" class="app-logo" style="width:30px;height:30px;border-radius:9px;box-shadow:0 0 12px rgba(68,138,255,0.3)">
       Grow31
     </div>
     <div class="flex items-center gap-3">
@@ -1754,7 +1757,7 @@ select.input option{background:#0e0e1f;color:#fff}
 <div class="view" id="perksView">
   <div class="app-header">
     <button class="back-btn" onclick="goBack()" style="margin:0">← Back</button>
-    <div class="logo-text"><div style="width:22px;height:22px;background:linear-gradient(135deg,#448aff,#ce93d8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.8rem">🌱</div>Perks</div>
+    <div class="logo-text"><img src="Images/LOGO.png" alt="Grow31" class="app-logo"> Perks</div>
     <div class="coins-pill">🪙 <span id="perksCoins">0</span></div>
   </div>
   <div class="page-content">
