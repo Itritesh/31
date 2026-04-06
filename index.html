@@ -348,6 +348,30 @@ select.input option{background:#0e0e1f;color:#fff}
 
 /* ── PROGRESS BOTTOM NAV PADDING (with rank bar) ── */
 .page-content-ranked{padding-bottom:130px}
+
+/* ── MOBILE RESPONSIVE FIXES ── */
+@media (max-width: 680px){
+  .app-header{padding:12px 14px;gap:10px}
+  .logo-text{font-size:1rem}
+  .coins-pill{padding:6px 10px;font-size:.78rem}
+  .dots-btn{width:34px;height:34px}
+  .page-content{padding:14px 14px 120px}
+  .page-content.page-content-ranked{padding-bottom:150px}
+  .btn{padding:10px 14px;font-size:.82rem}
+  .btn-sm{padding:7px 12px;font-size:.76rem}
+  .card{border-radius:14px}
+  .follow-card,.winner-card,.update-card{flex-direction:column;align-items:flex-start}
+  .follow-icon{width:42px;height:42px;font-size:1.3rem}
+  .schedule-row{flex-direction:column;align-items:flex-start;gap:8px}
+  .bottom-nav{padding:8px 0 18px}
+  .nav-btn{font-size:.65rem}
+  .sticky-rank-bar{bottom:74px;padding:10px 12px;flex-wrap:wrap}
+  .rank-bar-stats{width:100%;justify-content:flex-start}
+  .rank-bar-user{width:100%}
+  .rank-bar-info{min-width:0}
+  .dialog{max-width:92vw}
+  .text-muted{font-size:.82rem}
+}
 </style>
 </head>
 <body>
@@ -533,6 +557,7 @@ select.input option{background:#0e0e1f;color:#fff}
 
 <div class="view" id="paymentView">
   <div class="app-header">
+    <button class="back-btn" onclick="goBack()" style="margin:0">← Back</button>
     <div class="logo-text"><div style="width:22px;height:22px;background:linear-gradient(135deg,#448aff,#ce93d8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.8rem">🌱</div> Grow31</div>
     <span class="badge badge-green" style="font-size:.7rem">🔒 Secure</span>
   </div>
@@ -545,8 +570,8 @@ select.input option{background:#0e0e1f;color:#fff}
     <div class="card mb-4" style="margin-bottom:16px;overflow:hidden">
       <div style="padding:32px 28px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.07);background:linear-gradient(135deg,rgba(68,138,255,0.06),rgba(206,147,216,0.04))">
         <p class="text-muted text-xs" style="margin-bottom:4px;letter-spacing:.08em;text-transform:uppercase">Entry Fee</p>
-        <div class="price-display" style="font-size:4rem">₹30</div>
-        <p class="text-muted" style="margin-top:4px;font-size:.9rem">One-time · All 31 Days</p>
+        <div id="paymentPriceDisplay" class="price-display" style="font-size:4rem">₹30</div>
+        <p id="paymentPriceMeta" class="text-muted" style="margin-top:4px;font-size:.9rem">One-time · All 31 Days</p>
         <div style="display:flex;gap:8px;justify-content:center;margin-top:16px;flex-wrap:wrap">
           <span class="badge badge-green">✅ Secure</span>
           <span class="badge badge-blue">🔒 Demo Payment</span>
@@ -563,19 +588,6 @@ select.input option{background:#0e0e1f;color:#fff}
       </div>
     </div>
 
-    <!-- Payment methods -->
-    <div class="card mb-4" style="margin-bottom:18px">
-      <div class="card-content" style="padding:16px 20px">
-        <p class="card-title" style="margin-bottom:12px">Accepted Payment Methods</p>
-        <div style="display:flex;gap:8px;flex-wrap:wrap">
-          <span style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:8px 14px;font-size:.82rem;font-weight:600">💳 Card</span>
-          <span style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:8px 14px;font-size:.82rem;font-weight:600">📲 UPI</span>
-          <span style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:8px 14px;font-size:.82rem;font-weight:600">🏦 Net Banking</span>
-          <span style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:8px 14px;font-size:.82rem;font-weight:600">💰 Wallet</span>
-        </div>
-      </div>
-    </div>
-
     <button class="btn btn-white btn-full btn-lg" onclick="processPayment()" id="payBtn" style="padding:18px;font-size:1.05rem">
       <span id="payBtnText">Pay ₹30 &amp; Start Challenge →</span>
     </button>
@@ -588,12 +600,17 @@ select.input option{background:#0e0e1f;color:#fff}
 <!-- ═════════════════════════════════════════ -->
 <div class="view" id="confirmView">
   <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 20px;text-align:center">
+    <div style="width:100%;max-width:480px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between">
+      <button class="back-btn" onclick="goBack()" style="margin:0">← Back</button>
+      <div style="flex:1;text-align:center;font-weight:800;color:#fff">Processing</div>
+      <div style="width:60px"></div>
+    </div>
     <div id="confirmSpinner" class="confirm-spinner"></div>
     <div id="confirmSuccess" style="display:none">
       <div class="confirm-anim">✅</div>
       <h2 class="font-syne" style="font-size:1.8rem;font-weight:800;margin-bottom:8px">Payment Successful!</h2>
-      <p class="text-muted" style="margin-bottom:32px;font-size:.95rem">Welcome to the Grow31 Challenge 🎉</p>
-      <button class="btn btn-white btn-lg" onclick="afterPayment()">Set Up Profile →</button>
+      <p id="confirmDetails" class="text-muted" style="margin-bottom:16px;font-size:.95rem">Your slot purchase is confirmed.</p>
+      <button class="btn btn-white btn-lg" onclick="afterPayment()">Continue to Dashboard →</button>
     </div>
     <p id="confirmMsg" class="text-muted" style="margin-top:16px;font-size:.9rem">Processing your payment...</p>
   </div>
@@ -603,7 +620,11 @@ select.input option{background:#0e0e1f;color:#fff}
 <!-- PROFILE SETUP VIEW -->
 <!-- ═════════════════════════════════════════ -->
 <div class="view" id="profileSetupView">
-  <div class="app-header"><div class="logo-text"><div style="width:22px;height:22px;background:linear-gradient(135deg,#448aff,#ce93d8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.8rem">🌱</div> Grow31</div></div>
+  <div class="app-header">
+    <button class="back-btn" onclick="goBack()" style="margin:0">← Back</button>
+    <div class="logo-text"><div style="width:22px;height:22px;background:linear-gradient(135deg,#448aff,#ce93d8);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.8rem">🌱</div> Grow31</div>
+    <div style="width:60px"></div>
+  </div>
   <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 20px">
     <div style="width:100%;max-width:400px">
       <div style="text-align:center;margin-bottom:28px">
@@ -821,12 +842,14 @@ select.input option{background:#0e0e1f;color:#fff}
           <div style="font-family:'Poppins',sans-serif;font-size:2.5rem;font-weight:800;color:#00e676;margin-bottom:4px">Slot <span id="currentSlotNum">31</span></div>
           <p class="text-muted text-xs" style="margin-bottom:4px">Position in queue: <span style="color:#fff;font-weight:700" id="currentQueuePos">#1</span></p>
           <p class="text-muted text-sm">Pool members: <span id="currentSlotMembers" style="color:#fff;font-weight:700">1</span></p>
+          <p class="text-muted text-sm" style="margin-top:8px">Your seats: <span id="slotSeatsOwned" style="color:#fff;font-weight:700">1</span></p>
           <div class="progress-track" style="height:6px;margin:12px 0">
             <div class="progress-fill" id="slotProgress" style="width:10%"></div>
           </div>
           <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:8px">
             <span class="badge badge-pending">⏳ Payout: Pending</span>
           </div>
+          <button class="btn btn-outline btn-full btn-sm" style="margin-top:12px" onclick="showMySlotClaimInfo()">Claim / View My Slots</button>
         </div>
       </div>
       <p class="text-sm text-muted" style="margin-bottom:12px;line-height:1.6">Slots are auto-assigned in order (first come, first served). Slot 31 is the top slot. Your position advances as more users join. Payouts are verified by admin before coins are credited.</p>
@@ -1058,7 +1081,7 @@ select.input option{background:#0e0e1f;color:#fff}
   </div>
 
   <!-- STICKY RANK BAR (always visible) -->
-  <div class="sticky-rank-bar" id="stickyRankBar">
+  <div class="sticky-rank-bar" id="stickyRankBar" onclick="showDashPage('pageLeader')" style="cursor:pointer" title="Open leaderboard">
     <div class="rank-bar-user">
       <div class="avatar av-user" id="rankBarAvatar" style="width:32px;height:32px;font-size:.95rem;flex-shrink:0">🧑</div>
       <div class="rank-bar-info">
@@ -1181,31 +1204,31 @@ select.input option{background:#0e0e1f;color:#fff}
     <!-- Winners Tab -->
     <div id="winnersTab">
       <div class="winner-card">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;flex-wrap:wrap">
           <span style="font-size:1.5rem">🥇</span>
           <div>
             <p style="font-weight:700">Rahul_GROW2847</p>
             <p class="text-muted text-xs">Referral Winner · Day 6</p>
           </div>
           <div style="margin-left:auto;text-align:right">
-            <p style="font-weight:700;color:#f5c518">+₹500</p>
+            <p style="font-weight:700;color:#f5c518">iPhone 15 Pro</p>
             <p class="text-xs text-muted">Prize Won</p>
           </div>
         </div>
         <div style="display:flex;gap:8px;flex-wrap:wrap">
           <span class="badge badge-yellow">10 Referrals</span>
-          <span class="badge badge-green">Day 6 Champion</span>
+          <span class="badge badge-green">Daily Top Earner</span>
         </div>
       </div>
       <div class="winner-card">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;flex-wrap:wrap">
           <span style="font-size:1.5rem">🥈</span>
           <div>
             <p style="font-weight:700">Priya_GROW1923</p>
             <p class="text-muted text-xs">Pool Winner · Day 5</p>
           </div>
           <div style="margin-left:auto;text-align:right">
-            <p style="font-weight:700;color:#f5c518">+₹300</p>
+            <p style="font-weight:700;color:#f5c518">Studio Headphones</p>
             <p class="text-xs text-muted">Prize Won</p>
           </div>
         </div>
@@ -1215,14 +1238,14 @@ select.input option{background:#0e0e1f;color:#fff}
         </div>
       </div>
       <div class="winner-card">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;flex-wrap:wrap">
           <span style="font-size:1.5rem">🥉</span>
           <div>
             <p style="font-weight:700">Amit_GROW3341</p>
             <p class="text-muted text-xs">Pool Winner · Day 4</p>
           </div>
           <div style="margin-left:auto;text-align:right">
-            <p style="font-weight:700;color:#f5c518">+₹150</p>
+            <p style="font-weight:700;color:#f5c518">AirPods Pro</p>
             <p class="text-xs text-muted">Prize Won</p>
           </div>
         </div>
@@ -1236,28 +1259,28 @@ select.input option{background:#0e0e1f;color:#fff}
     <!-- Updates Tab -->
     <div id="updatesTab" style="display:none">
       <div class="update-card">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap">
           <span class="badge badge-blue">📢 Announcement</span>
-          <span class="text-muted text-xs">2 hours ago</span>
+          <span class="text-muted text-xs">Live now</span>
         </div>
-        <p style="font-weight:600;font-size:.95rem;margin-bottom:4px">Spin Wheel Jackpot Updated!</p>
-        <p class="text-muted text-sm">The jackpot prize has been increased to 500,000 coins. Spin now for your chance to win big!</p>
+        <p style="font-weight:600;font-size:.95rem;margin-bottom:4px">Next winner announcement in the timer above</p>
+        <p class="text-muted text-sm">Winners and product prizes are shared daily at midnight. Stay active and check here for the latest updates.</p>
       </div>
       <div class="update-card">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap">
           <span class="badge badge-green">🎉 Milestone</span>
           <span class="text-muted text-xs">1 day ago</span>
         </div>
-        <p style="font-weight:600;font-size:.95rem;margin-bottom:4px">1,000 Users Joined!</p>
-        <p class="text-muted text-sm">Grow31 has crossed 1,000 active participants. The pool prize is now bigger than ever!</p>
+        <p style="font-weight:600;font-size:.95rem;margin-bottom:4px">1,000 users climbed the leaderboard</p>
+        <p class="text-muted text-sm">Grow31 now has more daily achievers, and more prizes are unlocked for top performers.</p>
       </div>
       <div class="update-card">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap">
           <span class="badge badge-yellow">🔔 Reminder</span>
           <span class="text-muted text-xs">2 days ago</span>
         </div>
-        <p style="font-weight:600;font-size:.95rem;margin-bottom:4px">Complete Day 6 Tasks Today</p>
-        <p class="text-muted text-sm">Don't forget to complete your daily tasks to maintain your streak and stay competitive!</p>
+        <p style="font-weight:600;font-size:.95rem;margin-bottom:4px">Complete today’s tasks for prize eligibility</p>
+        <p class="text-muted text-sm">Finish your daily challenge and stay in the running for gadgets, headphones, and bonus rewards.</p>
       </div>
     </div>
 
@@ -1514,8 +1537,9 @@ select.input option{background:#0e0e1f;color:#fff}
 <!-- ═════════════════════════════════════════ -->
 <div class="view" id="adminView">
   <div class="app-header">
+    <button class="back-btn" onclick="goBack()" style="margin:0">← Back</button>
     <div class="logo-text">🛡️ Admin Panel</div>
-    <button class="btn btn-outline btn-sm" onclick="exitAdmin()">← Exit</button>
+    <button class="btn btn-outline btn-sm" onclick="exitAdmin()">Exit</button>
   </div>
   <div class="tab-nav">
     <button class="tab-btn active" onclick="switchAdminTab('users',this)">Users</button>
@@ -1968,6 +1992,7 @@ function completeSignup(){
     followedSocials:[],checkedInToday:false,lastCheckIn:'',
     slot:slotNum, queuePosition:queuePos,
     spinTickets:3,spinTokens:0,
+    slotsOwned:1,
     joinedAt:Date.now(),
     payoutStatus:'pending',
     txHistory:[{type:'signup',coins:100,desc:'Welcome bonus',time:Date.now()}]
@@ -2055,6 +2080,28 @@ function processPayment(){
   }, 800);
 }
 
+function updatePaymentView(){
+  const btn = document.getElementById('payBtn');
+  if(btn){ btn.disabled = false; }
+  const priceDisplay = document.getElementById('paymentPriceDisplay');
+  const priceMeta = document.getElementById('paymentPriceMeta');
+  const btnText = document.getElementById('payBtnText');
+  const pending = state.pendingPayment;
+
+  if(pending && pending.qty > 1){
+    if(priceDisplay) priceDisplay.innerText = '₹' + pending.total;
+    if(priceMeta) priceMeta.innerText = pending.qty + ' slots × ₹30 each';
+    if(btnText) btnText.innerText = 'Pay ₹' + pending.total + ' for ' + pending.qty + ' Slots →';
+  } else {
+    if(priceDisplay) priceDisplay.innerText = '₹30';
+    if(priceMeta) priceMeta.innerText = 'One-time · All 31 Days';
+    if(btnText) btnText.innerText = 'Pay ₹30 & Start Challenge →';
+    if(!pending){
+      showPaymentWithSlotInfo();
+    }
+  }
+}
+
 function simulateConfirm(){
   const spinner=document.getElementById('confirmSpinner');
   const success=document.getElementById('confirmSuccess');
@@ -2070,13 +2117,36 @@ function simulateConfirm(){
     spinner.style.display='none';
     success.style.display='block';
     msg.style.display='none';
+    const pending = state.pendingPayment || {qty:1};
+    const u = state.currentUser || {};
+    const totalSlots = (u.slotsOwned || 1) + pending.qty;
+    const confirmDetails = document.getElementById('confirmDetails');
+    if(confirmDetails){
+      confirmDetails.innerText = 'You will have ' + totalSlots + ' slot' + (totalSlots>1?'s':'') + ' after this purchase.';
+    }
   },2200);
 }
 
 function afterPayment(){
-  state.currentUser.hasPaid=true;
+  const btnText=document.getElementById('confirmDetails');
+  const qty = state.pendingPayment?.qty || 1;
+  const u = state.currentUser;
+  if(!u){
+    return showView('authView');
+  }
+  u.hasPaid = true;
+  u.slotsOwned = (u.slotsOwned || 1) + qty;
+  if(!u.txHistory) u.txHistory=[];
+  u.txHistory.unshift({type:'purchase',amount:state.pendingPayment?.total||30,desc:'Slot purchase',time:Date.now()});
   saveData();
-  showView('profileSetupView');
+  state.pendingPayment = null;
+  if(btnText){
+    btnText.innerText = 'You now have ' + u.slotsOwned + ' slot' + (u.slotsOwned>1?'s':'') + ' in your pool.';
+  }
+  showToast('Purchase complete! Total slots: ' + u.slotsOwned, 'success');
+  showView('dashView');
+  renderDash();
+  initSpinWheel();
 }
 
 // ═══════════════════════════════════════════════════════
@@ -2130,7 +2200,9 @@ function showDashPage(pageId){
   ['pageHome','pageTasks','pageSlots','pageSpin','pageLeader','pageMore'].forEach(p=>{
     document.getElementById(p).style.display='none';
   });
-  document.getElementById(pageId).style.display='block';
+  const pageEl=document.getElementById(pageId);
+  pageEl.style.display='block';
+  pageEl.scrollTop=0;
   currentDashPage=pageId;
 
   // Update nav
@@ -2330,9 +2402,12 @@ function renderSlots(){
   const u=state.currentUser;
   const cur=u.slot||31;
   const queuePos=u.queuePosition||1;
+  const seats=u.slotsOwned||1;
   document.getElementById('currentSlotNum').innerText=cur;
   document.getElementById('currentQueuePos').innerText='#'+queuePos;
   document.getElementById('currentSlotMembers').innerText=SLOTS[cur-1].members.toLocaleString();
+  const seatsEl=document.getElementById('slotSeatsOwned');
+  if(seatsEl) seatsEl.innerText = seats + ' seat' + (seats>1?'s':'');
   const pct=Math.min(100,Math.round((queuePos/Math.max(1,Object.keys(state.allUsers).length))*100));
   document.getElementById('slotProgress').style.width=pct+'%';
 
@@ -2372,6 +2447,7 @@ function renderSlots(){
 }
 
 function openSlotDialog(slot){
+  const u=state.currentUser;
   const membersStr=slot.members>=1000000000?'1,073,741,824':slot.members.toLocaleString();
   const queuePos=32-slot.num;
   document.getElementById('slotDialogTitle').innerText='Slot '+slot.num+' 🎰';
@@ -2396,11 +2472,34 @@ function openSlotDialog(slot){
       <p class="text-xs" style="color:#ffa726">⏳ Payout Status: <b>Pending Admin Verification</b></p>
     </div>
     <p class="text-muted text-sm" style="margin-bottom:14px;line-height:1.6">Slots are auto-assigned. Slot 31 = first in queue. As more users join, later positions get lower slot numbers. Payouts are credited after admin verification.</p>
+    ${slot.num===u.slot?`<button class="btn btn-white btn-full btn-lg" onclick="showMySlotClaimInfo()">Claim / View My Slot</button>`:''}
   `;
   document.getElementById('slotDialog').classList.add('open');
 }
 
-// ═══════════════════════════════════════════════════════
+function showMySlotClaimInfo(){
+  const u=state.currentUser;
+  if(!u) return showToast('Login first to view your slots','error');
+  const seats=u.slotsOwned||1;
+  const slotNum=u.slot||31;
+  const queuePos=u.queuePosition||1;
+  const content = `
+    <div style="text-align:center;margin-bottom:18px">
+      <div style="font-size:2.5rem;margin-bottom:12px">🎟️</div>
+      <h3 style="font-family:'Poppins',sans-serif;font-size:1.2rem;font-weight:800;margin-bottom:8px">Your Slot Details</h3>
+      <p class="text-muted text-sm">Slot ${slotNum} · Queue #${queuePos}</p>
+    </div>
+    <div style="background:rgba(102,187,106,0.1);border:1px solid rgba(102,187,106,0.2);border-radius:14px;padding:16px;margin-bottom:16px">
+      <p class="text-muted text-xs">Seats owned in this slot</p>
+      <p style="font-weight:700;font-size:1.2rem">${seats}</p>
+    </div>
+    <p class="text-muted text-sm" style="line-height:1.6">Your purchased seats are counted here. Use the slot dashboard to see the full slot map and your current position.</p>
+  `;
+  document.getElementById('slotDialogTitle').innerText='My Slot Info';
+  document.getElementById('slotDialogDesc').innerText='View how many seats you have in your current slot.';
+  document.getElementById('slotDialogContent').innerHTML=content;
+  document.getElementById('slotDialog').classList.add('open');
+}
 // SPIN WHEEL
 // ═══════════════════════════════════════════════════════
 let spinning=false, spinAngle=0, spinVelocity=0;
@@ -2535,11 +2634,12 @@ function doSpin(type){
       document.getElementById('spinBtn1').disabled=false;
       document.getElementById('spinBtn2').disabled=false;
 
-      // Determine winning segment using weighted probability
+      // Determine winning segment based on the pointer at the top of the wheel
       const seg=SPIN_PRIZES.length;
       const arc=(2*Math.PI)/seg;
       const normalizedAngle=((spinAngle%(2*Math.PI))+(2*Math.PI))%(2*Math.PI);
-      const idx=Math.floor(((3*Math.PI/2-normalizedAngle+2*Math.PI*100)%(2*Math.PI))/arc)%seg;
+      const pointerAngle=(2*Math.PI-normalizedAngle)%(2*Math.PI);
+      const idx=Math.floor(pointerAngle/arc)%seg;
       const prize=SPIN_PRIZES[idx]||SPIN_PRIZES[0];
 
       // Award prize (pending admin approval for higher amounts)
@@ -2612,38 +2712,45 @@ function followSocial(platform, coins, btn){
   if(u.followedSocials.includes(platform)){
     return showToast("Already followed! Bonus already claimed","error");
   }
-  // Open platform link
+  if(btn.disabled){
+    return;
+  }
+
   const links={
     twitter:'https://twitter.com/grow31official',
     telegram:'https://t.me/+JhvCkrA8Fg8yZTVl',
-    instagram:'https://www.instagram.com/_grow31?igsh=ZTdneTg0OXVkYTRy&utm_source=qr',
-    youtube:'https://youtube.com/@grow31-u3s?si=RVZX6ZbiKUb6jhWq',
-    facebook:'https://facebook.com/grow31official',
+    instagram:'https://www.instagram.com/_grow31',
+    youtube:'https://www.youtube.com/@grow31-u3s',
+    facebook:'https://www.facebook.com/grow31official',
     whatsapp:'https://wa.me/message/Y2CDYZEVKWA3M1'
   };
-  if(links[platform]) window.open(links[platform],'_blank');
+  const url=links[platform]||'https://grow31.com';
+  window.open(url,'_blank');
 
-  btn.innerText='⏳ Verifying...';
+  btn.innerText='⏳ Opened. Verifying...';
   btn.disabled=true;
   btn.classList.remove('btn-blue');
+  btn.classList.add('btn-outline');
 
-  // 30s verification delay to prevent instant claim without following
+  // Simulated verification delay after redirect
   setTimeout(()=>{
-    // Mark as followed and credit coins
-    u.followedSocials.push(platform);
-    u.coins+=coins;
-    if(!u.txHistory) u.txHistory=[];
-    u.txHistory.unshift({type:'follow',coins,desc:'Follow bonus: '+platform,time:Date.now()});
-    saveData();
-    btn.innerText='✓ Done';
+    if(!u.followedSocials.includes(platform)){
+      u.followedSocials.push(platform);
+      u.coins+=coins;
+      if(!u.txHistory) u.txHistory=[];
+      u.txHistory.unshift({type:'follow',coins,desc:'Follow bonus: '+platform,time:Date.now()});
+      saveData();
+      showToast('+'+coins+' coins earned! 🎉',"success");
+      if(document.getElementById('followCoins')) document.getElementById('followCoins').innerText=u.coins.toLocaleString();
+      if(document.getElementById('headerCoins')) document.getElementById('headerCoins').innerText=u.coins.toLocaleString();
+    }
+    btn.innerText='✓ Verified';
+    btn.classList.remove('btn-outline');
     btn.classList.add('btn-green');
     btn.disabled=true;
-    showToast('+'+coins+' coins earned! 🎉',"success");
-    if(document.getElementById('followCoins')) document.getElementById('followCoins').innerText=u.coins.toLocaleString();
-    if(document.getElementById('headerCoins')) document.getElementById('headerCoins').innerText=u.coins.toLocaleString();
-  },30000); // 30 second verification window
+  },25000);
 
-  showToast("Follow completed! Verifying in 30s... 🔍","success");
+  showToast("Opened the follow link. Verification will complete soon.","success");
 }
 
 function doCheckIn(){
@@ -3062,6 +3169,7 @@ function confirmBuySlots(){
   closeDialog('buySlotsDialog');
   
   // Redirect to payment with slot info
+  state.pendingPayment = {qty,total};
   document.getElementById('paymentSlotInfo').innerHTML = 
     '<div style="background:rgba(156,39,176,0.1);border:1px solid rgba(156,39,176,0.3);border-radius:12px;padding:14px;margin-bottom:16px;text-align:center">' +
     '<p style="font-weight:700;font-size:1rem;color:#ce93d8">📦 Buying ' + qty + ' Slot' + (qty>1?'s':'') + '</p>' +
@@ -3236,11 +3344,20 @@ function goBack(){
   if(viewHistory.length>1){
     viewHistory.pop();
     const prev=viewHistory[viewHistory.length-1];
+    if(prev==='authView' && state.currentUser){
+      showView('dashView', false);
+      renderDash();
+      initSpinWheel();
+      return;
+    }
     showView(prev,false);
     if(prev==='dashView'){renderDash();initSpinWheel();}
-  } else {
-    showView('dashView');
+  } else if(state.currentUser){
+    showView('dashView', false);
     renderDash();
+    initSpinWheel();
+  } else {
+    showView('authView', false);
   }
 }
 function showView(id, addHistory=true){
@@ -3253,6 +3370,9 @@ function showView(id, addHistory=true){
   el.style.display='flex';
   el.classList.add('active');
   if(addHistory) pushView(id);
+  if(id === 'paymentView'){
+    updatePaymentView();
+  }
 }
 
 function closeDialog(id){document.getElementById(id).classList.remove('open')}
