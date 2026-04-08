@@ -77,6 +77,13 @@ a{text-decoration:none;color:inherit}
 .btn-sm{padding:7px 14px;font-size:.8rem;border-radius:8px}
 .btn-lg{padding:15px 28px;font-size:1rem;border-radius:12px}
 .btn-icon{width:38px;height:38px;padding:0;border-radius:10px;flex-shrink:0}
+.social-btn{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:transform .2s;border:1px solid rgba(255,255,255,0.14);box-shadow:0 4px 14px rgba(0,0,0,0.12)}
+.social-btn:hover{transform:translateY(-2px)}
+.social-btn svg{width:20px;height:20px;display:block;fill:currentColor}
+.trust-badge{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:9999px;font-size:.78rem;font-weight:700}
+.trust-badge.green{background:rgba(0,230,118,0.14);color:#00e676;border:1px solid rgba(0,230,118,0.2)}
+.trust-badge.blue{background:rgba(68,138,255,0.14);color:#82b1ff;border:1px solid rgba(68,138,255,0.2)}
+.trust-badge.yellow{background:rgba(255,193,7,0.12);color:#ffca28;border:1px solid rgba(255,193,7,0.2)}
 .btn-green:hover,.btn-danger:hover{opacity:.9;transform:translateY(-1px)}
 
 /* ── INPUT ── */
@@ -391,7 +398,7 @@ select.input option{background:#0e0e1f;color:#fff}
 <!-- SPLASH VIEW -->
 <!-- ═════════════════════════════════════════ -->
 <div id="splashView">
-  <div class="splash-icon"><img src="Images/LOGO.png" alt="Grow31" class="logo-image"></div>
+  <div class="splash-icon"><img src="Images/LOGO.jpeg" alt="Grow31" class="logo-image"></div>
   <div class="splash-title">Grow31</div>
   <div class="splash-sub">31 Days. One Challenge. Real Rewards.</div>
   <div class="splash-loader"><div class="splash-loader-fill"></div></div>
@@ -403,7 +410,7 @@ select.input option{background:#0e0e1f;color:#fff}
 <div class="view" id="authView">
   <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 20px">
     <div class="auth-hero">
-      <div class="auth-logo-circle"><img src="Images/LOGO.png" alt="Grow31"></div>
+      <div class="auth-logo-circle"><img src="Images/LOGO.jpeg" alt="Grow31"></div>
       <h1 class="auth-title">Grow31</h1>
       <p class="auth-sub" style="font-size:1.08rem;color:rgba(255,255,255,0.7);font-weight:500;line-height:1.4">31 Days. One Challenge.<br><span style="color:#f5c518;font-weight:700">Real Rewards.</span></p>
     </div>
@@ -462,7 +469,7 @@ select.input option{background:#0e0e1f;color:#fff}
 <div class="view" id="termsView">
   <div class="app-header">
     <button class="back-btn" onclick="showView('authView')" style="margin:0">← Back</button>
-    <div class="logo-text"><img src="Images/LOGO.png" alt="Grow31" class="app-logo"> Grow31</div>
+    <div class="logo-text"><img src="Images/LOGO.jpeg" alt="Grow31" class="app-logo"> Grow31</div>
     <div style="width:60px"></div>
   </div>
   <div style="padding:20px 20px;max-width:480px;margin:0 auto;width:100%;flex:1;display:flex;flex-direction:column">
@@ -561,13 +568,19 @@ select.input option{background:#0e0e1f;color:#fff}
 <div class="view" id="paymentView">
   <div class="app-header">
     <button class="back-btn" onclick="goBack()" style="margin:0">← Back</button>
-    <div class="logo-text"><img src="Images/LOGO.png" alt="Grow31" class="app-logo"> Grow31</div>
+    <div class="logo-text"><img src="Images/LOGO.jpeg" alt="Grow31" class="app-logo"> Grow31</div>
     <span class="badge badge-green" style="font-size:.7rem">🔒 Secure</span>
   </div>
   <div style="padding:24px 20px;max-width:440px;margin:0 auto;width:100%;flex:1">
     <h2 class="section-heading" style="font-size:1.5rem;margin-bottom:6px">Join the Challenge 🚀</h2>
     <p class="text-muted text-sm" style="margin-bottom:12px">One-time payment · Instant access · No hidden fees</p>
     <div id="paymentSlotInfo"></div>
+    <div class="card mb-4" style="margin-bottom:16px;padding:16px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;">
+      <span class="trust-badge green">🔒 Secure Checkout</span>
+      <span class="trust-badge blue">✅ Trusted Gateway</span>
+      <span class="trust-badge yellow">📌 No Hidden Fees</span>
+      <p class="text-muted text-xs" style="margin:0;width:100%;text-align:center;line-height:1.5;opacity:.85">Trusted payment experience with secure verification and strong trust signals for every user.</p>
+    </div>
 
     <!-- Price card -->
     <div class="card mb-4" style="margin-bottom:16px;overflow:hidden">
@@ -625,7 +638,7 @@ select.input option{background:#0e0e1f;color:#fff}
 <div class="view" id="profileSetupView">
   <div class="app-header">
     <button class="back-btn" onclick="goBack()" style="margin:0">← Back</button>
-    <div class="logo-text"><img src="Images/LOGO.png" alt="Grow31" class="app-logo"> Grow31</div>
+    <div class="logo-text"><img src="Images/LOGO.jpeg" alt="Grow31" class="app-logo"> Grow31</div>
     <div style="width:60px"></div>
   </div>
   <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 20px">
@@ -681,11 +694,11 @@ select.input option{background:#0e0e1f;color:#fff}
   <!-- HEADER -->
   <div class="app-header">
     <div class="logo-text">
-      <img src="Images/LOGO.png" alt="Grow31" class="app-logo" style="width:30px;height:30px;border-radius:9px;box-shadow:0 0 12px rgba(68,138,255,0.3)">
+      <img src="Images/LOGO.jpeg" alt="Grow31" class="app-logo" style="width:30px;height:30px;border-radius:9px;box-shadow:0 0 12px rgba(68,138,255,0.3)">
       Grow31
     </div>
     <div class="flex items-center gap-3">
-      <div class="coins-pill" style="cursor:pointer" onclick="openWalletDialog()">💜 <span id="headerCoins">0</span></div>
+      <div class="coins-pill" style="cursor:pointer" onclick="openWalletDialog()">🪙 <span id="headerCoins">0</span></div>
       <button class="dots-btn" onclick="openDrawer()">⋮</button>
     </div>
   </div>
@@ -874,10 +887,7 @@ select.input option{background:#0e0e1f;color:#fff}
         </div>
         <div class="spin-btn-row">
           <button class="btn btn-blue btn-full" onclick="doSpin('coins')" id="spinBtn1">
-            🎟️ x1 + 🪙 50,000<br><span style="font-size:.7rem;opacity:.7">Spin with tokens</span>
-          </button>
-          <button class="btn btn-outline btn-full" onclick="doSpin('tokens')" id="spinBtn2">
-            🎡 Spin x5<br><span style="font-size:.7rem;opacity:.7">200 tokens</span>
+            🎟️ Spin Wheel<br><span style="font-size:.7rem;opacity:.7">Use 1 ticket</span>
           </button>
         </div>
         <!-- Watch Ads row -->
@@ -888,7 +898,7 @@ select.input option{background:#0e0e1f;color:#fff}
       </div>
       <div class="spin-info-row">
         <div class="spin-token-box">🎟️ <span id="spinTickets">3</span> tickets <button class="btn btn-outline btn-sm" onclick="buyTickets()" style="margin-left:6px;padding:4px 8px;font-size:.7rem">+</button></div>
-        <div class="spin-token-box" style="color:#ce93d8">💜 <span id="spinCoins">0</span></div>
+        <div class="spin-token-box" style="color:#ce93d8">🪙 <span id="spinCoins">0</span></div>
       </div>
       <div style="margin-top:16px">
         <h3 class="section-heading" style="font-size:1rem;margin-bottom:10px">Recent Wins 🏆</h3>
@@ -1112,6 +1122,16 @@ select.input option{background:#0e0e1f;color:#fff}
     <h2 class="section-heading">Follow &amp; Earn 💰</h2>
     <p class="text-muted text-sm" style="margin-bottom:16px;line-height:1.6">Follow Grow31 on social media to earn coins and get the latest updates!</p>
 
+    <!-- Daily check-in -->
+    <div class="card mt-4" style="margin-bottom:20px">
+      <div class="card-content" style="text-align:center;padding:20px">
+        <div style="font-size:2rem;margin-bottom:8px">📅</div>
+        <p style="font-weight:700;font-size:1rem;margin-bottom:4px">Daily Check-In</p>
+        <p class="text-muted text-sm" style="margin-bottom:14px">Check in every day for bonus coins!</p>
+        <button class="btn btn-green btn-full" id="checkInBtn" onclick="doCheckIn()">✓ Check In Today (+5 🪙)</button>
+      </div>
+    </div>
+
     <!-- Follow Cards -->
     <!-- Instagram -->
     <div class="follow-card">
@@ -1133,11 +1153,11 @@ select.input option{background:#0e0e1f;color:#fff}
         <p style="font-weight:700;font-size:.95rem">Subscribe on YouTube</p>
         <p class="text-muted text-xs">@grow31-u3s · Tutorial videos &amp; livestreams</p>
         <div style="display:flex;gap:6px;align-items:center;margin-top:4px">
-          <p class="coins-reward" style="margin:0">+100 🪙</p>
-          <span style="font-size:.65rem;color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.07);border-radius:4px;padding:2px 5px">Max: 100 coins · ~10 min</span>
+          <p class="coins-reward" style="margin:0">+50 🪙</p>
+          <span style="font-size:.65rem;color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.07);border-radius:4px;padding:2px 5px">Max: 50 coins · ~10 min</span>
         </div>
       </div>
-      <button class="btn btn-blue btn-sm" onclick="followSocial('youtube',100,this)">Subscribe</button>
+      <button class="btn btn-blue btn-sm" onclick="followSocial('youtube',50,this)">Subscribe</button>
     </div>
     <!-- Telegram -->
     <div class="follow-card">
@@ -1164,16 +1184,6 @@ select.input option{background:#0e0e1f;color:#fff}
         </div>
       </div>
       <button class="btn btn-blue btn-sm" onclick="followSocial('whatsapp',50,this)">Join</button>
-    </div>
-
-    <!-- Daily check-in -->
-    <div class="card mt-4" style="margin-top:20px">
-      <div class="card-content" style="text-align:center;padding:20px">
-        <div style="font-size:2rem;margin-bottom:8px">📅</div>
-        <p style="font-weight:700;font-size:1rem;margin-bottom:4px">Daily Check-In</p>
-        <p class="text-muted text-sm" style="margin-bottom:14px">Check in every day for bonus coins!</p>
-        <button class="btn btn-green btn-full" id="checkInBtn" onclick="doCheckIn()">✓ Check In Today (+5 🪙)</button>
-      </div>
     </div>
   </div>
 </div>
@@ -1617,11 +1627,21 @@ select.input option{background:#0e0e1f;color:#fff}
   <div style="padding:16px 20px;border-top:1px solid rgba(255,255,255,0.07)">
     <p class="text-xs text-muted" style="margin-bottom:10px;letter-spacing:.05em;text-transform:uppercase">Follow Grow31</p>
     <div style="display:flex;gap:10px;flex-wrap:wrap">
-      <a href="https://www.instagram.com/_grow31?igsh=ZTdneTg0OXVkYTRy&utm_source=qr" target="_blank" style="width:36px;height:36px;background:rgba(225,48,108,0.15);border:1px solid rgba(225,48,108,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;text-decoration:none">📸</a>
-      <a href="https://youtube.com/@grow31-u3s?si=RVZX6ZbiKUb6jhWq" target="_blank" style="width:36px;height:36px;background:rgba(255,0,0,0.12);border:1px solid rgba(255,0,0,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;text-decoration:none">▶️</a>
-      <a href="https://t.me/+JhvCkrA8Fg8yZTVl" target="_blank" style="width:36px;height:36px;background:rgba(0,119,181,0.15);border:1px solid rgba(0,119,181,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;text-decoration:none">✈️</a>
-      <a href="https://wa.me/message/Y2CDYZEVKWA3M1" target="_blank" style="width:36px;height:36px;background:rgba(37,211,102,0.12);border:1px solid rgba(37,211,102,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;text-decoration:none">💬</a>
-      <a href="tel:8097781211" style="width:36px;height:36px;background:rgba(68,138,255,0.12);border:1px solid rgba(68,138,255,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;text-decoration:none">📞</a>
+      <a class="social-btn" href="https://www.instagram.com/_grow31?igsh=ZTdneTg0OXVkYTRy&utm_source=qr" target="_blank" style="color:#e91e63;background:rgba(225,48,108,0.15);border-color:rgba(225,48,108,0.2)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.65 0 3 1.35 3 3v10c0 1.65-1.35 3-3 3H7c-1.65 0-3-1.35-3-3V7c0-1.65 1.35-3 3-3h10zm-5 3.5A4.5 4.5 0 1 0 16.5 12 4.51 4.51 0 0 0 12 7.5zm0 7.5a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm4.75-8.75a1.25 1.25 0 1 1-1.25 1.25 1.25 1.25 0 0 1 1.25-1.25z"/></svg>
+      </a>
+      <a class="social-btn" href="https://youtube.com/@grow31-u3s?si=RVZX6ZbiKUb6jhWq" target="_blank" style="color:#ff5252;background:rgba(255,0,0,0.12);border-color:rgba(255,0,0,0.2)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 15l5.19-3L10 9v6zm9.8-5.57c-.18-1.34-.72-2.52-1.56-3.46A5.928 5.928 0 0 0 14.44 4.6C12.62 4.21 8.99 4 8.99 4S5.36 4.21 3.56 5.0a5.928 5.928 0 0 0-3.8 2.0C-1.36 8.92-1.8 10.1-1.98 11.44A33.05 33.05 0 0 0 0 17.75c.18 1.34.72 2.52 1.56 3.46a5.928 5.928 0 0 0 3.8 2.0c1.8.8 5.43 1 5.43 1s3.63-.21 5.43-1a5.928 5.928 0 0 0 3.8-2.0c.84-.94 1.38-2.12 1.56-3.46a33.05 33.05 0 0 0 1.98-6.31 33.05 33.05 0 0 0-1.98-6.31z"/></svg>
+      </a>
+      <a class="social-btn" href="https://t.me/+JhvCkrA8Fg8yZTVl" target="_blank" style="color:#0088cc;background:rgba(0,119,181,0.15);border-color:rgba(0,119,181,0.2)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.5l3.5 1.4 1.8 5.4c.3 1 1.2 1.4 2.1 1 .3-.1 7.1-4.8 7.8-5.3.6-.3.6-.8.1-1.1-.1-.1-1.6-1-4.7-2.8-1.8-1-2.9-1.5-3.9-1.9-.8-.3-1.5-.2-1.9.3-.3.4-.8 1.3-1.3 2.1L4.5 12.5z"/></svg>
+      </a>
+      <a class="social-btn" href="https://wa.me/message/Y2CDYZEVKWA3M1" target="_blank" style="color:#25d366;background:rgba(37,211,102,0.12);border-color:rgba(37,211,102,0.2)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.89 11.89 0 0 0 3.48 20.52l-1.06 3.85 3.94-1.03A11.93 11.93 0 0 0 21 3.5zm-1.6 13.04c-.22.62-1.25 1.18-1.72 1.25-.46.07-1.04.1-2.4-.34-3.06-1-5.03-3.62-5.2-3.8-.17-.18-1.38-1.65-1.38-3.15 0-1.5.79-2.24 1.07-2.55.28-.3.61-.38.92-.38.24 0 .49 0 .7.01.23.01.52-.09.8.6.28.69.9 2.39.98 2.57.1.2.16.45.03.72-.13.27-.19.42-.38.65-.18.22-.38.5-.54.68-.18.2-.37.45-.16.88.22.43 1 1.7 2.15 2.75 1.5 1.43 2.76 1.8 3.18 1.99.42.18.73.15 1.01.09.31-.07.96-.39 1.09-.77.12-.38.12-.72.08-.79-.04-.07-.14-.11-.29-.18z"/></svg>
+      </a>
+      <a class="social-btn" href="tel:8097781211" style="color:#448aff;background:rgba(68,138,255,0.12);border-color:rgba(68,138,255,0.2)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24 11.36 11.36 0 0 0 3.58.57 1 1 0 0 1 1 1v3.44a1 1 0 0 1-1 1A16 16 0 0 1 3 5a1 1 0 0 1 1-1h3.44a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.58 1 1 0 0 1-.24 1.01l-2.15 2.2z"/></svg>
+      </a>
     </div>
   </div>
   <div style="padding:16px 20px">
@@ -1757,7 +1777,7 @@ select.input option{background:#0e0e1f;color:#fff}
 <div class="view" id="perksView">
   <div class="app-header">
     <button class="back-btn" onclick="goBack()" style="margin:0">← Back</button>
-    <div class="logo-text"><img src="Images/LOGO.png" alt="Grow31" class="app-logo"> Perks</div>
+    <div class="logo-text"><img src="Images/LOGO.jpeg" alt="Grow31" class="app-logo"> Perks</div>
     <div class="coins-pill">🪙 <span id="perksCoins">0</span></div>
   </div>
   <div class="page-content">
@@ -1833,6 +1853,7 @@ const DB = {
 // ═══════════════════════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════════════════════
+let pendingReferralCode = '';
 let state = {
   currentUser: null,
   allUsers: DB.get('users',{}),
@@ -1842,6 +1863,38 @@ let state = {
   ]),
   spinRecords: DB.get('spinRecords',[])
 };
+
+function restoreSession(){
+  const currentPhone = DB.get('currentUserPhone', null);
+  if(currentPhone && state.allUsers[currentPhone]){
+    state.currentUser = state.allUsers[currentPhone];
+  }
+}
+
+function prefillReferralFromUrl(){
+  const params = new URLSearchParams(window.location.search);
+  const ref = (params.get('ref') || params.get('referral') || params.get('code') || '').trim();
+  if(ref){
+    pendingReferralCode = ref.toUpperCase();
+    DB.set('referralCode', pendingReferralCode);
+  } else {
+    pendingReferralCode = DB.get('referralCode','');
+  }
+  const refInput = document.getElementById('refCodeInput');
+  if(refInput && pendingReferralCode){
+    refInput.value = pendingReferralCode;
+  }
+}
+
+function fillReferralInputIfNeeded(){
+  const refInput = document.getElementById('refCodeInput');
+  if(refInput && !refInput.value){
+    pendingReferralCode = pendingReferralCode || DB.get('referralCode','');
+    if(pendingReferralCode){
+      refInput.value = pendingReferralCode;
+    }
+  }
+}
 
 // Slots data
 const SLOTS = [];
@@ -1875,6 +1928,8 @@ const COUNTRIES=[{code:'IN',label:'🇮🇳 India'},{code:'US',label:'🇺🇸 U
 // SPLASH
 // ═══════════════════════════════════════════════════════
 window.addEventListener('load',()=>{
+  restoreSession();
+  prefillReferralFromUrl();
   setTimeout(()=>{
     const splash=document.getElementById('splashView');
     if(splash) splash.classList.add('hidden');
@@ -1950,12 +2005,14 @@ function verifyOTP(){
   // Demo: accept any 6-digit code
   if(state.allUsers[tempPhone]){
     state.currentUser=state.allUsers[tempPhone];
+    DB.set('currentUserPhone', tempPhone);
     loginSuccess();
   } else {
     const stepOTP=document.getElementById('stepOTP');
     const stepReferral=document.getElementById('stepReferral');
     if(stepOTP) stepOTP.style.display='none';
     if(stepReferral) stepReferral.style.display='block';
+    fillReferralInputIfNeeded();
   }
 }
 
@@ -1974,7 +2031,7 @@ function positionToSlotName(pos){
 function completeSignup(){
   const uid='u'+Date.now();
   const refCodeInput=document.getElementById('refCodeInput');
-  const inviteCode=refCodeInput?.value?.trim()?.toUpperCase()||'';
+  const inviteCode=(refCodeInput?.value?.trim()?.toUpperCase()||pendingReferralCode||'').trim();
 
   // Auto-assign slot position
   const queuePos=getNextSlotPosition();
@@ -2019,6 +2076,7 @@ function completeSignup(){
 
   state.allUsers[tempPhone]=newUser;
   state.currentUser=newUser;
+  DB.set('currentUserPhone', tempPhone);
   saveData();
   loginSuccess();
 }
@@ -2437,6 +2495,7 @@ function renderSlots(){
         <div>
           <p style="font-weight:700;font-size:.92rem">Slot ${s.num} <span style="color:rgba(255,255,255,0.35);font-size:.75rem">(Position #${queueLabel})</span></p>
           <p class="text-muted text-xs">Pool: ${membersStr} members</p>
+          <p class="text-muted text-xs">Entry price: ₹30 · public pool details visible</p>
         </div>
       </div>
       <div style="text-align:right">
@@ -2614,7 +2673,8 @@ function doSpin(type){
 
   spinning=true;
   document.getElementById('spinBtn1').disabled=true;
-  document.getElementById('spinBtn2').disabled=true;
+  const spinBtn2=document.getElementById('spinBtn2');
+  if(spinBtn2) spinBtn2.disabled=true;
 
   const totalRotation=Math.PI*2*(10+Math.random()*8);
   const duration=4500+Math.random()*1000;
@@ -2635,7 +2695,8 @@ function doSpin(type){
     } else {
       spinning=false;
       document.getElementById('spinBtn1').disabled=false;
-      document.getElementById('spinBtn2').disabled=false;
+      const spinBtn2b=document.getElementById('spinBtn2');
+      if(spinBtn2b) spinBtn2b.disabled=false;
 
       // Determine winning segment based on the pointer at the top of the wheel
       const seg=SPIN_PRIZES.length;
@@ -3123,9 +3184,8 @@ function addRewardAdmin(){
 // SLOT-BASED COINS PER REFERRAL
 // ═══════════════════════════════════════════════════════
 function getSlotCoinsPerReferral(slotNum){
-  // Higher slot = more coins per referral
-  const base = Math.pow(2, 31 - slotNum); // slot 31=1, slot 30=2, slot 29=4...
-  return Math.max(50, Math.min(base * 10, 50000));
+  // Referral bonus is fixed for all users to keep counts stable.
+  return 50;
 }
 
 // ═══════════════════════════════════════════════════════
@@ -3417,7 +3477,7 @@ function initTasks(){
 
 function saveData(){DB.set('users',state.allUsers)}
 
-function doLogout(){state.currentUser=null;showView('authView')}
+function doLogout(){state.currentUser=null;DB.set('currentUserPhone',null);showView('authView')}
 
 // Profile setup - avatar picker (completed)
 function pickEmoji(){
