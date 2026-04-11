@@ -95,7 +95,7 @@ select.input option{background:#0e0e1f;color:#fff}
 /* ── HEADER ── */
 .app-header{position:sticky;top:0;z-index:50;background:rgba(5,5,16,0.7);backdrop-filter:blur(24px) saturate(1.5);-webkit-backdrop-filter:blur(24px) saturate(1.5);border-bottom:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:space-between;padding:13px 18px}
 .logo-text{font-family:'Poppins',sans-serif;font-size:1.15rem;font-weight:800;display:flex;align-items:center;gap:6px;background:linear-gradient(135deg,#fff 20%,rgba(68,138,255,0.9) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-0.01em}
-.coins-pill{display:flex;align-items:center;gap:6px;background:rgba(156,39,176,0.15);border:1px solid rgba(156,39,176,0.35);padding:7px 14px;border-radius:9999px;font-size:.85rem;font-weight:700;color:#ce93d8;box-shadow:0 0 16px rgba(156,39,176,0.25)}
+.coins-pill{display:flex;align-items:center;gap:6px;background:rgba(212,170,0,0.18);border:1px solid rgba(255,215,0,0.45);padding:7px 14px;border-radius:9999px;font-size:.85rem;font-weight:700;color:#FFD700;box-shadow:0 0 16px rgba(255,215,0,0.3)}
 .dots-btn{width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:background .2s}
 .dots-btn:hover{background:rgba(255,255,255,0.14)}
 
@@ -319,7 +319,7 @@ select.input option{background:#0e0e1f;color:#fff}
 .rank-bar-sub{font-size:.68rem;color:rgba(255,255,255,0.45)}
 .rank-bar-stats{display:flex;align-items:center;gap:8px;flex-shrink:0}
 .rank-badge-pill{background:linear-gradient(135deg,rgba(68,138,255,0.2),rgba(138,43,226,0.2));border:1px solid rgba(68,138,255,0.3);border-radius:9999px;padding:4px 10px;font-size:.72rem;font-weight:700;color:#82b1ff;display:flex;align-items:center;gap:4px}
-.rank-coins-pill{background:rgba(245,197,24,0.12);border:1px solid rgba(245,197,24,0.25);border-radius:9999px;padding:4px 10px;font-size:.72rem;font-weight:700;color:#f5c518;display:flex;align-items:center;gap:4px}
+.rank-coins-pill{background:rgba(255,215,0,0.15);border:1px solid rgba(255,215,0,0.35);border-radius:9999px;padding:4px 10px;font-size:.72rem;font-weight:700;color:#FFD700;display:flex;align-items:center;gap:4px}
 
 /* ── WALLET DIALOG ── */
 .wallet-tx{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:.85rem}
@@ -586,8 +586,8 @@ select.input option{background:#0e0e1f;color:#fff}
     <div class="card mb-4" style="margin-bottom:16px;overflow:hidden">
       <div style="padding:32px 28px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.07);background:linear-gradient(135deg,rgba(68,138,255,0.06),rgba(206,147,216,0.04))">
         <p class="text-muted text-xs" style="margin-bottom:4px;letter-spacing:.08em;text-transform:uppercase">Entry Fee</p>
-        <div id="paymentPriceDisplay" class="price-display" style="font-size:4rem">₹30</div>
-        <p id="paymentPriceMeta" class="text-muted" style="margin-top:4px;font-size:.9rem">One-time · All 31 Days</p>
+        <div id="paymentPriceDisplay" class="price-display" style="font-size:4rem">₹1</div>
+        <p id="paymentPriceMeta" class="text-muted" style="margin-top:4px;font-size:.9rem">Base tier price · All 31 Days</p>
         <div style="display:flex;gap:8px;justify-content:center;margin-top:16px;flex-wrap:wrap">
           <span class="badge badge-green">✅ Secure</span>
           <span class="badge badge-blue">🔒 Demo Payment</span>
@@ -597,7 +597,7 @@ select.input option{background:#0e0e1f;color:#fff}
       <div class="card-content" style="padding:20px 24px">
         <div class="price-feature"><div class="price-feature-icon">📅</div><span>31-Day Challenge Full Access</span></div>
         <div class="price-feature"><div class="price-feature-icon">🪙</div><span>Daily Coin Rewards + Bonuses</span></div>
-        <div class="price-feature"><div class="price-feature-icon">🎰</div><span>Auto Slot Assignment (31 Levels)</span></div>
+        <div class="price-feature"><div class="price-feature-icon">🎰</div><span>Auto Tier Assignment (Tiers 1-31)</span></div>
         <div class="price-feature"><div class="price-feature-icon">🎡</div><span>Spin Wheel – Win Big Prizes</span></div>
         <div class="price-feature"><div class="price-feature-icon">🏆</div><span>Leaderboard &amp; Pool Wins</span></div>
         <div class="price-feature"><div class="price-feature-icon">👥</div><span>Referral Commissions</span></div>
@@ -605,7 +605,7 @@ select.input option{background:#0e0e1f;color:#fff}
     </div>
 
     <button class="btn btn-white btn-full btn-lg" onclick="processPayment()" id="payBtn" style="padding:18px;font-size:1.05rem">
-      <span id="payBtnText">Pay ₹30 &amp; Start Challenge →</span>
+      <span id="payBtnText">Pay Tier Price &amp; Start Challenge →</span>
     </button>
     <p class="text-muted text-xs text-center" style="margin-top:12px;opacity:.5">🔒 Demo payment enabled · no live gateway integration</p>
   </div>
@@ -803,6 +803,11 @@ select.input option{background:#0e0e1f;color:#fff}
           <p style="font-weight:700;font-size:.9rem">Spin Wheel</p>
           <p class="text-muted text-xs">Win big coins!</p>
         </div>
+        <div class="card" style="padding:16px;cursor:pointer;text-align:center" onclick="showDashPage('pageQuiz')">
+          <div style="font-size:2rem;margin-bottom:6px">🧠</div>
+          <p style="font-weight:700;font-size:.9rem">Daily Quiz</p>
+          <p class="text-muted text-xs">10 Qs · Earn coins!</p>
+        </div>
         <div class="card" style="padding:16px;cursor:pointer;text-align:center" onclick="showView('followView')">
           <div style="font-size:2rem;margin-bottom:6px">❤️</div>
           <p style="font-weight:700;font-size:.9rem">Follow &amp; Earn</p>
@@ -839,7 +844,12 @@ select.input option{background:#0e0e1f;color:#fff}
     <div class="page-content page-content-ranked" id="pageTasks" style="display:none">
       <!-- AD -->
       <div class="banner-ad" style="margin-bottom:14px"><span style="font-size:1.2rem">📢</span><div style="text-align:left"><p style="font-weight:600;font-size:.85rem">Advertisement Space</p><p class="text-muted" style="font-size:.72rem">Your ad here</p></div><div class="banner-ad-label">AD</div></div>
-      <h2 class="section-heading">Day <span id="taskDayNum">1</span> Tasks 📋</h2>
+      <!-- Tasks/Quiz tab row -->
+      <div style="display:flex;gap:10px;margin-bottom:16px">
+        <button class="btn btn-blue btn-sm" style="flex:1;font-size:.85rem" onclick="showDashPage('pageTasks')">📋 Daily Tasks</button>
+        <button class="btn btn-outline btn-sm" style="flex:1;font-size:.85rem" onclick="showDashPage('pageQuiz')">🧠 Daily Quiz</button>
+      </div>
+      <h2 class="section-heading">Day <span id="taskDayNum">1</span> Tasks 📋 <span style="font-size:.75rem;color:#FFD700;font-weight:600">5 🪙 each</span></h2>
       <div id="tasksList"></div>
       <h3 class="section-heading" style="font-size:1rem;margin-top:20px;margin-bottom:10px">31-Day Calendar</h3>
       <div class="grid-7" id="dayGrid"></div>
@@ -898,7 +908,7 @@ select.input option{background:#0e0e1f;color:#fff}
       </div>
       <div class="spin-info-row">
         <div class="spin-token-box">🎟️ <span id="spinTickets">3</span> tickets <button class="btn btn-outline btn-sm" onclick="buyTickets()" style="margin-left:6px;padding:4px 8px;font-size:.7rem">+</button></div>
-        <div class="spin-token-box" style="color:#ce93d8">🪙 <span id="spinCoins">0</span></div>
+        <div class="spin-token-box" style="color:#FFD700">🪙 <span id="spinCoins">0</span></div>
       </div>
       <div style="margin-top:16px">
         <h3 class="section-heading" style="font-size:1rem;margin-bottom:10px">Recent Wins 🏆</h3>
@@ -972,6 +982,35 @@ select.input option{background:#0e0e1f;color:#fff}
       <div class="banner-ad" style="margin-top:16px"><span style="font-size:1.2rem">🎯</span><div style="text-align:left"><p style="font-weight:600;font-size:.85rem">Sponsored</p><p class="text-muted" style="font-size:.72rem">Advertise with Grow31</p></div><div class="banner-ad-label">AD</div></div>
     </div>
 
+    <!-- ─── QUIZ PAGE ─── -->
+    <div class="page-content page-content-ranked" id="pageQuiz" style="display:none">
+      <div class="banner-ad" style="margin-bottom:14px"><span style="font-size:1.2rem">📢</span><div style="text-align:left"><p style="font-weight:600;font-size:.85rem">Advertisement Space</p><p class="text-muted" style="font-size:.72rem">Your ad here</p></div><div class="banner-ad-label">AD</div></div>
+      <!-- Tasks/Quiz tab row -->
+      <div style="display:flex;gap:10px;margin-bottom:16px">
+        <button class="btn btn-outline btn-sm" style="flex:1;font-size:.85rem" onclick="showDashPage('pageTasks')">📋 Daily Tasks</button>
+        <button class="btn btn-blue btn-sm" style="flex:1;font-size:.85rem" onclick="showDashPage('pageQuiz')">🧠 Daily Quiz</button>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px">
+        <h2 class="section-heading" style="margin-bottom:0">Daily Quiz 🧠</h2>
+        <span class="badge badge-yellow" style="color:#FFD700;background:rgba(212,170,0,0.18);border-color:rgba(255,215,0,0.4)">+5 🪙 per correct</span>
+      </div>
+      <!-- Quiz progress bar -->
+      <div style="background:rgba(255,255,255,0.07);border-radius:9999px;overflow:hidden;height:6px;margin-bottom:20px;border:1px solid rgba(255,255,255,0.08)">
+        <div id="quizProgressBar" style="height:100%;background:linear-gradient(90deg,#448aff,#FFD700);border-radius:9999px;transition:width .4s ease;width:0%"></div>
+      </div>
+      <div id="quizContainer"></div>
+      <div id="quizResult" style="display:none;text-align:center;padding:24px 0">
+        <div style="font-size:3.5rem;margin-bottom:12px" id="quizResultEmoji">🎉</div>
+        <h3 style="font-family:'Poppins',sans-serif;font-size:1.5rem;font-weight:800;margin-bottom:6px" id="quizResultTitle">Quiz Done!</h3>
+        <p class="text-muted" id="quizResultSub" style="margin-bottom:20px">Great effort!</p>
+        <div style="background:rgba(255,215,0,0.12);border:1px solid rgba(255,215,0,0.3);border-radius:14px;padding:16px;margin-bottom:20px">
+          <p class="text-xs text-muted" style="margin-bottom:4px">Coins Earned</p>
+          <p style="font-family:'Poppins',sans-serif;font-size:2rem;font-weight:800;color:#FFD700" id="quizCoinsEarned">0 🪙</p>
+        </div>
+        <button class="btn btn-white btn-full btn-lg" onclick="resetQuiz()">🔄 Try Again Tomorrow</button>
+      </div>
+    </div>
+
     <!-- ─── MORE PAGE ─── -->
     <div class="page-content page-content-ranked" id="pageMore" style="display:none">
       <!-- AD -->
@@ -986,7 +1025,7 @@ select.input option{background:#0e0e1f;color:#fff}
           </div>
           <p class="text-muted text-xs" id="morePhone">+91 xxxxxxxx</p>
           <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap">
-            <span class="badge badge-yellow" style="color:#ce93d8;background:rgba(156,39,176,0.15);border-color:rgba(156,39,176,0.3)">🪙 <span id="moreCoins">0</span></span>
+            <span class="badge badge-yellow" style="color:#FFD700;background:rgba(212,170,0,0.18);border-color:rgba(255,215,0,0.4)">🪙 <span id="moreCoins">0</span></span>
             <span class="badge badge-blue">Slot <span id="moreSlot">31</span></span>
           </div>
         </div>
@@ -1000,10 +1039,21 @@ select.input option{background:#0e0e1f;color:#fff}
       </div>
       <!-- Social links -->
       <div class="card" style="margin-bottom:12px">
+        <div class="list-item" style="cursor:pointer" onclick="showDashPage('pageSlots')">
+          <span style="font-size:1.2rem">🎰</span>
+          <span style="flex:1;font-weight:500">My Slots</span>
+          <span class="text-muted">›</span>
+        </div>
         <div class="list-item" style="cursor:pointer" onclick="showDashPage('pageTasks')">
           <span style="font-size:1.2rem">📋</span>
           <span style="flex:1;font-weight:500">My Tasks</span>
           <span class="text-muted">›</span>
+        </div>
+        <div class="list-item" style="cursor:pointer" onclick="showDashPage('pageQuiz')">
+          <span style="font-size:1.2rem">🧠</span>
+          <span style="flex:1;font-weight:500">Daily Quiz</span>
+          <span class="badge badge-green">+5 🪙/Q</span>
+          <span class="text-muted" style="margin-left:8px">›</span>
         </div>
         <div class="list-item" style="cursor:pointer" onclick="openReferralDialog()">
           <span style="font-size:1.2rem">👥</span>
@@ -1066,7 +1116,7 @@ select.input option{background:#0e0e1f;color:#fff}
       <!-- AD 2 -->
       <div class="banner-ad" style="margin-bottom:12px"><span style="font-size:1.2rem">🎯</span><div style="text-align:left"><p style="font-weight:600;font-size:.85rem">Sponsored</p><p class="text-muted" style="font-size:.72rem">Advertise with Grow31</p></div><div class="banner-ad-label">AD</div></div>
       <button class="btn btn-danger btn-full" onclick="doLogout()" style="margin-top:8px">↪ Logout</button>
-      <p class="text-xs text-muted text-center" style="margin-top:16px;opacity:.4">Grow31 v1.0 · <a href="mailto:support@grow31.com" style="color:inherit">support@grow31.com</a></p>
+      <p class="text-xs text-muted text-center" style="margin-top:16px;opacity:.4">Grow31 v1.0 · <a href="/cdn-cgi/l/email-protection#ef9c9a9f9f809d9baf889d8098dcdec18c8082" style="color:inherit"><span class="__cf_email__" data-cfemail="b9caccc9c9d6cbcdf9decbd6ce8a8897dad6d4">[email&#160;protected]</span></a></p>
       <p class="text-xs text-muted text-center" style="margin-top:4px;opacity:.3">
         <span onclick="adminShortcut()" style="cursor:pointer">·</span>
       </p>
@@ -1078,8 +1128,8 @@ select.input option{background:#0e0e1f;color:#fff}
     <button class="nav-btn active" id="navHome" onclick="showDashPage('pageHome')">
       <span class="nav-icon">🏠</span>Home
     </button>
-    <button class="nav-btn" id="navSlots" onclick="showDashPage('pageSlots')">
-      <span class="nav-icon">🎰</span>Slots
+    <button class="nav-btn" id="navTasks" onclick="showDashPage('pageTasks')">
+      <span class="nav-icon">📋</span>Tasks
     </button>
     <button class="nav-btn invite-active" id="navInvite" onclick="openReferralDialog()">
       <div class="nav-icon-wrap">👥</div>
@@ -1387,7 +1437,7 @@ select.input option{background:#0e0e1f;color:#fff}
     <div class="card mb-4" style="margin-bottom:12px">
       <div class="card-content">
         <p style="font-weight:700;margin-bottom:6px">📧 Email Support</p>
-        <p class="text-muted text-sm">support@grow31.com</p>
+        <p class="text-muted text-sm"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="98ebede8e8f7eaecd8ffeaf7efaba9b6fbf7f5">[email&#160;protected]</a></p>
         <p class="text-muted text-xs" style="margin-top:4px">Response within 24 hours</p>
       </div>
     </div>
@@ -1447,7 +1497,7 @@ select.input option{background:#0e0e1f;color:#fff}
       <h4>13. Limitation of Liability</h4><p>Grow31 is not responsible for unmet expectations, redemption issues, or technical errors.</p>
       <h4>14. Termination</h4><p>Accounts may be terminated for fraud, misuse, or terms violation.</p>
       <h4>15. Governing Law</h4><p>Governed by laws of India.</p>
-      <h4>16. Contact</h4><p>support@grow31.com</p>
+      <h4>16. Contact</h4><p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6c1f191c1c031e182c0b1e031b5f5d420f0301">[email&#160;protected]</a></p>
     </div>
     <div class="terms-body terms-tab-panel" id="tpanel-privacy2" style="max-height:none">
       <h4>PRIVACY POLICY – GROW31</h4>
@@ -1459,7 +1509,7 @@ select.input option{background:#0e0e1f;color:#fff}
       <h4>6. Cookies</h4><p>May use cookies to improve experience.</p>
       <h4>7. Third-Party Services</h4><p>Payments are simulated in this demo. No live payment gateway is integrated.</p>
       <h4>8. Policy Updates</h4><p>Policy may be updated. Continued use = acceptance.</p>
-      <h4>9. Contact</h4><p>support@grow31.com</p>
+      <h4>9. Contact</h4><p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="11626461617e63655176637e6622203f727e7c">[email&#160;protected]</a></p>
     </div>
     <div class="terms-body terms-tab-panel" id="tpanel-refund2" style="max-height:none">
       <h4>REFUND POLICY – GROW31</h4>
@@ -1467,7 +1517,7 @@ select.input option{background:#0e0e1f;color:#fff}
       <h4>2. Exception</h4><p>Only considered for duplicate payment or technical error from platform side, at Grow31's sole discretion.</p>
       <h4>3. No Guarantees</h4><p>Payments are for platform access only. No reward or result guaranteed.</p>
       <h4>4. User Responsibility</h4><p>Understand the platform before paying. Payment = agreement to this policy.</p>
-      <h4>5. Contact</h4><p>support@grow31.com</p>
+      <h4>5. Contact</h4><p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6b181e1b1b04191f2b0c19041c585a45080406">[email&#160;protected]</a></p>
     </div>
   </div>
 </div>
@@ -1498,7 +1548,7 @@ select.input option{background:#0e0e1f;color:#fff}
       <div style="font-size:1.8rem">📧</div>
       <div>
         <p style="font-weight:700;font-size:.95rem">Email Support</p>
-        <p class="text-muted text-xs">support@grow31.com</p>
+        <p class="text-muted text-xs"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a3d0d6d3d3ccd1d7e3c4d1ccd490928dc0ccce">[email&#160;protected]</a></p>
         <p class="text-xs" style="color:#82b1ff;margin-top:2px">Response within 24 hours</p>
       </div>
     </div>
@@ -1654,7 +1704,7 @@ select.input option{background:#0e0e1f;color:#fff}
   <div class="dialog" style="max-width:420px">
     <button class="dialog-close" onclick="closeDialog('refDialog')">✕</button>
     <h3 style="font-family:'Poppins',sans-serif;font-size:1.2rem;font-weight:800;margin-bottom:4px">👥 Your Referral</h3>
-    <p class="text-muted text-sm" style="margin-bottom:12px;font-size:.85rem">Share with friends to earn <span id="refPerReferralLabel" style="color:#ce93d8;font-weight:700">+50 🪙</span> each!</p>
+    <p class="text-muted text-sm" style="margin-bottom:12px;font-size:.85rem">Share with friends to earn <span id="refPerReferralLabel" style="color:#FFD700;font-weight:700">+50 🪙</span> each!</p>
     <div class="ref-code-display">
       <p class="text-xs text-muted" style="margin-bottom:4px">Your Referral Link</p>
       <h2 class="ref-code-text" id="myRefCodeDisplay" style="font-size:1rem;letter-spacing:1px;word-break:break-all">Grow31/—</h2>
@@ -1687,9 +1737,9 @@ select.input option{background:#0e0e1f;color:#fff}
     <button class="dialog-close" onclick="closeDialog('walletDialog')">✕</button>
     <h3 style="font-family:'Poppins',sans-serif;font-size:1.2rem;font-weight:800;margin-bottom:4px">🪙 Coin Wallet</h3>
     <p class="text-muted text-xs" style="margin-bottom:16px">Your earnings &amp; payout history</p>
-    <div style="background:linear-gradient(135deg,rgba(156,39,176,0.12),rgba(68,138,255,0.06));border:1px solid rgba(156,39,176,0.25);border-radius:14px;padding:20px;text-align:center;margin-bottom:16px">
+    <div style="background:linear-gradient(135deg,rgba(212,170,0,0.12),rgba(68,138,255,0.06));border:1px solid rgba(255,215,0,0.3);border-radius:14px;padding:20px;text-align:center;margin-bottom:16px">
       <p class="text-xs text-muted" style="margin-bottom:4px">Total Balance</p>
-      <div style="font-family:'Poppins',sans-serif;font-size:2.2rem;font-weight:800;color:#ce93d8">🪙 <span id="walletBalance">0</span></div>
+      <div style="font-family:'Poppins',sans-serif;font-size:2.2rem;font-weight:800;color:#FFD700">🪙 <span id="walletBalance">0</span></div>
       <div style="display:flex;gap:8px;justify-content:center;margin-top:10px">
         <span class="badge badge-pending">⏳ Payout: Pending Admin Verification</span>
       </div>
@@ -1841,7 +1891,7 @@ select.input option{background:#0e0e1f;color:#fff}
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ═══════════════════════════════════════════════════════
 // DATABASE
 // ═══════════════════════════════════════════════════════
@@ -1896,9 +1946,9 @@ function fillReferralInputIfNeeded(){
   }
 }
 
-// Slots data
+// Slots data (Tiers 1-31, pricing increases per tier)
 const SLOTS = [];
-for(let i=1;i<=31;i++) SLOTS.push({num:i,members:Math.pow(2,31-i)});
+for(let i=1;i<=31;i++) SLOTS.push({num:i,members:Math.pow(2,i-1),price:i}); // Tier i costs ₹i
 
 const SLOT_COLORS = [
   '#ff5252','#ff7043','#ffa726','#ffca28','#d4e157',
@@ -2022,10 +2072,10 @@ function getNextSlotPosition(){
   return totalUsers+1; // sequential position
 }
 
-// Convert queue position to inverted slot name: position 1 = Slot 31, position 2 = Slot 30 etc.
-function positionToSlotName(pos){
-  const slotNum=Math.max(1,32-pos); // pos 1 -> 31, pos 2 -> 30 ...
-  return slotNum;
+// Assign tier based on position: position 1 = Tier 1, position 2 = Tier 2 etc.
+function positionToTierName(pos){
+  const tierNum=Math.max(1,Math.min(31,pos)); // pos 1 -> 1, pos 2 -> 2, ..., pos 31 -> 31
+  return tierNum;
 }
 
 function completeSignup(){
@@ -2033,9 +2083,9 @@ function completeSignup(){
   const refCodeInput=document.getElementById('refCodeInput');
   const inviteCode=(refCodeInput?.value?.trim()?.toUpperCase()||pendingReferralCode||'').trim();
 
-  // Auto-assign slot position
+  // Auto-assign tier position
   const queuePos=getNextSlotPosition();
-  const slotNum=positionToSlotName(queuePos);
+  const tierNum=positionToTierName(queuePos);
 
   // Generate username-based referral code format: Grow31/username-randomnumber
   const tempUsername='Grower'+uid.slice(-4);
@@ -2050,7 +2100,7 @@ function completeSignup(){
     avatar:'🧑',lang:'en',country:'IN',
     tasks:initTasks(),claimedRewards:[],
     followedSocials:[],checkedInToday:false,lastCheckIn:'',
-    slot:slotNum, queuePosition:queuePos,
+    tier:tierNum, queuePosition:queuePos,
     spinTickets:3,spinTokens:0,
     slotsOwned:1,
     joinedAt:Date.now(),
@@ -2061,7 +2111,7 @@ function completeSignup(){
   if(inviteCode){
     Object.values(state.allUsers).forEach(u=>{
       if(u.refCode===inviteCode||u.refCode===inviteCode.replace('GROW31/','Grow31/')){
-        const refCoins=getSlotCoinsPerReferral(u.slot||31);
+        const refCoins=getTierCoinsPerReferral(u.tier||1);
         u.referrals+=1;
         u.coins+=refCoins;
         if(!u.referralList) u.referralList=[];
@@ -2082,7 +2132,21 @@ function completeSignup(){
 }
 
 function loginSuccess(){
-  if(!state.currentUser.hasPaid){
+  const u = state.currentUser;
+  // Daily Tier Login Bonus — 10x of tier number, once per day
+  if(u && u.hasPaid && u.profileComplete){
+    const today = new Date().toDateString();
+    if(u.lastTierBonus !== today){
+      const tierBonus = (u.tier || 1) * 10;
+      u.coins += tierBonus;
+      u.lastTierBonus = today;
+      if(!u.txHistory) u.txHistory=[];
+      u.txHistory.unshift({type:'tier_bonus',coins:tierBonus,desc:'Daily Tier Login Bonus (Tier '+( u.tier||1)+'× 10)',time:Date.now()});
+      saveData();
+      setTimeout(()=>showToast('🎉 Tier Bonus! +'+tierBonus+' 🪙 (Tier '+(u.tier||1)+' × 10)','success'),800);
+    }
+  }
+  if(!u.hasPaid){
     showView('termsView');
   } else if(!state.currentUser.profileComplete){
     showView('profileSetupView');
@@ -2151,14 +2215,16 @@ function updatePaymentView(){
 
   if(pending && pending.qty > 1){
     if(priceDisplay) priceDisplay.innerText = '₹' + pending.total;
-    if(priceMeta) priceMeta.innerText = pending.qty + ' slots × ₹30 each';
-    if(btnText) btnText.innerText = 'Pay ₹' + pending.total + ' for ' + pending.qty + ' Slots →';
+    if(priceMeta) priceMeta.innerText = pending.qty + ' tiers (dynamic pricing)';
+    if(btnText) btnText.innerText = 'Pay ₹' + pending.total + ' for Tiers →';
   } else {
-    if(priceDisplay) priceDisplay.innerText = '₹30';
-    if(priceMeta) priceMeta.innerText = 'One-time · All 31 Days';
-    if(btnText) btnText.innerText = 'Pay ₹30 & Start Challenge →';
+    const tierNum = state.currentUser?.tier || 1;
+    const tierPrice = getTierPrice(tierNum);
+    if(priceDisplay) priceDisplay.innerText = '₹' + tierPrice;
+    if(priceMeta) priceMeta.innerText = 'Tier ' + tierNum + ' · All 31 Days';
+    if(btnText) btnText.innerText = 'Pay ₹' + tierPrice + ' & Start Challenge →';
     if(!pending){
-      showPaymentWithSlotInfo();
+      showPaymentWithTierInfo();
     }
   }
 }
@@ -2258,7 +2324,7 @@ function saveProfile(){
 let currentDashPage='pageHome';
 
 function showDashPage(pageId){
-  ['pageHome','pageTasks','pageSlots','pageSpin','pageLeader','pageMore'].forEach(p=>{
+  ['pageHome','pageTasks','pageSlots','pageSpin','pageLeader','pageMore','pageQuiz'].forEach(p=>{
     document.getElementById(p).style.display='none';
   });
   const pageEl=document.getElementById(pageId);
@@ -2268,15 +2334,17 @@ function showDashPage(pageId){
 
   // Update nav
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
-  const map={pageHome:'navHome',pageTasks:'navHome',pageSlots:'navSlots',pageSpin:'navSpin',pageLeader:'navMore',pageMore:'navMore'};
+  const map={pageHome:'navHome',pageTasks:'navTasks',pageSlots:'navSlots',pageSpin:'navSpin',pageLeader:'navMore',pageMore:'navMore',pageQuiz:'navTasks'};
   const navId=map[pageId];
-  if(navId) document.getElementById(navId).classList.add('active');
+  if(navId) document.getElementById(navId)?.classList.add('active');
 
   if(pageId==='pageSpin') initSpinWheel();
   if(pageId==='pageSlots') renderSlots();
   if(pageId==='pageLeader') renderLeaderboard(Object.values(state.allUsers).sort((a,b)=>b.coins-a.coins));
   if(pageId==='pageMore') renderMore();
   if(pageId==='pageHome') renderDash();
+  if(pageId==='pageQuiz') renderQuiz();
+  if(pageId==='pageTasks') renderTasksPage();
 }
 
 function renderDash(){
@@ -2294,7 +2362,7 @@ function renderDash(){
   }
   document.getElementById('homeRefCode').innerText=u.refCode;
   const homeRefCoinsEl=document.getElementById('homeRefCoins');
-  if(homeRefCoinsEl) homeRefCoinsEl.innerText='+'+getSlotCoinsPerReferral(u.slot||31)+' coins';
+  if(homeRefCoinsEl) homeRefCoinsEl.innerText='+'+getTierCoinsPerReferral(u.tier||1)+' coins';
 
   // Stats
   document.getElementById('statStreak').innerText=u.streak;
@@ -2313,7 +2381,7 @@ function renderDash(){
   mini.innerHTML=todayTasks.map(t=>`
     <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);font-size:.88rem">
       <span>${t.done?'✅ ':''}<span style="${t.done?'opacity:.5':''};">${t.title}</span></span>
-      <span style="color:#ce93d8;font-weight:700;font-size:.8rem">${t.done?'Done':'+'+t.reward+' 🪙'}</span>
+      <span style="color:#FFD700;font-weight:700;font-size:.8rem">${t.done?'Done':'+'+t.reward+' 🪙'}</span>
     </div>
   `).join('');
 
@@ -2352,7 +2420,7 @@ function updateRankBar(u, rank){
   const el=id=>document.getElementById(id);
   if(el('rankBarAvatar')) el('rankBarAvatar').innerText=u.avatar||'🧑';
   if(el('rankBarName')) el('rankBarName').innerText=u.username;
-  if(el('rankBarSlot')) el('rankBarSlot').innerText=u.slot||31;
+  if(el('rankBarSlot')) el('rankBarSlot').innerText=u.tier||1;
   if(el('rankBarDay')) el('rankBarDay').innerText=u.day;
   if(el('rankBarRank')) el('rankBarRank').innerText='#'+r;
   if(el('rankBarCoins')) el('rankBarCoins').innerText=u.coins.toLocaleString();
@@ -2373,7 +2441,7 @@ function renderTasksPage(){
     div.innerHTML=`
       <div class="flex justify-between w-full" style="align-items:center">
         <span style="font-weight:500">${t.done?'✅ ':''}${t.title}</span>
-        <span style="color:#ce93d8;font-weight:700;font-size:.85rem">+${t.reward} 🪙</span>
+        <span style="color:#FFD700;font-weight:700;font-size:.85rem">+${t.reward} 🪙</span>
       </div>`;
     c.appendChild(div);
   });
@@ -2410,7 +2478,7 @@ function renderMore(){
   document.getElementById('moreUsername').innerText=u.username;
   document.getElementById('morePhone').innerText='+91 '+u.phone;
   document.getElementById('moreCoins').innerText=u.coins.toLocaleString();
-  document.getElementById('moreSlot').innerText=u.slot||31;
+  document.getElementById('moreSlot').innerText=u.tier||1;
   document.getElementById('moreRefCount').innerText=u.referrals;
   if(u.avatarPhoto){
     document.getElementById('moreAvatar').innerHTML='<img src="'+u.avatarPhoto+'" style="width:100%;height:100%;object-fit:cover;border-radius:50%">';
@@ -2445,11 +2513,11 @@ function renderLeaderboard(sorted){
           <b style="font-size:.9rem;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${usr.username} ${medal}${isMe?' 👈':''}</b>
           <div style="display:flex;gap:4px;margin-top:2px;flex-wrap:wrap">
             <span class="badge badge-purple" style="font-size:.6rem;padding:2px 6px">Lv.${lvl}</span>
-            <span class="badge badge-gray" style="font-size:.6rem;padding:2px 6px">Slot ${usr.slot||31}</span>
+            <span class="badge badge-gray" style="font-size:.6rem;padding:2px 6px">Tier ${usr.tier||1}</span>
           </div>
         </div>
         <div style="text-align:right;flex-shrink:0">
-          <div style="font-weight:700;font-size:.9rem;color:#ce93d8">${usr.coins.toLocaleString()} 🪙</div>
+          <div style="font-weight:700;font-size:.9rem;color:#FFD700">${usr.coins.toLocaleString()} 🪙</div>
           <div class="text-xs text-muted">🪙 coins</div>
         </div>
       </div>`;
@@ -2461,7 +2529,7 @@ function renderLeaderboard(sorted){
 // ═══════════════════════════════════════════════════════
 function renderSlots(){
   const u=state.currentUser;
-  const cur=u.slot||31;
+  const cur=u.tier||1;
   const queuePos=u.queuePosition||1;
   const seats=u.slotsOwned||1;
   document.getElementById('currentSlotNum').innerText=cur;
@@ -2474,51 +2542,52 @@ function renderSlots(){
 
   const c=document.getElementById('slotsList');
   c.innerHTML='';
-  // Show slots from 31 down to 1 (inverted: slot 31 is top/first position)
-  for(let i=31;i>=1;i--){
+  // Show tiers from 1 to 31 (Tier 1 is first entry, Tier 31 is highest tier)
+  for(let i=1;i<=31;i++){
     const s=SLOTS[i-1];
-    const isCurrentSlot=s.num===cur;
-    const isAbove=s.num>cur; // higher slot = earlier in queue
-    const isLocked=s.num<cur-3;
+    const isCurrentTier=s.num===cur;
+    const isAbove=s.num<cur; // lower tier = earlier in queue
+    const isLocked=s.num>cur+3;
     const div=document.createElement('div');
-    div.className=`slot-card ${isCurrentSlot?'current-slot':''} ${isLocked?'locked-slot':''}`;
+    div.className=`slot-card ${isCurrentTier?'current-slot':''} ${isLocked?'locked-slot':''}`;
     div.onclick=()=>openSlotDialog(s);
 
     const colIdx=(s.num-1)%SLOT_COLORS.length;
     const col=SLOT_COLORS[colIdx];
-    const membersStr=s.members>=1000000000?'1.07B':s.members>=1000000?(s.members/1000000).toFixed(2)+'M':s.members>=1000?(s.members/1000).toFixed(1)+'K':s.members;
-    const queueLabel=32-s.num; // position in queue: slot 31 = queue pos 1
+    const membersStr=s.members>=1000000000?'1,073,741,824':s.members.toLocaleString();
+    const queuePos=s.num; // Tier 1 = position 1, Tier 2 = position 2, etc.
 
     div.innerHTML=`
       <div style="display:flex;align-items:center;gap:12px">
-        <div class="slot-badge" style="background:${col}22;border:1px solid ${col}44;color:${col}">S${s.num}</div>
+        <div class="slot-badge" style="background:${col}22;border:1px solid ${col}44;color:${col}">T${s.num}</div>
         <div>
-          <p style="font-weight:700;font-size:.92rem">Slot ${s.num} <span style="color:rgba(255,255,255,0.35);font-size:.75rem">(Position #${queueLabel})</span></p>
+          <p style="font-weight:700;font-size:.92rem">Tier ${s.num} <span style="color:rgba(255,255,255,0.35);font-size:.75rem;color:#FFD700">(₹${s.price})</span></p>
           <p class="text-muted text-xs">Pool: ${membersStr} members</p>
-          <p class="text-muted text-xs">Entry price: ₹30 · public pool details visible</p>
+          <p class="text-muted text-xs">Entry price: ₹${getTierPrice(s.num)} · public pool details visible</p>
         </div>
       </div>
       <div style="text-align:right">
-        ${isCurrentSlot?`<span class="badge badge-green">Yours ✓</span>`:''}
-        ${isAbove?`<span class="badge badge-blue">Higher 🔼</span>`:''}
+        ${isCurrentTier?`<span class="badge badge-green">Yours ✓</span>`:''}
+        ${isAbove?`<span class="badge badge-blue">Lower Tier 🔽</span>`:''}
         ${isLocked?`<span style="font-size:1.1rem">🔒</span>`:''}
-        ${!isCurrentSlot&&!isAbove&&!isLocked?`<span class="text-muted text-xs">›</span>`:''}
+        ${!isCurrentTier&&!isAbove&&!isLocked?`<span class="text-muted text-xs">›</span>`:''}
       </div>`;
     c.appendChild(div);
   }
 }
 
-function openSlotDialog(slot){
+function openSlotDialog(tier){
   const u=state.currentUser;
-  const membersStr=slot.members>=1000000000?'1,073,741,824':slot.members.toLocaleString();
-  const queuePos=32-slot.num;
-  document.getElementById('slotDialogTitle').innerText='Slot '+slot.num+' 🎰';
-  document.getElementById('slotDialogDesc').innerText='Queue Position #'+queuePos+' · Pool: '+membersStr+' members';
-  const col=SLOT_COLORS[(slot.num-1)%SLOT_COLORS.length];
+  const membersStr=tier.members>=1000000000?'1,073,741,824':tier.members.toLocaleString();
+  const tierPrice = getTierPrice(tier.num);
+  document.getElementById('slotDialogTitle').innerText='Tier '+tier.num+' 🎰 (₹'+tierPrice+')';
+  document.getElementById('slotDialogDesc').innerText='Members: '+membersStr+' · Price: ₹'+tierPrice;
+  const col=SLOT_COLORS[(tier.num-1)%SLOT_COLORS.length];
   document.getElementById('slotDialogContent').innerHTML=`
     <div style="background:${col}11;border:1px solid ${col}33;border-radius:14px;padding:16px;text-align:center;margin-bottom:16px">
-      <div style="font-family:'Poppins',sans-serif;font-size:2.5rem;font-weight:800;color:${col}">${slot.num}</div>
-      <p style="font-size:.85rem;color:rgba(255,255,255,0.6)">Slot Tier (Queue #${queuePos})</p>
+      <div style="font-family:'Poppins',sans-serif;font-size:2.5rem;font-weight:800;color:${col}">${tier.num}</div>
+      <p style="font-size:.85rem;color:rgba(255,255,255,0.6)">Tier Level</p>
+      <p style="font-size:.75rem;color:${col};margin-top:8px;font-weight:700">Entry Price: ₹${tierPrice}</p>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px">
       <div style="text-align:center;background:rgba(255,255,255,0.04);border-radius:10px;padding:12px">
@@ -2526,39 +2595,40 @@ function openSlotDialog(slot){
         <p style="font-weight:700;font-family:'Poppins',sans-serif;font-size:1rem">${membersStr}</p>
       </div>
       <div style="text-align:center;background:rgba(255,255,255,0.04);border-radius:10px;padding:12px">
-        <p class="text-muted text-xs">Queue Position</p>
-        <p style="font-weight:700;font-family:'Poppins',sans-serif;font-size:1rem">#${queuePos}</p>
+        <p class="text-muted text-xs">Entry Price</p>
+        <p style="font-weight:700;font-family:'Poppins',sans-serif;font-size:1rem">₹${tierPrice}</p>
       </div>
     </div>
     <div style="background:rgba(255,167,38,0.08);border:1px solid rgba(255,167,38,0.2);border-radius:10px;padding:12px;margin-bottom:14px;text-align:center">
       <p class="text-xs" style="color:#ffa726">⏳ Payout Status: <b>Pending Admin Verification</b></p>
     </div>
-    <p class="text-muted text-sm" style="margin-bottom:14px;line-height:1.6">Slots are auto-assigned. Slot 31 = first in queue. As more users join, later positions get lower slot numbers. Payouts are credited after admin verification.</p>
-    ${slot.num===u.slot?`<button class="btn btn-white btn-full btn-lg" onclick="showMySlotClaimInfo()">Claim / View My Slot</button>`:''}
+    <p class="text-muted text-sm" style="margin-bottom:14px;line-height:1.6">Tiers are auto-assigned. Tier 1 costs ₹1 (entry level), Tier 31 costs ₹31 (highest tier). Each tier has exponentially more members. Payouts are credited after admin verification.</p>
+    ${tier.num===u.tier?`<button class="btn btn-white btn-full btn-lg" onclick="showMySlotClaimInfo()">Claim / View My Tier</button>`:''}
   `;
   document.getElementById('slotDialog').classList.add('open');
 }
 
 function showMySlotClaimInfo(){
   const u=state.currentUser;
-  if(!u) return showToast('Login first to view your slots','error');
+  if(!u) return showToast('Login first to view your tiers','error');
   const seats=u.slotsOwned||1;
-  const slotNum=u.slot||31;
+  const tierNum=u.tier||1;
+  const tierPrice = getTierPrice(tierNum);
   const queuePos=u.queuePosition||1;
   const content = `
     <div style="text-align:center;margin-bottom:18px">
       <div style="font-size:2.5rem;margin-bottom:12px">🎟️</div>
-      <h3 style="font-family:'Poppins',sans-serif;font-size:1.2rem;font-weight:800;margin-bottom:8px">Your Slot Details</h3>
-      <p class="text-muted text-sm">Slot ${slotNum} · Queue #${queuePos}</p>
+      <h3 style="font-family:'Poppins',sans-serif;font-size:1.2rem;font-weight:800;margin-bottom:8px">Your Tier Details</h3>
+      <p class="text-muted text-sm">Tier ${tierNum} (₹${tierPrice}) · Queue #${queuePos}</p>
     </div>
     <div style="background:rgba(102,187,106,0.1);border:1px solid rgba(102,187,106,0.2);border-radius:14px;padding:16px;margin-bottom:16px">
-      <p class="text-muted text-xs">Seats owned in this slot</p>
+      <p class="text-muted text-xs">Seats in this tier</p>
       <p style="font-weight:700;font-size:1.2rem">${seats}</p>
     </div>
-    <p class="text-muted text-sm" style="line-height:1.6">Your purchased seats are counted here. Use the slot dashboard to see the full slot map and your current position.</p>
+    <p class="text-muted text-sm" style="line-height:1.6">Your tier seat count is shown above. Use the tier dashboard to see the full tier map and your current position. Each tier has dynamic pricing: Tier 1 = ₹1, Tier 2 = ₹2, ..., Tier 31 = ₹31.</p>
   `;
-  document.getElementById('slotDialogTitle').innerText='My Slot Info';
-  document.getElementById('slotDialogDesc').innerText='View how many seats you have in your current slot.';
+  document.getElementById('slotDialogTitle').innerText='My Tier Info';
+  document.getElementById('slotDialogDesc').innerText='View your tier details and pricing.';
   document.getElementById('slotDialogContent').innerHTML=content;
   document.getElementById('slotDialog').classList.add('open');
 }
@@ -2859,7 +2929,7 @@ function openReferralDialog(){
   const refLink=u.refCode||'Grow31/'+u.username;
   document.getElementById('myRefCodeDisplay').innerText=refLink;
   document.getElementById('refDialogCount').innerText=u.referrals;
-  const slotCoinsPerRef = getSlotCoinsPerReferral(u.slot||31);
+  const slotCoinsPerRef = getTierCoinsPerReferral(u.tier||1);
   document.getElementById('refDialogEarned').innerText=((u.referrals||0)*slotCoinsPerRef).toLocaleString();
   const refPerLabel = document.getElementById('refPerReferralLabel');
   if(refPerLabel) refPerLabel.innerText = '+'+slotCoinsPerRef+' 🪙';
@@ -2878,7 +2948,7 @@ function openReferralDialog(){
             <p style="font-size:.85rem;font-weight:600">${r.name||'User'}</p>
             <p class="text-xs text-muted">${new Date(r.time).toLocaleDateString('en-IN')}</p>
           </div>
-          <span class="badge badge-yellow" style="font-size:.65rem">+${getSlotCoinsPerReferral(state.currentUser?.slot||31)} 🪙</span>
+          <span class="badge badge-yellow" style="font-size:.65rem">+${getTierCoinsPerReferral(state.currentUser?.tier||1)} 🪙</span>
         </div>`).join('');
     }
   }
@@ -3012,7 +3082,7 @@ async function sendChat(){
     // Use fallback responses instead of unsafe API calls
     const fallbacks=[
       "You earn coins through daily tasks (+10-15 each), referrals (+50 each), spin wheel wins, social follows, and daily check-ins!",
-      "The slot system has 31 levels. Each level doubles in pool size — Slot 1 has 1 member, Slot 31 has 1,073,741,824! Advance by completing referrals.",
+      "The tier system has 31 levels. Tier 1 has 1 member (entry), Tier 31 has 1,073,741,824 members! Advance by completing referrals.",
       "Daily competition: Days 1-6 have 1 referral win and 1 pool win per day. Higher days unlock more winners!",
       "To spin the wheel, you need spin tickets (from daily check-ins) or spin tokens. Prizes range from 10 coins to 500,000 coins!",
       "Complete your daily tasks and refer friends to earn coins and advance through slots. The more you refer, the higher your slot!"
@@ -3142,7 +3212,7 @@ function renderAdminUsers(){
           <small class="text-muted" style="font-size:.65rem">${u.refCode||'—'}</small>
         </div>
         <div class="text-right">
-          <span class="badge badge-yellow" style="color:#ce93d8">🪙 ${u.coins.toLocaleString()}</span><br>
+          <span class="badge badge-yellow" style="color:#FFD700">🪙 ${u.coins.toLocaleString()}</span><br>
           <small class="text-muted" style="margin-top:4px;display:block">Slot ${slotNum} · Q#${qPos}</small>
           <small class="text-muted">Refs: ${u.referrals||0}</small><br>
           <button class="btn btn-green btn-sm" style="margin-top:4px;font-size:.65rem;padding:3px 8px" onclick="adminVerifyPayout('${u.phone}')">✓ Verify Payout</button>
@@ -3181,11 +3251,16 @@ function addRewardAdmin(){
 
 
 // ═══════════════════════════════════════════════════════
-// SLOT-BASED COINS PER REFERRAL
+// TIER-BASED COINS PER REFERRAL
 // ═══════════════════════════════════════════════════════
-function getSlotCoinsPerReferral(slotNum){
+function getTierCoinsPerReferral(tierNum){
   // Referral bonus is fixed for all users to keep counts stable.
   return 50;
+}
+
+// Get tier price (₹1 per tier: Tier 1 = ₹1, Tier 2 = ₹2, ..., Tier 31 = ₹31)
+function getTierPrice(tierNum){
+  return Math.max(1, Math.min(31, tierNum || 1));
 }
 
 // ═══════════════════════════════════════════════════════
@@ -3193,12 +3268,13 @@ function getSlotCoinsPerReferral(slotNum){
 // ═══════════════════════════════════════════════════════
 function openBuySlotsDialog(){
   const u = state.currentUser;
+  if(!u) return;
   const dialog = document.getElementById('buySlotsDialog');
-  const cur = u.slot || 31;
+  const cur = u.tier || 1;
   const qPos = u.queuePosition || 1;
-  const slotPrice = 30; // ₹30 per slot
+  const tierPrice = getTierPrice(cur);
   
-  document.getElementById('bsCurrentSlot').innerText = 'Slot ' + cur;
+  document.getElementById('bsCurrentSlot').innerText = 'Tier ' + cur;
   document.getElementById('bsQueuePos').innerText = '#' + qPos;
   
   // Update price display
@@ -3209,11 +3285,20 @@ function openBuySlotsDialog(){
 
 function updateBuySlotPrice(){
   const qty = parseInt(document.getElementById('bsQty')?.value || 1);
-  const total = qty * 30;
+  const u = state.currentUser;
+  const baseTier = u.tier || 1;
+  
+  // Calculate total: sum of prices for next qty tiers (baseTier+1 to baseTier+qty)
+  let total = 0;
+  for(let i = 0; i < qty; i++){
+    const tierNum = Math.min(31, baseTier + i);
+    total += getTierPrice(tierNum);
+  }
+  
   const el = document.getElementById('bsTotalPrice');
   if(el) el.innerText = '₹' + total;
   const perSlot = document.getElementById('bsPerSlot');
-  if(perSlot) perSlot.innerText = qty + ' slot' + (qty>1?'s':'') + ' × ₹30 each';
+  if(perSlot) perSlot.innerText = qty + ' tier' + (qty>1?'s':'') + ' starting from Tier ' + (baseTier+1);
 }
 
 function changeBuyQty(delta){
@@ -3369,18 +3454,19 @@ function enterGiveaway(){
 }
 
 // ═══════════════════════════════════════════════════════
-// PAYMENT PAGE SLOT DISPLAY
+// PAYMENT PAGE TIER DISPLAY
 // ═══════════════════════════════════════════════════════
-function showPaymentWithSlotInfo(){
+function showPaymentWithTierInfo(){
   const u = state.currentUser;
   if(!u) return;
-  const slotNum = u.slot || 31;
+  const tierNum = u.tier || 1;
+  const tierPrice = getTierPrice(tierNum);
   const qPos = u.queuePosition || 1;
   const el = document.getElementById('paymentSlotInfo');
   if(el){
     el.innerHTML = '<div style="background:rgba(156,39,176,0.1);border:1px solid rgba(156,39,176,0.3);border-radius:12px;padding:14px;margin-bottom:16px;text-align:center">' +
-    '<p style="font-weight:700;color:#ce93d8">🎰 Your Slot: <span style="font-size:1.2rem">Slot ' + slotNum + '</span></p>' +
-    '<p class="text-muted text-xs" style="margin-top:4px">Queue Position #' + qPos + ' · Pay to confirm your spot!</p>' +
+    '<p style="font-weight:700;color:#ce93d8">🎰 Your Tier: <span style="font-size:1.2rem">Tier ' + tierNum + '</span></p>' +
+    '<p class="text-muted text-xs" style="margin-top:4px">Price: ₹' + tierPrice + ' · Queue #' + qPos + ' · Pay to confirm your spot!</p>' +
     '</div>';
   }
 }
@@ -3458,21 +3544,280 @@ function backToDash(){
 function goToProfileSetup(){showView('profileSetupView')}
 
 function initTasks(){
-  const tasks=[];
   const taskList=[
-    {title:'Morning Walk',reward:10},
-    {title:'Read 5 Pages',reward:15},
-    {title:'Drink 8 Glasses of Water',reward:10},
-    {title:'Complete Journaling',reward:20},
-    {title:'10-Minute Meditation',reward:15},
-    {title:'Evening Exercise',reward:25},
+    {title:'Morning Walk 🚶 (10 mins)'},
+    {title:'Read 10 Pages 📖'},
+    {title:'Drink 8 Glasses of Water 💧'},
+    {title:'Journaling ✍️ (5 mins)'},
+    {title:'10-Min Meditation 🧘'},
+    {title:'Evening Exercise 🏋️ (15 mins)'},
+    {title:'No Social Media for 1 Hour 📵'},
+    {title:'Eat a Healthy Meal 🥗'},
+    {title:'Sleep by 11 PM 😴'},
+    {title:'Write a Gratitude Note 🙏'},
   ];
+  const tasks=[];
   for(let d=1;d<=31;d++){
     taskList.forEach((t,i)=>{
-      tasks.push({id:d*100+i,day:d,title:t.title,reward:t.reward,done:false});
+      tasks.push({id:d*100+i,day:d,title:t.title,reward:5,done:false});
     });
   }
   return tasks;
+}
+
+// ═══════════════════════════════════════════════════════
+// QUIZ SYSTEM
+// ═══════════════════════════════════════════════════════
+const QUIZ_QUESTIONS = [
+  {
+    q: "How many days does the Grow31 challenge last?",
+    opts: ["21 Days","28 Days","31 Days","45 Days"],
+    ans: 2
+  },
+  {
+    q: "What do you earn by completing daily tasks?",
+    opts: ["Points","Stars","🪙 Coins","Badges"],
+    ans: 2
+  },
+  {
+    q: "How many coins does each daily task give you?",
+    opts: ["2 Coins","5 Coins","10 Coins","20 Coins"],
+    ans: 1
+  },
+  {
+    q: "What is the maximum number of daily tasks?",
+    opts: ["5","8","10","15"],
+    ans: 2
+  },
+  {
+    q: "How many questions are in the daily quiz?",
+    opts: ["5","8","10","12"],
+    ans: 2
+  },
+  {
+    q: "What happens when you refer a friend?",
+    opts: ["Nothing","You get coins","They get banned","You lose coins"],
+    ans: 1
+  },
+  {
+    q: "Which slot is the highest (top) tier?",
+    opts: ["Slot 1","Slot 15","Slot 31","Slot 10"],
+    ans: 2
+  },
+  {
+    q: "When is the daily tier login bonus credited?",
+    opts: ["Every hour","Every login","Once per day","Never"],
+    ans: 2
+  },
+  {
+    q: "What is the formula for the daily tier bonus?",
+    opts: ["Slot × 5","Slot × 10","Slot × 2","Fixed 50 coins"],
+    ans: 1
+  },
+  {
+    q: "How can you get free Spin tickets?",
+    opts: ["Buy only","Watch an ad","Invite 10 friends","Complete all tasks"],
+    ans: 1
+  }
+];
+
+let quizState = {
+  current: 0,
+  score: 0,
+  answered: false,
+  done: false,
+  lastDate: ''
+};
+
+function renderQuiz(){
+  const u = state.currentUser;
+  const today = new Date().toDateString();
+
+  // Load saved quiz state for today
+  if(!u.quizState || u.quizState.date !== today){
+    u.quizState = {date: today, current: 0, score: 0, done: false};
+    saveData();
+  }
+  quizState = {
+    current: u.quizState.current || 0,
+    score: u.quizState.score || 0,
+    answered: false,
+    done: u.quizState.done || false,
+    lastDate: today
+  };
+
+  if(quizState.done){
+    showQuizResult();
+    return;
+  }
+  renderQuizQuestion();
+}
+
+function renderQuizQuestion(){
+  const qContainer = document.getElementById('quizContainer');
+  const qResult = document.getElementById('quizResult');
+  if(!qContainer) return;
+  qResult.style.display = 'none';
+  qContainer.style.display = 'block';
+
+  const total = QUIZ_QUESTIONS.length;
+  const idx = quizState.current;
+  const pct = Math.round((idx / total) * 100);
+  const progBar = document.getElementById('quizProgressBar');
+  if(progBar) progBar.style.width = pct + '%';
+
+  if(idx >= total){
+    showQuizResult();
+    return;
+  }
+
+  const q = QUIZ_QUESTIONS[idx];
+  qContainer.innerHTML = `
+    <div class="card" style="margin-bottom:16px;overflow:visible">
+      <div class="card-content" style="padding:20px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:6px">
+          <span class="badge badge-blue">Q${idx+1} of ${total}</span>
+          <span style="font-size:.78rem;color:#FFD700;font-weight:600">+5 🪙 if correct</span>
+        </div>
+        <p style="font-family:'Poppins',sans-serif;font-size:1rem;font-weight:700;line-height:1.5;margin-bottom:18px">${q.q}</p>
+        <div id="quizOpts" style="display:flex;flex-direction:column;gap:10px">
+          ${q.opts.map((opt,i)=>`
+            <button onclick="selectQuizAnswer(${i})" id="qopt${i}" style="
+              width:100%;text-align:left;padding:13px 16px;border-radius:12px;
+              background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);
+              color:#fff;font-size:.92rem;font-weight:500;cursor:pointer;
+              transition:all .2s ease;font-family:'Poppins',sans-serif;
+            " onmouseover="if(!this.dataset.locked)this.style.background='rgba(68,138,255,0.15)'"
+               onmouseout="if(!this.dataset.locked)this.style.background='rgba(255,255,255,0.06)'">
+              <span style="display:inline-block;width:24px;height:24px;border-radius:50%;
+                background:rgba(68,138,255,0.2);color:#82b1ff;font-size:.72rem;font-weight:700;
+                text-align:center;line-height:24px;margin-right:10px">${String.fromCharCode(65+i)}</span>
+              ${opt}
+            </button>
+          `).join('')}
+        </div>
+      </div>
+    </div>
+    <div id="quizFeedback" style="display:none;padding:14px;border-radius:12px;margin-bottom:14px;text-align:center;font-weight:600"></div>
+    <button id="quizNextBtn" onclick="nextQuizQuestion()" style="display:none" class="btn btn-white btn-full btn-lg">
+      ${idx+1 < total ? 'Next Question →' : 'See Results 🎉'}
+    </button>
+  `;
+}
+
+function selectQuizAnswer(selected){
+  if(quizState.answered) return;
+  quizState.answered = true;
+
+  const q = QUIZ_QUESTIONS[quizState.current];
+  const isCorrect = selected === q.ans;
+  if(isCorrect) quizState.score++;
+
+  const feedback = document.getElementById('quizFeedback');
+  const nextBtn = document.getElementById('quizNextBtn');
+
+  q.opts.forEach((_, i) => {
+    const btn = document.getElementById('qopt'+i);
+    if(!btn) return;
+    btn.dataset.locked = '1';
+    btn.style.cursor = 'default';
+    if(i === q.ans){
+      btn.style.background = 'rgba(0,230,118,0.2)';
+      btn.style.borderColor = 'rgba(0,230,118,0.5)';
+      btn.style.color = '#00e676';
+    } else if(i === selected && !isCorrect){
+      btn.style.background = 'rgba(255,82,82,0.2)';
+      btn.style.borderColor = 'rgba(255,82,82,0.5)';
+      btn.style.color = '#ff8a80';
+    }
+  });
+
+  if(feedback){
+    feedback.style.display = 'block';
+    if(isCorrect){
+      feedback.style.background = 'rgba(0,230,118,0.12)';
+      feedback.style.border = '1px solid rgba(0,230,118,0.3)';
+      feedback.style.color = '#00e676';
+      feedback.innerHTML = '✅ Correct! +5 🪙';
+    } else {
+      feedback.style.background = 'rgba(255,82,82,0.12)';
+      feedback.style.border = '1px solid rgba(255,82,82,0.3)';
+      feedback.style.color = '#ff8a80';
+      feedback.innerHTML = '❌ Wrong! Correct: <b>' + q.opts[q.ans] + '</b>';
+    }
+  }
+
+  if(nextBtn) nextBtn.style.display = 'flex';
+  
+  const progBar = document.getElementById('quizProgressBar');
+  if(progBar){
+    const pct = Math.round(((quizState.current+1) / QUIZ_QUESTIONS.length) * 100);
+    progBar.style.width = pct + '%';
+  }
+}
+
+function nextQuizQuestion(){
+  quizState.current++;
+  quizState.answered = false;
+
+  const u = state.currentUser;
+  if(!u.quizState) u.quizState = {};
+  u.quizState.current = quizState.current;
+  u.quizState.score = quizState.score;
+  u.quizState.date = quizState.lastDate;
+
+  if(quizState.current >= QUIZ_QUESTIONS.length){
+    const earned = quizState.score * 5;
+    u.coins += earned;
+    if(!u.txHistory) u.txHistory = [];
+    u.txHistory.unshift({type:'quiz',coins:earned,desc:'Daily Quiz: '+quizState.score+'/'+QUIZ_QUESTIONS.length+' correct',time:Date.now()});
+    u.quizState.done = true;
+    quizState.done = true;
+    saveData();
+    showQuizResult();
+  } else {
+    u.quizState.done = false;
+    saveData();
+    renderQuizQuestion();
+  }
+}
+
+function showQuizResult(){
+  const qContainer = document.getElementById('quizContainer');
+  const qResult = document.getElementById('quizResult');
+  if(qContainer) qContainer.style.display = 'none';
+  if(qResult) qResult.style.display = 'block';
+
+  const total = QUIZ_QUESTIONS.length;
+  const score = quizState.score;
+  const earned = score * 5;
+
+  const progBar = document.getElementById('quizProgressBar');
+  if(progBar) progBar.style.width = '100%';
+
+  const emoji = score >= 8 ? '🏆' : score >= 5 ? '🎉' : '💪';
+  const title = score >= 8 ? 'Excellent!' : score >= 5 ? 'Good Job!' : 'Keep Practicing!';
+  const sub = score + ' out of ' + total + ' correct answers';
+
+  const emojiEl = document.getElementById('quizResultEmoji');
+  const titleEl = document.getElementById('quizResultTitle');
+  const subEl = document.getElementById('quizResultSub');
+  const coinsEl = document.getElementById('quizCoinsEarned');
+  if(emojiEl) emojiEl.innerText = emoji;
+  if(titleEl) titleEl.innerText = title;
+  if(subEl) subEl.innerText = sub;
+  if(coinsEl) coinsEl.innerText = earned + ' 🪙';
+
+  // Update header coins
+  const u = state.currentUser;
+  if(u){
+    const hc = document.getElementById('headerCoins');
+    if(hc) hc.innerText = u.coins.toLocaleString();
+  }
+}
+
+function resetQuiz(){
+  showToast("Quiz resets daily at midnight! Come back tomorrow 🌙", "success");
 }
 
 function saveData(){DB.set('users',state.allUsers)}
@@ -3483,30 +3828,34 @@ function doLogout(){state.currentUser=null;DB.set('currentUserPhone',null);showV
 function pickEmoji(){
   const d=document.getElementById('emojiDialog');
   if(!d) return;
-  let grid=d.querySelector('[style*="grid-template-columns"]');
+  let grid=d.querySelector('div[style*="grid-template-columns"]');
   if(!grid){
     grid=document.createElement('div');
-    grid.style.cssText='display:grid;grid-template-columns:repeat(6,1fr);gap:8px';
-    d.querySelector('.dialog').appendChild(grid);
+    grid.style.cssText='display:grid;grid-template-columns:repeat(6,1fr);gap:8px;padding:0 28px 20px';
+    const inner=d.querySelector('.dialog');
+    inner.insertBefore(grid, inner.querySelector('button.dialog-close').nextSibling.nextSibling.nextSibling);
   }
   grid.innerHTML='';
-  EMOJIS.forEach(e=>{
+  EMOJIS.forEach(emoji=>{
     const btn=document.createElement('button');
-    btn.style.cssText='font-size:1.8rem;padding:8px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);cursor:pointer;transition:background .2s;width:100%';
-    btn.innerText=e;
+    btn.style.cssText='width:100%;aspect-ratio:1;border-radius:12px;background:rgba(68,138,255,0.1);border:1px solid rgba(68,138,255,0.2);color:#fff;font-size:1.8rem;cursor:pointer;transition:all .2s';
+    btn.innerText=emoji;
     btn.onclick=()=>{
-      document.getElementById('avatarEmoji').innerText=e;
-      if(state.currentUser){ state.currentUser.avatarPhoto=null; }
-      updateAvatarDisplays(null, e);
+      document.getElementById('avatarEmoji').innerText=emoji;
+      state.currentUser.avatar=emoji;
+      updateAvatarDisplays(null,emoji);
       closeDialog('emojiDialog');
     };
+    btn.onmouseover=()=>btn.style.background='rgba(68,138,255,0.3)';
+    btn.onmouseout=()=>btn.style.background='rgba(68,138,255,0.1)';
     grid.appendChild(btn);
   });
-  d.classList.add('open');
 }
 
-
-
+// Initialize on page load
+window.addEventListener('DOMContentLoaded',()=>{
+  if(!state.currentUser) prefillReferralFromUrl();
+});
 </script>
 </body>
 </html>
