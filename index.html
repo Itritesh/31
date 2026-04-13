@@ -243,12 +243,12 @@ select.input option{background:#0e0e1f;color:#fff}
 .spin-info-row{display:flex;justify-content:space-between;margin-top:12px}
 .spin-token-box{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:10px 16px;display:flex;align-items:center;gap:8px;font-weight:600}
 
-/* ── SLOTS ── */
-.slot-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:14px;display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;transition:all .2s;cursor:pointer}
-.slot-card:hover{border-color:rgba(68,138,255,0.3);transform:translateX(4px);background:rgba(255,255,255,0.07)}
-.slot-badge{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:800;font-size:.85rem;flex-shrink:0}
-.slot-card.current-slot{border-color:rgba(0,230,118,0.4);background:rgba(0,230,118,0.05)}
-.slot-card.locked-slot{opacity:.45}
+/* ── TIERS ── */
+.tier-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:14px;display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;transition:all .2s;cursor:pointer}
+.tier-card:hover{border-color:rgba(68,138,255,0.3);transform:translateX(4px);background:rgba(255,255,255,0.07)}
+.tier-badge{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:800;font-size:.85rem;flex-shrink:0}
+.tier-card.current-tier{border-color:rgba(0,230,118,0.4);background:rgba(0,230,118,0.05)}
+.tier-card.locked-tier{opacity:.45}
 
 /* ── FOLLOW CARD ── */
 .follow-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:16px;display:flex;align-items:center;gap:14px;margin-bottom:10px;transition:all .2s}
@@ -455,10 +455,18 @@ select.input option{background:#0e0e1f;color:#fff}
       <span class="badge badge-green">🏆 Leaderboard</span>
     </div>
     <div style="display:flex;gap:12px;margin-top:20px;justify-content:center;align-items:center">
-      <a href="https://www.instagram.com/_grow31?igsh=ZTdneTg0OXVkYTRy&utm_source=qr" target="_blank" style="width:38px;height:38px;background:rgba(225,48,108,0.15);border:1px solid rgba(225,48,108,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;text-decoration:none">📸</a>
-      <a href="https://youtube.com/@grow31-u3s?si=RVZX6ZbiKUb6jhWq" target="_blank" style="width:38px;height:38px;background:rgba(255,0,0,0.12);border:1px solid rgba(255,0,0,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;text-decoration:none">▶️</a>
-      <a href="https://t.me/+JhvCkrA8Fg8yZTVl" target="_blank" style="width:38px;height:38px;background:rgba(0,119,181,0.15);border:1px solid rgba(0,119,181,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;text-decoration:none">✈️</a>
-      <a href="https://wa.me/message/Y2CDYZEVKWA3M1" target="_blank" style="width:38px;height:38px;background:rgba(37,211,102,0.12);border:1px solid rgba(37,211,102,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;text-decoration:none">💬</a>
+      <a href="https://www.instagram.com/_grow31?igsh=ZTdneTg0OXVkYTRy&utm_source=qr" target="_blank" class="social-btn" style="color:#e91e63;background:rgba(225,48,108,0.15);border-color:rgba(225,48,108,0.2)">
+        <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:currentColor"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.65 0 3 1.35 3 3v10c0 1.65-1.35 3-3 3H7c-1.65 0-3-1.35-3-3V7c0-1.65 1.35-3 3-3h10zm-5 3.5A4.5 4.5 0 1 0 16.5 12 4.51 4.51 0 0 0 12 7.5zm0 7.5a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm4.75-8.75a1.25 1.25 0 1 1-1.25 1.25 1.25 1.25 0 0 1 1.25-1.25z"/></svg>
+      </a>
+      <a href="https://youtube.com/@grow31-u3s?si=RVZX6ZbiKUb6jhWq" target="_blank" class="social-btn" style="color:#ff5252;background:rgba(255,0,0,0.12);border-color:rgba(255,0,0,0.2)">
+        <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:currentColor"><path d="M10 15l5.19-3L10 9v6zm9.8-5.57c-.18-1.34-.72-2.52-1.56-3.46A5.928 5.928 0 0 0 14.44 4.6C12.62 4.21 8.99 4 8.99 4S5.36 4.21 3.56 5.0a5.928 5.928 0 0 0-3.8 2.0C-1.36 8.92-1.8 10.1-1.98 11.44A33.05 33.05 0 0 0 0 17.75c.18 1.34.72 2.52 1.56 3.46a5.928 5.928 0 0 0 3.8 2.0c1.8.8 5.43 1 5.43 1s3.63-.21 5.43-1a5.928 5.928 0 0 0 3.8-2.0c.84-.94 1.38-2.12 1.56-3.46a33.05 33.05 0 0 0 1.98-6.31 33.05 33.05 0 0 0-1.98-6.31z"/></svg>
+      </a>
+      <a href="https://t.me/+JhvCkrA8Fg8yZTVl" target="_blank" class="social-btn" style="color:#0088cc;background:rgba(0,119,181,0.15);border-color:rgba(0,119,181,0.2)">
+        <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:currentColor"><path d="M4.5 12.5l3.5 1.4 1.8 5.4c.3 1 1.2 1.4 2.1 1 .3-.1 7.1-4.8 7.8-5.3.6-.3.6-.8.1-1.1-.1-.1-1.6-1-4.7-2.8-1.8-1-2.9-1.5-3.9-1.9-.8-.3-1.5-.2-1.9.3-.3.4-.8 1.3-1.3 2.1L4.5 12.5z"/></svg>
+      </a>
+      <a href="https://wa.me/message/Y2CDYZEVKWA3M1" target="_blank" class="social-btn" style="color:#25d366;background:rgba(37,211,102,0.12);border-color:rgba(37,211,102,0.2)">
+        <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:currentColor"><path d="M20.52 3.48A11.89 11.89 0 0 0 3.48 20.52l-1.06 3.85 3.94-1.03A11.93 11.93 0 0 0 21 3.5zm-1.6 13.04c-.22.62-1.25 1.18-1.72 1.25-.46.07-1.04.1-2.4-.34-3.06-1-5.03-3.62-5.2-3.8-.17-.18-1.38-1.65-1.38-3.15 0-1.5.79-2.24 1.07-2.55.28-.3.61-.38.92-.38.24 0 .49 0 .7.01.23.01.52-.09.8.6.28.69.9 2.39.98 2.57.1.2.16.45.03.72-.13.27-.19.42-.38.65-.18.22-.38.5-.54.68-.18.2-.37.45-.16.88.22.43 1 1.7 2.15 2.75 1.5 1.43 2.76 1.8 3.18 1.99.42.18.73.15 1.01.09.31-.07.96-.39 1.09-.77.12-.38.12-.72.08-.79-.04-.07-.14-.11-.29-.18z"/></svg>
+      </a>
     </div>
   </div>
 </div>
@@ -574,7 +582,7 @@ select.input option{background:#0e0e1f;color:#fff}
   <div style="padding:24px 20px;max-width:440px;margin:0 auto;width:100%;flex:1">
     <h2 class="section-heading" style="font-size:1.5rem;margin-bottom:6px">Join the Challenge 🚀</h2>
     <p class="text-muted text-sm" style="margin-bottom:12px">One-time payment · Instant access · No hidden fees</p>
-    <div id="paymentSlotInfo"></div>
+    <div id="paymentTierInfo"></div>
     <div class="card mb-4" style="margin-bottom:16px;padding:16px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;">
       <span class="trust-badge green">🔒 Secure Checkout</span>
       <span class="trust-badge blue">✅ Trusted Gateway</span>
@@ -625,7 +633,7 @@ select.input option{background:#0e0e1f;color:#fff}
     <div id="confirmSuccess" style="display:none">
       <div class="confirm-anim">✅</div>
       <h2 class="font-syne" style="font-size:1.8rem;font-weight:800;margin-bottom:8px">Payment Successful!</h2>
-      <p id="confirmDetails" class="text-muted" style="margin-bottom:16px;font-size:.95rem">Your slot purchase is confirmed.</p>
+      <p id="confirmDetails" class="text-muted" style="margin-bottom:16px;font-size:.95rem">Your tier purchase is confirmed.</p>
       <button class="btn btn-white btn-lg" onclick="afterPayment()">Continue to Dashboard →</button>
     </div>
     <p id="confirmMsg" class="text-muted" style="margin-top:16px;font-size:.9rem">Processing your payment...</p>
@@ -729,6 +737,18 @@ select.input option{background:#0e0e1f;color:#fff}
         <div class="banner-ad-label">AD</div>
       </div>
 
+
+      <!-- DAILY CHECK-IN SECTION -->
+      <div class="card mb-4" style="margin-bottom:14px;background:linear-gradient(135deg,rgba(0,230,118,0.15),rgba(68,138,255,0.12));border:1px solid rgba(0,230,118,0.3);backdrop-filter:blur(10px);padding:0;overflow:hidden;position:relative">
+        <div style="position:absolute;top:0;right:0;width:80px;height:80px;background:radial-gradient(circle,rgba(0,230,118,0.1),transparent);border-radius:50%;transform:translate(20px,-20px);pointer-events:none"></div>
+        <div class="card-content" style="text-align:center;padding:20px 18px;display:flex;flex-direction:column;align-items:center;position:relative;z-index:1">
+          <div style="font-size:2.2rem;margin-bottom:10px;display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;background:rgba(0,230,118,0.15);border-radius:12px;margin-bottom:12px">📅</div>
+          <p style="font-weight:700;font-size:.98rem;margin-bottom:3px;letter-spacing:.3px">Daily Check-In</p>
+          <p class="text-muted text-xs" style="margin-bottom:14px;font-size:.8rem;line-height:1.4">Claim your daily bonus to keep your streak alive! 🔥</p>
+          <button class="btn btn-sm" id="homeCheckInBtn" onclick="doCheckIn()" style="background:linear-gradient(135deg,#00e676,#1de9b6);color:#000;font-weight:700;border:none;box-shadow:0 4px 16px rgba(0,230,118,0.3);transition:all .3s ease;width:100%;max-width:240px">✓ Check In Today (+5 🪙)</button>
+        </div>
+      </div>
+
       <!-- GAMIFIED FLOATING COINS ELEMENT -->
       <div class="float-coins-wrap" id="gamifiedWrap" style="background:linear-gradient(135deg,rgba(156,39,176,0.12),rgba(68,138,255,0.06));border:1px solid rgba(156,39,176,0.25);">
         <div style="display:flex;align-items:center;justify-content:space-between">
@@ -818,10 +838,15 @@ select.input option{background:#0e0e1f;color:#fff}
           <p style="font-weight:700;font-size:.9rem">Winners</p>
           <p class="text-muted text-xs">Today's results</p>
         </div>
-        <div class="card" style="padding:16px;cursor:pointer;text-align:center" onclick="openBuySlotsDialog()">
+        <div class="card" style="padding:16px;cursor:pointer;text-align:center" onclick="openBuyTiersDialog()">
           <div style="font-size:2rem;margin-bottom:6px">🛒</div>
-          <p style="font-weight:700;font-size:.9rem">Buy More Slots</p>
+          <p style="font-weight:700;font-size:.9rem">Get More Tiers</p>
           <p class="text-muted text-xs">Upgrade position</p>
+        </div>
+        <div class="card" style="padding:16px;cursor:pointer;text-align:center" onclick="showView('videosView')">
+          <div style="font-size:2rem;margin-bottom:6px">🎬</div>
+          <p style="font-weight:700;font-size:.9rem">Tutorial Videos</p>
+          <p class="text-muted text-xs">Learn & earn!</p>
         </div>
       </div>
 
@@ -830,7 +855,7 @@ select.input option{background:#0e0e1f;color:#fff}
       <div class="grid-7 mb-4" id="homeGrid" style="margin-bottom:14px"></div>
 
       <!-- BANNER AD SPACE 2 -->
-      <div class="banner-ad" style="margin-bottom:20px">
+      <div class="banner-ad" style="margin-bottom:14px">
         <span style="font-size:1.2rem">🎯</span>
         <div style="text-align:left">
           <p style="font-weight:600;font-size:.85rem">Sponsored Content</p>
@@ -857,29 +882,29 @@ select.input option{background:#0e0e1f;color:#fff}
       <div class="banner-ad" style="margin-top:16px"><span style="font-size:1.2rem">🎯</span><div style="text-align:left"><p style="font-weight:600;font-size:.85rem">Sponsored</p><p class="text-muted" style="font-size:.72rem">Advertise with Grow31</p></div><div class="banner-ad-label">AD</div></div>
     </div>
 
-    <!-- ─── SLOTS PAGE ─── -->
-    <div class="page-content page-content-ranked" id="pageSlots" style="display:none">
+    <!-- ─── TIERS PAGE ─── -->
+    <div class="page-content page-content-ranked" id="pageTiers" style="display:none">
       <!-- AD -->
       <div class="banner-ad" style="margin-bottom:14px"><span style="font-size:1.2rem">📢</span><div style="text-align:left"><p style="font-weight:600;font-size:.85rem">Advertisement Space</p><p class="text-muted" style="font-size:.72rem">Your ad here</p></div><div class="banner-ad-label">AD</div></div>
-      <h2 class="section-heading">Slot System 🎰</h2>
+      <h2 class="section-heading">Tier System 🎰</h2>
       <div class="card mb-4" style="margin-bottom:16px">
         <div class="card-content" style="padding:16px;text-align:center">
-          <p class="card-title" style="margin-bottom:8px">Your Current Slot</p>
-          <div style="font-family:'Poppins',sans-serif;font-size:2.5rem;font-weight:800;color:#00e676;margin-bottom:4px">Slot <span id="currentSlotNum">31</span></div>
+          <p class="card-title" style="margin-bottom:8px">Your Current Tier</p>
+          <div style="font-family:'Poppins',sans-serif;font-size:2.5rem;font-weight:800;color:#00e676;margin-bottom:4px">Tier <span id="currentTierNum">31</span></div>
           <p class="text-muted text-xs" style="margin-bottom:4px">Position in queue: <span style="color:#fff;font-weight:700" id="currentQueuePos">#1</span></p>
-          <p class="text-muted text-sm">Pool members: <span id="currentSlotMembers" style="color:#fff;font-weight:700">1</span></p>
-          <p class="text-muted text-sm" style="margin-top:8px">Your seats: <span id="slotSeatsOwned" style="color:#fff;font-weight:700">1</span></p>
+          <p class="text-muted text-sm">Pool members: <span id="currentTierMembers" style="color:#fff;font-weight:700">1</span></p>
+          <p class="text-muted text-sm" style="margin-top:8px">Your seats: <span id="tierSeatsOwned" style="color:#fff;font-weight:700">1</span></p>
           <div class="progress-track" style="height:6px;margin:12px 0">
-            <div class="progress-fill" id="slotProgress" style="width:10%"></div>
+            <div class="progress-fill" id="tierProgress" style="width:10%"></div>
           </div>
           <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:8px">
             <span class="badge badge-pending">⏳ Payout: Pending</span>
           </div>
-          <button class="btn btn-outline btn-full btn-sm" style="margin-top:12px" onclick="showMySlotClaimInfo()">Claim / View My Slots</button>
+          <button class="btn btn-outline btn-full btn-sm" style="margin-top:12px" onclick="showMyTierClaimInfo()">Claim / View My Tiers</button>
         </div>
       </div>
-      <p class="text-sm text-muted" style="margin-bottom:12px;line-height:1.6">Slots are auto-assigned in order (first come, first served). Slot 31 is the top slot. Your position advances as more users join. Payouts are verified by admin before coins are credited.</p>
-      <div id="slotsList"></div>
+      <p class="text-sm text-muted" style="margin-bottom:12px;line-height:1.6">Tiers are auto-assigned in order (first come, first served). Tier 31 is the top tier. Your position advances as more users join. Payouts are verified by admin before coins are credited.</p>
+      <div id="tiersList"></div>
       <!-- AD 2 -->
       <div class="banner-ad" style="margin-top:16px"><span style="font-size:1.2rem">🎯</span><div style="text-align:left"><p style="font-weight:600;font-size:.85rem">Sponsored</p><p class="text-muted" style="font-size:.72rem">Advertise with Grow31</p></div><div class="banner-ad-label">AD</div></div>
     </div>
@@ -1026,7 +1051,7 @@ select.input option{background:#0e0e1f;color:#fff}
           <p class="text-muted text-xs" id="morePhone">+91 xxxxxxxx</p>
           <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap">
             <span class="badge badge-yellow" style="color:#FFD700;background:rgba(212,170,0,0.18);border-color:rgba(255,215,0,0.4)">🪙 <span id="moreCoins">0</span></span>
-            <span class="badge badge-blue">Slot <span id="moreSlot">31</span></span>
+            <span class="badge badge-blue">Tier <span id="moreTier">31</span></span>
           </div>
         </div>
       </div>
@@ -1039,9 +1064,9 @@ select.input option{background:#0e0e1f;color:#fff}
       </div>
       <!-- Social links -->
       <div class="card" style="margin-bottom:12px">
-        <div class="list-item" style="cursor:pointer" onclick="showDashPage('pageSlots')">
+        <div class="list-item" style="cursor:pointer" onclick="showDashPage('pageTiers')">
           <span style="font-size:1.2rem">🎰</span>
-          <span style="flex:1;font-weight:500">My Slots</span>
+          <span style="flex:1;font-weight:500">My Tiers</span>
           <span class="text-muted">›</span>
         </div>
         <div class="list-item" style="cursor:pointer" onclick="showDashPage('pageTasks')">
@@ -1149,12 +1174,107 @@ select.input option{background:#0e0e1f;color:#fff}
       <div class="avatar av-user" id="rankBarAvatar" style="width:32px;height:32px;font-size:.95rem;flex-shrink:0">🧑</div>
       <div class="rank-bar-info">
         <div class="rank-bar-name" id="rankBarName">User</div>
-        <div class="rank-bar-sub">Slot <span id="rankBarSlot">31</span> · Day <span id="rankBarDay">1</span></div>
+        <div class="rank-bar-sub">Tier <span id="rankBarTier">31</span> · Day <span id="rankBarDay">1</span></div>
       </div>
     </div>
     <div class="rank-bar-stats">
       <div class="rank-badge-pill">🏆 <span id="rankBarRank">#–</span></div>
       <div class="rank-coins-pill">🪙 <span id="rankBarCoins">0</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════════════════════════════════════ -->
+<!-- VIDEO TUTORIALS VIEW -->
+<!-- ═════════════════════════════════════════ -->
+<div class="view" id="videosView">
+  <div class="app-header">
+    <button class="back-btn" onclick="goBack()" style="margin:0">← Back</button>
+    <div class="logo-text">🎬 Tutorial Videos</div>
+    <div style="width:60px"></div>
+  </div>
+  <div class="page-content">
+    <h2 class="section-heading">Learn How to Grow31 🎥</h2>
+    <p class="text-muted text-sm" style="margin-bottom:20px;line-height:1.6">Watch these tutorial videos to understand how Grow31 works, earn coins, climb the leaderboard, and maximize your rewards!</p>
+
+    <!-- Video 1: Getting Started -->
+    <div class="card" style="margin-bottom:14px">
+      <div style="background:linear-gradient(135deg,rgba(68,138,255,0.15),rgba(206,147,216,0.1));border-radius:12px;overflow:hidden;position:relative;height:160px;margin-bottom:12px">
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
+          <a href="https://www.youtube.com/embed/Jfr7kH-E8OM?si=Jfr7kH-E8OM" target="_blank" style="background:rgba(255,82,82,0.9);color:#fff;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;text-decoration:none;transition:all .2s">▶</a>
+        </div>
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect fill='%23050510' width='320' height='180'/%3E%3C/svg%3E" style="width:100%;height:100%;object-fit:cover">
+      </div>
+      <div style="padding:0 16px 14px">
+        <p style="font-weight:700;font-size:.95rem;margin-bottom:3px">Getting Started with Grow31</p>
+        <p class="text-muted text-xs" style="margin-bottom:8px">Duration: 3:45 · Level: Beginner</p>
+        <p class="text-muted text-sm" style="line-height:1.5">Learn how to sign up, complete your profile, join the 31-day challenge, and make your first payment.</p>
+        <a href="https://www.youtube.com/@grow31-u3s" target="_blank" class="btn btn-blue btn-sm" style="width:100%;margin-top:10px;text-align:center">▶ Watch Video</a>
+      </div>
+    </div>
+
+    <!-- Video 2: Earning Coins -->
+    <div class="card" style="margin-bottom:14px">
+      <div style="background:linear-gradient(135deg,rgba(0,230,118,0.15),rgba(68,138,255,0.1));border-radius:12px;overflow:hidden;position:relative;height:160px;margin-bottom:12px">
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
+          <a href="https://www.youtube.com/@grow31-u3s" target="_blank" style="background:rgba(255,82,82,0.9);color:#fff;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;text-decoration:none;transition:all .2s">▶</a>
+        </div>
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect fill='%23050510' width='320' height='180'/%3E%3C/svg%3E" style="width:100%;height:100%;object-fit:cover">
+      </div>
+      <div style="padding:0 16px 14px">
+        <p style="font-weight:700;font-size:.95rem;margin-bottom:3px">Complete Daily Tasks & Earn Coins</p>
+        <p class="text-muted text-xs" style="margin-bottom:8px">Duration: 4:20 · Level: Beginner</p>
+        <p class="text-muted text-sm" style="line-height:1.5">Discover all the ways to earn coins: daily tasks, quiz, spin wheel, referrals, and follow rewards!</p>
+        <a href="https://www.youtube.com/@grow31-u3s" target="_blank" class="btn btn-blue btn-sm" style="width:100%;margin-top:10px;text-align:center">▶ Watch Video</a>
+      </div>
+    </div>
+
+    <!-- Video 3: Tier System -->
+    <div class="card" style="margin-bottom:14px">
+      <div style="background:linear-gradient(135deg,rgba(245,197,24,0.15),rgba(255,112,67,0.1));border-radius:12px;overflow:hidden;position:relative;height:160px;margin-bottom:12px">
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
+          <a href="https://www.youtube.com/@grow31-u3s" target="_blank" style="background:rgba(255,82,82,0.9);color:#fff;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;text-decoration:none;transition:all .2s">▶</a>
+        </div>
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect fill='%23050510' width='320' height='180'/%3E%3C/svg%3E" style="width:100%;height:100%;object-fit:cover">
+      </div>
+      <div style="padding:0 16px 14px">
+        <p style="font-weight:700;font-size:.95rem;margin-bottom:3px">Understanding the Tier System</p>
+        <p class="text-muted text-xs" style="margin-bottom:8px">Duration: 5:10 · Level: Intermediate</p>
+        <p class="text-muted text-sm" style="line-height:1.5">How tiers work, pool sizes, upgrades, and how to claim your rewards as you advance through the tiers!</p>
+        <a href="https://www.youtube.com/@grow31-u3s" target="_blank" class="btn btn-blue btn-sm" style="width:100%;margin-top:10px;text-align:center">▶ Watch Video</a>
+      </div>
+    </div>
+
+    <!-- Video 4: Referral Strategy -->
+    <div class="card" style="margin-bottom:14px">
+      <div style="background:linear-gradient(135deg,rgba(138,43,226,0.15),rgba(68,138,255,0.1));border-radius:12px;overflow:hidden;position:relative;height:160px;margin-bottom:12px">
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
+          <a href="https://www.youtube.com/@grow31-u3s" target="_blank" style="background:rgba(255,82,82,0.9);color:#fff;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;text-decoration:none;transition:all .2s">▶</a>
+        </div>
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect fill='%23050510' width='320' height='180'/%3E%3C/svg%3E" style="width:100%;height:100%;object-fit:cover">
+      </div>
+      <div style="padding:0 16px 14px">
+        <p style="font-weight:700;font-size:.95rem;margin-bottom:3px">Referral Strategies & Winning Tips</p>
+        <p class="text-muted text-xs" style="margin-bottom:8px">Duration: 5:45 · Level: Intermediate</p>
+        <p class="text-muted text-sm" style="line-height:1.5">Master the referral system, earn commissions, and use strategies to win big rewards and climb the leaderboard!</p>
+        <a href="https://www.youtube.com/@grow31-u3s" target="_blank" class="btn btn-blue btn-sm" style="width:100%;margin-top:10px;text-align:center">▶ Watch Video</a>
+      </div>
+    </div>
+
+    <!-- Video 5: Advanced Tips -->
+    <div class="card" style="margin-bottom:20px">
+      <div style="background:linear-gradient(135deg,rgba(255,112,67,0.15),rgba(245,197,24,0.1));border-radius:12px;overflow:hidden;position:relative;height:160px;margin-bottom:12px">
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
+          <a href="https://www.youtube.com/@grow31-u3s" target="_blank" style="background:rgba(255,82,82,0.9);color:#fff;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;text-decoration:none;transition:all .2s">▶</a>
+        </div>
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect fill='%23050510' width='320' height='180'/%3E%3C/svg%3E" style="width:100%;height:100%;object-fit:cover">
+      </div>
+      <div style="padding:0 16px 14px">
+        <p style="font-weight:700;font-size:.95rem;margin-bottom:3px">Pro Tips: Maximize Your Earnings</p>
+        <p class="text-muted text-xs" style="margin-bottom:8px">Duration: 6:30 · Level: Advanced</p>
+        <p class="text-muted text-sm" style="line-height:1.5">Advanced strategies to maximize earnings, daily streaks, optimal referral timing, and prize predictions!</p>
+        <a href="https://www.youtube.com/@grow31-u3s" target="_blank" class="btn btn-blue btn-sm" style="width:100%;margin-top:10px;text-align:center">▶ Watch Video</a>
+      </div>
     </div>
   </div>
 </div>
@@ -1173,19 +1293,22 @@ select.input option{background:#0e0e1f;color:#fff}
     <p class="text-muted text-sm" style="margin-bottom:16px;line-height:1.6">Follow Grow31 on social media to earn coins and get the latest updates!</p>
 
     <!-- Daily check-in -->
-    <div class="card mt-4" style="margin-bottom:20px">
-      <div class="card-content" style="text-align:center;padding:20px">
-        <div style="font-size:2rem;margin-bottom:8px">📅</div>
-        <p style="font-weight:700;font-size:1rem;margin-bottom:4px">Daily Check-In</p>
-        <p class="text-muted text-sm" style="margin-bottom:14px">Check in every day for bonus coins!</p>
-        <button class="btn btn-green btn-full" id="checkInBtn" onclick="doCheckIn()">✓ Check In Today (+5 🪙)</button>
+    <div class="card mt-4" style="margin-bottom:20px;background:linear-gradient(135deg,rgba(0,230,118,0.15),rgba(68,138,255,0.12));border:1px solid rgba(0,230,118,0.3);backdrop-filter:blur(10px);position:relative;overflow:hidden">
+      <div style="position:absolute;top:0;right:0;width:80px;height:80px;background:radial-gradient(circle,rgba(0,230,118,0.1),transparent);border-radius:50%;transform:translate(20px,-20px);pointer-events:none"></div>
+      <div class="card-content" style="text-align:center;padding:20px;display:flex;flex-direction:column;align-items:center;position:relative;z-index:1">
+        <div style="font-size:2rem;margin-bottom:12px;display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;background:rgba(0,230,118,0.15);border-radius:12px">📅</div>
+        <p style="font-weight:700;font-size:.98rem;margin-bottom:3px;letter-spacing:.3px">Daily Check-In</p>
+        <p class="text-muted text-sm" style="margin-bottom:14px;line-height:1.4">Claim your daily bonus to keep your streak alive! 🔥</p>
+        <button class="btn btn-full" id="followCheckInBtn" onclick="doCheckIn()" style="background:linear-gradient(135deg,#00e676,#1de9b6);color:#000;font-weight:700;border:none;box-shadow:0 4px 16px rgba(0,230,118,0.3);transition:all .3s ease">✓ Check In Today (+5 🪙)</button>
       </div>
     </div>
 
     <!-- Follow Cards -->
     <!-- Instagram -->
     <div class="follow-card">
-      <div class="follow-icon" style="background:rgba(225,48,108,0.15);border:1px solid rgba(225,48,108,0.2)">📸</div>
+      <div class="follow-icon" style="background:rgba(225,48,108,0.15);border:1px solid rgba(225,48,108,0.2);color:#e91e63">
+        <svg viewBox="0 0 24 24" style="width:24px;height:24px;fill:currentColor"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.65 0 3 1.35 3 3v10c0 1.65-1.35 3-3 3H7c-1.65 0-3-1.35-3-3V7c0-1.65 1.35-3 3-3h10zm-5 3.5A4.5 4.5 0 1 0 16.5 12 4.51 4.51 0 0 0 12 7.5zm0 7.5a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm4.75-8.75a1.25 1.25 0 1 1-1.25 1.25 1.25 1.25 0 0 1 1.25-1.25z"/></svg>
+      </div>
       <div style="flex:1">
         <p style="font-weight:700;font-size:.95rem">Follow on Instagram</p>
         <p class="text-muted text-xs">@_grow31 · Behind the scenes &amp; winners</p>
@@ -1198,7 +1321,9 @@ select.input option{background:#0e0e1f;color:#fff}
     </div>
     <!-- YouTube -->
     <div class="follow-card">
-      <div class="follow-icon" style="background:rgba(255,0,0,0.12);border:1px solid rgba(255,0,0,0.2)">▶️</div>
+      <div class="follow-icon" style="background:rgba(255,0,0,0.12);border:1px solid rgba(255,0,0,0.2);color:#ff5252">
+        <svg viewBox="0 0 24 24" style="width:24px;height:24px;fill:currentColor"><path d="M10 15l5.19-3L10 9v6zm9.8-5.57c-.18-1.34-.72-2.52-1.56-3.46A5.928 5.928 0 0 0 14.44 4.6C12.62 4.21 8.99 4 8.99 4S5.36 4.21 3.56 5.0a5.928 5.928 0 0 0-3.8 2.0C-1.36 8.92-1.8 10.1-1.98 11.44A33.05 33.05 0 0 0 0 17.75c.18 1.34.72 2.52 1.56 3.46a5.928 5.928 0 0 0 3.8 2.0c1.8.8 5.43 1 5.43 1s3.63-.21 5.43-1a5.928 5.928 0 0 0 3.8-2.0c.84-.94 1.38-2.12 1.56-3.46a33.05 33.05 0 0 0 1.98-6.31 33.05 33.05 0 0 0-1.98-6.31z"/></svg>
+      </div>
       <div style="flex:1">
         <p style="font-weight:700;font-size:.95rem">Subscribe on YouTube</p>
         <p class="text-muted text-xs">@grow31-u3s · Tutorial videos &amp; livestreams</p>
@@ -1211,7 +1336,9 @@ select.input option{background:#0e0e1f;color:#fff}
     </div>
     <!-- Telegram -->
     <div class="follow-card">
-      <div class="follow-icon" style="background:rgba(0,119,181,0.15);border:1px solid rgba(0,119,181,0.2)">✈️</div>
+      <div class="follow-icon" style="background:rgba(0,119,181,0.15);border:1px solid rgba(0,119,181,0.2);color:#0088cc">
+        <svg viewBox="0 0 24 24" style="width:24px;height:24px;fill:currentColor"><path d="M4.5 12.5l3.5 1.4 1.8 5.4c.3 1 1.2 1.4 2.1 1 .3-.1 7.1-4.8 7.8-5.3.6-.3.6-.8.1-1.1-.1-.1-1.6-1-4.7-2.8-1.8-1-2.9-1.5-3.9-1.9-.8-.3-1.5-.2-1.9.3-.3.4-.8 1.3-1.3 2.1L4.5 12.5z"/></svg>
+      </div>
       <div style="flex:1">
         <p style="font-weight:700;font-size:.95rem">Join Telegram Channel</p>
         <p class="text-muted text-xs">Grow31 Official · Updates &amp; giveaways</p>
@@ -1224,7 +1351,9 @@ select.input option{background:#0e0e1f;color:#fff}
     </div>
     <!-- WhatsApp -->
     <div class="follow-card">
-      <div class="follow-icon" style="background:rgba(37,211,102,0.12);border:1px solid rgba(37,211,102,0.2)">💬</div>
+      <div class="follow-icon" style="background:rgba(37,211,102,0.12);border:1px solid rgba(37,211,102,0.2);color:#25d366">
+        <svg viewBox="0 0 24 24" style="width:24px;height:24px;fill:currentColor"><path d="M20.52 3.48A11.89 11.89 0 0 0 3.48 20.52l-1.06 3.85 3.94-1.03A11.93 11.93 0 0 0 21 3.5zm-1.6 13.04c-.22.62-1.25 1.18-1.72 1.25-.46.07-1.04.1-2.4-.34-3.06-1-5.03-3.62-5.2-3.8-.17-.18-1.38-1.65-1.38-3.15 0-1.5.79-2.24 1.07-2.55.28-.3.61-.38.92-.38.24 0 .49 0 .7.01.23.01.52-.09.8.6.28.69.9 2.39.98 2.57.1.2.16.45.03.72-.13.27-.19.42-.38.65-.18.22-.38.5-.54.68-.18.2-.37.45-.16.88.22.43 1 1.7 2.15 2.75 1.5 1.43 2.76 1.8 3.18 1.99.42.18.73.15 1.01.09.31-.07.96-.39 1.09-.77.12-.38.12-.72.08-.79-.04-.07-.14-.11-.29-.18z"/></svg>
+      </div>
       <div style="flex:1">
         <p style="font-weight:700;font-size:.95rem">Join WhatsApp Group</p>
         <p class="text-muted text-xs">Daily tasks, reminders &amp; support</p>
@@ -1296,7 +1425,7 @@ select.input option{background:#0e0e1f;color:#fff}
           </div>
         </div>
         <div style="display:flex;gap:8px;flex-wrap:wrap">
-          <span class="badge badge-blue">Slot 8</span>
+          <span class="badge badge-blue">Tier 8</span>
           <span class="badge badge-purple">Pool Champion</span>
         </div>
       </div>
@@ -1313,7 +1442,7 @@ select.input option{background:#0e0e1f;color:#fff}
           </div>
         </div>
         <div style="display:flex;gap:8px;flex-wrap:wrap">
-          <span class="badge badge-blue">Slot 5</span>
+          <span class="badge badge-blue">Tier 5</span>
           <span class="badge badge-green">Streak 28</span>
         </div>
       </div>
@@ -1414,7 +1543,7 @@ select.input option{background:#0e0e1f;color:#fff}
   </div>
   <div class="chat-wrap">
     <div class="chat-messages" id="chatMessages">
-      <div class="chat-bubble ai">👋 Hi! I'm your Grow31 AI assistant. Ask me anything about the challenge, slots, spin wheel, referrals, or how to earn more coins!</div>
+      <div class="chat-bubble ai">👋 Hi! I'm your Grow31 AI assistant. Ask me anything about the challenge, tiers, spin wheel, referrals, or how to earn more coins!</div>
     </div>
     <div class="chat-input-row">
       <input class="chat-input" id="chatInput" placeholder="Ask anything..." onkeydown="if(event.key==='Enter')sendChat()">
@@ -1449,8 +1578,8 @@ select.input option{background:#0e0e1f;color:#fff}
           <p class="text-muted text-sm">Complete daily tasks, refer friends, spin the wheel, follow on social media, and daily check-ins.</p>
         </div>
         <div style="border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:10px;margin-bottom:10px">
-          <p style="font-weight:600;font-size:.9rem;margin-bottom:4px">How does the slot system work?</p>
-          <p class="text-muted text-sm">Each slot doubles in pool size. Advance by completing referrals. Higher slots = higher rewards!</p>
+          <p style="font-weight:600;font-size:.9rem;margin-bottom:4px">How does the tier system work?</p>
+          <p class="text-muted text-sm">Each tier doubles in pool size. Advance by completing referrals. Higher tiers = higher rewards!</p>
         </div>
         <div style="border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:10px;margin-bottom:10px">
           <p style="font-weight:600;font-size:.9rem;margin-bottom:4px">When are rewards distributed?</p>
@@ -1753,54 +1882,54 @@ select.input option{background:#0e0e1f;color:#fff}
 </div>
 
 
-<!-- BUY MORE SLOTS DIALOG -->
-<div class="dialog-overlay" id="buySlotsDialog">
+<!-- BUY MORE TIERS DIALOG -->
+<div class="dialog-overlay" id="buyTiersDialog">
   <div class="dialog" style="max-width:420px">
-    <button class="dialog-close" onclick="closeDialog('buySlotsDialog')">✕</button>
+    <button class="dialog-close" onclick="closeDialog('buyTiersDialog')">✕</button>
     <div style="text-align:center;margin-bottom:18px">
       <div style="font-size:2.5rem;margin-bottom:8px">🛒</div>
-      <h3 style="font-family:'Poppins',sans-serif;font-size:1.2rem;font-weight:800;margin-bottom:4px">Buy More Slots</h3>
-      <p class="text-muted text-xs">Secure your position in the Grow31 pool</p>
+      <h3 style="font-family:'Poppins',sans-serif;font-size:1.2rem;font-weight:800;margin-bottom:4px">Get More Tiers</h3>
+      <p class="text-muted text-xs">Upgrade to higher tiers for better rewards</p>
     </div>
     
-    <!-- Current Slot Info -->
+    <!-- Current Tier Info -->
     <div style="background:rgba(156,39,176,0.1);border:1px solid rgba(156,39,176,0.3);border-radius:12px;padding:14px;margin-bottom:16px">
-      <div style="display:flex;justify-content:space-between;align-items:center">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
         <div>
-          <p class="text-xs text-muted">Current Slot</p>
-          <p style="font-weight:800;font-size:1.1rem;color:#ce93d8" id="bsCurrentSlot">Slot 31</p>
+          <p class="text-xs text-muted">Current Tier</p>
+          <p style="font-weight:800;font-size:1.1rem;color:#ce93d8" id="bsCurrentTier">Tier 31</p>
+        </div>
+        <div style="text-align:center">
+          <p class="text-xs text-muted">Pool Size</p>
+          <p style="font-weight:800;font-size:1.1rem;color:#00e676" id="bsPoolSize">1 seat</p>
         </div>
         <div style="text-align:right">
-          <p class="text-xs text-muted">Queue Position</p>
-          <p style="font-weight:800;font-size:1.1rem" id="bsQueuePos">#1</p>
-        </div>
-        <div style="text-align:right">
-          <p class="text-xs text-muted">Price / Slot</p>
-          <p style="font-weight:800;font-size:1.1rem;color:#00e676">₹30</p>
+          <p class="text-xs text-muted">Price Per Tier</p>
+          <p style="font-weight:800;font-size:1.1rem;color:#00e676" id="bsPerTierPrice">₹31</p>
         </div>
       </div>
     </div>
     
-    <!-- Quantity Selector (like trading app) -->
+    <!-- Quantity Selector -->
     <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:16px;margin-bottom:16px">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-        <span style="font-weight:600;font-size:.9rem">Qty</span>
+        <span style="font-weight:600;font-size:.9rem">Number of Seats</span>
         <div style="display:flex;align-items:center;gap:12px">
           <button onclick="changeBuyQty(-1)" style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:#fff;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center">−</button>
-          <input type="number" id="bsQty" value="1" min="1" max="10" oninput="updateBuySlotPrice()" style="width:60px;text-align:center;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);border-radius:8px;color:#fff;font-size:1.1rem;font-weight:700;padding:8px;font-family:'Poppins',sans-serif">
+          <input type="number" id="bsQty" value="1" min="1" max="10" oninput="updateBuyTierPrice()" style="width:60px;text-align:center;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);border-radius:8px;color:#fff;font-size:1.1rem;font-weight:700;padding:8px;font-family:'Poppins',sans-serif">
           <button onclick="changeBuyQty(1)" style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:#fff;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center">+</button>
         </div>
       </div>
       <div style="display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:1px solid rgba(255,255,255,0.08)">
-        <span class="text-muted text-sm" id="bsPerSlot">1 slot × ₹30 each</span>
+        <span class="text-muted text-sm" id="bsPerTier">1 seat × ₹31 each</span>
         <div style="text-align:right">
           <p class="text-xs text-muted">Total Price</p>
-          <p style="font-family:'Poppins',sans-serif;font-size:1.4rem;font-weight:800;color:#ce93d8" id="bsTotalPrice">₹30</p>
+          <p style="font-family:'Poppins',sans-serif;font-size:1.4rem;font-weight:800;color:#ce93d8" id="bsTotalPrice">₹31</p>
         </div>
       </div>
     </div>
     
-    <!-- Features of buying slots -->
+    <!-- Features of buying tiers -->
     <div style="margin-bottom:16px">
       <div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:.85rem;color:rgba(255,255,255,0.7)">
         <span style="width:24px;height:24px;background:rgba(0,230,118,0.15);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.75rem">📅</span>
@@ -1816,7 +1945,7 @@ select.input option{background:#0e0e1f;color:#fff}
       </div>
     </div>
     
-    <button class="btn btn-white btn-full btn-lg" onclick="confirmBuySlots()">
+    <button class="btn btn-white btn-full btn-lg" onclick="confirmBuyTiers()">
       Proceed to Payment 🚀
     </button>
     <p class="text-xs text-muted text-center" style="margin-top:10px;opacity:.5">🔒 Demo payment enabled · secure simulation only</p>
@@ -1872,12 +2001,12 @@ select.input option{background:#0e0e1f;color:#fff}
   </div>
 </div>
 
-<div class="dialog-overlay" id="slotDialog">
-  <div class="dialog">
-    <button class="dialog-close" onclick="closeDialog('slotDialog')">✕</button>
-    <h3 style="font-family:'Poppins',sans-serif;font-weight:800;margin-bottom:4px" id="slotDialogTitle">Slot 1</h3>
-    <p class="text-muted text-sm" style="margin-bottom:16px" id="slotDialogDesc">Pool members: 1</p>
-    <div id="slotDialogContent"></div>
+<div class="dialog-overlay" id="tierDialog">
+  <div class="dialog" style="max-width:600px;max-height:80vh;overflow-y:auto">
+    <button class="dialog-close" onclick="closeDialog('tierDialog')">✕</button>
+    <h3 style="font-family:'Poppins',sans-serif;font-weight:800;margin-bottom:4px" id="tierDialogTitle">Tier 1</h3>
+    <p class="text-muted text-sm" style="margin-bottom:16px" id="tierDialogDesc">Pool members: 1</p>
+    <div id="tierDialogContent"></div>
   </div>
 </div>
 
@@ -1946,11 +2075,11 @@ function fillReferralInputIfNeeded(){
   }
 }
 
-// Slots data (Tiers 1-31, pricing increases per tier)
+// Tiers data (Tiers 1-31, pricing increases per tier)
 const SLOTS = [];
 for(let i=1;i<=31;i++) SLOTS.push({num:i,members:Math.pow(2,i-1),price:i}); // Tier i costs ₹i
 
-const SLOT_COLORS = [
+const TIER_COLORS = [
   '#ff5252','#ff7043','#ffa726','#ffca28','#d4e157',
   '#66bb6a','#26a69a','#29b6f6','#42a5f5','#5c6bc0',
   '#7e57c2','#ab47bc','#ec407a','#ef5350','#ff7043',
@@ -1973,6 +2102,13 @@ const SPIN_PRIZES = [
 const EMOJIS=['🧑','👦','👧','🧔','👩','🧑‍🦱','🧑‍🦳','🧑‍🦰','🦸','🦹','🧙','🎅','👨‍💻','👩‍💻','🏋️','🎮','🚀','🌟','🔥','💎','🐉','🦋','🌈','⚡'];
 const LANGS=[{code:'en',label:'English'},{code:'hi',label:'हिंदी'},{code:'ta',label:'தமிழ்'},{code:'te',label:'తెలుగు'},{code:'bn',label:'বাংলা'}];
 const COUNTRIES=[{code:'IN',label:'🇮🇳 India'},{code:'US',label:'🇺🇸 United States'},{code:'UK',label:'🇬🇧 United Kingdom'},{code:'AE',label:'🇦🇪 UAE'},{code:'SG',label:'🇸🇬 Singapore'}];
+
+const VIDEOS = [
+  {icon:'🎬',title:'Getting Started',desc:'Learn the basics',duration:'4 min',level:'Beginner',url:'https://www.youtube.com/@grow31-u3s'},
+  {icon:'🏆',title:'Win Strategies',desc:'Maximize earnings',duration:'5 min',level:'Intermediate',url:'https://www.youtube.com/@grow31-u3s'},
+  {icon:'💰',title:'Earn More Coins',desc:'Advanced tips',duration:'6 min',level:'Advanced',url:'https://www.youtube.com/@grow31-u3s'},
+  {icon:'📅',title:'Daily Routine',desc:'Stay on track',duration:'3 min',level:'Beginner',url:'https://www.youtube.com/@grow31-u3s'}
+];
 
 // ═══════════════════════════════════════════════════════
 // SPLASH
@@ -2066,8 +2202,8 @@ function verifyOTP(){
   }
 }
 
-// Global slot queue counter
-function getNextSlotPosition(){
+// Global tier queue counter
+function getNextTierPosition(){
   const totalUsers=Object.keys(state.allUsers).length;
   return totalUsers+1; // sequential position
 }
@@ -2084,7 +2220,7 @@ function completeSignup(){
   const inviteCode=(refCodeInput?.value?.trim()?.toUpperCase()||pendingReferralCode||'').trim();
 
   // Auto-assign tier position
-  const queuePos=getNextSlotPosition();
+  const queuePos=getNextTierPosition();
   const tierNum=positionToTierName(queuePos);
 
   // Generate username-based referral code format: Grow31/username-randomnumber
@@ -2102,7 +2238,7 @@ function completeSignup(){
     followedSocials:[],checkedInToday:false,lastCheckIn:'',
     tier:tierNum, queuePosition:queuePos,
     spinTickets:3,spinTokens:0,
-    slotsOwned:1,
+    tiersOwned:1,
     joinedAt:Date.now(),
     payoutStatus:'pending',
     txHistory:[{type:'signup',coins:100,desc:'Welcome bonus',time:Date.now()}]
@@ -2246,10 +2382,10 @@ function simulateConfirm(){
     msg.style.display='none';
     const pending = state.pendingPayment || {qty:1};
     const u = state.currentUser || {};
-    const totalSlots = (u.slotsOwned || 1) + pending.qty;
+    const totalTiers = (u.tiersOwned || 1) + pending.qty;
     const confirmDetails = document.getElementById('confirmDetails');
     if(confirmDetails){
-      confirmDetails.innerText = 'You will have ' + totalSlots + ' slot' + (totalSlots>1?'s':'') + ' after this purchase.';
+      confirmDetails.innerText = 'You will have ' + totalTiers + ' tier' + (totalTiers>1?'s':'') + ' after this purchase.';
     }
   },2200);
 }
@@ -2262,15 +2398,15 @@ function afterPayment(){
     return showView('authView');
   }
   u.hasPaid = true;
-  u.slotsOwned = (u.slotsOwned || 1) + qty;
+  u.tiersOwned = (u.tiersOwned || 1) + qty;
   if(!u.txHistory) u.txHistory=[];
-  u.txHistory.unshift({type:'purchase',amount:state.pendingPayment?.total||30,desc:'Slot purchase',time:Date.now()});
+  u.txHistory.unshift({type:'purchase',amount:state.pendingPayment?.total||30,desc:'Tier purchase',time:Date.now()});
   saveData();
   state.pendingPayment = null;
   if(btnText){
-    btnText.innerText = 'You now have ' + u.slotsOwned + ' slot' + (u.slotsOwned>1?'s':'') + ' in your pool.';
+    btnText.innerText = 'You now have ' + u.tiersOwned + ' tier' + (u.tiersOwned>1?'s':'') + ' in your pool.';
   }
-  showToast('Purchase complete! Total slots: ' + u.slotsOwned, 'success');
+  showToast('Purchase complete! Total tiers: ' + u.tiersOwned, 'success');
   showView('dashView');
   renderDash();
   initSpinWheel();
@@ -2324,7 +2460,7 @@ function saveProfile(){
 let currentDashPage='pageHome';
 
 function showDashPage(pageId){
-  ['pageHome','pageTasks','pageSlots','pageSpin','pageLeader','pageMore','pageQuiz'].forEach(p=>{
+  ['pageHome','pageTasks','pageTiers','pageSpin','pageLeader','pageMore','pageQuiz'].forEach(p=>{
     document.getElementById(p).style.display='none';
   });
   const pageEl=document.getElementById(pageId);
@@ -2334,12 +2470,12 @@ function showDashPage(pageId){
 
   // Update nav
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
-  const map={pageHome:'navHome',pageTasks:'navTasks',pageSlots:'navSlots',pageSpin:'navSpin',pageLeader:'navMore',pageMore:'navMore',pageQuiz:'navTasks'};
+  const map={pageHome:'navHome',pageTasks:'navTasks',pageTiers:'navTiers',pageSpin:'navSpin',pageLeader:'navMore',pageMore:'navMore',pageQuiz:'navTasks'};
   const navId=map[pageId];
   if(navId) document.getElementById(navId)?.classList.add('active');
 
   if(pageId==='pageSpin') initSpinWheel();
-  if(pageId==='pageSlots') renderSlots();
+  if(pageId==='pageTiers') renderTiers();
   if(pageId==='pageLeader') renderLeaderboard(Object.values(state.allUsers).sort((a,b)=>b.coins-a.coins));
   if(pageId==='pageMore') renderMore();
   if(pageId==='pageHome') renderDash();
@@ -2411,6 +2547,8 @@ function renderDash(){
   // Sticky rank bar
   updateRankBar(u, rank);
 
+
+
   renderTasksPage();
   startCountdownTimers();
 }
@@ -2420,7 +2558,7 @@ function updateRankBar(u, rank){
   const el=id=>document.getElementById(id);
   if(el('rankBarAvatar')) el('rankBarAvatar').innerText=u.avatar||'🧑';
   if(el('rankBarName')) el('rankBarName').innerText=u.username;
-  if(el('rankBarSlot')) el('rankBarSlot').innerText=u.tier||1;
+  if(el('rankBarTier')) el('rankBarTier').innerText=u.tier||1;
   if(el('rankBarDay')) el('rankBarDay').innerText=u.day;
   if(el('rankBarRank')) el('rankBarRank').innerText='#'+r;
   if(el('rankBarCoins')) el('rankBarCoins').innerText=u.coins.toLocaleString();
@@ -2478,7 +2616,7 @@ function renderMore(){
   document.getElementById('moreUsername').innerText=u.username;
   document.getElementById('morePhone').innerText='+91 '+u.phone;
   document.getElementById('moreCoins').innerText=u.coins.toLocaleString();
-  document.getElementById('moreSlot').innerText=u.tier||1;
+  document.getElementById('moreTier').innerText=u.tier||1;
   document.getElementById('moreRefCount').innerText=u.referrals;
   if(u.avatarPhoto){
     document.getElementById('moreAvatar').innerHTML='<img src="'+u.avatarPhoto+'" style="width:100%;height:100%;object-fit:cover;border-radius:50%">';
@@ -2525,22 +2663,22 @@ function renderLeaderboard(sorted){
 }
 
 // ═══════════════════════════════════════════════════════
-// SLOTS SYSTEM (Auto-assigned, inverted naming)
+// TIERS SYSTEM (Auto-assigned, inverted naming)
 // ═══════════════════════════════════════════════════════
-function renderSlots(){
+function renderTiers(){
   const u=state.currentUser;
   const cur=u.tier||1;
   const queuePos=u.queuePosition||1;
-  const seats=u.slotsOwned||1;
-  document.getElementById('currentSlotNum').innerText=cur;
+  const seats=u.tiersOwned||1;
+  document.getElementById('currentTierNum').innerText=cur;
   document.getElementById('currentQueuePos').innerText='#'+queuePos;
-  document.getElementById('currentSlotMembers').innerText=SLOTS[cur-1].members.toLocaleString();
-  const seatsEl=document.getElementById('slotSeatsOwned');
+  document.getElementById('currentTierMembers').innerText=SLOTS[cur-1].members.toLocaleString();
+  const seatsEl=document.getElementById('tierSeatsOwned');
   if(seatsEl) seatsEl.innerText = seats + ' seat' + (seats>1?'s':'');
   const pct=Math.min(100,Math.round((queuePos/Math.max(1,Object.keys(state.allUsers).length))*100));
-  document.getElementById('slotProgress').style.width=pct+'%';
+  document.getElementById('tierProgress').style.width=pct+'%';
 
-  const c=document.getElementById('slotsList');
+  const c=document.getElementById('tiersList');
   c.innerHTML='';
   // Show tiers from 1 to 31 (Tier 1 is first entry, Tier 31 is highest tier)
   for(let i=1;i<=31;i++){
@@ -2549,17 +2687,17 @@ function renderSlots(){
     const isAbove=s.num<cur; // lower tier = earlier in queue
     const isLocked=s.num>cur+3;
     const div=document.createElement('div');
-    div.className=`slot-card ${isCurrentTier?'current-slot':''} ${isLocked?'locked-slot':''}`;
-    div.onclick=()=>openSlotDialog(s);
+    div.className=`tier-card ${isCurrentTier?'current-tier':''} ${isLocked?'locked-tier':''}`;
+    div.onclick=()=>openTierDialog(s);
 
-    const colIdx=(s.num-1)%SLOT_COLORS.length;
-    const col=SLOT_COLORS[colIdx];
+    const colIdx=(s.num-1)%TIER_COLORS.length;
+    const col=TIER_COLORS[colIdx];
     const membersStr=s.members>=1000000000?'1,073,741,824':s.members.toLocaleString();
     const queuePos=s.num; // Tier 1 = position 1, Tier 2 = position 2, etc.
 
     div.innerHTML=`
       <div style="display:flex;align-items:center;gap:12px">
-        <div class="slot-badge" style="background:${col}22;border:1px solid ${col}44;color:${col}">T${s.num}</div>
+        <div class="tier-badge" style="background:${col}22;border:1px solid ${col}44;color:${col}">T${s.num}</div>
         <div>
           <p style="font-weight:700;font-size:.92rem">Tier ${s.num} <span style="color:rgba(255,255,255,0.35);font-size:.75rem;color:#FFD700">(₹${s.price})</span></p>
           <p class="text-muted text-xs">Pool: ${membersStr} members</p>
@@ -2576,14 +2714,14 @@ function renderSlots(){
   }
 }
 
-function openSlotDialog(tier){
+function openTierDialog(tier){
   const u=state.currentUser;
   const membersStr=tier.members>=1000000000?'1,073,741,824':tier.members.toLocaleString();
   const tierPrice = getTierPrice(tier.num);
-  document.getElementById('slotDialogTitle').innerText='Tier '+tier.num+' 🎰 (₹'+tierPrice+')';
-  document.getElementById('slotDialogDesc').innerText='Members: '+membersStr+' · Price: ₹'+tierPrice;
-  const col=SLOT_COLORS[(tier.num-1)%SLOT_COLORS.length];
-  document.getElementById('slotDialogContent').innerHTML=`
+  document.getElementById('tierDialogTitle').innerText='Tier '+tier.num+' 🎰 (₹'+tierPrice+')';
+  document.getElementById('tierDialogDesc').innerText='Members: '+membersStr+' · Price: ₹'+tierPrice;
+  const col=TIER_COLORS[(tier.num-1)%TIER_COLORS.length];
+  document.getElementById('tierDialogContent').innerHTML=`
     <div style="background:${col}11;border:1px solid ${col}33;border-radius:14px;padding:16px;text-align:center;margin-bottom:16px">
       <div style="font-family:'Poppins',sans-serif;font-size:2.5rem;font-weight:800;color:${col}">${tier.num}</div>
       <p style="font-size:.85rem;color:rgba(255,255,255,0.6)">Tier Level</p>
@@ -2603,15 +2741,15 @@ function openSlotDialog(tier){
       <p class="text-xs" style="color:#ffa726">⏳ Payout Status: <b>Pending Admin Verification</b></p>
     </div>
     <p class="text-muted text-sm" style="margin-bottom:14px;line-height:1.6">Tiers are auto-assigned. Tier 1 costs ₹1 (entry level), Tier 31 costs ₹31 (highest tier). Each tier has exponentially more members. Payouts are credited after admin verification.</p>
-    ${tier.num===u.tier?`<button class="btn btn-white btn-full btn-lg" onclick="showMySlotClaimInfo()">Claim / View My Tier</button>`:''}
+    ${tier.num===u.tier?`<button class="btn btn-white btn-full btn-lg" onclick="showMyTierClaimInfo()">Claim / View My Tier</button>`:''}
   `;
-  document.getElementById('slotDialog').classList.add('open');
+  document.getElementById('tierDialog').classList.add('open');
 }
 
-function showMySlotClaimInfo(){
+function showMyTierClaimInfo(){
   const u=state.currentUser;
   if(!u) return showToast('Login first to view your tiers','error');
-  const seats=u.slotsOwned||1;
+  const seats=u.tiersOwned||1;
   const tierNum=u.tier||1;
   const tierPrice = getTierPrice(tierNum);
   const queuePos=u.queuePosition||1;
@@ -2627,10 +2765,10 @@ function showMySlotClaimInfo(){
     </div>
     <p class="text-muted text-sm" style="line-height:1.6">Your tier seat count is shown above. Use the tier dashboard to see the full tier map and your current position. Each tier has dynamic pricing: Tier 1 = ₹1, Tier 2 = ₹2, ..., Tier 31 = ₹31.</p>
   `;
-  document.getElementById('slotDialogTitle').innerText='My Tier Info';
-  document.getElementById('slotDialogDesc').innerText='View your tier details and pricing.';
-  document.getElementById('slotDialogContent').innerHTML=content;
-  document.getElementById('slotDialog').classList.add('open');
+  document.getElementById('tierDialogTitle').innerText='My Tier Info';
+  document.getElementById('tierDialogDesc').innerText='View your tier details and pricing.';
+  document.getElementById('tierDialogContent').innerHTML=content;
+  document.getElementById('tierDialog').classList.add('open');
 }
 // SPIN WHEEL
 // ═══════════════════════════════════════════════════════
@@ -2902,8 +3040,26 @@ function doCheckIn(){
   u.txHistory.unshift({type:'checkin',coins:5,desc:'Daily check-in bonus',time:Date.now()});
   saveData();
   showToast("✓ Checked in! +5 coins + 1 spin ticket 🎟️","success");
-  const btn=document.getElementById('checkInBtn');
-  if(btn){btn.innerText='✓ Checked In Today!';btn.disabled=true;btn.classList.remove('btn-green');btn.classList.add('btn-outline');}
+  // Update home button
+  const homeBtn=document.getElementById('homeCheckInBtn');
+  if(homeBtn){
+    homeBtn.innerText='✓ Checked In Today!';
+    homeBtn.disabled=true;
+    homeBtn.style.background='rgba(255,255,255,0.1)';
+    homeBtn.style.color='rgba(255,255,255,0.5)';
+    homeBtn.style.boxShadow='none';
+    homeBtn.style.cursor='not-allowed';
+  }
+  // Update follow button if it exists
+  const followBtn=document.getElementById('followCheckInBtn');
+  if(followBtn){
+    followBtn.innerText='✓ Checked In Today!';
+    followBtn.disabled=true;
+    followBtn.style.background='rgba(255,255,255,0.1)';
+    followBtn.style.color='rgba(255,255,255,0.5)';
+    followBtn.style.boxShadow='none';
+    followBtn.style.cursor='not-allowed';
+  }
   if(document.getElementById('followCoins')) document.getElementById('followCoins').innerText=u.coins.toLocaleString();
   updateRankBar(u);
 }
@@ -3085,7 +3241,7 @@ async function sendChat(){
       "The tier system has 31 levels. Tier 1 has 1 member (entry), Tier 31 has 1,073,741,824 members! Advance by completing referrals.",
       "Daily competition: Days 1-6 have 1 referral win and 1 pool win per day. Higher days unlock more winners!",
       "To spin the wheel, you need spin tickets (from daily check-ins) or spin tokens. Prizes range from 10 coins to 500,000 coins!",
-      "Complete your daily tasks and refer friends to earn coins and advance through slots. The more you refer, the higher your slot!"
+      "Complete your daily tasks and refer friends to earn coins and advance through tiers. The more you refer, the higher your tier!"
     ];
     const reply=fallbacks[Math.floor(Math.random()*fallbacks.length)];
     if(typing) typing.innerText=reply;
@@ -3115,7 +3271,7 @@ function clearChat(){
   chatHistory=[];
   const d=document.getElementById('chatMessages');
   if(d){
-    d.innerHTML=`<div class="chat-bubble ai">👋 Hi! I'm your Grow31 AI assistant. Ask me anything about the challenge, slots, spin wheel, referrals, or how to earn more coins!</div>`;
+    d.innerHTML=`<div class="chat-bubble ai">👋 Hi! I'm your Grow31 AI assistant. Ask me anything about the challenge, tiers, spin wheel, referrals, or how to earn more coins!</div>`;
   }
 }
 
@@ -3264,26 +3420,26 @@ function getTierPrice(tierNum){
 }
 
 // ═══════════════════════════════════════════════════════
-// BUY MORE SLOTS DIALOG
+// BUY MORE TIERS DIALOG
 // ═══════════════════════════════════════════════════════
-function openBuySlotsDialog(){
+function openBuyTiersDialog(){
   const u = state.currentUser;
   if(!u) return;
-  const dialog = document.getElementById('buySlotsDialog');
+  const dialog = document.getElementById('buyTiersDialog');
   const cur = u.tier || 1;
   const qPos = u.queuePosition || 1;
   const tierPrice = getTierPrice(cur);
   
-  document.getElementById('bsCurrentSlot').innerText = 'Tier ' + cur;
+  document.getElementById('bsCurrentTier').innerText = 'Tier ' + cur;
   document.getElementById('bsQueuePos').innerText = '#' + qPos;
   
   // Update price display
-  updateBuySlotPrice();
+  updateBuyTierPrice();
   
   if(dialog) dialog.classList.add('open');
 }
 
-function updateBuySlotPrice(){
+function updateBuyTierPrice(){
   const qty = parseInt(document.getElementById('bsQty')?.value || 1);
   const u = state.currentUser;
   const baseTier = u.tier || 1;
@@ -3297,8 +3453,8 @@ function updateBuySlotPrice(){
   
   const el = document.getElementById('bsTotalPrice');
   if(el) el.innerText = '₹' + total;
-  const perSlot = document.getElementById('bsPerSlot');
-  if(perSlot) perSlot.innerText = qty + ' tier' + (qty>1?'s':'') + ' starting from Tier ' + (baseTier+1);
+  const perTier = document.getElementById('bsPerTier');
+  if(perTier) perTier.innerText = qty + ' tier' + (qty>1?'s':'') + ' starting from Tier ' + (baseTier+1);
 }
 
 function changeBuyQty(delta){
@@ -3308,22 +3464,22 @@ function changeBuyQty(delta){
   if(val < 1) val = 1;
   if(val > 10) val = 10;
   inp.value = val;
-  updateBuySlotPrice();
+  updateBuyTierPrice();
 }
 
-function confirmBuySlots(){
+function confirmBuyTiers(){
   const qty = parseInt(document.getElementById('bsQty')?.value || 1);
   const total = qty * 30;
-  closeDialog('buySlotsDialog');
+  closeDialog('buyTiersDialog');
   
-  // Redirect to payment with slot info
+  // Redirect to payment with tier info
   state.pendingPayment = {qty,total};
-  document.getElementById('paymentSlotInfo').innerHTML = 
+  document.getElementById('paymentTierInfo').innerHTML = 
     '<div style="background:rgba(156,39,176,0.1);border:1px solid rgba(156,39,176,0.3);border-radius:12px;padding:14px;margin-bottom:16px;text-align:center">' +
-    '<p style="font-weight:700;font-size:1rem;color:#ce93d8">📦 Buying ' + qty + ' Slot' + (qty>1?'s':'') + '</p>' +
-    '<p class="text-muted text-xs" style="margin-top:4px">Total: ₹' + total + ' (₹30 per slot)</p>' +
+    '<p style="font-weight:700;font-size:1rem;color:#ce93d8">📦 Buying ' + qty + ' Tier' + (qty>1?'s':'') + '</p>' +
+    '<p class="text-muted text-xs" style="margin-top:4px">Total: ₹' + total + ' (₹30 per tier)</p>' +
     '</div>';
-  document.getElementById('payBtnText').innerHTML = 'Pay ₹' + total + ' for ' + qty + ' Slot' + (qty>1?'s':'') + ' →';
+  document.getElementById('payBtnText').innerHTML = 'Pay ₹' + total + ' for ' + qty + ' Tier' + (qty>1?'s':'') + ' →';
   
   showView('paymentView');
 }
@@ -3462,7 +3618,7 @@ function showPaymentWithTierInfo(){
   const tierNum = u.tier || 1;
   const tierPrice = getTierPrice(tierNum);
   const qPos = u.queuePosition || 1;
-  const el = document.getElementById('paymentSlotInfo');
+  const el = document.getElementById('paymentTierInfo');
   if(el){
     el.innerHTML = '<div style="background:rgba(156,39,176,0.1);border:1px solid rgba(156,39,176,0.3);border-radius:12px;padding:14px;margin-bottom:16px;text-align:center">' +
     '<p style="font-weight:700;color:#ce93d8">🎰 Your Tier: <span style="font-size:1.2rem">Tier ' + tierNum + '</span></p>' +
@@ -3600,8 +3756,8 @@ const QUIZ_QUESTIONS = [
     ans: 1
   },
   {
-    q: "Which slot is the highest (top) tier?",
-    opts: ["Slot 1","Slot 15","Slot 31","Slot 10"],
+    q: "Which tier is the highest (top) tier?",
+    opts: ["Tier 1","Tier 15","Tier 31","Tier 10"],
     ans: 2
   },
   {
